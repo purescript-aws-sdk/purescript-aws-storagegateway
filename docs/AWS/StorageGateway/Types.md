@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype ActivateGatewayInput
-  = ActivateGatewayInput { "ActivationKey" :: ActivationKey, "GatewayName" :: GatewayName, "GatewayTimezone" :: GatewayTimezone, "GatewayRegion" :: RegionId, "GatewayType" :: NullOrUndefined (GatewayType), "TapeDriveType" :: NullOrUndefined (TapeDriveType), "MediumChangerType" :: NullOrUndefined (MediumChangerType) }
+  = ActivateGatewayInput { "ActivationKey" :: ActivationKey, "GatewayName" :: GatewayName, "GatewayTimezone" :: GatewayTimezone, "GatewayRegion" :: RegionId, "GatewayType" :: Maybe (GatewayType), "TapeDriveType" :: Maybe (TapeDriveType), "MediumChangerType" :: Maybe (MediumChangerType) }
 ```
 
 <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>ActivateGatewayInput$ActivationKey</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayName</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayRegion</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayTimezone</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayType</a> </p> </li> <li> <p> <a>ActivateGatewayInput$TapeDriveType</a> </p> </li> <li> <p> <a>ActivateGatewayInput$MediumChangerType</a> </p> </li> </ul>
@@ -35,7 +35,7 @@ Constructs ActivateGatewayInput from required parameters
 #### `newActivateGatewayInput'`
 
 ``` purescript
-newActivateGatewayInput' :: ActivationKey -> GatewayName -> RegionId -> GatewayTimezone -> ({ "ActivationKey" :: ActivationKey, "GatewayName" :: GatewayName, "GatewayTimezone" :: GatewayTimezone, "GatewayRegion" :: RegionId, "GatewayType" :: NullOrUndefined (GatewayType), "TapeDriveType" :: NullOrUndefined (TapeDriveType), "MediumChangerType" :: NullOrUndefined (MediumChangerType) } -> { "ActivationKey" :: ActivationKey, "GatewayName" :: GatewayName, "GatewayTimezone" :: GatewayTimezone, "GatewayRegion" :: RegionId, "GatewayType" :: NullOrUndefined (GatewayType), "TapeDriveType" :: NullOrUndefined (TapeDriveType), "MediumChangerType" :: NullOrUndefined (MediumChangerType) }) -> ActivateGatewayInput
+newActivateGatewayInput' :: ActivationKey -> GatewayName -> RegionId -> GatewayTimezone -> ({ "ActivationKey" :: ActivationKey, "GatewayName" :: GatewayName, "GatewayTimezone" :: GatewayTimezone, "GatewayRegion" :: RegionId, "GatewayType" :: Maybe (GatewayType), "TapeDriveType" :: Maybe (TapeDriveType), "MediumChangerType" :: Maybe (MediumChangerType) } -> { "ActivationKey" :: ActivationKey, "GatewayName" :: GatewayName, "GatewayTimezone" :: GatewayTimezone, "GatewayRegion" :: RegionId, "GatewayType" :: Maybe (GatewayType), "TapeDriveType" :: Maybe (TapeDriveType), "MediumChangerType" :: Maybe (MediumChangerType) }) -> ActivateGatewayInput
 ```
 
 Constructs ActivateGatewayInput's fields from required parameters
@@ -44,7 +44,7 @@ Constructs ActivateGatewayInput's fields from required parameters
 
 ``` purescript
 newtype ActivateGatewayOutput
-  = ActivateGatewayOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = ActivateGatewayOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It is a string made of information such as your account, gateway name, and region. This ARN is used to reference the gateway in other API operations as well as resource-based authorization.</p> <note> <p>For gateways activated prior to September 02, 2015, the gateway ARN contains the gateway name rather than the gateway ID. Changing the name of the gateway has no effect on the gateway ARN.</p> </note>
@@ -69,7 +69,7 @@ Constructs ActivateGatewayOutput from required parameters
 #### `newActivateGatewayOutput'`
 
 ``` purescript
-newActivateGatewayOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> ActivateGatewayOutput
+newActivateGatewayOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> ActivateGatewayOutput
 ```
 
 Constructs ActivateGatewayOutput's fields from required parameters
@@ -126,7 +126,7 @@ Constructs AddCacheInput's fields from required parameters
 
 ``` purescript
 newtype AddCacheOutput
-  = AddCacheOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = AddCacheOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 ##### Instances
@@ -149,7 +149,7 @@ Constructs AddCacheOutput from required parameters
 #### `newAddCacheOutput'`
 
 ``` purescript
-newAddCacheOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> AddCacheOutput
+newAddCacheOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> AddCacheOutput
 ```
 
 Constructs AddCacheOutput's fields from required parameters
@@ -192,7 +192,7 @@ Constructs AddTagsToResourceInput's fields from required parameters
 
 ``` purescript
 newtype AddTagsToResourceOutput
-  = AddTagsToResourceOutput { "ResourceARN" :: NullOrUndefined (ResourceARN) }
+  = AddTagsToResourceOutput { "ResourceARN" :: Maybe (ResourceARN) }
 ```
 
 <p>AddTagsToResourceOutput</p>
@@ -217,7 +217,7 @@ Constructs AddTagsToResourceOutput from required parameters
 #### `newAddTagsToResourceOutput'`
 
 ``` purescript
-newAddTagsToResourceOutput' :: ({ "ResourceARN" :: NullOrUndefined (ResourceARN) } -> { "ResourceARN" :: NullOrUndefined (ResourceARN) }) -> AddTagsToResourceOutput
+newAddTagsToResourceOutput' :: ({ "ResourceARN" :: Maybe (ResourceARN) } -> { "ResourceARN" :: Maybe (ResourceARN) }) -> AddTagsToResourceOutput
 ```
 
 Constructs AddTagsToResourceOutput's fields from required parameters
@@ -258,7 +258,7 @@ Constructs AddUploadBufferInput's fields from required parameters
 
 ``` purescript
 newtype AddUploadBufferOutput
-  = AddUploadBufferOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = AddUploadBufferOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 ##### Instances
@@ -281,7 +281,7 @@ Constructs AddUploadBufferOutput from required parameters
 #### `newAddUploadBufferOutput'`
 
 ``` purescript
-newAddUploadBufferOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> AddUploadBufferOutput
+newAddUploadBufferOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> AddUploadBufferOutput
 ```
 
 Constructs AddUploadBufferOutput's fields from required parameters
@@ -324,7 +324,7 @@ Constructs AddWorkingStorageInput's fields from required parameters
 
 ``` purescript
 newtype AddWorkingStorageOutput
-  = AddWorkingStorageOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = AddWorkingStorageOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>A JSON object containing the of the gateway for which working storage was configured.</p>
@@ -349,7 +349,7 @@ Constructs AddWorkingStorageOutput from required parameters
 #### `newAddWorkingStorageOutput'`
 
 ``` purescript
-newAddWorkingStorageOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> AddWorkingStorageOutput
+newAddWorkingStorageOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> AddWorkingStorageOutput
 ```
 
 Constructs AddWorkingStorageOutput's fields from required parameters
@@ -406,7 +406,7 @@ Encode BandwidthUploadRateLimit
 
 ``` purescript
 newtype CachediSCSIVolume
-  = CachediSCSIVolume { "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeId" :: NullOrUndefined (VolumeId), "VolumeType" :: NullOrUndefined (VolumeType), "VolumeStatus" :: NullOrUndefined (VolumeStatus), "VolumeSizeInBytes" :: NullOrUndefined (Number), "VolumeProgress" :: NullOrUndefined (DoubleObject), "SourceSnapshotId" :: NullOrUndefined (SnapshotId), "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes), "CreatedDate" :: NullOrUndefined (CreatedDate), "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes) }
+  = CachediSCSIVolume { "VolumeARN" :: Maybe (VolumeARN), "VolumeId" :: Maybe (VolumeId), "VolumeType" :: Maybe (VolumeType), "VolumeStatus" :: Maybe (VolumeStatus), "VolumeSizeInBytes" :: Maybe (Number), "VolumeProgress" :: Maybe (DoubleObject), "SourceSnapshotId" :: Maybe (SnapshotId), "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes), "CreatedDate" :: Maybe (CreatedDate), "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes) }
 ```
 
 <p>Describes an iSCSI cached volume.</p>
@@ -431,7 +431,7 @@ Constructs CachediSCSIVolume from required parameters
 #### `newCachediSCSIVolume'`
 
 ``` purescript
-newCachediSCSIVolume' :: ({ "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeId" :: NullOrUndefined (VolumeId), "VolumeType" :: NullOrUndefined (VolumeType), "VolumeStatus" :: NullOrUndefined (VolumeStatus), "VolumeSizeInBytes" :: NullOrUndefined (Number), "VolumeProgress" :: NullOrUndefined (DoubleObject), "SourceSnapshotId" :: NullOrUndefined (SnapshotId), "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes), "CreatedDate" :: NullOrUndefined (CreatedDate), "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes) } -> { "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeId" :: NullOrUndefined (VolumeId), "VolumeType" :: NullOrUndefined (VolumeType), "VolumeStatus" :: NullOrUndefined (VolumeStatus), "VolumeSizeInBytes" :: NullOrUndefined (Number), "VolumeProgress" :: NullOrUndefined (DoubleObject), "SourceSnapshotId" :: NullOrUndefined (SnapshotId), "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes), "CreatedDate" :: NullOrUndefined (CreatedDate), "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes) }) -> CachediSCSIVolume
+newCachediSCSIVolume' :: ({ "VolumeARN" :: Maybe (VolumeARN), "VolumeId" :: Maybe (VolumeId), "VolumeType" :: Maybe (VolumeType), "VolumeStatus" :: Maybe (VolumeStatus), "VolumeSizeInBytes" :: Maybe (Number), "VolumeProgress" :: Maybe (DoubleObject), "SourceSnapshotId" :: Maybe (SnapshotId), "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes), "CreatedDate" :: Maybe (CreatedDate), "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes) } -> { "VolumeARN" :: Maybe (VolumeARN), "VolumeId" :: Maybe (VolumeId), "VolumeType" :: Maybe (VolumeType), "VolumeStatus" :: Maybe (VolumeStatus), "VolumeSizeInBytes" :: Maybe (Number), "VolumeProgress" :: Maybe (DoubleObject), "SourceSnapshotId" :: Maybe (SnapshotId), "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes), "CreatedDate" :: Maybe (CreatedDate), "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes) }) -> CachediSCSIVolume
 ```
 
 Constructs CachediSCSIVolume's fields from required parameters
@@ -490,7 +490,7 @@ Constructs CancelArchivalInput's fields from required parameters
 
 ``` purescript
 newtype CancelArchivalOutput
-  = CancelArchivalOutput { "TapeARN" :: NullOrUndefined (TapeARN) }
+  = CancelArchivalOutput { "TapeARN" :: Maybe (TapeARN) }
 ```
 
 <p>CancelArchivalOutput</p>
@@ -515,7 +515,7 @@ Constructs CancelArchivalOutput from required parameters
 #### `newCancelArchivalOutput'`
 
 ``` purescript
-newCancelArchivalOutput' :: ({ "TapeARN" :: NullOrUndefined (TapeARN) } -> { "TapeARN" :: NullOrUndefined (TapeARN) }) -> CancelArchivalOutput
+newCancelArchivalOutput' :: ({ "TapeARN" :: Maybe (TapeARN) } -> { "TapeARN" :: Maybe (TapeARN) }) -> CancelArchivalOutput
 ```
 
 Constructs CancelArchivalOutput's fields from required parameters
@@ -558,7 +558,7 @@ Constructs CancelRetrievalInput's fields from required parameters
 
 ``` purescript
 newtype CancelRetrievalOutput
-  = CancelRetrievalOutput { "TapeARN" :: NullOrUndefined (TapeARN) }
+  = CancelRetrievalOutput { "TapeARN" :: Maybe (TapeARN) }
 ```
 
 <p>CancelRetrievalOutput</p>
@@ -583,7 +583,7 @@ Constructs CancelRetrievalOutput from required parameters
 #### `newCancelRetrievalOutput'`
 
 ``` purescript
-newCancelRetrievalOutput' :: ({ "TapeARN" :: NullOrUndefined (TapeARN) } -> { "TapeARN" :: NullOrUndefined (TapeARN) }) -> CancelRetrievalOutput
+newCancelRetrievalOutput' :: ({ "TapeARN" :: Maybe (TapeARN) } -> { "TapeARN" :: Maybe (TapeARN) }) -> CancelRetrievalOutput
 ```
 
 Constructs CancelRetrievalOutput's fields from required parameters
@@ -608,7 +608,7 @@ Encode ChapCredentials
 
 ``` purescript
 newtype ChapInfo
-  = ChapInfo { "TargetARN" :: NullOrUndefined (TargetARN), "SecretToAuthenticateInitiator" :: NullOrUndefined (ChapSecret), "InitiatorName" :: NullOrUndefined (IqnName), "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret) }
+  = ChapInfo { "TargetARN" :: Maybe (TargetARN), "SecretToAuthenticateInitiator" :: Maybe (ChapSecret), "InitiatorName" :: Maybe (IqnName), "SecretToAuthenticateTarget" :: Maybe (ChapSecret) }
 ```
 
 <p>Describes Challenge-Handshake Authentication Protocol (CHAP) information that supports authentication between your gateway and iSCSI initiators.</p>
@@ -633,7 +633,7 @@ Constructs ChapInfo from required parameters
 #### `newChapInfo'`
 
 ``` purescript
-newChapInfo' :: ({ "TargetARN" :: NullOrUndefined (TargetARN), "SecretToAuthenticateInitiator" :: NullOrUndefined (ChapSecret), "InitiatorName" :: NullOrUndefined (IqnName), "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret) } -> { "TargetARN" :: NullOrUndefined (TargetARN), "SecretToAuthenticateInitiator" :: NullOrUndefined (ChapSecret), "InitiatorName" :: NullOrUndefined (IqnName), "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret) }) -> ChapInfo
+newChapInfo' :: ({ "TargetARN" :: Maybe (TargetARN), "SecretToAuthenticateInitiator" :: Maybe (ChapSecret), "InitiatorName" :: Maybe (IqnName), "SecretToAuthenticateTarget" :: Maybe (ChapSecret) } -> { "TargetARN" :: Maybe (TargetARN), "SecretToAuthenticateInitiator" :: Maybe (ChapSecret), "InitiatorName" :: Maybe (IqnName), "SecretToAuthenticateTarget" :: Maybe (ChapSecret) }) -> ChapInfo
 ```
 
 Constructs ChapInfo's fields from required parameters
@@ -674,7 +674,7 @@ Encode ClientToken
 
 ``` purescript
 newtype CreateCachediSCSIVolumeInput
-  = CreateCachediSCSIVolumeInput { "GatewayARN" :: GatewayARN, "VolumeSizeInBytes" :: Number, "SnapshotId" :: NullOrUndefined (SnapshotId), "TargetName" :: TargetName, "SourceVolumeARN" :: NullOrUndefined (VolumeARN), "NetworkInterfaceId" :: NetworkInterfaceId, "ClientToken" :: ClientToken }
+  = CreateCachediSCSIVolumeInput { "GatewayARN" :: GatewayARN, "VolumeSizeInBytes" :: Number, "SnapshotId" :: Maybe (SnapshotId), "TargetName" :: TargetName, "SourceVolumeARN" :: Maybe (VolumeARN), "NetworkInterfaceId" :: NetworkInterfaceId, "ClientToken" :: ClientToken }
 ```
 
 ##### Instances
@@ -697,7 +697,7 @@ Constructs CreateCachediSCSIVolumeInput from required parameters
 #### `newCreateCachediSCSIVolumeInput'`
 
 ``` purescript
-newCreateCachediSCSIVolumeInput' :: ClientToken -> GatewayARN -> NetworkInterfaceId -> TargetName -> Number -> ({ "GatewayARN" :: GatewayARN, "VolumeSizeInBytes" :: Number, "SnapshotId" :: NullOrUndefined (SnapshotId), "TargetName" :: TargetName, "SourceVolumeARN" :: NullOrUndefined (VolumeARN), "NetworkInterfaceId" :: NetworkInterfaceId, "ClientToken" :: ClientToken } -> { "GatewayARN" :: GatewayARN, "VolumeSizeInBytes" :: Number, "SnapshotId" :: NullOrUndefined (SnapshotId), "TargetName" :: TargetName, "SourceVolumeARN" :: NullOrUndefined (VolumeARN), "NetworkInterfaceId" :: NetworkInterfaceId, "ClientToken" :: ClientToken }) -> CreateCachediSCSIVolumeInput
+newCreateCachediSCSIVolumeInput' :: ClientToken -> GatewayARN -> NetworkInterfaceId -> TargetName -> Number -> ({ "GatewayARN" :: GatewayARN, "VolumeSizeInBytes" :: Number, "SnapshotId" :: Maybe (SnapshotId), "TargetName" :: TargetName, "SourceVolumeARN" :: Maybe (VolumeARN), "NetworkInterfaceId" :: NetworkInterfaceId, "ClientToken" :: ClientToken } -> { "GatewayARN" :: GatewayARN, "VolumeSizeInBytes" :: Number, "SnapshotId" :: Maybe (SnapshotId), "TargetName" :: TargetName, "SourceVolumeARN" :: Maybe (VolumeARN), "NetworkInterfaceId" :: NetworkInterfaceId, "ClientToken" :: ClientToken }) -> CreateCachediSCSIVolumeInput
 ```
 
 Constructs CreateCachediSCSIVolumeInput's fields from required parameters
@@ -706,7 +706,7 @@ Constructs CreateCachediSCSIVolumeInput's fields from required parameters
 
 ``` purescript
 newtype CreateCachediSCSIVolumeOutput
-  = CreateCachediSCSIVolumeOutput { "VolumeARN" :: NullOrUndefined (VolumeARN), "TargetARN" :: NullOrUndefined (TargetARN) }
+  = CreateCachediSCSIVolumeOutput { "VolumeARN" :: Maybe (VolumeARN), "TargetARN" :: Maybe (TargetARN) }
 ```
 
 ##### Instances
@@ -729,7 +729,7 @@ Constructs CreateCachediSCSIVolumeOutput from required parameters
 #### `newCreateCachediSCSIVolumeOutput'`
 
 ``` purescript
-newCreateCachediSCSIVolumeOutput' :: ({ "VolumeARN" :: NullOrUndefined (VolumeARN), "TargetARN" :: NullOrUndefined (TargetARN) } -> { "VolumeARN" :: NullOrUndefined (VolumeARN), "TargetARN" :: NullOrUndefined (TargetARN) }) -> CreateCachediSCSIVolumeOutput
+newCreateCachediSCSIVolumeOutput' :: ({ "VolumeARN" :: Maybe (VolumeARN), "TargetARN" :: Maybe (TargetARN) } -> { "VolumeARN" :: Maybe (VolumeARN), "TargetARN" :: Maybe (TargetARN) }) -> CreateCachediSCSIVolumeOutput
 ```
 
 Constructs CreateCachediSCSIVolumeOutput's fields from required parameters
@@ -738,7 +738,7 @@ Constructs CreateCachediSCSIVolumeOutput's fields from required parameters
 
 ``` purescript
 newtype CreateNFSFileShareInput
-  = CreateNFSFileShareInput { "ClientToken" :: ClientToken, "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults), "GatewayARN" :: GatewayARN, "KMSEncrypted" :: NullOrUndefined (Boolean), "KMSKey" :: NullOrUndefined (KMSKey), "Role" :: Role, "LocationARN" :: LocationARN, "DefaultStorageClass" :: NullOrUndefined (StorageClass), "ObjectACL" :: NullOrUndefined (ObjectACL), "ClientList" :: NullOrUndefined (FileShareClientList), "Squash" :: NullOrUndefined (Squash), "ReadOnly" :: NullOrUndefined (Boolean), "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean), "RequesterPays" :: NullOrUndefined (Boolean) }
+  = CreateNFSFileShareInput { "ClientToken" :: ClientToken, "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults), "GatewayARN" :: GatewayARN, "KMSEncrypted" :: Maybe (Boolean), "KMSKey" :: Maybe (KMSKey), "Role" :: Role, "LocationARN" :: LocationARN, "DefaultStorageClass" :: Maybe (StorageClass), "ObjectACL" :: Maybe (ObjectACL), "ClientList" :: Maybe (FileShareClientList), "Squash" :: Maybe (Squash), "ReadOnly" :: Maybe (Boolean), "GuessMIMETypeEnabled" :: Maybe (Boolean), "RequesterPays" :: Maybe (Boolean) }
 ```
 
 <p>CreateNFSFileShareInput</p>
@@ -763,7 +763,7 @@ Constructs CreateNFSFileShareInput from required parameters
 #### `newCreateNFSFileShareInput'`
 
 ``` purescript
-newCreateNFSFileShareInput' :: ClientToken -> GatewayARN -> LocationARN -> Role -> ({ "ClientToken" :: ClientToken, "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults), "GatewayARN" :: GatewayARN, "KMSEncrypted" :: NullOrUndefined (Boolean), "KMSKey" :: NullOrUndefined (KMSKey), "Role" :: Role, "LocationARN" :: LocationARN, "DefaultStorageClass" :: NullOrUndefined (StorageClass), "ObjectACL" :: NullOrUndefined (ObjectACL), "ClientList" :: NullOrUndefined (FileShareClientList), "Squash" :: NullOrUndefined (Squash), "ReadOnly" :: NullOrUndefined (Boolean), "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean), "RequesterPays" :: NullOrUndefined (Boolean) } -> { "ClientToken" :: ClientToken, "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults), "GatewayARN" :: GatewayARN, "KMSEncrypted" :: NullOrUndefined (Boolean), "KMSKey" :: NullOrUndefined (KMSKey), "Role" :: Role, "LocationARN" :: LocationARN, "DefaultStorageClass" :: NullOrUndefined (StorageClass), "ObjectACL" :: NullOrUndefined (ObjectACL), "ClientList" :: NullOrUndefined (FileShareClientList), "Squash" :: NullOrUndefined (Squash), "ReadOnly" :: NullOrUndefined (Boolean), "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean), "RequesterPays" :: NullOrUndefined (Boolean) }) -> CreateNFSFileShareInput
+newCreateNFSFileShareInput' :: ClientToken -> GatewayARN -> LocationARN -> Role -> ({ "ClientToken" :: ClientToken, "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults), "GatewayARN" :: GatewayARN, "KMSEncrypted" :: Maybe (Boolean), "KMSKey" :: Maybe (KMSKey), "Role" :: Role, "LocationARN" :: LocationARN, "DefaultStorageClass" :: Maybe (StorageClass), "ObjectACL" :: Maybe (ObjectACL), "ClientList" :: Maybe (FileShareClientList), "Squash" :: Maybe (Squash), "ReadOnly" :: Maybe (Boolean), "GuessMIMETypeEnabled" :: Maybe (Boolean), "RequesterPays" :: Maybe (Boolean) } -> { "ClientToken" :: ClientToken, "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults), "GatewayARN" :: GatewayARN, "KMSEncrypted" :: Maybe (Boolean), "KMSKey" :: Maybe (KMSKey), "Role" :: Role, "LocationARN" :: LocationARN, "DefaultStorageClass" :: Maybe (StorageClass), "ObjectACL" :: Maybe (ObjectACL), "ClientList" :: Maybe (FileShareClientList), "Squash" :: Maybe (Squash), "ReadOnly" :: Maybe (Boolean), "GuessMIMETypeEnabled" :: Maybe (Boolean), "RequesterPays" :: Maybe (Boolean) }) -> CreateNFSFileShareInput
 ```
 
 Constructs CreateNFSFileShareInput's fields from required parameters
@@ -772,7 +772,7 @@ Constructs CreateNFSFileShareInput's fields from required parameters
 
 ``` purescript
 newtype CreateNFSFileShareOutput
-  = CreateNFSFileShareOutput { "FileShareARN" :: NullOrUndefined (FileShareARN) }
+  = CreateNFSFileShareOutput { "FileShareARN" :: Maybe (FileShareARN) }
 ```
 
 <p>CreateNFSFileShareOutput</p>
@@ -797,7 +797,7 @@ Constructs CreateNFSFileShareOutput from required parameters
 #### `newCreateNFSFileShareOutput'`
 
 ``` purescript
-newCreateNFSFileShareOutput' :: ({ "FileShareARN" :: NullOrUndefined (FileShareARN) } -> { "FileShareARN" :: NullOrUndefined (FileShareARN) }) -> CreateNFSFileShareOutput
+newCreateNFSFileShareOutput' :: ({ "FileShareARN" :: Maybe (FileShareARN) } -> { "FileShareARN" :: Maybe (FileShareARN) }) -> CreateNFSFileShareOutput
 ```
 
 Constructs CreateNFSFileShareOutput's fields from required parameters
@@ -838,7 +838,7 @@ Constructs CreateSnapshotFromVolumeRecoveryPointInput's fields from required par
 
 ``` purescript
 newtype CreateSnapshotFromVolumeRecoveryPointOutput
-  = CreateSnapshotFromVolumeRecoveryPointOutput { "SnapshotId" :: NullOrUndefined (SnapshotId), "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeRecoveryPointTime" :: NullOrUndefined (String) }
+  = CreateSnapshotFromVolumeRecoveryPointOutput { "SnapshotId" :: Maybe (SnapshotId), "VolumeARN" :: Maybe (VolumeARN), "VolumeRecoveryPointTime" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -861,7 +861,7 @@ Constructs CreateSnapshotFromVolumeRecoveryPointOutput from required parameters
 #### `newCreateSnapshotFromVolumeRecoveryPointOutput'`
 
 ``` purescript
-newCreateSnapshotFromVolumeRecoveryPointOutput' :: ({ "SnapshotId" :: NullOrUndefined (SnapshotId), "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeRecoveryPointTime" :: NullOrUndefined (String) } -> { "SnapshotId" :: NullOrUndefined (SnapshotId), "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeRecoveryPointTime" :: NullOrUndefined (String) }) -> CreateSnapshotFromVolumeRecoveryPointOutput
+newCreateSnapshotFromVolumeRecoveryPointOutput' :: ({ "SnapshotId" :: Maybe (SnapshotId), "VolumeARN" :: Maybe (VolumeARN), "VolumeRecoveryPointTime" :: Maybe (String) } -> { "SnapshotId" :: Maybe (SnapshotId), "VolumeARN" :: Maybe (VolumeARN), "VolumeRecoveryPointTime" :: Maybe (String) }) -> CreateSnapshotFromVolumeRecoveryPointOutput
 ```
 
 Constructs CreateSnapshotFromVolumeRecoveryPointOutput's fields from required parameters
@@ -904,7 +904,7 @@ Constructs CreateSnapshotInput's fields from required parameters
 
 ``` purescript
 newtype CreateSnapshotOutput
-  = CreateSnapshotOutput { "VolumeARN" :: NullOrUndefined (VolumeARN), "SnapshotId" :: NullOrUndefined (SnapshotId) }
+  = CreateSnapshotOutput { "VolumeARN" :: Maybe (VolumeARN), "SnapshotId" :: Maybe (SnapshotId) }
 ```
 
 <p>A JSON object containing the following fields:</p>
@@ -929,7 +929,7 @@ Constructs CreateSnapshotOutput from required parameters
 #### `newCreateSnapshotOutput'`
 
 ``` purescript
-newCreateSnapshotOutput' :: ({ "VolumeARN" :: NullOrUndefined (VolumeARN), "SnapshotId" :: NullOrUndefined (SnapshotId) } -> { "VolumeARN" :: NullOrUndefined (VolumeARN), "SnapshotId" :: NullOrUndefined (SnapshotId) }) -> CreateSnapshotOutput
+newCreateSnapshotOutput' :: ({ "VolumeARN" :: Maybe (VolumeARN), "SnapshotId" :: Maybe (SnapshotId) } -> { "VolumeARN" :: Maybe (VolumeARN), "SnapshotId" :: Maybe (SnapshotId) }) -> CreateSnapshotOutput
 ```
 
 Constructs CreateSnapshotOutput's fields from required parameters
@@ -938,7 +938,7 @@ Constructs CreateSnapshotOutput's fields from required parameters
 
 ``` purescript
 newtype CreateStorediSCSIVolumeInput
-  = CreateStorediSCSIVolumeInput { "GatewayARN" :: GatewayARN, "DiskId" :: DiskId, "SnapshotId" :: NullOrUndefined (SnapshotId), "PreserveExistingData" :: Boolean, "TargetName" :: TargetName, "NetworkInterfaceId" :: NetworkInterfaceId }
+  = CreateStorediSCSIVolumeInput { "GatewayARN" :: GatewayARN, "DiskId" :: DiskId, "SnapshotId" :: Maybe (SnapshotId), "PreserveExistingData" :: Boolean, "TargetName" :: TargetName, "NetworkInterfaceId" :: NetworkInterfaceId }
 ```
 
 <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>CreateStorediSCSIVolumeInput$DiskId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$NetworkInterfaceId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$PreserveExistingData</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$SnapshotId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$TargetName</a> </p> </li> </ul>
@@ -963,7 +963,7 @@ Constructs CreateStorediSCSIVolumeInput from required parameters
 #### `newCreateStorediSCSIVolumeInput'`
 
 ``` purescript
-newCreateStorediSCSIVolumeInput' :: DiskId -> GatewayARN -> NetworkInterfaceId -> Boolean -> TargetName -> ({ "GatewayARN" :: GatewayARN, "DiskId" :: DiskId, "SnapshotId" :: NullOrUndefined (SnapshotId), "PreserveExistingData" :: Boolean, "TargetName" :: TargetName, "NetworkInterfaceId" :: NetworkInterfaceId } -> { "GatewayARN" :: GatewayARN, "DiskId" :: DiskId, "SnapshotId" :: NullOrUndefined (SnapshotId), "PreserveExistingData" :: Boolean, "TargetName" :: TargetName, "NetworkInterfaceId" :: NetworkInterfaceId }) -> CreateStorediSCSIVolumeInput
+newCreateStorediSCSIVolumeInput' :: DiskId -> GatewayARN -> NetworkInterfaceId -> Boolean -> TargetName -> ({ "GatewayARN" :: GatewayARN, "DiskId" :: DiskId, "SnapshotId" :: Maybe (SnapshotId), "PreserveExistingData" :: Boolean, "TargetName" :: TargetName, "NetworkInterfaceId" :: NetworkInterfaceId } -> { "GatewayARN" :: GatewayARN, "DiskId" :: DiskId, "SnapshotId" :: Maybe (SnapshotId), "PreserveExistingData" :: Boolean, "TargetName" :: TargetName, "NetworkInterfaceId" :: NetworkInterfaceId }) -> CreateStorediSCSIVolumeInput
 ```
 
 Constructs CreateStorediSCSIVolumeInput's fields from required parameters
@@ -972,7 +972,7 @@ Constructs CreateStorediSCSIVolumeInput's fields from required parameters
 
 ``` purescript
 newtype CreateStorediSCSIVolumeOutput
-  = CreateStorediSCSIVolumeOutput { "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeSizeInBytes" :: NullOrUndefined (Number), "TargetARN" :: NullOrUndefined (TargetARN) }
+  = CreateStorediSCSIVolumeOutput { "VolumeARN" :: Maybe (VolumeARN), "VolumeSizeInBytes" :: Maybe (Number), "TargetARN" :: Maybe (TargetARN) }
 ```
 
 <p>A JSON object containing the following fields:</p>
@@ -997,7 +997,7 @@ Constructs CreateStorediSCSIVolumeOutput from required parameters
 #### `newCreateStorediSCSIVolumeOutput'`
 
 ``` purescript
-newCreateStorediSCSIVolumeOutput' :: ({ "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeSizeInBytes" :: NullOrUndefined (Number), "TargetARN" :: NullOrUndefined (TargetARN) } -> { "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeSizeInBytes" :: NullOrUndefined (Number), "TargetARN" :: NullOrUndefined (TargetARN) }) -> CreateStorediSCSIVolumeOutput
+newCreateStorediSCSIVolumeOutput' :: ({ "VolumeARN" :: Maybe (VolumeARN), "VolumeSizeInBytes" :: Maybe (Number), "TargetARN" :: Maybe (TargetARN) } -> { "VolumeARN" :: Maybe (VolumeARN), "VolumeSizeInBytes" :: Maybe (Number), "TargetARN" :: Maybe (TargetARN) }) -> CreateStorediSCSIVolumeOutput
 ```
 
 Constructs CreateStorediSCSIVolumeOutput's fields from required parameters
@@ -1040,7 +1040,7 @@ Constructs CreateTapeWithBarcodeInput's fields from required parameters
 
 ``` purescript
 newtype CreateTapeWithBarcodeOutput
-  = CreateTapeWithBarcodeOutput { "TapeARN" :: NullOrUndefined (TapeARN) }
+  = CreateTapeWithBarcodeOutput { "TapeARN" :: Maybe (TapeARN) }
 ```
 
 <p>CreateTapeOutput</p>
@@ -1065,7 +1065,7 @@ Constructs CreateTapeWithBarcodeOutput from required parameters
 #### `newCreateTapeWithBarcodeOutput'`
 
 ``` purescript
-newCreateTapeWithBarcodeOutput' :: ({ "TapeARN" :: NullOrUndefined (TapeARN) } -> { "TapeARN" :: NullOrUndefined (TapeARN) }) -> CreateTapeWithBarcodeOutput
+newCreateTapeWithBarcodeOutput' :: ({ "TapeARN" :: Maybe (TapeARN) } -> { "TapeARN" :: Maybe (TapeARN) }) -> CreateTapeWithBarcodeOutput
 ```
 
 Constructs CreateTapeWithBarcodeOutput's fields from required parameters
@@ -1108,7 +1108,7 @@ Constructs CreateTapesInput's fields from required parameters
 
 ``` purescript
 newtype CreateTapesOutput
-  = CreateTapesOutput { "TapeARNs" :: NullOrUndefined (TapeARNs) }
+  = CreateTapesOutput { "TapeARNs" :: Maybe (TapeARNs) }
 ```
 
 <p>CreateTapeOutput</p>
@@ -1133,7 +1133,7 @@ Constructs CreateTapesOutput from required parameters
 #### `newCreateTapesOutput'`
 
 ``` purescript
-newCreateTapesOutput' :: ({ "TapeARNs" :: NullOrUndefined (TapeARNs) } -> { "TapeARNs" :: NullOrUndefined (TapeARNs) }) -> CreateTapesOutput
+newCreateTapesOutput' :: ({ "TapeARNs" :: Maybe (TapeARNs) } -> { "TapeARNs" :: Maybe (TapeARNs) }) -> CreateTapesOutput
 ```
 
 Constructs CreateTapesOutput's fields from required parameters
@@ -1208,7 +1208,7 @@ Constructs DeleteBandwidthRateLimitInput's fields from required parameters
 
 ``` purescript
 newtype DeleteBandwidthRateLimitOutput
-  = DeleteBandwidthRateLimitOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = DeleteBandwidthRateLimitOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>A JSON object containing the of the gateway whose bandwidth rate information was deleted.</p>
@@ -1233,7 +1233,7 @@ Constructs DeleteBandwidthRateLimitOutput from required parameters
 #### `newDeleteBandwidthRateLimitOutput'`
 
 ``` purescript
-newDeleteBandwidthRateLimitOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> DeleteBandwidthRateLimitOutput
+newDeleteBandwidthRateLimitOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> DeleteBandwidthRateLimitOutput
 ```
 
 Constructs DeleteBandwidthRateLimitOutput's fields from required parameters
@@ -1276,7 +1276,7 @@ Constructs DeleteChapCredentialsInput's fields from required parameters
 
 ``` purescript
 newtype DeleteChapCredentialsOutput
-  = DeleteChapCredentialsOutput { "TargetARN" :: NullOrUndefined (TargetARN), "InitiatorName" :: NullOrUndefined (IqnName) }
+  = DeleteChapCredentialsOutput { "TargetARN" :: Maybe (TargetARN), "InitiatorName" :: Maybe (IqnName) }
 ```
 
 <p>A JSON object containing the following fields:</p>
@@ -1301,7 +1301,7 @@ Constructs DeleteChapCredentialsOutput from required parameters
 #### `newDeleteChapCredentialsOutput'`
 
 ``` purescript
-newDeleteChapCredentialsOutput' :: ({ "TargetARN" :: NullOrUndefined (TargetARN), "InitiatorName" :: NullOrUndefined (IqnName) } -> { "TargetARN" :: NullOrUndefined (TargetARN), "InitiatorName" :: NullOrUndefined (IqnName) }) -> DeleteChapCredentialsOutput
+newDeleteChapCredentialsOutput' :: ({ "TargetARN" :: Maybe (TargetARN), "InitiatorName" :: Maybe (IqnName) } -> { "TargetARN" :: Maybe (TargetARN), "InitiatorName" :: Maybe (IqnName) }) -> DeleteChapCredentialsOutput
 ```
 
 Constructs DeleteChapCredentialsOutput's fields from required parameters
@@ -1310,7 +1310,7 @@ Constructs DeleteChapCredentialsOutput's fields from required parameters
 
 ``` purescript
 newtype DeleteFileShareInput
-  = DeleteFileShareInput { "FileShareARN" :: FileShareARN, "ForceDelete" :: NullOrUndefined (Boolean) }
+  = DeleteFileShareInput { "FileShareARN" :: FileShareARN, "ForceDelete" :: Maybe (Boolean) }
 ```
 
 <p>DeleteFileShareInput</p>
@@ -1335,7 +1335,7 @@ Constructs DeleteFileShareInput from required parameters
 #### `newDeleteFileShareInput'`
 
 ``` purescript
-newDeleteFileShareInput' :: FileShareARN -> ({ "FileShareARN" :: FileShareARN, "ForceDelete" :: NullOrUndefined (Boolean) } -> { "FileShareARN" :: FileShareARN, "ForceDelete" :: NullOrUndefined (Boolean) }) -> DeleteFileShareInput
+newDeleteFileShareInput' :: FileShareARN -> ({ "FileShareARN" :: FileShareARN, "ForceDelete" :: Maybe (Boolean) } -> { "FileShareARN" :: FileShareARN, "ForceDelete" :: Maybe (Boolean) }) -> DeleteFileShareInput
 ```
 
 Constructs DeleteFileShareInput's fields from required parameters
@@ -1344,7 +1344,7 @@ Constructs DeleteFileShareInput's fields from required parameters
 
 ``` purescript
 newtype DeleteFileShareOutput
-  = DeleteFileShareOutput { "FileShareARN" :: NullOrUndefined (FileShareARN) }
+  = DeleteFileShareOutput { "FileShareARN" :: Maybe (FileShareARN) }
 ```
 
 <p>DeleteFileShareOutput</p>
@@ -1369,7 +1369,7 @@ Constructs DeleteFileShareOutput from required parameters
 #### `newDeleteFileShareOutput'`
 
 ``` purescript
-newDeleteFileShareOutput' :: ({ "FileShareARN" :: NullOrUndefined (FileShareARN) } -> { "FileShareARN" :: NullOrUndefined (FileShareARN) }) -> DeleteFileShareOutput
+newDeleteFileShareOutput' :: ({ "FileShareARN" :: Maybe (FileShareARN) } -> { "FileShareARN" :: Maybe (FileShareARN) }) -> DeleteFileShareOutput
 ```
 
 Constructs DeleteFileShareOutput's fields from required parameters
@@ -1412,7 +1412,7 @@ Constructs DeleteGatewayInput's fields from required parameters
 
 ``` purescript
 newtype DeleteGatewayOutput
-  = DeleteGatewayOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = DeleteGatewayOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>A JSON object containing the ID of the deleted gateway.</p>
@@ -1437,7 +1437,7 @@ Constructs DeleteGatewayOutput from required parameters
 #### `newDeleteGatewayOutput'`
 
 ``` purescript
-newDeleteGatewayOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> DeleteGatewayOutput
+newDeleteGatewayOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> DeleteGatewayOutput
 ```
 
 Constructs DeleteGatewayOutput's fields from required parameters
@@ -1478,7 +1478,7 @@ Constructs DeleteSnapshotScheduleInput's fields from required parameters
 
 ``` purescript
 newtype DeleteSnapshotScheduleOutput
-  = DeleteSnapshotScheduleOutput { "VolumeARN" :: NullOrUndefined (VolumeARN) }
+  = DeleteSnapshotScheduleOutput { "VolumeARN" :: Maybe (VolumeARN) }
 ```
 
 ##### Instances
@@ -1501,7 +1501,7 @@ Constructs DeleteSnapshotScheduleOutput from required parameters
 #### `newDeleteSnapshotScheduleOutput'`
 
 ``` purescript
-newDeleteSnapshotScheduleOutput' :: ({ "VolumeARN" :: NullOrUndefined (VolumeARN) } -> { "VolumeARN" :: NullOrUndefined (VolumeARN) }) -> DeleteSnapshotScheduleOutput
+newDeleteSnapshotScheduleOutput' :: ({ "VolumeARN" :: Maybe (VolumeARN) } -> { "VolumeARN" :: Maybe (VolumeARN) }) -> DeleteSnapshotScheduleOutput
 ```
 
 Constructs DeleteSnapshotScheduleOutput's fields from required parameters
@@ -1544,7 +1544,7 @@ Constructs DeleteTapeArchiveInput's fields from required parameters
 
 ``` purescript
 newtype DeleteTapeArchiveOutput
-  = DeleteTapeArchiveOutput { "TapeARN" :: NullOrUndefined (TapeARN) }
+  = DeleteTapeArchiveOutput { "TapeARN" :: Maybe (TapeARN) }
 ```
 
 <p>DeleteTapeArchiveOutput</p>
@@ -1569,7 +1569,7 @@ Constructs DeleteTapeArchiveOutput from required parameters
 #### `newDeleteTapeArchiveOutput'`
 
 ``` purescript
-newDeleteTapeArchiveOutput' :: ({ "TapeARN" :: NullOrUndefined (TapeARN) } -> { "TapeARN" :: NullOrUndefined (TapeARN) }) -> DeleteTapeArchiveOutput
+newDeleteTapeArchiveOutput' :: ({ "TapeARN" :: Maybe (TapeARN) } -> { "TapeARN" :: Maybe (TapeARN) }) -> DeleteTapeArchiveOutput
 ```
 
 Constructs DeleteTapeArchiveOutput's fields from required parameters
@@ -1612,7 +1612,7 @@ Constructs DeleteTapeInput's fields from required parameters
 
 ``` purescript
 newtype DeleteTapeOutput
-  = DeleteTapeOutput { "TapeARN" :: NullOrUndefined (TapeARN) }
+  = DeleteTapeOutput { "TapeARN" :: Maybe (TapeARN) }
 ```
 
 <p>DeleteTapeOutput</p>
@@ -1637,7 +1637,7 @@ Constructs DeleteTapeOutput from required parameters
 #### `newDeleteTapeOutput'`
 
 ``` purescript
-newDeleteTapeOutput' :: ({ "TapeARN" :: NullOrUndefined (TapeARN) } -> { "TapeARN" :: NullOrUndefined (TapeARN) }) -> DeleteTapeOutput
+newDeleteTapeOutput' :: ({ "TapeARN" :: Maybe (TapeARN) } -> { "TapeARN" :: Maybe (TapeARN) }) -> DeleteTapeOutput
 ```
 
 Constructs DeleteTapeOutput's fields from required parameters
@@ -1680,7 +1680,7 @@ Constructs DeleteVolumeInput's fields from required parameters
 
 ``` purescript
 newtype DeleteVolumeOutput
-  = DeleteVolumeOutput { "VolumeARN" :: NullOrUndefined (VolumeARN) }
+  = DeleteVolumeOutput { "VolumeARN" :: Maybe (VolumeARN) }
 ```
 
 <p>A JSON object containing the of the storage volume that was deleted</p>
@@ -1705,7 +1705,7 @@ Constructs DeleteVolumeOutput from required parameters
 #### `newDeleteVolumeOutput'`
 
 ``` purescript
-newDeleteVolumeOutput' :: ({ "VolumeARN" :: NullOrUndefined (VolumeARN) } -> { "VolumeARN" :: NullOrUndefined (VolumeARN) }) -> DeleteVolumeOutput
+newDeleteVolumeOutput' :: ({ "VolumeARN" :: Maybe (VolumeARN) } -> { "VolumeARN" :: Maybe (VolumeARN) }) -> DeleteVolumeOutput
 ```
 
 Constructs DeleteVolumeOutput's fields from required parameters
@@ -1748,7 +1748,7 @@ Constructs DescribeBandwidthRateLimitInput's fields from required parameters
 
 ``` purescript
 newtype DescribeBandwidthRateLimitOutput
-  = DescribeBandwidthRateLimitOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit) }
+  = DescribeBandwidthRateLimitOutput { "GatewayARN" :: Maybe (GatewayARN), "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit) }
 ```
 
 <p>A JSON object containing the following fields:</p>
@@ -1773,7 +1773,7 @@ Constructs DescribeBandwidthRateLimitOutput from required parameters
 #### `newDescribeBandwidthRateLimitOutput'`
 
 ``` purescript
-newDescribeBandwidthRateLimitOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit) }) -> DescribeBandwidthRateLimitOutput
+newDescribeBandwidthRateLimitOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit) } -> { "GatewayARN" :: Maybe (GatewayARN), "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit) }) -> DescribeBandwidthRateLimitOutput
 ```
 
 Constructs DescribeBandwidthRateLimitOutput's fields from required parameters
@@ -1814,7 +1814,7 @@ Constructs DescribeCacheInput's fields from required parameters
 
 ``` purescript
 newtype DescribeCacheOutput
-  = DescribeCacheOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "DiskIds" :: NullOrUndefined (DiskIds), "CacheAllocatedInBytes" :: NullOrUndefined (Number), "CacheUsedPercentage" :: NullOrUndefined (Number), "CacheDirtyPercentage" :: NullOrUndefined (Number), "CacheHitPercentage" :: NullOrUndefined (Number), "CacheMissPercentage" :: NullOrUndefined (Number) }
+  = DescribeCacheOutput { "GatewayARN" :: Maybe (GatewayARN), "DiskIds" :: Maybe (DiskIds), "CacheAllocatedInBytes" :: Maybe (Number), "CacheUsedPercentage" :: Maybe (Number), "CacheDirtyPercentage" :: Maybe (Number), "CacheHitPercentage" :: Maybe (Number), "CacheMissPercentage" :: Maybe (Number) }
 ```
 
 ##### Instances
@@ -1837,7 +1837,7 @@ Constructs DescribeCacheOutput from required parameters
 #### `newDescribeCacheOutput'`
 
 ``` purescript
-newDescribeCacheOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "DiskIds" :: NullOrUndefined (DiskIds), "CacheAllocatedInBytes" :: NullOrUndefined (Number), "CacheUsedPercentage" :: NullOrUndefined (Number), "CacheDirtyPercentage" :: NullOrUndefined (Number), "CacheHitPercentage" :: NullOrUndefined (Number), "CacheMissPercentage" :: NullOrUndefined (Number) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "DiskIds" :: NullOrUndefined (DiskIds), "CacheAllocatedInBytes" :: NullOrUndefined (Number), "CacheUsedPercentage" :: NullOrUndefined (Number), "CacheDirtyPercentage" :: NullOrUndefined (Number), "CacheHitPercentage" :: NullOrUndefined (Number), "CacheMissPercentage" :: NullOrUndefined (Number) }) -> DescribeCacheOutput
+newDescribeCacheOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "DiskIds" :: Maybe (DiskIds), "CacheAllocatedInBytes" :: Maybe (Number), "CacheUsedPercentage" :: Maybe (Number), "CacheDirtyPercentage" :: Maybe (Number), "CacheHitPercentage" :: Maybe (Number), "CacheMissPercentage" :: Maybe (Number) } -> { "GatewayARN" :: Maybe (GatewayARN), "DiskIds" :: Maybe (DiskIds), "CacheAllocatedInBytes" :: Maybe (Number), "CacheUsedPercentage" :: Maybe (Number), "CacheDirtyPercentage" :: Maybe (Number), "CacheHitPercentage" :: Maybe (Number), "CacheMissPercentage" :: Maybe (Number) }) -> DescribeCacheOutput
 ```
 
 Constructs DescribeCacheOutput's fields from required parameters
@@ -1878,7 +1878,7 @@ Constructs DescribeCachediSCSIVolumesInput's fields from required parameters
 
 ``` purescript
 newtype DescribeCachediSCSIVolumesOutput
-  = DescribeCachediSCSIVolumesOutput { "CachediSCSIVolumes" :: NullOrUndefined (CachediSCSIVolumes) }
+  = DescribeCachediSCSIVolumesOutput { "CachediSCSIVolumes" :: Maybe (CachediSCSIVolumes) }
 ```
 
 <p>A JSON object containing the following fields:</p>
@@ -1903,7 +1903,7 @@ Constructs DescribeCachediSCSIVolumesOutput from required parameters
 #### `newDescribeCachediSCSIVolumesOutput'`
 
 ``` purescript
-newDescribeCachediSCSIVolumesOutput' :: ({ "CachediSCSIVolumes" :: NullOrUndefined (CachediSCSIVolumes) } -> { "CachediSCSIVolumes" :: NullOrUndefined (CachediSCSIVolumes) }) -> DescribeCachediSCSIVolumesOutput
+newDescribeCachediSCSIVolumesOutput' :: ({ "CachediSCSIVolumes" :: Maybe (CachediSCSIVolumes) } -> { "CachediSCSIVolumes" :: Maybe (CachediSCSIVolumes) }) -> DescribeCachediSCSIVolumesOutput
 ```
 
 Constructs DescribeCachediSCSIVolumesOutput's fields from required parameters
@@ -1946,7 +1946,7 @@ Constructs DescribeChapCredentialsInput's fields from required parameters
 
 ``` purescript
 newtype DescribeChapCredentialsOutput
-  = DescribeChapCredentialsOutput { "ChapCredentials" :: NullOrUndefined (ChapCredentials) }
+  = DescribeChapCredentialsOutput { "ChapCredentials" :: Maybe (ChapCredentials) }
 ```
 
 <p>A JSON object containing a .</p>
@@ -1971,7 +1971,7 @@ Constructs DescribeChapCredentialsOutput from required parameters
 #### `newDescribeChapCredentialsOutput'`
 
 ``` purescript
-newDescribeChapCredentialsOutput' :: ({ "ChapCredentials" :: NullOrUndefined (ChapCredentials) } -> { "ChapCredentials" :: NullOrUndefined (ChapCredentials) }) -> DescribeChapCredentialsOutput
+newDescribeChapCredentialsOutput' :: ({ "ChapCredentials" :: Maybe (ChapCredentials) } -> { "ChapCredentials" :: Maybe (ChapCredentials) }) -> DescribeChapCredentialsOutput
 ```
 
 Constructs DescribeChapCredentialsOutput's fields from required parameters
@@ -2014,7 +2014,7 @@ Constructs DescribeGatewayInformationInput's fields from required parameters
 
 ``` purescript
 newtype DescribeGatewayInformationOutput
-  = DescribeGatewayInformationOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayId" :: NullOrUndefined (GatewayId), "GatewayName" :: NullOrUndefined (String), "GatewayTimezone" :: NullOrUndefined (GatewayTimezone), "GatewayState" :: NullOrUndefined (GatewayState), "GatewayNetworkInterfaces" :: NullOrUndefined (GatewayNetworkInterfaces), "GatewayType" :: NullOrUndefined (GatewayType), "NextUpdateAvailabilityDate" :: NullOrUndefined (NextUpdateAvailabilityDate), "LastSoftwareUpdate" :: NullOrUndefined (LastSoftwareUpdate) }
+  = DescribeGatewayInformationOutput { "GatewayARN" :: Maybe (GatewayARN), "GatewayId" :: Maybe (GatewayId), "GatewayName" :: Maybe (String), "GatewayTimezone" :: Maybe (GatewayTimezone), "GatewayState" :: Maybe (GatewayState), "GatewayNetworkInterfaces" :: Maybe (GatewayNetworkInterfaces), "GatewayType" :: Maybe (GatewayType), "NextUpdateAvailabilityDate" :: Maybe (NextUpdateAvailabilityDate), "LastSoftwareUpdate" :: Maybe (LastSoftwareUpdate) }
 ```
 
 <p>A JSON object containing the following fields:</p>
@@ -2039,7 +2039,7 @@ Constructs DescribeGatewayInformationOutput from required parameters
 #### `newDescribeGatewayInformationOutput'`
 
 ``` purescript
-newDescribeGatewayInformationOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayId" :: NullOrUndefined (GatewayId), "GatewayName" :: NullOrUndefined (String), "GatewayTimezone" :: NullOrUndefined (GatewayTimezone), "GatewayState" :: NullOrUndefined (GatewayState), "GatewayNetworkInterfaces" :: NullOrUndefined (GatewayNetworkInterfaces), "GatewayType" :: NullOrUndefined (GatewayType), "NextUpdateAvailabilityDate" :: NullOrUndefined (NextUpdateAvailabilityDate), "LastSoftwareUpdate" :: NullOrUndefined (LastSoftwareUpdate) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayId" :: NullOrUndefined (GatewayId), "GatewayName" :: NullOrUndefined (String), "GatewayTimezone" :: NullOrUndefined (GatewayTimezone), "GatewayState" :: NullOrUndefined (GatewayState), "GatewayNetworkInterfaces" :: NullOrUndefined (GatewayNetworkInterfaces), "GatewayType" :: NullOrUndefined (GatewayType), "NextUpdateAvailabilityDate" :: NullOrUndefined (NextUpdateAvailabilityDate), "LastSoftwareUpdate" :: NullOrUndefined (LastSoftwareUpdate) }) -> DescribeGatewayInformationOutput
+newDescribeGatewayInformationOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "GatewayId" :: Maybe (GatewayId), "GatewayName" :: Maybe (String), "GatewayTimezone" :: Maybe (GatewayTimezone), "GatewayState" :: Maybe (GatewayState), "GatewayNetworkInterfaces" :: Maybe (GatewayNetworkInterfaces), "GatewayType" :: Maybe (GatewayType), "NextUpdateAvailabilityDate" :: Maybe (NextUpdateAvailabilityDate), "LastSoftwareUpdate" :: Maybe (LastSoftwareUpdate) } -> { "GatewayARN" :: Maybe (GatewayARN), "GatewayId" :: Maybe (GatewayId), "GatewayName" :: Maybe (String), "GatewayTimezone" :: Maybe (GatewayTimezone), "GatewayState" :: Maybe (GatewayState), "GatewayNetworkInterfaces" :: Maybe (GatewayNetworkInterfaces), "GatewayType" :: Maybe (GatewayType), "NextUpdateAvailabilityDate" :: Maybe (NextUpdateAvailabilityDate), "LastSoftwareUpdate" :: Maybe (LastSoftwareUpdate) }) -> DescribeGatewayInformationOutput
 ```
 
 Constructs DescribeGatewayInformationOutput's fields from required parameters
@@ -2082,7 +2082,7 @@ Constructs DescribeMaintenanceStartTimeInput's fields from required parameters
 
 ``` purescript
 newtype DescribeMaintenanceStartTimeOutput
-  = DescribeMaintenanceStartTimeOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "HourOfDay" :: NullOrUndefined (HourOfDay), "MinuteOfHour" :: NullOrUndefined (MinuteOfHour), "DayOfWeek" :: NullOrUndefined (DayOfWeek), "Timezone" :: NullOrUndefined (GatewayTimezone) }
+  = DescribeMaintenanceStartTimeOutput { "GatewayARN" :: Maybe (GatewayARN), "HourOfDay" :: Maybe (HourOfDay), "MinuteOfHour" :: Maybe (MinuteOfHour), "DayOfWeek" :: Maybe (DayOfWeek), "Timezone" :: Maybe (GatewayTimezone) }
 ```
 
 <p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>DescribeMaintenanceStartTimeOutput$DayOfWeek</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$HourOfDay</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$MinuteOfHour</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$Timezone</a> </p> </li> </ul>
@@ -2107,7 +2107,7 @@ Constructs DescribeMaintenanceStartTimeOutput from required parameters
 #### `newDescribeMaintenanceStartTimeOutput'`
 
 ``` purescript
-newDescribeMaintenanceStartTimeOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "HourOfDay" :: NullOrUndefined (HourOfDay), "MinuteOfHour" :: NullOrUndefined (MinuteOfHour), "DayOfWeek" :: NullOrUndefined (DayOfWeek), "Timezone" :: NullOrUndefined (GatewayTimezone) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "HourOfDay" :: NullOrUndefined (HourOfDay), "MinuteOfHour" :: NullOrUndefined (MinuteOfHour), "DayOfWeek" :: NullOrUndefined (DayOfWeek), "Timezone" :: NullOrUndefined (GatewayTimezone) }) -> DescribeMaintenanceStartTimeOutput
+newDescribeMaintenanceStartTimeOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "HourOfDay" :: Maybe (HourOfDay), "MinuteOfHour" :: Maybe (MinuteOfHour), "DayOfWeek" :: Maybe (DayOfWeek), "Timezone" :: Maybe (GatewayTimezone) } -> { "GatewayARN" :: Maybe (GatewayARN), "HourOfDay" :: Maybe (HourOfDay), "MinuteOfHour" :: Maybe (MinuteOfHour), "DayOfWeek" :: Maybe (DayOfWeek), "Timezone" :: Maybe (GatewayTimezone) }) -> DescribeMaintenanceStartTimeOutput
 ```
 
 Constructs DescribeMaintenanceStartTimeOutput's fields from required parameters
@@ -2150,7 +2150,7 @@ Constructs DescribeNFSFileSharesInput's fields from required parameters
 
 ``` purescript
 newtype DescribeNFSFileSharesOutput
-  = DescribeNFSFileSharesOutput { "NFSFileShareInfoList" :: NullOrUndefined (NFSFileShareInfoList) }
+  = DescribeNFSFileSharesOutput { "NFSFileShareInfoList" :: Maybe (NFSFileShareInfoList) }
 ```
 
 <p>DescribeNFSFileSharesOutput</p>
@@ -2175,7 +2175,7 @@ Constructs DescribeNFSFileSharesOutput from required parameters
 #### `newDescribeNFSFileSharesOutput'`
 
 ``` purescript
-newDescribeNFSFileSharesOutput' :: ({ "NFSFileShareInfoList" :: NullOrUndefined (NFSFileShareInfoList) } -> { "NFSFileShareInfoList" :: NullOrUndefined (NFSFileShareInfoList) }) -> DescribeNFSFileSharesOutput
+newDescribeNFSFileSharesOutput' :: ({ "NFSFileShareInfoList" :: Maybe (NFSFileShareInfoList) } -> { "NFSFileShareInfoList" :: Maybe (NFSFileShareInfoList) }) -> DescribeNFSFileSharesOutput
 ```
 
 Constructs DescribeNFSFileSharesOutput's fields from required parameters
@@ -2218,7 +2218,7 @@ Constructs DescribeSnapshotScheduleInput's fields from required parameters
 
 ``` purescript
 newtype DescribeSnapshotScheduleOutput
-  = DescribeSnapshotScheduleOutput { "VolumeARN" :: NullOrUndefined (VolumeARN), "StartAt" :: NullOrUndefined (HourOfDay), "RecurrenceInHours" :: NullOrUndefined (RecurrenceInHours), "Description" :: NullOrUndefined (Description), "Timezone" :: NullOrUndefined (GatewayTimezone) }
+  = DescribeSnapshotScheduleOutput { "VolumeARN" :: Maybe (VolumeARN), "StartAt" :: Maybe (HourOfDay), "RecurrenceInHours" :: Maybe (RecurrenceInHours), "Description" :: Maybe (Description), "Timezone" :: Maybe (GatewayTimezone) }
 ```
 
 ##### Instances
@@ -2241,7 +2241,7 @@ Constructs DescribeSnapshotScheduleOutput from required parameters
 #### `newDescribeSnapshotScheduleOutput'`
 
 ``` purescript
-newDescribeSnapshotScheduleOutput' :: ({ "VolumeARN" :: NullOrUndefined (VolumeARN), "StartAt" :: NullOrUndefined (HourOfDay), "RecurrenceInHours" :: NullOrUndefined (RecurrenceInHours), "Description" :: NullOrUndefined (Description), "Timezone" :: NullOrUndefined (GatewayTimezone) } -> { "VolumeARN" :: NullOrUndefined (VolumeARN), "StartAt" :: NullOrUndefined (HourOfDay), "RecurrenceInHours" :: NullOrUndefined (RecurrenceInHours), "Description" :: NullOrUndefined (Description), "Timezone" :: NullOrUndefined (GatewayTimezone) }) -> DescribeSnapshotScheduleOutput
+newDescribeSnapshotScheduleOutput' :: ({ "VolumeARN" :: Maybe (VolumeARN), "StartAt" :: Maybe (HourOfDay), "RecurrenceInHours" :: Maybe (RecurrenceInHours), "Description" :: Maybe (Description), "Timezone" :: Maybe (GatewayTimezone) } -> { "VolumeARN" :: Maybe (VolumeARN), "StartAt" :: Maybe (HourOfDay), "RecurrenceInHours" :: Maybe (RecurrenceInHours), "Description" :: Maybe (Description), "Timezone" :: Maybe (GatewayTimezone) }) -> DescribeSnapshotScheduleOutput
 ```
 
 Constructs DescribeSnapshotScheduleOutput's fields from required parameters
@@ -2284,7 +2284,7 @@ Constructs DescribeStorediSCSIVolumesInput's fields from required parameters
 
 ``` purescript
 newtype DescribeStorediSCSIVolumesOutput
-  = DescribeStorediSCSIVolumesOutput { "StorediSCSIVolumes" :: NullOrUndefined (StorediSCSIVolumes) }
+  = DescribeStorediSCSIVolumesOutput { "StorediSCSIVolumes" :: Maybe (StorediSCSIVolumes) }
 ```
 
 ##### Instances
@@ -2307,7 +2307,7 @@ Constructs DescribeStorediSCSIVolumesOutput from required parameters
 #### `newDescribeStorediSCSIVolumesOutput'`
 
 ``` purescript
-newDescribeStorediSCSIVolumesOutput' :: ({ "StorediSCSIVolumes" :: NullOrUndefined (StorediSCSIVolumes) } -> { "StorediSCSIVolumes" :: NullOrUndefined (StorediSCSIVolumes) }) -> DescribeStorediSCSIVolumesOutput
+newDescribeStorediSCSIVolumesOutput' :: ({ "StorediSCSIVolumes" :: Maybe (StorediSCSIVolumes) } -> { "StorediSCSIVolumes" :: Maybe (StorediSCSIVolumes) }) -> DescribeStorediSCSIVolumesOutput
 ```
 
 Constructs DescribeStorediSCSIVolumesOutput's fields from required parameters
@@ -2316,7 +2316,7 @@ Constructs DescribeStorediSCSIVolumesOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeTapeArchivesInput
-  = DescribeTapeArchivesInput { "TapeARNs" :: NullOrUndefined (TapeARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }
+  = DescribeTapeArchivesInput { "TapeARNs" :: Maybe (TapeARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }
 ```
 
 <p>DescribeTapeArchivesInput</p>
@@ -2341,7 +2341,7 @@ Constructs DescribeTapeArchivesInput from required parameters
 #### `newDescribeTapeArchivesInput'`
 
 ``` purescript
-newDescribeTapeArchivesInput' :: ({ "TapeARNs" :: NullOrUndefined (TapeARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) } -> { "TapeARNs" :: NullOrUndefined (TapeARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }) -> DescribeTapeArchivesInput
+newDescribeTapeArchivesInput' :: ({ "TapeARNs" :: Maybe (TapeARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) } -> { "TapeARNs" :: Maybe (TapeARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }) -> DescribeTapeArchivesInput
 ```
 
 Constructs DescribeTapeArchivesInput's fields from required parameters
@@ -2350,7 +2350,7 @@ Constructs DescribeTapeArchivesInput's fields from required parameters
 
 ``` purescript
 newtype DescribeTapeArchivesOutput
-  = DescribeTapeArchivesOutput { "TapeArchives" :: NullOrUndefined (TapeArchives), "Marker" :: NullOrUndefined (Marker) }
+  = DescribeTapeArchivesOutput { "TapeArchives" :: Maybe (TapeArchives), "Marker" :: Maybe (Marker) }
 ```
 
 <p>DescribeTapeArchivesOutput</p>
@@ -2375,7 +2375,7 @@ Constructs DescribeTapeArchivesOutput from required parameters
 #### `newDescribeTapeArchivesOutput'`
 
 ``` purescript
-newDescribeTapeArchivesOutput' :: ({ "TapeArchives" :: NullOrUndefined (TapeArchives), "Marker" :: NullOrUndefined (Marker) } -> { "TapeArchives" :: NullOrUndefined (TapeArchives), "Marker" :: NullOrUndefined (Marker) }) -> DescribeTapeArchivesOutput
+newDescribeTapeArchivesOutput' :: ({ "TapeArchives" :: Maybe (TapeArchives), "Marker" :: Maybe (Marker) } -> { "TapeArchives" :: Maybe (TapeArchives), "Marker" :: Maybe (Marker) }) -> DescribeTapeArchivesOutput
 ```
 
 Constructs DescribeTapeArchivesOutput's fields from required parameters
@@ -2384,7 +2384,7 @@ Constructs DescribeTapeArchivesOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeTapeRecoveryPointsInput
-  = DescribeTapeRecoveryPointsInput { "GatewayARN" :: GatewayARN, "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }
+  = DescribeTapeRecoveryPointsInput { "GatewayARN" :: GatewayARN, "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }
 ```
 
 <p>DescribeTapeRecoveryPointsInput</p>
@@ -2409,7 +2409,7 @@ Constructs DescribeTapeRecoveryPointsInput from required parameters
 #### `newDescribeTapeRecoveryPointsInput'`
 
 ``` purescript
-newDescribeTapeRecoveryPointsInput' :: GatewayARN -> ({ "GatewayARN" :: GatewayARN, "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) } -> { "GatewayARN" :: GatewayARN, "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }) -> DescribeTapeRecoveryPointsInput
+newDescribeTapeRecoveryPointsInput' :: GatewayARN -> ({ "GatewayARN" :: GatewayARN, "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) } -> { "GatewayARN" :: GatewayARN, "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }) -> DescribeTapeRecoveryPointsInput
 ```
 
 Constructs DescribeTapeRecoveryPointsInput's fields from required parameters
@@ -2418,7 +2418,7 @@ Constructs DescribeTapeRecoveryPointsInput's fields from required parameters
 
 ``` purescript
 newtype DescribeTapeRecoveryPointsOutput
-  = DescribeTapeRecoveryPointsOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "TapeRecoveryPointInfos" :: NullOrUndefined (TapeRecoveryPointInfos), "Marker" :: NullOrUndefined (Marker) }
+  = DescribeTapeRecoveryPointsOutput { "GatewayARN" :: Maybe (GatewayARN), "TapeRecoveryPointInfos" :: Maybe (TapeRecoveryPointInfos), "Marker" :: Maybe (Marker) }
 ```
 
 <p>DescribeTapeRecoveryPointsOutput</p>
@@ -2443,7 +2443,7 @@ Constructs DescribeTapeRecoveryPointsOutput from required parameters
 #### `newDescribeTapeRecoveryPointsOutput'`
 
 ``` purescript
-newDescribeTapeRecoveryPointsOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "TapeRecoveryPointInfos" :: NullOrUndefined (TapeRecoveryPointInfos), "Marker" :: NullOrUndefined (Marker) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "TapeRecoveryPointInfos" :: NullOrUndefined (TapeRecoveryPointInfos), "Marker" :: NullOrUndefined (Marker) }) -> DescribeTapeRecoveryPointsOutput
+newDescribeTapeRecoveryPointsOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "TapeRecoveryPointInfos" :: Maybe (TapeRecoveryPointInfos), "Marker" :: Maybe (Marker) } -> { "GatewayARN" :: Maybe (GatewayARN), "TapeRecoveryPointInfos" :: Maybe (TapeRecoveryPointInfos), "Marker" :: Maybe (Marker) }) -> DescribeTapeRecoveryPointsOutput
 ```
 
 Constructs DescribeTapeRecoveryPointsOutput's fields from required parameters
@@ -2452,7 +2452,7 @@ Constructs DescribeTapeRecoveryPointsOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeTapesInput
-  = DescribeTapesInput { "GatewayARN" :: GatewayARN, "TapeARNs" :: NullOrUndefined (TapeARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }
+  = DescribeTapesInput { "GatewayARN" :: GatewayARN, "TapeARNs" :: Maybe (TapeARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }
 ```
 
 <p>DescribeTapesInput</p>
@@ -2477,7 +2477,7 @@ Constructs DescribeTapesInput from required parameters
 #### `newDescribeTapesInput'`
 
 ``` purescript
-newDescribeTapesInput' :: GatewayARN -> ({ "GatewayARN" :: GatewayARN, "TapeARNs" :: NullOrUndefined (TapeARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) } -> { "GatewayARN" :: GatewayARN, "TapeARNs" :: NullOrUndefined (TapeARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }) -> DescribeTapesInput
+newDescribeTapesInput' :: GatewayARN -> ({ "GatewayARN" :: GatewayARN, "TapeARNs" :: Maybe (TapeARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) } -> { "GatewayARN" :: GatewayARN, "TapeARNs" :: Maybe (TapeARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }) -> DescribeTapesInput
 ```
 
 Constructs DescribeTapesInput's fields from required parameters
@@ -2486,7 +2486,7 @@ Constructs DescribeTapesInput's fields from required parameters
 
 ``` purescript
 newtype DescribeTapesOutput
-  = DescribeTapesOutput { "Tapes" :: NullOrUndefined (Tapes), "Marker" :: NullOrUndefined (Marker) }
+  = DescribeTapesOutput { "Tapes" :: Maybe (Tapes), "Marker" :: Maybe (Marker) }
 ```
 
 <p>DescribeTapesOutput</p>
@@ -2511,7 +2511,7 @@ Constructs DescribeTapesOutput from required parameters
 #### `newDescribeTapesOutput'`
 
 ``` purescript
-newDescribeTapesOutput' :: ({ "Tapes" :: NullOrUndefined (Tapes), "Marker" :: NullOrUndefined (Marker) } -> { "Tapes" :: NullOrUndefined (Tapes), "Marker" :: NullOrUndefined (Marker) }) -> DescribeTapesOutput
+newDescribeTapesOutput' :: ({ "Tapes" :: Maybe (Tapes), "Marker" :: Maybe (Marker) } -> { "Tapes" :: Maybe (Tapes), "Marker" :: Maybe (Marker) }) -> DescribeTapesOutput
 ```
 
 Constructs DescribeTapesOutput's fields from required parameters
@@ -2552,7 +2552,7 @@ Constructs DescribeUploadBufferInput's fields from required parameters
 
 ``` purescript
 newtype DescribeUploadBufferOutput
-  = DescribeUploadBufferOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "DiskIds" :: NullOrUndefined (DiskIds), "UploadBufferUsedInBytes" :: NullOrUndefined (Number), "UploadBufferAllocatedInBytes" :: NullOrUndefined (Number) }
+  = DescribeUploadBufferOutput { "GatewayARN" :: Maybe (GatewayARN), "DiskIds" :: Maybe (DiskIds), "UploadBufferUsedInBytes" :: Maybe (Number), "UploadBufferAllocatedInBytes" :: Maybe (Number) }
 ```
 
 ##### Instances
@@ -2575,7 +2575,7 @@ Constructs DescribeUploadBufferOutput from required parameters
 #### `newDescribeUploadBufferOutput'`
 
 ``` purescript
-newDescribeUploadBufferOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "DiskIds" :: NullOrUndefined (DiskIds), "UploadBufferUsedInBytes" :: NullOrUndefined (Number), "UploadBufferAllocatedInBytes" :: NullOrUndefined (Number) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "DiskIds" :: NullOrUndefined (DiskIds), "UploadBufferUsedInBytes" :: NullOrUndefined (Number), "UploadBufferAllocatedInBytes" :: NullOrUndefined (Number) }) -> DescribeUploadBufferOutput
+newDescribeUploadBufferOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "DiskIds" :: Maybe (DiskIds), "UploadBufferUsedInBytes" :: Maybe (Number), "UploadBufferAllocatedInBytes" :: Maybe (Number) } -> { "GatewayARN" :: Maybe (GatewayARN), "DiskIds" :: Maybe (DiskIds), "UploadBufferUsedInBytes" :: Maybe (Number), "UploadBufferAllocatedInBytes" :: Maybe (Number) }) -> DescribeUploadBufferOutput
 ```
 
 Constructs DescribeUploadBufferOutput's fields from required parameters
@@ -2584,7 +2584,7 @@ Constructs DescribeUploadBufferOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeVTLDevicesInput
-  = DescribeVTLDevicesInput { "GatewayARN" :: GatewayARN, "VTLDeviceARNs" :: NullOrUndefined (VTLDeviceARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }
+  = DescribeVTLDevicesInput { "GatewayARN" :: GatewayARN, "VTLDeviceARNs" :: Maybe (VTLDeviceARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }
 ```
 
 <p>DescribeVTLDevicesInput</p>
@@ -2609,7 +2609,7 @@ Constructs DescribeVTLDevicesInput from required parameters
 #### `newDescribeVTLDevicesInput'`
 
 ``` purescript
-newDescribeVTLDevicesInput' :: GatewayARN -> ({ "GatewayARN" :: GatewayARN, "VTLDeviceARNs" :: NullOrUndefined (VTLDeviceARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) } -> { "GatewayARN" :: GatewayARN, "VTLDeviceARNs" :: NullOrUndefined (VTLDeviceARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }) -> DescribeVTLDevicesInput
+newDescribeVTLDevicesInput' :: GatewayARN -> ({ "GatewayARN" :: GatewayARN, "VTLDeviceARNs" :: Maybe (VTLDeviceARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) } -> { "GatewayARN" :: GatewayARN, "VTLDeviceARNs" :: Maybe (VTLDeviceARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }) -> DescribeVTLDevicesInput
 ```
 
 Constructs DescribeVTLDevicesInput's fields from required parameters
@@ -2618,7 +2618,7 @@ Constructs DescribeVTLDevicesInput's fields from required parameters
 
 ``` purescript
 newtype DescribeVTLDevicesOutput
-  = DescribeVTLDevicesOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "VTLDevices" :: NullOrUndefined (VTLDevices), "Marker" :: NullOrUndefined (Marker) }
+  = DescribeVTLDevicesOutput { "GatewayARN" :: Maybe (GatewayARN), "VTLDevices" :: Maybe (VTLDevices), "Marker" :: Maybe (Marker) }
 ```
 
 <p>DescribeVTLDevicesOutput</p>
@@ -2643,7 +2643,7 @@ Constructs DescribeVTLDevicesOutput from required parameters
 #### `newDescribeVTLDevicesOutput'`
 
 ``` purescript
-newDescribeVTLDevicesOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "VTLDevices" :: NullOrUndefined (VTLDevices), "Marker" :: NullOrUndefined (Marker) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "VTLDevices" :: NullOrUndefined (VTLDevices), "Marker" :: NullOrUndefined (Marker) }) -> DescribeVTLDevicesOutput
+newDescribeVTLDevicesOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "VTLDevices" :: Maybe (VTLDevices), "Marker" :: Maybe (Marker) } -> { "GatewayARN" :: Maybe (GatewayARN), "VTLDevices" :: Maybe (VTLDevices), "Marker" :: Maybe (Marker) }) -> DescribeVTLDevicesOutput
 ```
 
 Constructs DescribeVTLDevicesOutput's fields from required parameters
@@ -2686,7 +2686,7 @@ Constructs DescribeWorkingStorageInput's fields from required parameters
 
 ``` purescript
 newtype DescribeWorkingStorageOutput
-  = DescribeWorkingStorageOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "DiskIds" :: NullOrUndefined (DiskIds), "WorkingStorageUsedInBytes" :: NullOrUndefined (Number), "WorkingStorageAllocatedInBytes" :: NullOrUndefined (Number) }
+  = DescribeWorkingStorageOutput { "GatewayARN" :: Maybe (GatewayARN), "DiskIds" :: Maybe (DiskIds), "WorkingStorageUsedInBytes" :: Maybe (Number), "WorkingStorageAllocatedInBytes" :: Maybe (Number) }
 ```
 
 <p>A JSON object containing the following fields:</p>
@@ -2711,7 +2711,7 @@ Constructs DescribeWorkingStorageOutput from required parameters
 #### `newDescribeWorkingStorageOutput'`
 
 ``` purescript
-newDescribeWorkingStorageOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "DiskIds" :: NullOrUndefined (DiskIds), "WorkingStorageUsedInBytes" :: NullOrUndefined (Number), "WorkingStorageAllocatedInBytes" :: NullOrUndefined (Number) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "DiskIds" :: NullOrUndefined (DiskIds), "WorkingStorageUsedInBytes" :: NullOrUndefined (Number), "WorkingStorageAllocatedInBytes" :: NullOrUndefined (Number) }) -> DescribeWorkingStorageOutput
+newDescribeWorkingStorageOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "DiskIds" :: Maybe (DiskIds), "WorkingStorageUsedInBytes" :: Maybe (Number), "WorkingStorageAllocatedInBytes" :: Maybe (Number) } -> { "GatewayARN" :: Maybe (GatewayARN), "DiskIds" :: Maybe (DiskIds), "WorkingStorageUsedInBytes" :: Maybe (Number), "WorkingStorageAllocatedInBytes" :: Maybe (Number) }) -> DescribeWorkingStorageOutput
 ```
 
 Constructs DescribeWorkingStorageOutput's fields from required parameters
@@ -2752,7 +2752,7 @@ Encode DeviceType
 
 ``` purescript
 newtype DeviceiSCSIAttributes
-  = DeviceiSCSIAttributes { "TargetARN" :: NullOrUndefined (TargetARN), "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId), "NetworkInterfacePort" :: NullOrUndefined (Int), "ChapEnabled" :: NullOrUndefined (Boolean) }
+  = DeviceiSCSIAttributes { "TargetARN" :: Maybe (TargetARN), "NetworkInterfaceId" :: Maybe (NetworkInterfaceId), "NetworkInterfacePort" :: Maybe (Int), "ChapEnabled" :: Maybe (Boolean) }
 ```
 
 <p>Lists iSCSI information about a VTL device.</p>
@@ -2777,7 +2777,7 @@ Constructs DeviceiSCSIAttributes from required parameters
 #### `newDeviceiSCSIAttributes'`
 
 ``` purescript
-newDeviceiSCSIAttributes' :: ({ "TargetARN" :: NullOrUndefined (TargetARN), "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId), "NetworkInterfacePort" :: NullOrUndefined (Int), "ChapEnabled" :: NullOrUndefined (Boolean) } -> { "TargetARN" :: NullOrUndefined (TargetARN), "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId), "NetworkInterfacePort" :: NullOrUndefined (Int), "ChapEnabled" :: NullOrUndefined (Boolean) }) -> DeviceiSCSIAttributes
+newDeviceiSCSIAttributes' :: ({ "TargetARN" :: Maybe (TargetARN), "NetworkInterfaceId" :: Maybe (NetworkInterfaceId), "NetworkInterfacePort" :: Maybe (Int), "ChapEnabled" :: Maybe (Boolean) } -> { "TargetARN" :: Maybe (TargetARN), "NetworkInterfaceId" :: Maybe (NetworkInterfaceId), "NetworkInterfacePort" :: Maybe (Int), "ChapEnabled" :: Maybe (Boolean) }) -> DeviceiSCSIAttributes
 ```
 
 Constructs DeviceiSCSIAttributes's fields from required parameters
@@ -2820,7 +2820,7 @@ Constructs DisableGatewayInput's fields from required parameters
 
 ``` purescript
 newtype DisableGatewayOutput
-  = DisableGatewayOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = DisableGatewayOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>DisableGatewayOutput</p>
@@ -2845,7 +2845,7 @@ Constructs DisableGatewayOutput from required parameters
 #### `newDisableGatewayOutput'`
 
 ``` purescript
-newDisableGatewayOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> DisableGatewayOutput
+newDisableGatewayOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> DisableGatewayOutput
 ```
 
 Constructs DisableGatewayOutput's fields from required parameters
@@ -2854,7 +2854,7 @@ Constructs DisableGatewayOutput's fields from required parameters
 
 ``` purescript
 newtype Disk
-  = Disk { "DiskId" :: NullOrUndefined (DiskId), "DiskPath" :: NullOrUndefined (String), "DiskNode" :: NullOrUndefined (String), "DiskStatus" :: NullOrUndefined (String), "DiskSizeInBytes" :: NullOrUndefined (Number), "DiskAllocationType" :: NullOrUndefined (DiskAllocationType), "DiskAllocationResource" :: NullOrUndefined (String) }
+  = Disk { "DiskId" :: Maybe (DiskId), "DiskPath" :: Maybe (String), "DiskNode" :: Maybe (String), "DiskStatus" :: Maybe (String), "DiskSizeInBytes" :: Maybe (Number), "DiskAllocationType" :: Maybe (DiskAllocationType), "DiskAllocationResource" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2877,7 +2877,7 @@ Constructs Disk from required parameters
 #### `newDisk'`
 
 ``` purescript
-newDisk' :: ({ "DiskId" :: NullOrUndefined (DiskId), "DiskPath" :: NullOrUndefined (String), "DiskNode" :: NullOrUndefined (String), "DiskStatus" :: NullOrUndefined (String), "DiskSizeInBytes" :: NullOrUndefined (Number), "DiskAllocationType" :: NullOrUndefined (DiskAllocationType), "DiskAllocationResource" :: NullOrUndefined (String) } -> { "DiskId" :: NullOrUndefined (DiskId), "DiskPath" :: NullOrUndefined (String), "DiskNode" :: NullOrUndefined (String), "DiskStatus" :: NullOrUndefined (String), "DiskSizeInBytes" :: NullOrUndefined (Number), "DiskAllocationType" :: NullOrUndefined (DiskAllocationType), "DiskAllocationResource" :: NullOrUndefined (String) }) -> Disk
+newDisk' :: ({ "DiskId" :: Maybe (DiskId), "DiskPath" :: Maybe (String), "DiskNode" :: Maybe (String), "DiskStatus" :: Maybe (String), "DiskSizeInBytes" :: Maybe (Number), "DiskAllocationType" :: Maybe (DiskAllocationType), "DiskAllocationResource" :: Maybe (String) } -> { "DiskId" :: Maybe (DiskId), "DiskPath" :: Maybe (String), "DiskNode" :: Maybe (String), "DiskStatus" :: Maybe (String), "DiskSizeInBytes" :: Maybe (Number), "DiskAllocationType" :: Maybe (DiskAllocationType), "DiskAllocationResource" :: Maybe (String) }) -> Disk
 ```
 
 Constructs Disk's fields from required parameters
@@ -3052,7 +3052,7 @@ Encode FileShareId
 
 ``` purescript
 newtype FileShareInfo
-  = FileShareInfo { "FileShareARN" :: NullOrUndefined (FileShareARN), "FileShareId" :: NullOrUndefined (FileShareId), "FileShareStatus" :: NullOrUndefined (FileShareStatus), "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = FileShareInfo { "FileShareARN" :: Maybe (FileShareARN), "FileShareId" :: Maybe (FileShareId), "FileShareStatus" :: Maybe (FileShareStatus), "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>Describes a file share.</p>
@@ -3077,7 +3077,7 @@ Constructs FileShareInfo from required parameters
 #### `newFileShareInfo'`
 
 ``` purescript
-newFileShareInfo' :: ({ "FileShareARN" :: NullOrUndefined (FileShareARN), "FileShareId" :: NullOrUndefined (FileShareId), "FileShareStatus" :: NullOrUndefined (FileShareStatus), "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "FileShareARN" :: NullOrUndefined (FileShareARN), "FileShareId" :: NullOrUndefined (FileShareId), "FileShareStatus" :: NullOrUndefined (FileShareStatus), "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> FileShareInfo
+newFileShareInfo' :: ({ "FileShareARN" :: Maybe (FileShareARN), "FileShareId" :: Maybe (FileShareId), "FileShareStatus" :: Maybe (FileShareStatus), "GatewayARN" :: Maybe (GatewayARN) } -> { "FileShareARN" :: Maybe (FileShareARN), "FileShareId" :: Maybe (FileShareId), "FileShareStatus" :: Maybe (FileShareStatus), "GatewayARN" :: Maybe (GatewayARN) }) -> FileShareInfo
 ```
 
 Constructs FileShareInfo's fields from required parameters
@@ -3154,7 +3154,7 @@ Encode GatewayId
 
 ``` purescript
 newtype GatewayInfo
-  = GatewayInfo { "GatewayId" :: NullOrUndefined (GatewayId), "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayType" :: NullOrUndefined (GatewayType), "GatewayOperationalState" :: NullOrUndefined (GatewayOperationalState), "GatewayName" :: NullOrUndefined (String) }
+  = GatewayInfo { "GatewayId" :: Maybe (GatewayId), "GatewayARN" :: Maybe (GatewayARN), "GatewayType" :: Maybe (GatewayType), "GatewayOperationalState" :: Maybe (GatewayOperationalState), "GatewayName" :: Maybe (String) }
 ```
 
 <p>Describes a gateway object.</p>
@@ -3179,7 +3179,7 @@ Constructs GatewayInfo from required parameters
 #### `newGatewayInfo'`
 
 ``` purescript
-newGatewayInfo' :: ({ "GatewayId" :: NullOrUndefined (GatewayId), "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayType" :: NullOrUndefined (GatewayType), "GatewayOperationalState" :: NullOrUndefined (GatewayOperationalState), "GatewayName" :: NullOrUndefined (String) } -> { "GatewayId" :: NullOrUndefined (GatewayId), "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayType" :: NullOrUndefined (GatewayType), "GatewayOperationalState" :: NullOrUndefined (GatewayOperationalState), "GatewayName" :: NullOrUndefined (String) }) -> GatewayInfo
+newGatewayInfo' :: ({ "GatewayId" :: Maybe (GatewayId), "GatewayARN" :: Maybe (GatewayARN), "GatewayType" :: Maybe (GatewayType), "GatewayOperationalState" :: Maybe (GatewayOperationalState), "GatewayName" :: Maybe (String) } -> { "GatewayId" :: Maybe (GatewayId), "GatewayARN" :: Maybe (GatewayARN), "GatewayType" :: Maybe (GatewayType), "GatewayOperationalState" :: Maybe (GatewayOperationalState), "GatewayName" :: Maybe (String) }) -> GatewayInfo
 ```
 
 Constructs GatewayInfo's fields from required parameters
@@ -3366,7 +3366,7 @@ Encode Initiators
 
 ``` purescript
 newtype InternalServerError
-  = InternalServerError { message :: NullOrUndefined (String), error :: NullOrUndefined (StorageGatewayError) }
+  = InternalServerError { message :: Maybe (String), error :: Maybe (StorageGatewayError) }
 ```
 
 <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
@@ -3391,7 +3391,7 @@ Constructs InternalServerError from required parameters
 #### `newInternalServerError'`
 
 ``` purescript
-newInternalServerError' :: ({ message :: NullOrUndefined (String), error :: NullOrUndefined (StorageGatewayError) } -> { message :: NullOrUndefined (String), error :: NullOrUndefined (StorageGatewayError) }) -> InternalServerError
+newInternalServerError' :: ({ message :: Maybe (String), error :: Maybe (StorageGatewayError) } -> { message :: Maybe (String), error :: Maybe (StorageGatewayError) }) -> InternalServerError
 ```
 
 Constructs InternalServerError's fields from required parameters
@@ -3400,7 +3400,7 @@ Constructs InternalServerError's fields from required parameters
 
 ``` purescript
 newtype InvalidGatewayRequestException
-  = InvalidGatewayRequestException { message :: NullOrUndefined (String), error :: NullOrUndefined (StorageGatewayError) }
+  = InvalidGatewayRequestException { message :: Maybe (String), error :: Maybe (StorageGatewayError) }
 ```
 
 <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
@@ -3425,7 +3425,7 @@ Constructs InvalidGatewayRequestException from required parameters
 #### `newInvalidGatewayRequestException'`
 
 ``` purescript
-newInvalidGatewayRequestException' :: ({ message :: NullOrUndefined (String), error :: NullOrUndefined (StorageGatewayError) } -> { message :: NullOrUndefined (String), error :: NullOrUndefined (StorageGatewayError) }) -> InvalidGatewayRequestException
+newInvalidGatewayRequestException' :: ({ message :: Maybe (String), error :: Maybe (StorageGatewayError) } -> { message :: Maybe (String), error :: Maybe (StorageGatewayError) }) -> InvalidGatewayRequestException
 ```
 
 Constructs InvalidGatewayRequestException's fields from required parameters
@@ -3484,7 +3484,7 @@ Encode LastSoftwareUpdate
 
 ``` purescript
 newtype ListFileSharesInput
-  = ListFileSharesInput { "GatewayARN" :: NullOrUndefined (GatewayARN), "Limit" :: NullOrUndefined (PositiveIntObject), "Marker" :: NullOrUndefined (Marker) }
+  = ListFileSharesInput { "GatewayARN" :: Maybe (GatewayARN), "Limit" :: Maybe (PositiveIntObject), "Marker" :: Maybe (Marker) }
 ```
 
 <p>ListFileShareInput</p>
@@ -3509,7 +3509,7 @@ Constructs ListFileSharesInput from required parameters
 #### `newListFileSharesInput'`
 
 ``` purescript
-newListFileSharesInput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "Limit" :: NullOrUndefined (PositiveIntObject), "Marker" :: NullOrUndefined (Marker) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "Limit" :: NullOrUndefined (PositiveIntObject), "Marker" :: NullOrUndefined (Marker) }) -> ListFileSharesInput
+newListFileSharesInput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "Limit" :: Maybe (PositiveIntObject), "Marker" :: Maybe (Marker) } -> { "GatewayARN" :: Maybe (GatewayARN), "Limit" :: Maybe (PositiveIntObject), "Marker" :: Maybe (Marker) }) -> ListFileSharesInput
 ```
 
 Constructs ListFileSharesInput's fields from required parameters
@@ -3518,7 +3518,7 @@ Constructs ListFileSharesInput's fields from required parameters
 
 ``` purescript
 newtype ListFileSharesOutput
-  = ListFileSharesOutput { "Marker" :: NullOrUndefined (Marker), "NextMarker" :: NullOrUndefined (Marker), "FileShareInfoList" :: NullOrUndefined (FileShareInfoList) }
+  = ListFileSharesOutput { "Marker" :: Maybe (Marker), "NextMarker" :: Maybe (Marker), "FileShareInfoList" :: Maybe (FileShareInfoList) }
 ```
 
 <p>ListFileShareOutput</p>
@@ -3543,7 +3543,7 @@ Constructs ListFileSharesOutput from required parameters
 #### `newListFileSharesOutput'`
 
 ``` purescript
-newListFileSharesOutput' :: ({ "Marker" :: NullOrUndefined (Marker), "NextMarker" :: NullOrUndefined (Marker), "FileShareInfoList" :: NullOrUndefined (FileShareInfoList) } -> { "Marker" :: NullOrUndefined (Marker), "NextMarker" :: NullOrUndefined (Marker), "FileShareInfoList" :: NullOrUndefined (FileShareInfoList) }) -> ListFileSharesOutput
+newListFileSharesOutput' :: ({ "Marker" :: Maybe (Marker), "NextMarker" :: Maybe (Marker), "FileShareInfoList" :: Maybe (FileShareInfoList) } -> { "Marker" :: Maybe (Marker), "NextMarker" :: Maybe (Marker), "FileShareInfoList" :: Maybe (FileShareInfoList) }) -> ListFileSharesOutput
 ```
 
 Constructs ListFileSharesOutput's fields from required parameters
@@ -3552,7 +3552,7 @@ Constructs ListFileSharesOutput's fields from required parameters
 
 ``` purescript
 newtype ListGatewaysInput
-  = ListGatewaysInput { "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }
+  = ListGatewaysInput { "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }
 ```
 
 <p>A JSON object containing zero or more of the following fields:</p> <ul> <li> <p> <a>ListGatewaysInput$Limit</a> </p> </li> <li> <p> <a>ListGatewaysInput$Marker</a> </p> </li> </ul>
@@ -3577,7 +3577,7 @@ Constructs ListGatewaysInput from required parameters
 #### `newListGatewaysInput'`
 
 ``` purescript
-newListGatewaysInput' :: ({ "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) } -> { "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }) -> ListGatewaysInput
+newListGatewaysInput' :: ({ "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) } -> { "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }) -> ListGatewaysInput
 ```
 
 Constructs ListGatewaysInput's fields from required parameters
@@ -3586,7 +3586,7 @@ Constructs ListGatewaysInput's fields from required parameters
 
 ``` purescript
 newtype ListGatewaysOutput
-  = ListGatewaysOutput { "Gateways" :: NullOrUndefined (Gateways), "Marker" :: NullOrUndefined (Marker) }
+  = ListGatewaysOutput { "Gateways" :: Maybe (Gateways), "Marker" :: Maybe (Marker) }
 ```
 
 ##### Instances
@@ -3609,7 +3609,7 @@ Constructs ListGatewaysOutput from required parameters
 #### `newListGatewaysOutput'`
 
 ``` purescript
-newListGatewaysOutput' :: ({ "Gateways" :: NullOrUndefined (Gateways), "Marker" :: NullOrUndefined (Marker) } -> { "Gateways" :: NullOrUndefined (Gateways), "Marker" :: NullOrUndefined (Marker) }) -> ListGatewaysOutput
+newListGatewaysOutput' :: ({ "Gateways" :: Maybe (Gateways), "Marker" :: Maybe (Marker) } -> { "Gateways" :: Maybe (Gateways), "Marker" :: Maybe (Marker) }) -> ListGatewaysOutput
 ```
 
 Constructs ListGatewaysOutput's fields from required parameters
@@ -3652,7 +3652,7 @@ Constructs ListLocalDisksInput's fields from required parameters
 
 ``` purescript
 newtype ListLocalDisksOutput
-  = ListLocalDisksOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "Disks" :: NullOrUndefined (Disks) }
+  = ListLocalDisksOutput { "GatewayARN" :: Maybe (GatewayARN), "Disks" :: Maybe (Disks) }
 ```
 
 ##### Instances
@@ -3675,7 +3675,7 @@ Constructs ListLocalDisksOutput from required parameters
 #### `newListLocalDisksOutput'`
 
 ``` purescript
-newListLocalDisksOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "Disks" :: NullOrUndefined (Disks) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "Disks" :: NullOrUndefined (Disks) }) -> ListLocalDisksOutput
+newListLocalDisksOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "Disks" :: Maybe (Disks) } -> { "GatewayARN" :: Maybe (GatewayARN), "Disks" :: Maybe (Disks) }) -> ListLocalDisksOutput
 ```
 
 Constructs ListLocalDisksOutput's fields from required parameters
@@ -3684,7 +3684,7 @@ Constructs ListLocalDisksOutput's fields from required parameters
 
 ``` purescript
 newtype ListTagsForResourceInput
-  = ListTagsForResourceInput { "ResourceARN" :: ResourceARN, "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }
+  = ListTagsForResourceInput { "ResourceARN" :: ResourceARN, "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }
 ```
 
 <p>ListTagsForResourceInput</p>
@@ -3709,7 +3709,7 @@ Constructs ListTagsForResourceInput from required parameters
 #### `newListTagsForResourceInput'`
 
 ``` purescript
-newListTagsForResourceInput' :: ResourceARN -> ({ "ResourceARN" :: ResourceARN, "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) } -> { "ResourceARN" :: ResourceARN, "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }) -> ListTagsForResourceInput
+newListTagsForResourceInput' :: ResourceARN -> ({ "ResourceARN" :: ResourceARN, "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) } -> { "ResourceARN" :: ResourceARN, "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }) -> ListTagsForResourceInput
 ```
 
 Constructs ListTagsForResourceInput's fields from required parameters
@@ -3718,7 +3718,7 @@ Constructs ListTagsForResourceInput's fields from required parameters
 
 ``` purescript
 newtype ListTagsForResourceOutput
-  = ListTagsForResourceOutput { "ResourceARN" :: NullOrUndefined (ResourceARN), "Marker" :: NullOrUndefined (Marker), "Tags" :: NullOrUndefined (Tags) }
+  = ListTagsForResourceOutput { "ResourceARN" :: Maybe (ResourceARN), "Marker" :: Maybe (Marker), "Tags" :: Maybe (Tags) }
 ```
 
 <p>ListTagsForResourceOutput</p>
@@ -3743,7 +3743,7 @@ Constructs ListTagsForResourceOutput from required parameters
 #### `newListTagsForResourceOutput'`
 
 ``` purescript
-newListTagsForResourceOutput' :: ({ "ResourceARN" :: NullOrUndefined (ResourceARN), "Marker" :: NullOrUndefined (Marker), "Tags" :: NullOrUndefined (Tags) } -> { "ResourceARN" :: NullOrUndefined (ResourceARN), "Marker" :: NullOrUndefined (Marker), "Tags" :: NullOrUndefined (Tags) }) -> ListTagsForResourceOutput
+newListTagsForResourceOutput' :: ({ "ResourceARN" :: Maybe (ResourceARN), "Marker" :: Maybe (Marker), "Tags" :: Maybe (Tags) } -> { "ResourceARN" :: Maybe (ResourceARN), "Marker" :: Maybe (Marker), "Tags" :: Maybe (Tags) }) -> ListTagsForResourceOutput
 ```
 
 Constructs ListTagsForResourceOutput's fields from required parameters
@@ -3752,7 +3752,7 @@ Constructs ListTagsForResourceOutput's fields from required parameters
 
 ``` purescript
 newtype ListTapesInput
-  = ListTapesInput { "TapeARNs" :: NullOrUndefined (TapeARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }
+  = ListTapesInput { "TapeARNs" :: Maybe (TapeARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }
 ```
 
 <p>A JSON object that contains one or more of the following fields:</p> <ul> <li> <p> <a>ListTapesInput$Limit</a> </p> </li> <li> <p> <a>ListTapesInput$Marker</a> </p> </li> <li> <p> <a>ListTapesInput$TapeARNs</a> </p> </li> </ul>
@@ -3777,7 +3777,7 @@ Constructs ListTapesInput from required parameters
 #### `newListTapesInput'`
 
 ``` purescript
-newListTapesInput' :: ({ "TapeARNs" :: NullOrUndefined (TapeARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) } -> { "TapeARNs" :: NullOrUndefined (TapeARNs), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }) -> ListTapesInput
+newListTapesInput' :: ({ "TapeARNs" :: Maybe (TapeARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) } -> { "TapeARNs" :: Maybe (TapeARNs), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }) -> ListTapesInput
 ```
 
 Constructs ListTapesInput's fields from required parameters
@@ -3786,7 +3786,7 @@ Constructs ListTapesInput's fields from required parameters
 
 ``` purescript
 newtype ListTapesOutput
-  = ListTapesOutput { "TapeInfos" :: NullOrUndefined (TapeInfos), "Marker" :: NullOrUndefined (Marker) }
+  = ListTapesOutput { "TapeInfos" :: Maybe (TapeInfos), "Marker" :: Maybe (Marker) }
 ```
 
 <p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>ListTapesOutput$Marker</a> </p> </li> <li> <p> <a>ListTapesOutput$VolumeInfos</a> </p> </li> </ul>
@@ -3811,7 +3811,7 @@ Constructs ListTapesOutput from required parameters
 #### `newListTapesOutput'`
 
 ``` purescript
-newListTapesOutput' :: ({ "TapeInfos" :: NullOrUndefined (TapeInfos), "Marker" :: NullOrUndefined (Marker) } -> { "TapeInfos" :: NullOrUndefined (TapeInfos), "Marker" :: NullOrUndefined (Marker) }) -> ListTapesOutput
+newListTapesOutput' :: ({ "TapeInfos" :: Maybe (TapeInfos), "Marker" :: Maybe (Marker) } -> { "TapeInfos" :: Maybe (TapeInfos), "Marker" :: Maybe (Marker) }) -> ListTapesOutput
 ```
 
 Constructs ListTapesOutput's fields from required parameters
@@ -3854,7 +3854,7 @@ Constructs ListVolumeInitiatorsInput's fields from required parameters
 
 ``` purescript
 newtype ListVolumeInitiatorsOutput
-  = ListVolumeInitiatorsOutput { "Initiators" :: NullOrUndefined (Initiators) }
+  = ListVolumeInitiatorsOutput { "Initiators" :: Maybe (Initiators) }
 ```
 
 <p>ListVolumeInitiatorsOutput</p>
@@ -3879,7 +3879,7 @@ Constructs ListVolumeInitiatorsOutput from required parameters
 #### `newListVolumeInitiatorsOutput'`
 
 ``` purescript
-newListVolumeInitiatorsOutput' :: ({ "Initiators" :: NullOrUndefined (Initiators) } -> { "Initiators" :: NullOrUndefined (Initiators) }) -> ListVolumeInitiatorsOutput
+newListVolumeInitiatorsOutput' :: ({ "Initiators" :: Maybe (Initiators) } -> { "Initiators" :: Maybe (Initiators) }) -> ListVolumeInitiatorsOutput
 ```
 
 Constructs ListVolumeInitiatorsOutput's fields from required parameters
@@ -3920,7 +3920,7 @@ Constructs ListVolumeRecoveryPointsInput's fields from required parameters
 
 ``` purescript
 newtype ListVolumeRecoveryPointsOutput
-  = ListVolumeRecoveryPointsOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "VolumeRecoveryPointInfos" :: NullOrUndefined (VolumeRecoveryPointInfos) }
+  = ListVolumeRecoveryPointsOutput { "GatewayARN" :: Maybe (GatewayARN), "VolumeRecoveryPointInfos" :: Maybe (VolumeRecoveryPointInfos) }
 ```
 
 ##### Instances
@@ -3943,7 +3943,7 @@ Constructs ListVolumeRecoveryPointsOutput from required parameters
 #### `newListVolumeRecoveryPointsOutput'`
 
 ``` purescript
-newListVolumeRecoveryPointsOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "VolumeRecoveryPointInfos" :: NullOrUndefined (VolumeRecoveryPointInfos) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "VolumeRecoveryPointInfos" :: NullOrUndefined (VolumeRecoveryPointInfos) }) -> ListVolumeRecoveryPointsOutput
+newListVolumeRecoveryPointsOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "VolumeRecoveryPointInfos" :: Maybe (VolumeRecoveryPointInfos) } -> { "GatewayARN" :: Maybe (GatewayARN), "VolumeRecoveryPointInfos" :: Maybe (VolumeRecoveryPointInfos) }) -> ListVolumeRecoveryPointsOutput
 ```
 
 Constructs ListVolumeRecoveryPointsOutput's fields from required parameters
@@ -3952,7 +3952,7 @@ Constructs ListVolumeRecoveryPointsOutput's fields from required parameters
 
 ``` purescript
 newtype ListVolumesInput
-  = ListVolumesInput { "GatewayARN" :: NullOrUndefined (GatewayARN), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }
+  = ListVolumesInput { "GatewayARN" :: Maybe (GatewayARN), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }
 ```
 
 <p>A JSON object that contains one or more of the following fields:</p> <ul> <li> <p> <a>ListVolumesInput$Limit</a> </p> </li> <li> <p> <a>ListVolumesInput$Marker</a> </p> </li> </ul>
@@ -3977,7 +3977,7 @@ Constructs ListVolumesInput from required parameters
 #### `newListVolumesInput'`
 
 ``` purescript
-newListVolumesInput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "Marker" :: NullOrUndefined (Marker), "Limit" :: NullOrUndefined (PositiveIntObject) }) -> ListVolumesInput
+newListVolumesInput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) } -> { "GatewayARN" :: Maybe (GatewayARN), "Marker" :: Maybe (Marker), "Limit" :: Maybe (PositiveIntObject) }) -> ListVolumesInput
 ```
 
 Constructs ListVolumesInput's fields from required parameters
@@ -3986,7 +3986,7 @@ Constructs ListVolumesInput's fields from required parameters
 
 ``` purescript
 newtype ListVolumesOutput
-  = ListVolumesOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "Marker" :: NullOrUndefined (Marker), "VolumeInfos" :: NullOrUndefined (VolumeInfos) }
+  = ListVolumesOutput { "GatewayARN" :: Maybe (GatewayARN), "Marker" :: Maybe (Marker), "VolumeInfos" :: Maybe (VolumeInfos) }
 ```
 
 ##### Instances
@@ -4009,7 +4009,7 @@ Constructs ListVolumesOutput from required parameters
 #### `newListVolumesOutput'`
 
 ``` purescript
-newListVolumesOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "Marker" :: NullOrUndefined (Marker), "VolumeInfos" :: NullOrUndefined (VolumeInfos) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "Marker" :: NullOrUndefined (Marker), "VolumeInfos" :: NullOrUndefined (VolumeInfos) }) -> ListVolumesOutput
+newListVolumesOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "Marker" :: Maybe (Marker), "VolumeInfos" :: Maybe (VolumeInfos) } -> { "GatewayARN" :: Maybe (GatewayARN), "Marker" :: Maybe (Marker), "VolumeInfos" :: Maybe (VolumeInfos) }) -> ListVolumesOutput
 ```
 
 Constructs ListVolumesOutput's fields from required parameters
@@ -4100,7 +4100,7 @@ Encode MinuteOfHour
 
 ``` purescript
 newtype NFSFileShareDefaults
-  = NFSFileShareDefaults { "FileMode" :: NullOrUndefined (PermissionMode), "DirectoryMode" :: NullOrUndefined (PermissionMode), "GroupId" :: NullOrUndefined (PermissionId), "OwnerId" :: NullOrUndefined (PermissionId) }
+  = NFSFileShareDefaults { "FileMode" :: Maybe (PermissionMode), "DirectoryMode" :: Maybe (PermissionMode), "GroupId" :: Maybe (PermissionId), "OwnerId" :: Maybe (PermissionId) }
 ```
 
 <p>Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in the file gateway type.</p>
@@ -4125,7 +4125,7 @@ Constructs NFSFileShareDefaults from required parameters
 #### `newNFSFileShareDefaults'`
 
 ``` purescript
-newNFSFileShareDefaults' :: ({ "FileMode" :: NullOrUndefined (PermissionMode), "DirectoryMode" :: NullOrUndefined (PermissionMode), "GroupId" :: NullOrUndefined (PermissionId), "OwnerId" :: NullOrUndefined (PermissionId) } -> { "FileMode" :: NullOrUndefined (PermissionMode), "DirectoryMode" :: NullOrUndefined (PermissionMode), "GroupId" :: NullOrUndefined (PermissionId), "OwnerId" :: NullOrUndefined (PermissionId) }) -> NFSFileShareDefaults
+newNFSFileShareDefaults' :: ({ "FileMode" :: Maybe (PermissionMode), "DirectoryMode" :: Maybe (PermissionMode), "GroupId" :: Maybe (PermissionId), "OwnerId" :: Maybe (PermissionId) } -> { "FileMode" :: Maybe (PermissionMode), "DirectoryMode" :: Maybe (PermissionMode), "GroupId" :: Maybe (PermissionId), "OwnerId" :: Maybe (PermissionId) }) -> NFSFileShareDefaults
 ```
 
 Constructs NFSFileShareDefaults's fields from required parameters
@@ -4134,7 +4134,7 @@ Constructs NFSFileShareDefaults's fields from required parameters
 
 ``` purescript
 newtype NFSFileShareInfo
-  = NFSFileShareInfo { "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults), "FileShareARN" :: NullOrUndefined (FileShareARN), "FileShareId" :: NullOrUndefined (FileShareId), "FileShareStatus" :: NullOrUndefined (FileShareStatus), "GatewayARN" :: NullOrUndefined (GatewayARN), "KMSEncrypted" :: NullOrUndefined (Boolean), "KMSKey" :: NullOrUndefined (KMSKey), "Path" :: NullOrUndefined (Path), "Role" :: NullOrUndefined (Role), "LocationARN" :: NullOrUndefined (LocationARN), "DefaultStorageClass" :: NullOrUndefined (StorageClass), "ObjectACL" :: NullOrUndefined (ObjectACL), "ClientList" :: NullOrUndefined (FileShareClientList), "Squash" :: NullOrUndefined (Squash), "ReadOnly" :: NullOrUndefined (Boolean), "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean), "RequesterPays" :: NullOrUndefined (Boolean) }
+  = NFSFileShareInfo { "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults), "FileShareARN" :: Maybe (FileShareARN), "FileShareId" :: Maybe (FileShareId), "FileShareStatus" :: Maybe (FileShareStatus), "GatewayARN" :: Maybe (GatewayARN), "KMSEncrypted" :: Maybe (Boolean), "KMSKey" :: Maybe (KMSKey), "Path" :: Maybe (Path), "Role" :: Maybe (Role), "LocationARN" :: Maybe (LocationARN), "DefaultStorageClass" :: Maybe (StorageClass), "ObjectACL" :: Maybe (ObjectACL), "ClientList" :: Maybe (FileShareClientList), "Squash" :: Maybe (Squash), "ReadOnly" :: Maybe (Boolean), "GuessMIMETypeEnabled" :: Maybe (Boolean), "RequesterPays" :: Maybe (Boolean) }
 ```
 
 <p>The Unix file permissions and ownership information assigned, by default, to native S3 objects when file gateway discovers them in S3 buckets. This operation is only supported in file gateways.</p>
@@ -4159,7 +4159,7 @@ Constructs NFSFileShareInfo from required parameters
 #### `newNFSFileShareInfo'`
 
 ``` purescript
-newNFSFileShareInfo' :: ({ "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults), "FileShareARN" :: NullOrUndefined (FileShareARN), "FileShareId" :: NullOrUndefined (FileShareId), "FileShareStatus" :: NullOrUndefined (FileShareStatus), "GatewayARN" :: NullOrUndefined (GatewayARN), "KMSEncrypted" :: NullOrUndefined (Boolean), "KMSKey" :: NullOrUndefined (KMSKey), "Path" :: NullOrUndefined (Path), "Role" :: NullOrUndefined (Role), "LocationARN" :: NullOrUndefined (LocationARN), "DefaultStorageClass" :: NullOrUndefined (StorageClass), "ObjectACL" :: NullOrUndefined (ObjectACL), "ClientList" :: NullOrUndefined (FileShareClientList), "Squash" :: NullOrUndefined (Squash), "ReadOnly" :: NullOrUndefined (Boolean), "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean), "RequesterPays" :: NullOrUndefined (Boolean) } -> { "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults), "FileShareARN" :: NullOrUndefined (FileShareARN), "FileShareId" :: NullOrUndefined (FileShareId), "FileShareStatus" :: NullOrUndefined (FileShareStatus), "GatewayARN" :: NullOrUndefined (GatewayARN), "KMSEncrypted" :: NullOrUndefined (Boolean), "KMSKey" :: NullOrUndefined (KMSKey), "Path" :: NullOrUndefined (Path), "Role" :: NullOrUndefined (Role), "LocationARN" :: NullOrUndefined (LocationARN), "DefaultStorageClass" :: NullOrUndefined (StorageClass), "ObjectACL" :: NullOrUndefined (ObjectACL), "ClientList" :: NullOrUndefined (FileShareClientList), "Squash" :: NullOrUndefined (Squash), "ReadOnly" :: NullOrUndefined (Boolean), "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean), "RequesterPays" :: NullOrUndefined (Boolean) }) -> NFSFileShareInfo
+newNFSFileShareInfo' :: ({ "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults), "FileShareARN" :: Maybe (FileShareARN), "FileShareId" :: Maybe (FileShareId), "FileShareStatus" :: Maybe (FileShareStatus), "GatewayARN" :: Maybe (GatewayARN), "KMSEncrypted" :: Maybe (Boolean), "KMSKey" :: Maybe (KMSKey), "Path" :: Maybe (Path), "Role" :: Maybe (Role), "LocationARN" :: Maybe (LocationARN), "DefaultStorageClass" :: Maybe (StorageClass), "ObjectACL" :: Maybe (ObjectACL), "ClientList" :: Maybe (FileShareClientList), "Squash" :: Maybe (Squash), "ReadOnly" :: Maybe (Boolean), "GuessMIMETypeEnabled" :: Maybe (Boolean), "RequesterPays" :: Maybe (Boolean) } -> { "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults), "FileShareARN" :: Maybe (FileShareARN), "FileShareId" :: Maybe (FileShareId), "FileShareStatus" :: Maybe (FileShareStatus), "GatewayARN" :: Maybe (GatewayARN), "KMSEncrypted" :: Maybe (Boolean), "KMSKey" :: Maybe (KMSKey), "Path" :: Maybe (Path), "Role" :: Maybe (Role), "LocationARN" :: Maybe (LocationARN), "DefaultStorageClass" :: Maybe (StorageClass), "ObjectACL" :: Maybe (ObjectACL), "ClientList" :: Maybe (FileShareClientList), "Squash" :: Maybe (Squash), "ReadOnly" :: Maybe (Boolean), "GuessMIMETypeEnabled" :: Maybe (Boolean), "RequesterPays" :: Maybe (Boolean) }) -> NFSFileShareInfo
 ```
 
 Constructs NFSFileShareInfo's fields from required parameters
@@ -4184,7 +4184,7 @@ Encode NFSFileShareInfoList
 
 ``` purescript
 newtype NetworkInterface
-  = NetworkInterface { "Ipv4Address" :: NullOrUndefined (String), "MacAddress" :: NullOrUndefined (String), "Ipv6Address" :: NullOrUndefined (String) }
+  = NetworkInterface { "Ipv4Address" :: Maybe (String), "MacAddress" :: Maybe (String), "Ipv6Address" :: Maybe (String) }
 ```
 
 <p>Describes a gateway's network interface.</p>
@@ -4209,7 +4209,7 @@ Constructs NetworkInterface from required parameters
 #### `newNetworkInterface'`
 
 ``` purescript
-newNetworkInterface' :: ({ "Ipv4Address" :: NullOrUndefined (String), "MacAddress" :: NullOrUndefined (String), "Ipv6Address" :: NullOrUndefined (String) } -> { "Ipv4Address" :: NullOrUndefined (String), "MacAddress" :: NullOrUndefined (String), "Ipv6Address" :: NullOrUndefined (String) }) -> NetworkInterface
+newNetworkInterface' :: ({ "Ipv4Address" :: Maybe (String), "MacAddress" :: Maybe (String), "Ipv6Address" :: Maybe (String) } -> { "Ipv4Address" :: Maybe (String), "MacAddress" :: Maybe (String), "Ipv6Address" :: Maybe (String) }) -> NetworkInterface
 ```
 
 Constructs NetworkInterface's fields from required parameters
@@ -4300,7 +4300,7 @@ Constructs NotifyWhenUploadedInput's fields from required parameters
 
 ``` purescript
 newtype NotifyWhenUploadedOutput
-  = NotifyWhenUploadedOutput { "FileShareARN" :: NullOrUndefined (FileShareARN), "NotificationId" :: NullOrUndefined (NotificationId) }
+  = NotifyWhenUploadedOutput { "FileShareARN" :: Maybe (FileShareARN), "NotificationId" :: Maybe (NotificationId) }
 ```
 
 ##### Instances
@@ -4323,7 +4323,7 @@ Constructs NotifyWhenUploadedOutput from required parameters
 #### `newNotifyWhenUploadedOutput'`
 
 ``` purescript
-newNotifyWhenUploadedOutput' :: ({ "FileShareARN" :: NullOrUndefined (FileShareARN), "NotificationId" :: NullOrUndefined (NotificationId) } -> { "FileShareARN" :: NullOrUndefined (FileShareARN), "NotificationId" :: NullOrUndefined (NotificationId) }) -> NotifyWhenUploadedOutput
+newNotifyWhenUploadedOutput' :: ({ "FileShareARN" :: Maybe (FileShareARN), "NotificationId" :: Maybe (NotificationId) } -> { "FileShareARN" :: Maybe (FileShareARN), "NotificationId" :: Maybe (NotificationId) }) -> NotifyWhenUploadedOutput
 ```
 
 Constructs NotifyWhenUploadedOutput's fields from required parameters
@@ -4480,7 +4480,7 @@ Constructs RefreshCacheInput's fields from required parameters
 
 ``` purescript
 newtype RefreshCacheOutput
-  = RefreshCacheOutput { "FileShareARN" :: NullOrUndefined (FileShareARN) }
+  = RefreshCacheOutput { "FileShareARN" :: Maybe (FileShareARN) }
 ```
 
 ##### Instances
@@ -4503,7 +4503,7 @@ Constructs RefreshCacheOutput from required parameters
 #### `newRefreshCacheOutput'`
 
 ``` purescript
-newRefreshCacheOutput' :: ({ "FileShareARN" :: NullOrUndefined (FileShareARN) } -> { "FileShareARN" :: NullOrUndefined (FileShareARN) }) -> RefreshCacheOutput
+newRefreshCacheOutput' :: ({ "FileShareARN" :: Maybe (FileShareARN) } -> { "FileShareARN" :: Maybe (FileShareARN) }) -> RefreshCacheOutput
 ```
 
 Constructs RefreshCacheOutput's fields from required parameters
@@ -4562,7 +4562,7 @@ Constructs RemoveTagsFromResourceInput's fields from required parameters
 
 ``` purescript
 newtype RemoveTagsFromResourceOutput
-  = RemoveTagsFromResourceOutput { "ResourceARN" :: NullOrUndefined (ResourceARN) }
+  = RemoveTagsFromResourceOutput { "ResourceARN" :: Maybe (ResourceARN) }
 ```
 
 <p>RemoveTagsFromResourceOutput</p>
@@ -4587,7 +4587,7 @@ Constructs RemoveTagsFromResourceOutput from required parameters
 #### `newRemoveTagsFromResourceOutput'`
 
 ``` purescript
-newRemoveTagsFromResourceOutput' :: ({ "ResourceARN" :: NullOrUndefined (ResourceARN) } -> { "ResourceARN" :: NullOrUndefined (ResourceARN) }) -> RemoveTagsFromResourceOutput
+newRemoveTagsFromResourceOutput' :: ({ "ResourceARN" :: Maybe (ResourceARN) } -> { "ResourceARN" :: Maybe (ResourceARN) }) -> RemoveTagsFromResourceOutput
 ```
 
 Constructs RemoveTagsFromResourceOutput's fields from required parameters
@@ -4628,7 +4628,7 @@ Constructs ResetCacheInput's fields from required parameters
 
 ``` purescript
 newtype ResetCacheOutput
-  = ResetCacheOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = ResetCacheOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 ##### Instances
@@ -4651,7 +4651,7 @@ Constructs ResetCacheOutput from required parameters
 #### `newResetCacheOutput'`
 
 ``` purescript
-newResetCacheOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> ResetCacheOutput
+newResetCacheOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> ResetCacheOutput
 ```
 
 Constructs ResetCacheOutput's fields from required parameters
@@ -4710,7 +4710,7 @@ Constructs RetrieveTapeArchiveInput's fields from required parameters
 
 ``` purescript
 newtype RetrieveTapeArchiveOutput
-  = RetrieveTapeArchiveOutput { "TapeARN" :: NullOrUndefined (TapeARN) }
+  = RetrieveTapeArchiveOutput { "TapeARN" :: Maybe (TapeARN) }
 ```
 
 <p>RetrieveTapeArchiveOutput</p>
@@ -4735,7 +4735,7 @@ Constructs RetrieveTapeArchiveOutput from required parameters
 #### `newRetrieveTapeArchiveOutput'`
 
 ``` purescript
-newRetrieveTapeArchiveOutput' :: ({ "TapeARN" :: NullOrUndefined (TapeARN) } -> { "TapeARN" :: NullOrUndefined (TapeARN) }) -> RetrieveTapeArchiveOutput
+newRetrieveTapeArchiveOutput' :: ({ "TapeARN" :: Maybe (TapeARN) } -> { "TapeARN" :: Maybe (TapeARN) }) -> RetrieveTapeArchiveOutput
 ```
 
 Constructs RetrieveTapeArchiveOutput's fields from required parameters
@@ -4778,7 +4778,7 @@ Constructs RetrieveTapeRecoveryPointInput's fields from required parameters
 
 ``` purescript
 newtype RetrieveTapeRecoveryPointOutput
-  = RetrieveTapeRecoveryPointOutput { "TapeARN" :: NullOrUndefined (TapeARN) }
+  = RetrieveTapeRecoveryPointOutput { "TapeARN" :: Maybe (TapeARN) }
 ```
 
 <p>RetrieveTapeRecoveryPointOutput</p>
@@ -4803,7 +4803,7 @@ Constructs RetrieveTapeRecoveryPointOutput from required parameters
 #### `newRetrieveTapeRecoveryPointOutput'`
 
 ``` purescript
-newRetrieveTapeRecoveryPointOutput' :: ({ "TapeARN" :: NullOrUndefined (TapeARN) } -> { "TapeARN" :: NullOrUndefined (TapeARN) }) -> RetrieveTapeRecoveryPointOutput
+newRetrieveTapeRecoveryPointOutput' :: ({ "TapeARN" :: Maybe (TapeARN) } -> { "TapeARN" :: Maybe (TapeARN) }) -> RetrieveTapeRecoveryPointOutput
 ```
 
 Constructs RetrieveTapeRecoveryPointOutput's fields from required parameters
@@ -4830,7 +4830,7 @@ Encode Role
 
 ``` purescript
 newtype ServiceUnavailableError
-  = ServiceUnavailableError { message :: NullOrUndefined (String), error :: NullOrUndefined (StorageGatewayError) }
+  = ServiceUnavailableError { message :: Maybe (String), error :: Maybe (StorageGatewayError) }
 ```
 
 <p>An internal server error has occurred because the service is unavailable. For more information, see the error and message fields.</p>
@@ -4855,7 +4855,7 @@ Constructs ServiceUnavailableError from required parameters
 #### `newServiceUnavailableError'`
 
 ``` purescript
-newServiceUnavailableError' :: ({ message :: NullOrUndefined (String), error :: NullOrUndefined (StorageGatewayError) } -> { message :: NullOrUndefined (String), error :: NullOrUndefined (StorageGatewayError) }) -> ServiceUnavailableError
+newServiceUnavailableError' :: ({ message :: Maybe (String), error :: Maybe (StorageGatewayError) } -> { message :: Maybe (String), error :: Maybe (StorageGatewayError) }) -> ServiceUnavailableError
 ```
 
 Constructs ServiceUnavailableError's fields from required parameters
@@ -4898,7 +4898,7 @@ Constructs SetLocalConsolePasswordInput's fields from required parameters
 
 ``` purescript
 newtype SetLocalConsolePasswordOutput
-  = SetLocalConsolePasswordOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = SetLocalConsolePasswordOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 ##### Instances
@@ -4921,7 +4921,7 @@ Constructs SetLocalConsolePasswordOutput from required parameters
 #### `newSetLocalConsolePasswordOutput'`
 
 ``` purescript
-newSetLocalConsolePasswordOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> SetLocalConsolePasswordOutput
+newSetLocalConsolePasswordOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> SetLocalConsolePasswordOutput
 ```
 
 Constructs SetLocalConsolePasswordOutput's fields from required parameters
@@ -4964,7 +4964,7 @@ Constructs ShutdownGatewayInput's fields from required parameters
 
 ``` purescript
 newtype ShutdownGatewayOutput
-  = ShutdownGatewayOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = ShutdownGatewayOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>A JSON object containing the of the gateway that was shut down.</p>
@@ -4989,7 +4989,7 @@ Constructs ShutdownGatewayOutput from required parameters
 #### `newShutdownGatewayOutput'`
 
 ``` purescript
-newShutdownGatewayOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> ShutdownGatewayOutput
+newShutdownGatewayOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> ShutdownGatewayOutput
 ```
 
 Constructs ShutdownGatewayOutput's fields from required parameters
@@ -5082,7 +5082,7 @@ Constructs StartGatewayInput's fields from required parameters
 
 ``` purescript
 newtype StartGatewayOutput
-  = StartGatewayOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = StartGatewayOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>A JSON object containing the of the gateway that was restarted.</p>
@@ -5107,7 +5107,7 @@ Constructs StartGatewayOutput from required parameters
 #### `newStartGatewayOutput'`
 
 ``` purescript
-newStartGatewayOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> StartGatewayOutput
+newStartGatewayOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> StartGatewayOutput
 ```
 
 Constructs StartGatewayOutput's fields from required parameters
@@ -5134,7 +5134,7 @@ Encode StorageClass
 
 ``` purescript
 newtype StorageGatewayError
-  = StorageGatewayError { errorCode :: NullOrUndefined (ErrorCode), errorDetails :: NullOrUndefined (ErrorDetails') }
+  = StorageGatewayError { errorCode :: Maybe (ErrorCode), errorDetails :: Maybe (ErrorDetails') }
 ```
 
 <p>Provides additional information about an error that was returned by the service as an or. See the <code>errorCode</code> and <code>errorDetails</code> members for more information about the error.</p>
@@ -5159,7 +5159,7 @@ Constructs StorageGatewayError from required parameters
 #### `newStorageGatewayError'`
 
 ``` purescript
-newStorageGatewayError' :: ({ errorCode :: NullOrUndefined (ErrorCode), errorDetails :: NullOrUndefined (ErrorDetails') } -> { errorCode :: NullOrUndefined (ErrorCode), errorDetails :: NullOrUndefined (ErrorDetails') }) -> StorageGatewayError
+newStorageGatewayError' :: ({ errorCode :: Maybe (ErrorCode), errorDetails :: Maybe (ErrorDetails') } -> { errorCode :: Maybe (ErrorCode), errorDetails :: Maybe (ErrorDetails') }) -> StorageGatewayError
 ```
 
 Constructs StorageGatewayError's fields from required parameters
@@ -5168,7 +5168,7 @@ Constructs StorageGatewayError's fields from required parameters
 
 ``` purescript
 newtype StorediSCSIVolume
-  = StorediSCSIVolume { "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeId" :: NullOrUndefined (VolumeId), "VolumeType" :: NullOrUndefined (VolumeType), "VolumeStatus" :: NullOrUndefined (VolumeStatus), "VolumeSizeInBytes" :: NullOrUndefined (Number), "VolumeProgress" :: NullOrUndefined (DoubleObject), "VolumeDiskId" :: NullOrUndefined (DiskId), "SourceSnapshotId" :: NullOrUndefined (SnapshotId), "PreservedExistingData" :: NullOrUndefined (Boolean), "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes), "CreatedDate" :: NullOrUndefined (CreatedDate), "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes) }
+  = StorediSCSIVolume { "VolumeARN" :: Maybe (VolumeARN), "VolumeId" :: Maybe (VolumeId), "VolumeType" :: Maybe (VolumeType), "VolumeStatus" :: Maybe (VolumeStatus), "VolumeSizeInBytes" :: Maybe (Number), "VolumeProgress" :: Maybe (DoubleObject), "VolumeDiskId" :: Maybe (DiskId), "SourceSnapshotId" :: Maybe (SnapshotId), "PreservedExistingData" :: Maybe (Boolean), "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes), "CreatedDate" :: Maybe (CreatedDate), "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes) }
 ```
 
 <p>Describes an iSCSI stored volume.</p>
@@ -5193,7 +5193,7 @@ Constructs StorediSCSIVolume from required parameters
 #### `newStorediSCSIVolume'`
 
 ``` purescript
-newStorediSCSIVolume' :: ({ "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeId" :: NullOrUndefined (VolumeId), "VolumeType" :: NullOrUndefined (VolumeType), "VolumeStatus" :: NullOrUndefined (VolumeStatus), "VolumeSizeInBytes" :: NullOrUndefined (Number), "VolumeProgress" :: NullOrUndefined (DoubleObject), "VolumeDiskId" :: NullOrUndefined (DiskId), "SourceSnapshotId" :: NullOrUndefined (SnapshotId), "PreservedExistingData" :: NullOrUndefined (Boolean), "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes), "CreatedDate" :: NullOrUndefined (CreatedDate), "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes) } -> { "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeId" :: NullOrUndefined (VolumeId), "VolumeType" :: NullOrUndefined (VolumeType), "VolumeStatus" :: NullOrUndefined (VolumeStatus), "VolumeSizeInBytes" :: NullOrUndefined (Number), "VolumeProgress" :: NullOrUndefined (DoubleObject), "VolumeDiskId" :: NullOrUndefined (DiskId), "SourceSnapshotId" :: NullOrUndefined (SnapshotId), "PreservedExistingData" :: NullOrUndefined (Boolean), "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes), "CreatedDate" :: NullOrUndefined (CreatedDate), "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes) }) -> StorediSCSIVolume
+newStorediSCSIVolume' :: ({ "VolumeARN" :: Maybe (VolumeARN), "VolumeId" :: Maybe (VolumeId), "VolumeType" :: Maybe (VolumeType), "VolumeStatus" :: Maybe (VolumeStatus), "VolumeSizeInBytes" :: Maybe (Number), "VolumeProgress" :: Maybe (DoubleObject), "VolumeDiskId" :: Maybe (DiskId), "SourceSnapshotId" :: Maybe (SnapshotId), "PreservedExistingData" :: Maybe (Boolean), "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes), "CreatedDate" :: Maybe (CreatedDate), "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes) } -> { "VolumeARN" :: Maybe (VolumeARN), "VolumeId" :: Maybe (VolumeId), "VolumeType" :: Maybe (VolumeType), "VolumeStatus" :: Maybe (VolumeStatus), "VolumeSizeInBytes" :: Maybe (Number), "VolumeProgress" :: Maybe (DoubleObject), "VolumeDiskId" :: Maybe (DiskId), "SourceSnapshotId" :: Maybe (SnapshotId), "PreservedExistingData" :: Maybe (Boolean), "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes), "CreatedDate" :: Maybe (CreatedDate), "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes) }) -> StorediSCSIVolume
 ```
 
 Constructs StorediSCSIVolume's fields from required parameters
@@ -5314,7 +5314,7 @@ Encode Tags
 
 ``` purescript
 newtype Tape
-  = Tape { "TapeARN" :: NullOrUndefined (TapeARN), "TapeBarcode" :: NullOrUndefined (TapeBarcode), "TapeCreatedDate" :: NullOrUndefined (Time), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "TapeStatus" :: NullOrUndefined (TapeStatus), "VTLDevice" :: NullOrUndefined (VTLDeviceARN), "Progress" :: NullOrUndefined (DoubleObject), "TapeUsedInBytes" :: NullOrUndefined (TapeUsage) }
+  = Tape { "TapeARN" :: Maybe (TapeARN), "TapeBarcode" :: Maybe (TapeBarcode), "TapeCreatedDate" :: Maybe (Time), "TapeSizeInBytes" :: Maybe (TapeSize), "TapeStatus" :: Maybe (TapeStatus), "VTLDevice" :: Maybe (VTLDeviceARN), "Progress" :: Maybe (DoubleObject), "TapeUsedInBytes" :: Maybe (TapeUsage) }
 ```
 
 <p>Describes a virtual tape object.</p>
@@ -5339,7 +5339,7 @@ Constructs Tape from required parameters
 #### `newTape'`
 
 ``` purescript
-newTape' :: ({ "TapeARN" :: NullOrUndefined (TapeARN), "TapeBarcode" :: NullOrUndefined (TapeBarcode), "TapeCreatedDate" :: NullOrUndefined (Time), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "TapeStatus" :: NullOrUndefined (TapeStatus), "VTLDevice" :: NullOrUndefined (VTLDeviceARN), "Progress" :: NullOrUndefined (DoubleObject), "TapeUsedInBytes" :: NullOrUndefined (TapeUsage) } -> { "TapeARN" :: NullOrUndefined (TapeARN), "TapeBarcode" :: NullOrUndefined (TapeBarcode), "TapeCreatedDate" :: NullOrUndefined (Time), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "TapeStatus" :: NullOrUndefined (TapeStatus), "VTLDevice" :: NullOrUndefined (VTLDeviceARN), "Progress" :: NullOrUndefined (DoubleObject), "TapeUsedInBytes" :: NullOrUndefined (TapeUsage) }) -> Tape
+newTape' :: ({ "TapeARN" :: Maybe (TapeARN), "TapeBarcode" :: Maybe (TapeBarcode), "TapeCreatedDate" :: Maybe (Time), "TapeSizeInBytes" :: Maybe (TapeSize), "TapeStatus" :: Maybe (TapeStatus), "VTLDevice" :: Maybe (VTLDeviceARN), "Progress" :: Maybe (DoubleObject), "TapeUsedInBytes" :: Maybe (TapeUsage) } -> { "TapeARN" :: Maybe (TapeARN), "TapeBarcode" :: Maybe (TapeBarcode), "TapeCreatedDate" :: Maybe (Time), "TapeSizeInBytes" :: Maybe (TapeSize), "TapeStatus" :: Maybe (TapeStatus), "VTLDevice" :: Maybe (VTLDeviceARN), "Progress" :: Maybe (DoubleObject), "TapeUsedInBytes" :: Maybe (TapeUsage) }) -> Tape
 ```
 
 Constructs Tape's fields from required parameters
@@ -5382,7 +5382,7 @@ Encode TapeARNs
 
 ``` purescript
 newtype TapeArchive
-  = TapeArchive { "TapeARN" :: NullOrUndefined (TapeARN), "TapeBarcode" :: NullOrUndefined (TapeBarcode), "TapeCreatedDate" :: NullOrUndefined (Time), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "CompletionTime" :: NullOrUndefined (Time), "RetrievedTo" :: NullOrUndefined (GatewayARN), "TapeStatus" :: NullOrUndefined (TapeArchiveStatus), "TapeUsedInBytes" :: NullOrUndefined (TapeUsage) }
+  = TapeArchive { "TapeARN" :: Maybe (TapeARN), "TapeBarcode" :: Maybe (TapeBarcode), "TapeCreatedDate" :: Maybe (Time), "TapeSizeInBytes" :: Maybe (TapeSize), "CompletionTime" :: Maybe (Time), "RetrievedTo" :: Maybe (GatewayARN), "TapeStatus" :: Maybe (TapeArchiveStatus), "TapeUsedInBytes" :: Maybe (TapeUsage) }
 ```
 
 <p>Represents a virtual tape that is archived in the virtual tape shelf (VTS).</p>
@@ -5407,7 +5407,7 @@ Constructs TapeArchive from required parameters
 #### `newTapeArchive'`
 
 ``` purescript
-newTapeArchive' :: ({ "TapeARN" :: NullOrUndefined (TapeARN), "TapeBarcode" :: NullOrUndefined (TapeBarcode), "TapeCreatedDate" :: NullOrUndefined (Time), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "CompletionTime" :: NullOrUndefined (Time), "RetrievedTo" :: NullOrUndefined (GatewayARN), "TapeStatus" :: NullOrUndefined (TapeArchiveStatus), "TapeUsedInBytes" :: NullOrUndefined (TapeUsage) } -> { "TapeARN" :: NullOrUndefined (TapeARN), "TapeBarcode" :: NullOrUndefined (TapeBarcode), "TapeCreatedDate" :: NullOrUndefined (Time), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "CompletionTime" :: NullOrUndefined (Time), "RetrievedTo" :: NullOrUndefined (GatewayARN), "TapeStatus" :: NullOrUndefined (TapeArchiveStatus), "TapeUsedInBytes" :: NullOrUndefined (TapeUsage) }) -> TapeArchive
+newTapeArchive' :: ({ "TapeARN" :: Maybe (TapeARN), "TapeBarcode" :: Maybe (TapeBarcode), "TapeCreatedDate" :: Maybe (Time), "TapeSizeInBytes" :: Maybe (TapeSize), "CompletionTime" :: Maybe (Time), "RetrievedTo" :: Maybe (GatewayARN), "TapeStatus" :: Maybe (TapeArchiveStatus), "TapeUsedInBytes" :: Maybe (TapeUsage) } -> { "TapeARN" :: Maybe (TapeARN), "TapeBarcode" :: Maybe (TapeBarcode), "TapeCreatedDate" :: Maybe (Time), "TapeSizeInBytes" :: Maybe (TapeSize), "CompletionTime" :: Maybe (Time), "RetrievedTo" :: Maybe (GatewayARN), "TapeStatus" :: Maybe (TapeArchiveStatus), "TapeUsedInBytes" :: Maybe (TapeUsage) }) -> TapeArchive
 ```
 
 Constructs TapeArchive's fields from required parameters
@@ -5496,7 +5496,7 @@ Encode TapeDriveType
 
 ``` purescript
 newtype TapeInfo
-  = TapeInfo { "TapeARN" :: NullOrUndefined (TapeARN), "TapeBarcode" :: NullOrUndefined (TapeBarcode), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "TapeStatus" :: NullOrUndefined (TapeStatus), "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = TapeInfo { "TapeARN" :: Maybe (TapeARN), "TapeBarcode" :: Maybe (TapeBarcode), "TapeSizeInBytes" :: Maybe (TapeSize), "TapeStatus" :: Maybe (TapeStatus), "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>Describes a virtual tape.</p>
@@ -5521,7 +5521,7 @@ Constructs TapeInfo from required parameters
 #### `newTapeInfo'`
 
 ``` purescript
-newTapeInfo' :: ({ "TapeARN" :: NullOrUndefined (TapeARN), "TapeBarcode" :: NullOrUndefined (TapeBarcode), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "TapeStatus" :: NullOrUndefined (TapeStatus), "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "TapeARN" :: NullOrUndefined (TapeARN), "TapeBarcode" :: NullOrUndefined (TapeBarcode), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "TapeStatus" :: NullOrUndefined (TapeStatus), "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> TapeInfo
+newTapeInfo' :: ({ "TapeARN" :: Maybe (TapeARN), "TapeBarcode" :: Maybe (TapeBarcode), "TapeSizeInBytes" :: Maybe (TapeSize), "TapeStatus" :: Maybe (TapeStatus), "GatewayARN" :: Maybe (GatewayARN) } -> { "TapeARN" :: Maybe (TapeARN), "TapeBarcode" :: Maybe (TapeBarcode), "TapeSizeInBytes" :: Maybe (TapeSize), "TapeStatus" :: Maybe (TapeStatus), "GatewayARN" :: Maybe (GatewayARN) }) -> TapeInfo
 ```
 
 Constructs TapeInfo's fields from required parameters
@@ -5548,7 +5548,7 @@ Encode TapeInfos
 
 ``` purescript
 newtype TapeRecoveryPointInfo
-  = TapeRecoveryPointInfo { "TapeARN" :: NullOrUndefined (TapeARN), "TapeRecoveryPointTime" :: NullOrUndefined (Time), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "TapeStatus" :: NullOrUndefined (TapeRecoveryPointStatus) }
+  = TapeRecoveryPointInfo { "TapeARN" :: Maybe (TapeARN), "TapeRecoveryPointTime" :: Maybe (Time), "TapeSizeInBytes" :: Maybe (TapeSize), "TapeStatus" :: Maybe (TapeRecoveryPointStatus) }
 ```
 
 <p>Describes a recovery point.</p>
@@ -5573,7 +5573,7 @@ Constructs TapeRecoveryPointInfo from required parameters
 #### `newTapeRecoveryPointInfo'`
 
 ``` purescript
-newTapeRecoveryPointInfo' :: ({ "TapeARN" :: NullOrUndefined (TapeARN), "TapeRecoveryPointTime" :: NullOrUndefined (Time), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "TapeStatus" :: NullOrUndefined (TapeRecoveryPointStatus) } -> { "TapeARN" :: NullOrUndefined (TapeARN), "TapeRecoveryPointTime" :: NullOrUndefined (Time), "TapeSizeInBytes" :: NullOrUndefined (TapeSize), "TapeStatus" :: NullOrUndefined (TapeRecoveryPointStatus) }) -> TapeRecoveryPointInfo
+newTapeRecoveryPointInfo' :: ({ "TapeARN" :: Maybe (TapeARN), "TapeRecoveryPointTime" :: Maybe (Time), "TapeSizeInBytes" :: Maybe (TapeSize), "TapeStatus" :: Maybe (TapeRecoveryPointStatus) } -> { "TapeARN" :: Maybe (TapeARN), "TapeRecoveryPointTime" :: Maybe (Time), "TapeSizeInBytes" :: Maybe (TapeSize), "TapeStatus" :: Maybe (TapeRecoveryPointStatus) }) -> TapeRecoveryPointInfo
 ```
 
 Constructs TapeRecoveryPointInfo's fields from required parameters
@@ -5726,7 +5726,7 @@ Encode Time
 
 ``` purescript
 newtype UpdateBandwidthRateLimitInput
-  = UpdateBandwidthRateLimitInput { "GatewayARN" :: GatewayARN, "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit) }
+  = UpdateBandwidthRateLimitInput { "GatewayARN" :: GatewayARN, "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit) }
 ```
 
 <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec</a> </p> </li> <li> <p> <a>UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec</a> </p> </li> </ul>
@@ -5751,7 +5751,7 @@ Constructs UpdateBandwidthRateLimitInput from required parameters
 #### `newUpdateBandwidthRateLimitInput'`
 
 ``` purescript
-newUpdateBandwidthRateLimitInput' :: GatewayARN -> ({ "GatewayARN" :: GatewayARN, "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit) } -> { "GatewayARN" :: GatewayARN, "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit) }) -> UpdateBandwidthRateLimitInput
+newUpdateBandwidthRateLimitInput' :: GatewayARN -> ({ "GatewayARN" :: GatewayARN, "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit) } -> { "GatewayARN" :: GatewayARN, "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit), "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit) }) -> UpdateBandwidthRateLimitInput
 ```
 
 Constructs UpdateBandwidthRateLimitInput's fields from required parameters
@@ -5760,7 +5760,7 @@ Constructs UpdateBandwidthRateLimitInput's fields from required parameters
 
 ``` purescript
 newtype UpdateBandwidthRateLimitOutput
-  = UpdateBandwidthRateLimitOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = UpdateBandwidthRateLimitOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>A JSON object containing the of the gateway whose throttle information was updated.</p>
@@ -5785,7 +5785,7 @@ Constructs UpdateBandwidthRateLimitOutput from required parameters
 #### `newUpdateBandwidthRateLimitOutput'`
 
 ``` purescript
-newUpdateBandwidthRateLimitOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> UpdateBandwidthRateLimitOutput
+newUpdateBandwidthRateLimitOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> UpdateBandwidthRateLimitOutput
 ```
 
 Constructs UpdateBandwidthRateLimitOutput's fields from required parameters
@@ -5794,7 +5794,7 @@ Constructs UpdateBandwidthRateLimitOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateChapCredentialsInput
-  = UpdateChapCredentialsInput { "TargetARN" :: TargetARN, "SecretToAuthenticateInitiator" :: ChapSecret, "InitiatorName" :: IqnName, "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret) }
+  = UpdateChapCredentialsInput { "TargetARN" :: TargetARN, "SecretToAuthenticateInitiator" :: ChapSecret, "InitiatorName" :: IqnName, "SecretToAuthenticateTarget" :: Maybe (ChapSecret) }
 ```
 
 <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateChapCredentialsInput$InitiatorName</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$SecretToAuthenticateInitiator</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$SecretToAuthenticateTarget</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$TargetARN</a> </p> </li> </ul>
@@ -5819,7 +5819,7 @@ Constructs UpdateChapCredentialsInput from required parameters
 #### `newUpdateChapCredentialsInput'`
 
 ``` purescript
-newUpdateChapCredentialsInput' :: IqnName -> ChapSecret -> TargetARN -> ({ "TargetARN" :: TargetARN, "SecretToAuthenticateInitiator" :: ChapSecret, "InitiatorName" :: IqnName, "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret) } -> { "TargetARN" :: TargetARN, "SecretToAuthenticateInitiator" :: ChapSecret, "InitiatorName" :: IqnName, "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret) }) -> UpdateChapCredentialsInput
+newUpdateChapCredentialsInput' :: IqnName -> ChapSecret -> TargetARN -> ({ "TargetARN" :: TargetARN, "SecretToAuthenticateInitiator" :: ChapSecret, "InitiatorName" :: IqnName, "SecretToAuthenticateTarget" :: Maybe (ChapSecret) } -> { "TargetARN" :: TargetARN, "SecretToAuthenticateInitiator" :: ChapSecret, "InitiatorName" :: IqnName, "SecretToAuthenticateTarget" :: Maybe (ChapSecret) }) -> UpdateChapCredentialsInput
 ```
 
 Constructs UpdateChapCredentialsInput's fields from required parameters
@@ -5828,7 +5828,7 @@ Constructs UpdateChapCredentialsInput's fields from required parameters
 
 ``` purescript
 newtype UpdateChapCredentialsOutput
-  = UpdateChapCredentialsOutput { "TargetARN" :: NullOrUndefined (TargetARN), "InitiatorName" :: NullOrUndefined (IqnName) }
+  = UpdateChapCredentialsOutput { "TargetARN" :: Maybe (TargetARN), "InitiatorName" :: Maybe (IqnName) }
 ```
 
 <p>A JSON object containing the following fields:</p>
@@ -5853,7 +5853,7 @@ Constructs UpdateChapCredentialsOutput from required parameters
 #### `newUpdateChapCredentialsOutput'`
 
 ``` purescript
-newUpdateChapCredentialsOutput' :: ({ "TargetARN" :: NullOrUndefined (TargetARN), "InitiatorName" :: NullOrUndefined (IqnName) } -> { "TargetARN" :: NullOrUndefined (TargetARN), "InitiatorName" :: NullOrUndefined (IqnName) }) -> UpdateChapCredentialsOutput
+newUpdateChapCredentialsOutput' :: ({ "TargetARN" :: Maybe (TargetARN), "InitiatorName" :: Maybe (IqnName) } -> { "TargetARN" :: Maybe (TargetARN), "InitiatorName" :: Maybe (IqnName) }) -> UpdateChapCredentialsOutput
 ```
 
 Constructs UpdateChapCredentialsOutput's fields from required parameters
@@ -5862,7 +5862,7 @@ Constructs UpdateChapCredentialsOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateGatewayInformationInput
-  = UpdateGatewayInformationInput { "GatewayARN" :: GatewayARN, "GatewayName" :: NullOrUndefined (GatewayName), "GatewayTimezone" :: NullOrUndefined (GatewayTimezone) }
+  = UpdateGatewayInformationInput { "GatewayARN" :: GatewayARN, "GatewayName" :: Maybe (GatewayName), "GatewayTimezone" :: Maybe (GatewayTimezone) }
 ```
 
 ##### Instances
@@ -5885,7 +5885,7 @@ Constructs UpdateGatewayInformationInput from required parameters
 #### `newUpdateGatewayInformationInput'`
 
 ``` purescript
-newUpdateGatewayInformationInput' :: GatewayARN -> ({ "GatewayARN" :: GatewayARN, "GatewayName" :: NullOrUndefined (GatewayName), "GatewayTimezone" :: NullOrUndefined (GatewayTimezone) } -> { "GatewayARN" :: GatewayARN, "GatewayName" :: NullOrUndefined (GatewayName), "GatewayTimezone" :: NullOrUndefined (GatewayTimezone) }) -> UpdateGatewayInformationInput
+newUpdateGatewayInformationInput' :: GatewayARN -> ({ "GatewayARN" :: GatewayARN, "GatewayName" :: Maybe (GatewayName), "GatewayTimezone" :: Maybe (GatewayTimezone) } -> { "GatewayARN" :: GatewayARN, "GatewayName" :: Maybe (GatewayName), "GatewayTimezone" :: Maybe (GatewayTimezone) }) -> UpdateGatewayInformationInput
 ```
 
 Constructs UpdateGatewayInformationInput's fields from required parameters
@@ -5894,7 +5894,7 @@ Constructs UpdateGatewayInformationInput's fields from required parameters
 
 ``` purescript
 newtype UpdateGatewayInformationOutput
-  = UpdateGatewayInformationOutput { "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayName" :: NullOrUndefined (String) }
+  = UpdateGatewayInformationOutput { "GatewayARN" :: Maybe (GatewayARN), "GatewayName" :: Maybe (String) }
 ```
 
 <p>A JSON object containing the ARN of the gateway that was updated.</p>
@@ -5919,7 +5919,7 @@ Constructs UpdateGatewayInformationOutput from required parameters
 #### `newUpdateGatewayInformationOutput'`
 
 ``` purescript
-newUpdateGatewayInformationOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayName" :: NullOrUndefined (String) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayName" :: NullOrUndefined (String) }) -> UpdateGatewayInformationOutput
+newUpdateGatewayInformationOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN), "GatewayName" :: Maybe (String) } -> { "GatewayARN" :: Maybe (GatewayARN), "GatewayName" :: Maybe (String) }) -> UpdateGatewayInformationOutput
 ```
 
 Constructs UpdateGatewayInformationOutput's fields from required parameters
@@ -5962,7 +5962,7 @@ Constructs UpdateGatewaySoftwareNowInput's fields from required parameters
 
 ``` purescript
 newtype UpdateGatewaySoftwareNowOutput
-  = UpdateGatewaySoftwareNowOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = UpdateGatewaySoftwareNowOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>A JSON object containing the of the gateway that was updated.</p>
@@ -5987,7 +5987,7 @@ Constructs UpdateGatewaySoftwareNowOutput from required parameters
 #### `newUpdateGatewaySoftwareNowOutput'`
 
 ``` purescript
-newUpdateGatewaySoftwareNowOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> UpdateGatewaySoftwareNowOutput
+newUpdateGatewaySoftwareNowOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> UpdateGatewaySoftwareNowOutput
 ```
 
 Constructs UpdateGatewaySoftwareNowOutput's fields from required parameters
@@ -6030,7 +6030,7 @@ Constructs UpdateMaintenanceStartTimeInput's fields from required parameters
 
 ``` purescript
 newtype UpdateMaintenanceStartTimeOutput
-  = UpdateMaintenanceStartTimeOutput { "GatewayARN" :: NullOrUndefined (GatewayARN) }
+  = UpdateMaintenanceStartTimeOutput { "GatewayARN" :: Maybe (GatewayARN) }
 ```
 
 <p>A JSON object containing the of the gateway whose maintenance start time is updated.</p>
@@ -6055,7 +6055,7 @@ Constructs UpdateMaintenanceStartTimeOutput from required parameters
 #### `newUpdateMaintenanceStartTimeOutput'`
 
 ``` purescript
-newUpdateMaintenanceStartTimeOutput' :: ({ "GatewayARN" :: NullOrUndefined (GatewayARN) } -> { "GatewayARN" :: NullOrUndefined (GatewayARN) }) -> UpdateMaintenanceStartTimeOutput
+newUpdateMaintenanceStartTimeOutput' :: ({ "GatewayARN" :: Maybe (GatewayARN) } -> { "GatewayARN" :: Maybe (GatewayARN) }) -> UpdateMaintenanceStartTimeOutput
 ```
 
 Constructs UpdateMaintenanceStartTimeOutput's fields from required parameters
@@ -6064,7 +6064,7 @@ Constructs UpdateMaintenanceStartTimeOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateNFSFileShareInput
-  = UpdateNFSFileShareInput { "FileShareARN" :: FileShareARN, "KMSEncrypted" :: NullOrUndefined (Boolean), "KMSKey" :: NullOrUndefined (KMSKey), "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults), "DefaultStorageClass" :: NullOrUndefined (StorageClass), "ObjectACL" :: NullOrUndefined (ObjectACL), "ClientList" :: NullOrUndefined (FileShareClientList), "Squash" :: NullOrUndefined (Squash), "ReadOnly" :: NullOrUndefined (Boolean), "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean), "RequesterPays" :: NullOrUndefined (Boolean) }
+  = UpdateNFSFileShareInput { "FileShareARN" :: FileShareARN, "KMSEncrypted" :: Maybe (Boolean), "KMSKey" :: Maybe (KMSKey), "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults), "DefaultStorageClass" :: Maybe (StorageClass), "ObjectACL" :: Maybe (ObjectACL), "ClientList" :: Maybe (FileShareClientList), "Squash" :: Maybe (Squash), "ReadOnly" :: Maybe (Boolean), "GuessMIMETypeEnabled" :: Maybe (Boolean), "RequesterPays" :: Maybe (Boolean) }
 ```
 
 <p>UpdateNFSFileShareInput</p>
@@ -6089,7 +6089,7 @@ Constructs UpdateNFSFileShareInput from required parameters
 #### `newUpdateNFSFileShareInput'`
 
 ``` purescript
-newUpdateNFSFileShareInput' :: FileShareARN -> ({ "FileShareARN" :: FileShareARN, "KMSEncrypted" :: NullOrUndefined (Boolean), "KMSKey" :: NullOrUndefined (KMSKey), "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults), "DefaultStorageClass" :: NullOrUndefined (StorageClass), "ObjectACL" :: NullOrUndefined (ObjectACL), "ClientList" :: NullOrUndefined (FileShareClientList), "Squash" :: NullOrUndefined (Squash), "ReadOnly" :: NullOrUndefined (Boolean), "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean), "RequesterPays" :: NullOrUndefined (Boolean) } -> { "FileShareARN" :: FileShareARN, "KMSEncrypted" :: NullOrUndefined (Boolean), "KMSKey" :: NullOrUndefined (KMSKey), "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults), "DefaultStorageClass" :: NullOrUndefined (StorageClass), "ObjectACL" :: NullOrUndefined (ObjectACL), "ClientList" :: NullOrUndefined (FileShareClientList), "Squash" :: NullOrUndefined (Squash), "ReadOnly" :: NullOrUndefined (Boolean), "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean), "RequesterPays" :: NullOrUndefined (Boolean) }) -> UpdateNFSFileShareInput
+newUpdateNFSFileShareInput' :: FileShareARN -> ({ "FileShareARN" :: FileShareARN, "KMSEncrypted" :: Maybe (Boolean), "KMSKey" :: Maybe (KMSKey), "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults), "DefaultStorageClass" :: Maybe (StorageClass), "ObjectACL" :: Maybe (ObjectACL), "ClientList" :: Maybe (FileShareClientList), "Squash" :: Maybe (Squash), "ReadOnly" :: Maybe (Boolean), "GuessMIMETypeEnabled" :: Maybe (Boolean), "RequesterPays" :: Maybe (Boolean) } -> { "FileShareARN" :: FileShareARN, "KMSEncrypted" :: Maybe (Boolean), "KMSKey" :: Maybe (KMSKey), "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults), "DefaultStorageClass" :: Maybe (StorageClass), "ObjectACL" :: Maybe (ObjectACL), "ClientList" :: Maybe (FileShareClientList), "Squash" :: Maybe (Squash), "ReadOnly" :: Maybe (Boolean), "GuessMIMETypeEnabled" :: Maybe (Boolean), "RequesterPays" :: Maybe (Boolean) }) -> UpdateNFSFileShareInput
 ```
 
 Constructs UpdateNFSFileShareInput's fields from required parameters
@@ -6098,7 +6098,7 @@ Constructs UpdateNFSFileShareInput's fields from required parameters
 
 ``` purescript
 newtype UpdateNFSFileShareOutput
-  = UpdateNFSFileShareOutput { "FileShareARN" :: NullOrUndefined (FileShareARN) }
+  = UpdateNFSFileShareOutput { "FileShareARN" :: Maybe (FileShareARN) }
 ```
 
 <p>UpdateNFSFileShareOutput</p>
@@ -6123,7 +6123,7 @@ Constructs UpdateNFSFileShareOutput from required parameters
 #### `newUpdateNFSFileShareOutput'`
 
 ``` purescript
-newUpdateNFSFileShareOutput' :: ({ "FileShareARN" :: NullOrUndefined (FileShareARN) } -> { "FileShareARN" :: NullOrUndefined (FileShareARN) }) -> UpdateNFSFileShareOutput
+newUpdateNFSFileShareOutput' :: ({ "FileShareARN" :: Maybe (FileShareARN) } -> { "FileShareARN" :: Maybe (FileShareARN) }) -> UpdateNFSFileShareOutput
 ```
 
 Constructs UpdateNFSFileShareOutput's fields from required parameters
@@ -6132,7 +6132,7 @@ Constructs UpdateNFSFileShareOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateSnapshotScheduleInput
-  = UpdateSnapshotScheduleInput { "VolumeARN" :: VolumeARN, "StartAt" :: HourOfDay, "RecurrenceInHours" :: RecurrenceInHours, "Description" :: NullOrUndefined (Description) }
+  = UpdateSnapshotScheduleInput { "VolumeARN" :: VolumeARN, "StartAt" :: HourOfDay, "RecurrenceInHours" :: RecurrenceInHours, "Description" :: Maybe (Description) }
 ```
 
 <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateSnapshotScheduleInput$Description</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$RecurrenceInHours</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$StartAt</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$VolumeARN</a> </p> </li> </ul>
@@ -6157,7 +6157,7 @@ Constructs UpdateSnapshotScheduleInput from required parameters
 #### `newUpdateSnapshotScheduleInput'`
 
 ``` purescript
-newUpdateSnapshotScheduleInput' :: RecurrenceInHours -> HourOfDay -> VolumeARN -> ({ "VolumeARN" :: VolumeARN, "StartAt" :: HourOfDay, "RecurrenceInHours" :: RecurrenceInHours, "Description" :: NullOrUndefined (Description) } -> { "VolumeARN" :: VolumeARN, "StartAt" :: HourOfDay, "RecurrenceInHours" :: RecurrenceInHours, "Description" :: NullOrUndefined (Description) }) -> UpdateSnapshotScheduleInput
+newUpdateSnapshotScheduleInput' :: RecurrenceInHours -> HourOfDay -> VolumeARN -> ({ "VolumeARN" :: VolumeARN, "StartAt" :: HourOfDay, "RecurrenceInHours" :: RecurrenceInHours, "Description" :: Maybe (Description) } -> { "VolumeARN" :: VolumeARN, "StartAt" :: HourOfDay, "RecurrenceInHours" :: RecurrenceInHours, "Description" :: Maybe (Description) }) -> UpdateSnapshotScheduleInput
 ```
 
 Constructs UpdateSnapshotScheduleInput's fields from required parameters
@@ -6166,7 +6166,7 @@ Constructs UpdateSnapshotScheduleInput's fields from required parameters
 
 ``` purescript
 newtype UpdateSnapshotScheduleOutput
-  = UpdateSnapshotScheduleOutput { "VolumeARN" :: NullOrUndefined (VolumeARN) }
+  = UpdateSnapshotScheduleOutput { "VolumeARN" :: Maybe (VolumeARN) }
 ```
 
 <p>A JSON object containing the of the updated storage volume.</p>
@@ -6191,7 +6191,7 @@ Constructs UpdateSnapshotScheduleOutput from required parameters
 #### `newUpdateSnapshotScheduleOutput'`
 
 ``` purescript
-newUpdateSnapshotScheduleOutput' :: ({ "VolumeARN" :: NullOrUndefined (VolumeARN) } -> { "VolumeARN" :: NullOrUndefined (VolumeARN) }) -> UpdateSnapshotScheduleOutput
+newUpdateSnapshotScheduleOutput' :: ({ "VolumeARN" :: Maybe (VolumeARN) } -> { "VolumeARN" :: Maybe (VolumeARN) }) -> UpdateSnapshotScheduleOutput
 ```
 
 Constructs UpdateSnapshotScheduleOutput's fields from required parameters
@@ -6232,7 +6232,7 @@ Constructs UpdateVTLDeviceTypeInput's fields from required parameters
 
 ``` purescript
 newtype UpdateVTLDeviceTypeOutput
-  = UpdateVTLDeviceTypeOutput { "VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN) }
+  = UpdateVTLDeviceTypeOutput { "VTLDeviceARN" :: Maybe (VTLDeviceARN) }
 ```
 
 <p>UpdateVTLDeviceTypeOutput</p>
@@ -6257,7 +6257,7 @@ Constructs UpdateVTLDeviceTypeOutput from required parameters
 #### `newUpdateVTLDeviceTypeOutput'`
 
 ``` purescript
-newUpdateVTLDeviceTypeOutput' :: ({ "VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN) } -> { "VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN) }) -> UpdateVTLDeviceTypeOutput
+newUpdateVTLDeviceTypeOutput' :: ({ "VTLDeviceARN" :: Maybe (VTLDeviceARN) } -> { "VTLDeviceARN" :: Maybe (VTLDeviceARN) }) -> UpdateVTLDeviceTypeOutput
 ```
 
 Constructs UpdateVTLDeviceTypeOutput's fields from required parameters
@@ -6266,7 +6266,7 @@ Constructs UpdateVTLDeviceTypeOutput's fields from required parameters
 
 ``` purescript
 newtype VTLDevice
-  = VTLDevice { "VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN), "VTLDeviceType" :: NullOrUndefined (VTLDeviceType), "VTLDeviceVendor" :: NullOrUndefined (VTLDeviceVendor), "VTLDeviceProductIdentifier" :: NullOrUndefined (VTLDeviceProductIdentifier), "DeviceiSCSIAttributes" :: NullOrUndefined (DeviceiSCSIAttributes) }
+  = VTLDevice { "VTLDeviceARN" :: Maybe (VTLDeviceARN), "VTLDeviceType" :: Maybe (VTLDeviceType), "VTLDeviceVendor" :: Maybe (VTLDeviceVendor), "VTLDeviceProductIdentifier" :: Maybe (VTLDeviceProductIdentifier), "DeviceiSCSIAttributes" :: Maybe (DeviceiSCSIAttributes) }
 ```
 
 <p>Represents a device object associated with a tape gateway.</p>
@@ -6291,7 +6291,7 @@ Constructs VTLDevice from required parameters
 #### `newVTLDevice'`
 
 ``` purescript
-newVTLDevice' :: ({ "VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN), "VTLDeviceType" :: NullOrUndefined (VTLDeviceType), "VTLDeviceVendor" :: NullOrUndefined (VTLDeviceVendor), "VTLDeviceProductIdentifier" :: NullOrUndefined (VTLDeviceProductIdentifier), "DeviceiSCSIAttributes" :: NullOrUndefined (DeviceiSCSIAttributes) } -> { "VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN), "VTLDeviceType" :: NullOrUndefined (VTLDeviceType), "VTLDeviceVendor" :: NullOrUndefined (VTLDeviceVendor), "VTLDeviceProductIdentifier" :: NullOrUndefined (VTLDeviceProductIdentifier), "DeviceiSCSIAttributes" :: NullOrUndefined (DeviceiSCSIAttributes) }) -> VTLDevice
+newVTLDevice' :: ({ "VTLDeviceARN" :: Maybe (VTLDeviceARN), "VTLDeviceType" :: Maybe (VTLDeviceType), "VTLDeviceVendor" :: Maybe (VTLDeviceVendor), "VTLDeviceProductIdentifier" :: Maybe (VTLDeviceProductIdentifier), "DeviceiSCSIAttributes" :: Maybe (DeviceiSCSIAttributes) } -> { "VTLDeviceARN" :: Maybe (VTLDeviceARN), "VTLDeviceType" :: Maybe (VTLDeviceType), "VTLDeviceVendor" :: Maybe (VTLDeviceVendor), "VTLDeviceProductIdentifier" :: Maybe (VTLDeviceProductIdentifier), "DeviceiSCSIAttributes" :: Maybe (DeviceiSCSIAttributes) }) -> VTLDevice
 ```
 
 Constructs VTLDevice's fields from required parameters
@@ -6444,7 +6444,7 @@ Encode VolumeId
 
 ``` purescript
 newtype VolumeInfo
-  = VolumeInfo { "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeId" :: NullOrUndefined (VolumeId), "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayId" :: NullOrUndefined (GatewayId), "VolumeType" :: NullOrUndefined (VolumeType), "VolumeSizeInBytes" :: NullOrUndefined (Number) }
+  = VolumeInfo { "VolumeARN" :: Maybe (VolumeARN), "VolumeId" :: Maybe (VolumeId), "GatewayARN" :: Maybe (GatewayARN), "GatewayId" :: Maybe (GatewayId), "VolumeType" :: Maybe (VolumeType), "VolumeSizeInBytes" :: Maybe (Number) }
 ```
 
 <p>Describes a storage volume object.</p>
@@ -6469,7 +6469,7 @@ Constructs VolumeInfo from required parameters
 #### `newVolumeInfo'`
 
 ``` purescript
-newVolumeInfo' :: ({ "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeId" :: NullOrUndefined (VolumeId), "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayId" :: NullOrUndefined (GatewayId), "VolumeType" :: NullOrUndefined (VolumeType), "VolumeSizeInBytes" :: NullOrUndefined (Number) } -> { "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeId" :: NullOrUndefined (VolumeId), "GatewayARN" :: NullOrUndefined (GatewayARN), "GatewayId" :: NullOrUndefined (GatewayId), "VolumeType" :: NullOrUndefined (VolumeType), "VolumeSizeInBytes" :: NullOrUndefined (Number) }) -> VolumeInfo
+newVolumeInfo' :: ({ "VolumeARN" :: Maybe (VolumeARN), "VolumeId" :: Maybe (VolumeId), "GatewayARN" :: Maybe (GatewayARN), "GatewayId" :: Maybe (GatewayId), "VolumeType" :: Maybe (VolumeType), "VolumeSizeInBytes" :: Maybe (Number) } -> { "VolumeARN" :: Maybe (VolumeARN), "VolumeId" :: Maybe (VolumeId), "GatewayARN" :: Maybe (GatewayARN), "GatewayId" :: Maybe (GatewayId), "VolumeType" :: Maybe (VolumeType), "VolumeSizeInBytes" :: Maybe (Number) }) -> VolumeInfo
 ```
 
 Constructs VolumeInfo's fields from required parameters
@@ -6494,7 +6494,7 @@ Encode VolumeInfos
 
 ``` purescript
 newtype VolumeRecoveryPointInfo
-  = VolumeRecoveryPointInfo { "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeSizeInBytes" :: NullOrUndefined (Number), "VolumeUsageInBytes" :: NullOrUndefined (Number), "VolumeRecoveryPointTime" :: NullOrUndefined (String) }
+  = VolumeRecoveryPointInfo { "VolumeARN" :: Maybe (VolumeARN), "VolumeSizeInBytes" :: Maybe (Number), "VolumeUsageInBytes" :: Maybe (Number), "VolumeRecoveryPointTime" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -6517,7 +6517,7 @@ Constructs VolumeRecoveryPointInfo from required parameters
 #### `newVolumeRecoveryPointInfo'`
 
 ``` purescript
-newVolumeRecoveryPointInfo' :: ({ "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeSizeInBytes" :: NullOrUndefined (Number), "VolumeUsageInBytes" :: NullOrUndefined (Number), "VolumeRecoveryPointTime" :: NullOrUndefined (String) } -> { "VolumeARN" :: NullOrUndefined (VolumeARN), "VolumeSizeInBytes" :: NullOrUndefined (Number), "VolumeUsageInBytes" :: NullOrUndefined (Number), "VolumeRecoveryPointTime" :: NullOrUndefined (String) }) -> VolumeRecoveryPointInfo
+newVolumeRecoveryPointInfo' :: ({ "VolumeARN" :: Maybe (VolumeARN), "VolumeSizeInBytes" :: Maybe (Number), "VolumeUsageInBytes" :: Maybe (Number), "VolumeRecoveryPointTime" :: Maybe (String) } -> { "VolumeARN" :: Maybe (VolumeARN), "VolumeSizeInBytes" :: Maybe (Number), "VolumeUsageInBytes" :: Maybe (Number), "VolumeRecoveryPointTime" :: Maybe (String) }) -> VolumeRecoveryPointInfo
 ```
 
 Constructs VolumeRecoveryPointInfo's fields from required parameters
@@ -6590,7 +6590,7 @@ Encode VolumeUsedInBytes
 
 ``` purescript
 newtype VolumeiSCSIAttributes
-  = VolumeiSCSIAttributes { "TargetARN" :: NullOrUndefined (TargetARN), "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId), "NetworkInterfacePort" :: NullOrUndefined (Int), "LunNumber" :: NullOrUndefined (PositiveIntObject), "ChapEnabled" :: NullOrUndefined (Boolean) }
+  = VolumeiSCSIAttributes { "TargetARN" :: Maybe (TargetARN), "NetworkInterfaceId" :: Maybe (NetworkInterfaceId), "NetworkInterfacePort" :: Maybe (Int), "LunNumber" :: Maybe (PositiveIntObject), "ChapEnabled" :: Maybe (Boolean) }
 ```
 
 <p>Lists iSCSI information about a volume.</p>
@@ -6615,7 +6615,7 @@ Constructs VolumeiSCSIAttributes from required parameters
 #### `newVolumeiSCSIAttributes'`
 
 ``` purescript
-newVolumeiSCSIAttributes' :: ({ "TargetARN" :: NullOrUndefined (TargetARN), "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId), "NetworkInterfacePort" :: NullOrUndefined (Int), "LunNumber" :: NullOrUndefined (PositiveIntObject), "ChapEnabled" :: NullOrUndefined (Boolean) } -> { "TargetARN" :: NullOrUndefined (TargetARN), "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId), "NetworkInterfacePort" :: NullOrUndefined (Int), "LunNumber" :: NullOrUndefined (PositiveIntObject), "ChapEnabled" :: NullOrUndefined (Boolean) }) -> VolumeiSCSIAttributes
+newVolumeiSCSIAttributes' :: ({ "TargetARN" :: Maybe (TargetARN), "NetworkInterfaceId" :: Maybe (NetworkInterfaceId), "NetworkInterfacePort" :: Maybe (Int), "LunNumber" :: Maybe (PositiveIntObject), "ChapEnabled" :: Maybe (Boolean) } -> { "TargetARN" :: Maybe (TargetARN), "NetworkInterfaceId" :: Maybe (NetworkInterfaceId), "NetworkInterfacePort" :: Maybe (Int), "LunNumber" :: Maybe (PositiveIntObject), "ChapEnabled" :: Maybe (Boolean) }) -> VolumeiSCSIAttributes
 ```
 
 Constructs VolumeiSCSIAttributes's fields from required parameters

@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -24,9 +23,9 @@ newtype ActivateGatewayInput = ActivateGatewayInput
   , "GatewayName" :: (GatewayName)
   , "GatewayTimezone" :: (GatewayTimezone)
   , "GatewayRegion" :: (RegionId)
-  , "GatewayType" :: NullOrUndefined (GatewayType)
-  , "TapeDriveType" :: NullOrUndefined (TapeDriveType)
-  , "MediumChangerType" :: NullOrUndefined (MediumChangerType)
+  , "GatewayType" :: Maybe (GatewayType)
+  , "TapeDriveType" :: Maybe (TapeDriveType)
+  , "MediumChangerType" :: Maybe (MediumChangerType)
   }
 derive instance newtypeActivateGatewayInput :: Newtype ActivateGatewayInput _
 derive instance repGenericActivateGatewayInput :: Generic ActivateGatewayInput _
@@ -36,18 +35,18 @@ instance encodeActivateGatewayInput :: Encode ActivateGatewayInput where encode 
 
 -- | Constructs ActivateGatewayInput from required parameters
 newActivateGatewayInput :: ActivationKey -> GatewayName -> RegionId -> GatewayTimezone -> ActivateGatewayInput
-newActivateGatewayInput _ActivationKey _GatewayName _GatewayRegion _GatewayTimezone = ActivateGatewayInput { "ActivationKey": _ActivationKey, "GatewayName": _GatewayName, "GatewayRegion": _GatewayRegion, "GatewayTimezone": _GatewayTimezone, "GatewayType": (NullOrUndefined Nothing), "MediumChangerType": (NullOrUndefined Nothing), "TapeDriveType": (NullOrUndefined Nothing) }
+newActivateGatewayInput _ActivationKey _GatewayName _GatewayRegion _GatewayTimezone = ActivateGatewayInput { "ActivationKey": _ActivationKey, "GatewayName": _GatewayName, "GatewayRegion": _GatewayRegion, "GatewayTimezone": _GatewayTimezone, "GatewayType": Nothing, "MediumChangerType": Nothing, "TapeDriveType": Nothing }
 
 -- | Constructs ActivateGatewayInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newActivateGatewayInput' :: ActivationKey -> GatewayName -> RegionId -> GatewayTimezone -> ( { "ActivationKey" :: (ActivationKey) , "GatewayName" :: (GatewayName) , "GatewayTimezone" :: (GatewayTimezone) , "GatewayRegion" :: (RegionId) , "GatewayType" :: NullOrUndefined (GatewayType) , "TapeDriveType" :: NullOrUndefined (TapeDriveType) , "MediumChangerType" :: NullOrUndefined (MediumChangerType) } -> {"ActivationKey" :: (ActivationKey) , "GatewayName" :: (GatewayName) , "GatewayTimezone" :: (GatewayTimezone) , "GatewayRegion" :: (RegionId) , "GatewayType" :: NullOrUndefined (GatewayType) , "TapeDriveType" :: NullOrUndefined (TapeDriveType) , "MediumChangerType" :: NullOrUndefined (MediumChangerType) } ) -> ActivateGatewayInput
-newActivateGatewayInput' _ActivationKey _GatewayName _GatewayRegion _GatewayTimezone customize = (ActivateGatewayInput <<< customize) { "ActivationKey": _ActivationKey, "GatewayName": _GatewayName, "GatewayRegion": _GatewayRegion, "GatewayTimezone": _GatewayTimezone, "GatewayType": (NullOrUndefined Nothing), "MediumChangerType": (NullOrUndefined Nothing), "TapeDriveType": (NullOrUndefined Nothing) }
+newActivateGatewayInput' :: ActivationKey -> GatewayName -> RegionId -> GatewayTimezone -> ( { "ActivationKey" :: (ActivationKey) , "GatewayName" :: (GatewayName) , "GatewayTimezone" :: (GatewayTimezone) , "GatewayRegion" :: (RegionId) , "GatewayType" :: Maybe (GatewayType) , "TapeDriveType" :: Maybe (TapeDriveType) , "MediumChangerType" :: Maybe (MediumChangerType) } -> {"ActivationKey" :: (ActivationKey) , "GatewayName" :: (GatewayName) , "GatewayTimezone" :: (GatewayTimezone) , "GatewayRegion" :: (RegionId) , "GatewayType" :: Maybe (GatewayType) , "TapeDriveType" :: Maybe (TapeDriveType) , "MediumChangerType" :: Maybe (MediumChangerType) } ) -> ActivateGatewayInput
+newActivateGatewayInput' _ActivationKey _GatewayName _GatewayRegion _GatewayTimezone customize = (ActivateGatewayInput <<< customize) { "ActivationKey": _ActivationKey, "GatewayName": _GatewayName, "GatewayRegion": _GatewayRegion, "GatewayTimezone": _GatewayTimezone, "GatewayType": Nothing, "MediumChangerType": Nothing, "TapeDriveType": Nothing }
 
 
 
 -- | <p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It is a string made of information such as your account, gateway name, and region. This ARN is used to reference the gateway in other API operations as well as resource-based authorization.</p> <note> <p>For gateways activated prior to September 02, 2015, the gateway ARN contains the gateway name rather than the gateway ID. Changing the name of the gateway has no effect on the gateway ARN.</p> </note>
 newtype ActivateGatewayOutput = ActivateGatewayOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeActivateGatewayOutput :: Newtype ActivateGatewayOutput _
 derive instance repGenericActivateGatewayOutput :: Generic ActivateGatewayOutput _
@@ -57,12 +56,12 @@ instance encodeActivateGatewayOutput :: Encode ActivateGatewayOutput where encod
 
 -- | Constructs ActivateGatewayOutput from required parameters
 newActivateGatewayOutput :: ActivateGatewayOutput
-newActivateGatewayOutput  = ActivateGatewayOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newActivateGatewayOutput  = ActivateGatewayOutput { "GatewayARN": Nothing }
 
 -- | Constructs ActivateGatewayOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newActivateGatewayOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> ActivateGatewayOutput
-newActivateGatewayOutput'  customize = (ActivateGatewayOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newActivateGatewayOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> ActivateGatewayOutput
+newActivateGatewayOutput'  customize = (ActivateGatewayOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -97,7 +96,7 @@ newAddCacheInput' _DiskIds _GatewayARN customize = (AddCacheInput <<< customize)
 
 
 newtype AddCacheOutput = AddCacheOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeAddCacheOutput :: Newtype AddCacheOutput _
 derive instance repGenericAddCacheOutput :: Generic AddCacheOutput _
@@ -107,12 +106,12 @@ instance encodeAddCacheOutput :: Encode AddCacheOutput where encode = genericEnc
 
 -- | Constructs AddCacheOutput from required parameters
 newAddCacheOutput :: AddCacheOutput
-newAddCacheOutput  = AddCacheOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newAddCacheOutput  = AddCacheOutput { "GatewayARN": Nothing }
 
 -- | Constructs AddCacheOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAddCacheOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> AddCacheOutput
-newAddCacheOutput'  customize = (AddCacheOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newAddCacheOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> AddCacheOutput
+newAddCacheOutput'  customize = (AddCacheOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -140,7 +139,7 @@ newAddTagsToResourceInput' _ResourceARN _Tags customize = (AddTagsToResourceInpu
 
 -- | <p>AddTagsToResourceOutput</p>
 newtype AddTagsToResourceOutput = AddTagsToResourceOutput 
-  { "ResourceARN" :: NullOrUndefined (ResourceARN)
+  { "ResourceARN" :: Maybe (ResourceARN)
   }
 derive instance newtypeAddTagsToResourceOutput :: Newtype AddTagsToResourceOutput _
 derive instance repGenericAddTagsToResourceOutput :: Generic AddTagsToResourceOutput _
@@ -150,12 +149,12 @@ instance encodeAddTagsToResourceOutput :: Encode AddTagsToResourceOutput where e
 
 -- | Constructs AddTagsToResourceOutput from required parameters
 newAddTagsToResourceOutput :: AddTagsToResourceOutput
-newAddTagsToResourceOutput  = AddTagsToResourceOutput { "ResourceARN": (NullOrUndefined Nothing) }
+newAddTagsToResourceOutput  = AddTagsToResourceOutput { "ResourceARN": Nothing }
 
 -- | Constructs AddTagsToResourceOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAddTagsToResourceOutput' :: ( { "ResourceARN" :: NullOrUndefined (ResourceARN) } -> {"ResourceARN" :: NullOrUndefined (ResourceARN) } ) -> AddTagsToResourceOutput
-newAddTagsToResourceOutput'  customize = (AddTagsToResourceOutput <<< customize) { "ResourceARN": (NullOrUndefined Nothing) }
+newAddTagsToResourceOutput' :: ( { "ResourceARN" :: Maybe (ResourceARN) } -> {"ResourceARN" :: Maybe (ResourceARN) } ) -> AddTagsToResourceOutput
+newAddTagsToResourceOutput'  customize = (AddTagsToResourceOutput <<< customize) { "ResourceARN": Nothing }
 
 
 
@@ -181,7 +180,7 @@ newAddUploadBufferInput' _DiskIds _GatewayARN customize = (AddUploadBufferInput 
 
 
 newtype AddUploadBufferOutput = AddUploadBufferOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeAddUploadBufferOutput :: Newtype AddUploadBufferOutput _
 derive instance repGenericAddUploadBufferOutput :: Generic AddUploadBufferOutput _
@@ -191,12 +190,12 @@ instance encodeAddUploadBufferOutput :: Encode AddUploadBufferOutput where encod
 
 -- | Constructs AddUploadBufferOutput from required parameters
 newAddUploadBufferOutput :: AddUploadBufferOutput
-newAddUploadBufferOutput  = AddUploadBufferOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newAddUploadBufferOutput  = AddUploadBufferOutput { "GatewayARN": Nothing }
 
 -- | Constructs AddUploadBufferOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAddUploadBufferOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> AddUploadBufferOutput
-newAddUploadBufferOutput'  customize = (AddUploadBufferOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newAddUploadBufferOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> AddUploadBufferOutput
+newAddUploadBufferOutput'  customize = (AddUploadBufferOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -224,7 +223,7 @@ newAddWorkingStorageInput' _DiskIds _GatewayARN customize = (AddWorkingStorageIn
 
 -- | <p>A JSON object containing the of the gateway for which working storage was configured.</p>
 newtype AddWorkingStorageOutput = AddWorkingStorageOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeAddWorkingStorageOutput :: Newtype AddWorkingStorageOutput _
 derive instance repGenericAddWorkingStorageOutput :: Generic AddWorkingStorageOutput _
@@ -234,12 +233,12 @@ instance encodeAddWorkingStorageOutput :: Encode AddWorkingStorageOutput where e
 
 -- | Constructs AddWorkingStorageOutput from required parameters
 newAddWorkingStorageOutput :: AddWorkingStorageOutput
-newAddWorkingStorageOutput  = AddWorkingStorageOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newAddWorkingStorageOutput  = AddWorkingStorageOutput { "GatewayARN": Nothing }
 
 -- | Constructs AddWorkingStorageOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAddWorkingStorageOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> AddWorkingStorageOutput
-newAddWorkingStorageOutput'  customize = (AddWorkingStorageOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newAddWorkingStorageOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> AddWorkingStorageOutput
+newAddWorkingStorageOutput'  customize = (AddWorkingStorageOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -272,16 +271,16 @@ instance encodeBandwidthUploadRateLimit :: Encode BandwidthUploadRateLimit where
 
 -- | <p>Describes an iSCSI cached volume.</p>
 newtype CachediSCSIVolume = CachediSCSIVolume 
-  { "VolumeARN" :: NullOrUndefined (VolumeARN)
-  , "VolumeId" :: NullOrUndefined (VolumeId)
-  , "VolumeType" :: NullOrUndefined (VolumeType)
-  , "VolumeStatus" :: NullOrUndefined (VolumeStatus)
-  , "VolumeSizeInBytes" :: NullOrUndefined (Number)
-  , "VolumeProgress" :: NullOrUndefined (DoubleObject)
-  , "SourceSnapshotId" :: NullOrUndefined (SnapshotId)
-  , "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes)
-  , "CreatedDate" :: NullOrUndefined (CreatedDate)
-  , "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes)
+  { "VolumeARN" :: Maybe (VolumeARN)
+  , "VolumeId" :: Maybe (VolumeId)
+  , "VolumeType" :: Maybe (VolumeType)
+  , "VolumeStatus" :: Maybe (VolumeStatus)
+  , "VolumeSizeInBytes" :: Maybe (Number)
+  , "VolumeProgress" :: Maybe (DoubleObject)
+  , "SourceSnapshotId" :: Maybe (SnapshotId)
+  , "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes)
+  , "CreatedDate" :: Maybe (CreatedDate)
+  , "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes)
   }
 derive instance newtypeCachediSCSIVolume :: Newtype CachediSCSIVolume _
 derive instance repGenericCachediSCSIVolume :: Generic CachediSCSIVolume _
@@ -291,12 +290,12 @@ instance encodeCachediSCSIVolume :: Encode CachediSCSIVolume where encode = gene
 
 -- | Constructs CachediSCSIVolume from required parameters
 newCachediSCSIVolume :: CachediSCSIVolume
-newCachediSCSIVolume  = CachediSCSIVolume { "CreatedDate": (NullOrUndefined Nothing), "SourceSnapshotId": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing), "VolumeId": (NullOrUndefined Nothing), "VolumeProgress": (NullOrUndefined Nothing), "VolumeSizeInBytes": (NullOrUndefined Nothing), "VolumeStatus": (NullOrUndefined Nothing), "VolumeType": (NullOrUndefined Nothing), "VolumeUsedInBytes": (NullOrUndefined Nothing), "VolumeiSCSIAttributes": (NullOrUndefined Nothing) }
+newCachediSCSIVolume  = CachediSCSIVolume { "CreatedDate": Nothing, "SourceSnapshotId": Nothing, "VolumeARN": Nothing, "VolumeId": Nothing, "VolumeProgress": Nothing, "VolumeSizeInBytes": Nothing, "VolumeStatus": Nothing, "VolumeType": Nothing, "VolumeUsedInBytes": Nothing, "VolumeiSCSIAttributes": Nothing }
 
 -- | Constructs CachediSCSIVolume's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCachediSCSIVolume' :: ( { "VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeId" :: NullOrUndefined (VolumeId) , "VolumeType" :: NullOrUndefined (VolumeType) , "VolumeStatus" :: NullOrUndefined (VolumeStatus) , "VolumeSizeInBytes" :: NullOrUndefined (Number) , "VolumeProgress" :: NullOrUndefined (DoubleObject) , "SourceSnapshotId" :: NullOrUndefined (SnapshotId) , "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes) , "CreatedDate" :: NullOrUndefined (CreatedDate) , "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes) } -> {"VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeId" :: NullOrUndefined (VolumeId) , "VolumeType" :: NullOrUndefined (VolumeType) , "VolumeStatus" :: NullOrUndefined (VolumeStatus) , "VolumeSizeInBytes" :: NullOrUndefined (Number) , "VolumeProgress" :: NullOrUndefined (DoubleObject) , "SourceSnapshotId" :: NullOrUndefined (SnapshotId) , "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes) , "CreatedDate" :: NullOrUndefined (CreatedDate) , "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes) } ) -> CachediSCSIVolume
-newCachediSCSIVolume'  customize = (CachediSCSIVolume <<< customize) { "CreatedDate": (NullOrUndefined Nothing), "SourceSnapshotId": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing), "VolumeId": (NullOrUndefined Nothing), "VolumeProgress": (NullOrUndefined Nothing), "VolumeSizeInBytes": (NullOrUndefined Nothing), "VolumeStatus": (NullOrUndefined Nothing), "VolumeType": (NullOrUndefined Nothing), "VolumeUsedInBytes": (NullOrUndefined Nothing), "VolumeiSCSIAttributes": (NullOrUndefined Nothing) }
+newCachediSCSIVolume' :: ( { "VolumeARN" :: Maybe (VolumeARN) , "VolumeId" :: Maybe (VolumeId) , "VolumeType" :: Maybe (VolumeType) , "VolumeStatus" :: Maybe (VolumeStatus) , "VolumeSizeInBytes" :: Maybe (Number) , "VolumeProgress" :: Maybe (DoubleObject) , "SourceSnapshotId" :: Maybe (SnapshotId) , "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes) , "CreatedDate" :: Maybe (CreatedDate) , "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes) } -> {"VolumeARN" :: Maybe (VolumeARN) , "VolumeId" :: Maybe (VolumeId) , "VolumeType" :: Maybe (VolumeType) , "VolumeStatus" :: Maybe (VolumeStatus) , "VolumeSizeInBytes" :: Maybe (Number) , "VolumeProgress" :: Maybe (DoubleObject) , "SourceSnapshotId" :: Maybe (SnapshotId) , "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes) , "CreatedDate" :: Maybe (CreatedDate) , "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes) } ) -> CachediSCSIVolume
+newCachediSCSIVolume'  customize = (CachediSCSIVolume <<< customize) { "CreatedDate": Nothing, "SourceSnapshotId": Nothing, "VolumeARN": Nothing, "VolumeId": Nothing, "VolumeProgress": Nothing, "VolumeSizeInBytes": Nothing, "VolumeStatus": Nothing, "VolumeType": Nothing, "VolumeUsedInBytes": Nothing, "VolumeiSCSIAttributes": Nothing }
 
 
 
@@ -333,7 +332,7 @@ newCancelArchivalInput' _GatewayARN _TapeARN customize = (CancelArchivalInput <<
 
 -- | <p>CancelArchivalOutput</p>
 newtype CancelArchivalOutput = CancelArchivalOutput 
-  { "TapeARN" :: NullOrUndefined (TapeARN)
+  { "TapeARN" :: Maybe (TapeARN)
   }
 derive instance newtypeCancelArchivalOutput :: Newtype CancelArchivalOutput _
 derive instance repGenericCancelArchivalOutput :: Generic CancelArchivalOutput _
@@ -343,12 +342,12 @@ instance encodeCancelArchivalOutput :: Encode CancelArchivalOutput where encode 
 
 -- | Constructs CancelArchivalOutput from required parameters
 newCancelArchivalOutput :: CancelArchivalOutput
-newCancelArchivalOutput  = CancelArchivalOutput { "TapeARN": (NullOrUndefined Nothing) }
+newCancelArchivalOutput  = CancelArchivalOutput { "TapeARN": Nothing }
 
 -- | Constructs CancelArchivalOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCancelArchivalOutput' :: ( { "TapeARN" :: NullOrUndefined (TapeARN) } -> {"TapeARN" :: NullOrUndefined (TapeARN) } ) -> CancelArchivalOutput
-newCancelArchivalOutput'  customize = (CancelArchivalOutput <<< customize) { "TapeARN": (NullOrUndefined Nothing) }
+newCancelArchivalOutput' :: ( { "TapeARN" :: Maybe (TapeARN) } -> {"TapeARN" :: Maybe (TapeARN) } ) -> CancelArchivalOutput
+newCancelArchivalOutput'  customize = (CancelArchivalOutput <<< customize) { "TapeARN": Nothing }
 
 
 
@@ -376,7 +375,7 @@ newCancelRetrievalInput' _GatewayARN _TapeARN customize = (CancelRetrievalInput 
 
 -- | <p>CancelRetrievalOutput</p>
 newtype CancelRetrievalOutput = CancelRetrievalOutput 
-  { "TapeARN" :: NullOrUndefined (TapeARN)
+  { "TapeARN" :: Maybe (TapeARN)
   }
 derive instance newtypeCancelRetrievalOutput :: Newtype CancelRetrievalOutput _
 derive instance repGenericCancelRetrievalOutput :: Generic CancelRetrievalOutput _
@@ -386,12 +385,12 @@ instance encodeCancelRetrievalOutput :: Encode CancelRetrievalOutput where encod
 
 -- | Constructs CancelRetrievalOutput from required parameters
 newCancelRetrievalOutput :: CancelRetrievalOutput
-newCancelRetrievalOutput  = CancelRetrievalOutput { "TapeARN": (NullOrUndefined Nothing) }
+newCancelRetrievalOutput  = CancelRetrievalOutput { "TapeARN": Nothing }
 
 -- | Constructs CancelRetrievalOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCancelRetrievalOutput' :: ( { "TapeARN" :: NullOrUndefined (TapeARN) } -> {"TapeARN" :: NullOrUndefined (TapeARN) } ) -> CancelRetrievalOutput
-newCancelRetrievalOutput'  customize = (CancelRetrievalOutput <<< customize) { "TapeARN": (NullOrUndefined Nothing) }
+newCancelRetrievalOutput' :: ( { "TapeARN" :: Maybe (TapeARN) } -> {"TapeARN" :: Maybe (TapeARN) } ) -> CancelRetrievalOutput
+newCancelRetrievalOutput'  customize = (CancelRetrievalOutput <<< customize) { "TapeARN": Nothing }
 
 
 
@@ -406,10 +405,10 @@ instance encodeChapCredentials :: Encode ChapCredentials where encode = genericE
 
 -- | <p>Describes Challenge-Handshake Authentication Protocol (CHAP) information that supports authentication between your gateway and iSCSI initiators.</p>
 newtype ChapInfo = ChapInfo 
-  { "TargetARN" :: NullOrUndefined (TargetARN)
-  , "SecretToAuthenticateInitiator" :: NullOrUndefined (ChapSecret)
-  , "InitiatorName" :: NullOrUndefined (IqnName)
-  , "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret)
+  { "TargetARN" :: Maybe (TargetARN)
+  , "SecretToAuthenticateInitiator" :: Maybe (ChapSecret)
+  , "InitiatorName" :: Maybe (IqnName)
+  , "SecretToAuthenticateTarget" :: Maybe (ChapSecret)
   }
 derive instance newtypeChapInfo :: Newtype ChapInfo _
 derive instance repGenericChapInfo :: Generic ChapInfo _
@@ -419,12 +418,12 @@ instance encodeChapInfo :: Encode ChapInfo where encode = genericEncode options
 
 -- | Constructs ChapInfo from required parameters
 newChapInfo :: ChapInfo
-newChapInfo  = ChapInfo { "InitiatorName": (NullOrUndefined Nothing), "SecretToAuthenticateInitiator": (NullOrUndefined Nothing), "SecretToAuthenticateTarget": (NullOrUndefined Nothing), "TargetARN": (NullOrUndefined Nothing) }
+newChapInfo  = ChapInfo { "InitiatorName": Nothing, "SecretToAuthenticateInitiator": Nothing, "SecretToAuthenticateTarget": Nothing, "TargetARN": Nothing }
 
 -- | Constructs ChapInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newChapInfo' :: ( { "TargetARN" :: NullOrUndefined (TargetARN) , "SecretToAuthenticateInitiator" :: NullOrUndefined (ChapSecret) , "InitiatorName" :: NullOrUndefined (IqnName) , "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret) } -> {"TargetARN" :: NullOrUndefined (TargetARN) , "SecretToAuthenticateInitiator" :: NullOrUndefined (ChapSecret) , "InitiatorName" :: NullOrUndefined (IqnName) , "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret) } ) -> ChapInfo
-newChapInfo'  customize = (ChapInfo <<< customize) { "InitiatorName": (NullOrUndefined Nothing), "SecretToAuthenticateInitiator": (NullOrUndefined Nothing), "SecretToAuthenticateTarget": (NullOrUndefined Nothing), "TargetARN": (NullOrUndefined Nothing) }
+newChapInfo' :: ( { "TargetARN" :: Maybe (TargetARN) , "SecretToAuthenticateInitiator" :: Maybe (ChapSecret) , "InitiatorName" :: Maybe (IqnName) , "SecretToAuthenticateTarget" :: Maybe (ChapSecret) } -> {"TargetARN" :: Maybe (TargetARN) , "SecretToAuthenticateInitiator" :: Maybe (ChapSecret) , "InitiatorName" :: Maybe (IqnName) , "SecretToAuthenticateTarget" :: Maybe (ChapSecret) } ) -> ChapInfo
+newChapInfo'  customize = (ChapInfo <<< customize) { "InitiatorName": Nothing, "SecretToAuthenticateInitiator": Nothing, "SecretToAuthenticateTarget": Nothing, "TargetARN": Nothing }
 
 
 
@@ -449,9 +448,9 @@ instance encodeClientToken :: Encode ClientToken where encode = genericEncode op
 newtype CreateCachediSCSIVolumeInput = CreateCachediSCSIVolumeInput 
   { "GatewayARN" :: (GatewayARN)
   , "VolumeSizeInBytes" :: (Number)
-  , "SnapshotId" :: NullOrUndefined (SnapshotId)
+  , "SnapshotId" :: Maybe (SnapshotId)
   , "TargetName" :: (TargetName)
-  , "SourceVolumeARN" :: NullOrUndefined (VolumeARN)
+  , "SourceVolumeARN" :: Maybe (VolumeARN)
   , "NetworkInterfaceId" :: (NetworkInterfaceId)
   , "ClientToken" :: (ClientToken)
   }
@@ -463,18 +462,18 @@ instance encodeCreateCachediSCSIVolumeInput :: Encode CreateCachediSCSIVolumeInp
 
 -- | Constructs CreateCachediSCSIVolumeInput from required parameters
 newCreateCachediSCSIVolumeInput :: ClientToken -> GatewayARN -> NetworkInterfaceId -> TargetName -> Number -> CreateCachediSCSIVolumeInput
-newCreateCachediSCSIVolumeInput _ClientToken _GatewayARN _NetworkInterfaceId _TargetName _VolumeSizeInBytes = CreateCachediSCSIVolumeInput { "ClientToken": _ClientToken, "GatewayARN": _GatewayARN, "NetworkInterfaceId": _NetworkInterfaceId, "TargetName": _TargetName, "VolumeSizeInBytes": _VolumeSizeInBytes, "SnapshotId": (NullOrUndefined Nothing), "SourceVolumeARN": (NullOrUndefined Nothing) }
+newCreateCachediSCSIVolumeInput _ClientToken _GatewayARN _NetworkInterfaceId _TargetName _VolumeSizeInBytes = CreateCachediSCSIVolumeInput { "ClientToken": _ClientToken, "GatewayARN": _GatewayARN, "NetworkInterfaceId": _NetworkInterfaceId, "TargetName": _TargetName, "VolumeSizeInBytes": _VolumeSizeInBytes, "SnapshotId": Nothing, "SourceVolumeARN": Nothing }
 
 -- | Constructs CreateCachediSCSIVolumeInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateCachediSCSIVolumeInput' :: ClientToken -> GatewayARN -> NetworkInterfaceId -> TargetName -> Number -> ( { "GatewayARN" :: (GatewayARN) , "VolumeSizeInBytes" :: (Number) , "SnapshotId" :: NullOrUndefined (SnapshotId) , "TargetName" :: (TargetName) , "SourceVolumeARN" :: NullOrUndefined (VolumeARN) , "NetworkInterfaceId" :: (NetworkInterfaceId) , "ClientToken" :: (ClientToken) } -> {"GatewayARN" :: (GatewayARN) , "VolumeSizeInBytes" :: (Number) , "SnapshotId" :: NullOrUndefined (SnapshotId) , "TargetName" :: (TargetName) , "SourceVolumeARN" :: NullOrUndefined (VolumeARN) , "NetworkInterfaceId" :: (NetworkInterfaceId) , "ClientToken" :: (ClientToken) } ) -> CreateCachediSCSIVolumeInput
-newCreateCachediSCSIVolumeInput' _ClientToken _GatewayARN _NetworkInterfaceId _TargetName _VolumeSizeInBytes customize = (CreateCachediSCSIVolumeInput <<< customize) { "ClientToken": _ClientToken, "GatewayARN": _GatewayARN, "NetworkInterfaceId": _NetworkInterfaceId, "TargetName": _TargetName, "VolumeSizeInBytes": _VolumeSizeInBytes, "SnapshotId": (NullOrUndefined Nothing), "SourceVolumeARN": (NullOrUndefined Nothing) }
+newCreateCachediSCSIVolumeInput' :: ClientToken -> GatewayARN -> NetworkInterfaceId -> TargetName -> Number -> ( { "GatewayARN" :: (GatewayARN) , "VolumeSizeInBytes" :: (Number) , "SnapshotId" :: Maybe (SnapshotId) , "TargetName" :: (TargetName) , "SourceVolumeARN" :: Maybe (VolumeARN) , "NetworkInterfaceId" :: (NetworkInterfaceId) , "ClientToken" :: (ClientToken) } -> {"GatewayARN" :: (GatewayARN) , "VolumeSizeInBytes" :: (Number) , "SnapshotId" :: Maybe (SnapshotId) , "TargetName" :: (TargetName) , "SourceVolumeARN" :: Maybe (VolumeARN) , "NetworkInterfaceId" :: (NetworkInterfaceId) , "ClientToken" :: (ClientToken) } ) -> CreateCachediSCSIVolumeInput
+newCreateCachediSCSIVolumeInput' _ClientToken _GatewayARN _NetworkInterfaceId _TargetName _VolumeSizeInBytes customize = (CreateCachediSCSIVolumeInput <<< customize) { "ClientToken": _ClientToken, "GatewayARN": _GatewayARN, "NetworkInterfaceId": _NetworkInterfaceId, "TargetName": _TargetName, "VolumeSizeInBytes": _VolumeSizeInBytes, "SnapshotId": Nothing, "SourceVolumeARN": Nothing }
 
 
 
 newtype CreateCachediSCSIVolumeOutput = CreateCachediSCSIVolumeOutput 
-  { "VolumeARN" :: NullOrUndefined (VolumeARN)
-  , "TargetARN" :: NullOrUndefined (TargetARN)
+  { "VolumeARN" :: Maybe (VolumeARN)
+  , "TargetARN" :: Maybe (TargetARN)
   }
 derive instance newtypeCreateCachediSCSIVolumeOutput :: Newtype CreateCachediSCSIVolumeOutput _
 derive instance repGenericCreateCachediSCSIVolumeOutput :: Generic CreateCachediSCSIVolumeOutput _
@@ -484,31 +483,31 @@ instance encodeCreateCachediSCSIVolumeOutput :: Encode CreateCachediSCSIVolumeOu
 
 -- | Constructs CreateCachediSCSIVolumeOutput from required parameters
 newCreateCachediSCSIVolumeOutput :: CreateCachediSCSIVolumeOutput
-newCreateCachediSCSIVolumeOutput  = CreateCachediSCSIVolumeOutput { "TargetARN": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing) }
+newCreateCachediSCSIVolumeOutput  = CreateCachediSCSIVolumeOutput { "TargetARN": Nothing, "VolumeARN": Nothing }
 
 -- | Constructs CreateCachediSCSIVolumeOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateCachediSCSIVolumeOutput' :: ( { "VolumeARN" :: NullOrUndefined (VolumeARN) , "TargetARN" :: NullOrUndefined (TargetARN) } -> {"VolumeARN" :: NullOrUndefined (VolumeARN) , "TargetARN" :: NullOrUndefined (TargetARN) } ) -> CreateCachediSCSIVolumeOutput
-newCreateCachediSCSIVolumeOutput'  customize = (CreateCachediSCSIVolumeOutput <<< customize) { "TargetARN": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing) }
+newCreateCachediSCSIVolumeOutput' :: ( { "VolumeARN" :: Maybe (VolumeARN) , "TargetARN" :: Maybe (TargetARN) } -> {"VolumeARN" :: Maybe (VolumeARN) , "TargetARN" :: Maybe (TargetARN) } ) -> CreateCachediSCSIVolumeOutput
+newCreateCachediSCSIVolumeOutput'  customize = (CreateCachediSCSIVolumeOutput <<< customize) { "TargetARN": Nothing, "VolumeARN": Nothing }
 
 
 
 -- | <p>CreateNFSFileShareInput</p>
 newtype CreateNFSFileShareInput = CreateNFSFileShareInput 
   { "ClientToken" :: (ClientToken)
-  , "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults)
+  , "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults)
   , "GatewayARN" :: (GatewayARN)
-  , "KMSEncrypted" :: NullOrUndefined (Boolean)
-  , "KMSKey" :: NullOrUndefined (KMSKey)
+  , "KMSEncrypted" :: Maybe (Boolean)
+  , "KMSKey" :: Maybe (KMSKey)
   , "Role" :: (Role)
   , "LocationARN" :: (LocationARN)
-  , "DefaultStorageClass" :: NullOrUndefined (StorageClass)
-  , "ObjectACL" :: NullOrUndefined (ObjectACL)
-  , "ClientList" :: NullOrUndefined (FileShareClientList)
-  , "Squash" :: NullOrUndefined (Squash)
-  , "ReadOnly" :: NullOrUndefined (Boolean)
-  , "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean)
-  , "RequesterPays" :: NullOrUndefined (Boolean)
+  , "DefaultStorageClass" :: Maybe (StorageClass)
+  , "ObjectACL" :: Maybe (ObjectACL)
+  , "ClientList" :: Maybe (FileShareClientList)
+  , "Squash" :: Maybe (Squash)
+  , "ReadOnly" :: Maybe (Boolean)
+  , "GuessMIMETypeEnabled" :: Maybe (Boolean)
+  , "RequesterPays" :: Maybe (Boolean)
   }
 derive instance newtypeCreateNFSFileShareInput :: Newtype CreateNFSFileShareInput _
 derive instance repGenericCreateNFSFileShareInput :: Generic CreateNFSFileShareInput _
@@ -518,18 +517,18 @@ instance encodeCreateNFSFileShareInput :: Encode CreateNFSFileShareInput where e
 
 -- | Constructs CreateNFSFileShareInput from required parameters
 newCreateNFSFileShareInput :: ClientToken -> GatewayARN -> LocationARN -> Role -> CreateNFSFileShareInput
-newCreateNFSFileShareInput _ClientToken _GatewayARN _LocationARN _Role = CreateNFSFileShareInput { "ClientToken": _ClientToken, "GatewayARN": _GatewayARN, "LocationARN": _LocationARN, "Role": _Role, "ClientList": (NullOrUndefined Nothing), "DefaultStorageClass": (NullOrUndefined Nothing), "GuessMIMETypeEnabled": (NullOrUndefined Nothing), "KMSEncrypted": (NullOrUndefined Nothing), "KMSKey": (NullOrUndefined Nothing), "NFSFileShareDefaults": (NullOrUndefined Nothing), "ObjectACL": (NullOrUndefined Nothing), "ReadOnly": (NullOrUndefined Nothing), "RequesterPays": (NullOrUndefined Nothing), "Squash": (NullOrUndefined Nothing) }
+newCreateNFSFileShareInput _ClientToken _GatewayARN _LocationARN _Role = CreateNFSFileShareInput { "ClientToken": _ClientToken, "GatewayARN": _GatewayARN, "LocationARN": _LocationARN, "Role": _Role, "ClientList": Nothing, "DefaultStorageClass": Nothing, "GuessMIMETypeEnabled": Nothing, "KMSEncrypted": Nothing, "KMSKey": Nothing, "NFSFileShareDefaults": Nothing, "ObjectACL": Nothing, "ReadOnly": Nothing, "RequesterPays": Nothing, "Squash": Nothing }
 
 -- | Constructs CreateNFSFileShareInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateNFSFileShareInput' :: ClientToken -> GatewayARN -> LocationARN -> Role -> ( { "ClientToken" :: (ClientToken) , "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults) , "GatewayARN" :: (GatewayARN) , "KMSEncrypted" :: NullOrUndefined (Boolean) , "KMSKey" :: NullOrUndefined (KMSKey) , "Role" :: (Role) , "LocationARN" :: (LocationARN) , "DefaultStorageClass" :: NullOrUndefined (StorageClass) , "ObjectACL" :: NullOrUndefined (ObjectACL) , "ClientList" :: NullOrUndefined (FileShareClientList) , "Squash" :: NullOrUndefined (Squash) , "ReadOnly" :: NullOrUndefined (Boolean) , "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean) , "RequesterPays" :: NullOrUndefined (Boolean) } -> {"ClientToken" :: (ClientToken) , "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults) , "GatewayARN" :: (GatewayARN) , "KMSEncrypted" :: NullOrUndefined (Boolean) , "KMSKey" :: NullOrUndefined (KMSKey) , "Role" :: (Role) , "LocationARN" :: (LocationARN) , "DefaultStorageClass" :: NullOrUndefined (StorageClass) , "ObjectACL" :: NullOrUndefined (ObjectACL) , "ClientList" :: NullOrUndefined (FileShareClientList) , "Squash" :: NullOrUndefined (Squash) , "ReadOnly" :: NullOrUndefined (Boolean) , "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean) , "RequesterPays" :: NullOrUndefined (Boolean) } ) -> CreateNFSFileShareInput
-newCreateNFSFileShareInput' _ClientToken _GatewayARN _LocationARN _Role customize = (CreateNFSFileShareInput <<< customize) { "ClientToken": _ClientToken, "GatewayARN": _GatewayARN, "LocationARN": _LocationARN, "Role": _Role, "ClientList": (NullOrUndefined Nothing), "DefaultStorageClass": (NullOrUndefined Nothing), "GuessMIMETypeEnabled": (NullOrUndefined Nothing), "KMSEncrypted": (NullOrUndefined Nothing), "KMSKey": (NullOrUndefined Nothing), "NFSFileShareDefaults": (NullOrUndefined Nothing), "ObjectACL": (NullOrUndefined Nothing), "ReadOnly": (NullOrUndefined Nothing), "RequesterPays": (NullOrUndefined Nothing), "Squash": (NullOrUndefined Nothing) }
+newCreateNFSFileShareInput' :: ClientToken -> GatewayARN -> LocationARN -> Role -> ( { "ClientToken" :: (ClientToken) , "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults) , "GatewayARN" :: (GatewayARN) , "KMSEncrypted" :: Maybe (Boolean) , "KMSKey" :: Maybe (KMSKey) , "Role" :: (Role) , "LocationARN" :: (LocationARN) , "DefaultStorageClass" :: Maybe (StorageClass) , "ObjectACL" :: Maybe (ObjectACL) , "ClientList" :: Maybe (FileShareClientList) , "Squash" :: Maybe (Squash) , "ReadOnly" :: Maybe (Boolean) , "GuessMIMETypeEnabled" :: Maybe (Boolean) , "RequesterPays" :: Maybe (Boolean) } -> {"ClientToken" :: (ClientToken) , "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults) , "GatewayARN" :: (GatewayARN) , "KMSEncrypted" :: Maybe (Boolean) , "KMSKey" :: Maybe (KMSKey) , "Role" :: (Role) , "LocationARN" :: (LocationARN) , "DefaultStorageClass" :: Maybe (StorageClass) , "ObjectACL" :: Maybe (ObjectACL) , "ClientList" :: Maybe (FileShareClientList) , "Squash" :: Maybe (Squash) , "ReadOnly" :: Maybe (Boolean) , "GuessMIMETypeEnabled" :: Maybe (Boolean) , "RequesterPays" :: Maybe (Boolean) } ) -> CreateNFSFileShareInput
+newCreateNFSFileShareInput' _ClientToken _GatewayARN _LocationARN _Role customize = (CreateNFSFileShareInput <<< customize) { "ClientToken": _ClientToken, "GatewayARN": _GatewayARN, "LocationARN": _LocationARN, "Role": _Role, "ClientList": Nothing, "DefaultStorageClass": Nothing, "GuessMIMETypeEnabled": Nothing, "KMSEncrypted": Nothing, "KMSKey": Nothing, "NFSFileShareDefaults": Nothing, "ObjectACL": Nothing, "ReadOnly": Nothing, "RequesterPays": Nothing, "Squash": Nothing }
 
 
 
 -- | <p>CreateNFSFileShareOutput</p>
 newtype CreateNFSFileShareOutput = CreateNFSFileShareOutput 
-  { "FileShareARN" :: NullOrUndefined (FileShareARN)
+  { "FileShareARN" :: Maybe (FileShareARN)
   }
 derive instance newtypeCreateNFSFileShareOutput :: Newtype CreateNFSFileShareOutput _
 derive instance repGenericCreateNFSFileShareOutput :: Generic CreateNFSFileShareOutput _
@@ -539,12 +538,12 @@ instance encodeCreateNFSFileShareOutput :: Encode CreateNFSFileShareOutput where
 
 -- | Constructs CreateNFSFileShareOutput from required parameters
 newCreateNFSFileShareOutput :: CreateNFSFileShareOutput
-newCreateNFSFileShareOutput  = CreateNFSFileShareOutput { "FileShareARN": (NullOrUndefined Nothing) }
+newCreateNFSFileShareOutput  = CreateNFSFileShareOutput { "FileShareARN": Nothing }
 
 -- | Constructs CreateNFSFileShareOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateNFSFileShareOutput' :: ( { "FileShareARN" :: NullOrUndefined (FileShareARN) } -> {"FileShareARN" :: NullOrUndefined (FileShareARN) } ) -> CreateNFSFileShareOutput
-newCreateNFSFileShareOutput'  customize = (CreateNFSFileShareOutput <<< customize) { "FileShareARN": (NullOrUndefined Nothing) }
+newCreateNFSFileShareOutput' :: ( { "FileShareARN" :: Maybe (FileShareARN) } -> {"FileShareARN" :: Maybe (FileShareARN) } ) -> CreateNFSFileShareOutput
+newCreateNFSFileShareOutput'  customize = (CreateNFSFileShareOutput <<< customize) { "FileShareARN": Nothing }
 
 
 
@@ -570,9 +569,9 @@ newCreateSnapshotFromVolumeRecoveryPointInput' _SnapshotDescription _VolumeARN c
 
 
 newtype CreateSnapshotFromVolumeRecoveryPointOutput = CreateSnapshotFromVolumeRecoveryPointOutput 
-  { "SnapshotId" :: NullOrUndefined (SnapshotId)
-  , "VolumeARN" :: NullOrUndefined (VolumeARN)
-  , "VolumeRecoveryPointTime" :: NullOrUndefined (String)
+  { "SnapshotId" :: Maybe (SnapshotId)
+  , "VolumeARN" :: Maybe (VolumeARN)
+  , "VolumeRecoveryPointTime" :: Maybe (String)
   }
 derive instance newtypeCreateSnapshotFromVolumeRecoveryPointOutput :: Newtype CreateSnapshotFromVolumeRecoveryPointOutput _
 derive instance repGenericCreateSnapshotFromVolumeRecoveryPointOutput :: Generic CreateSnapshotFromVolumeRecoveryPointOutput _
@@ -582,12 +581,12 @@ instance encodeCreateSnapshotFromVolumeRecoveryPointOutput :: Encode CreateSnaps
 
 -- | Constructs CreateSnapshotFromVolumeRecoveryPointOutput from required parameters
 newCreateSnapshotFromVolumeRecoveryPointOutput :: CreateSnapshotFromVolumeRecoveryPointOutput
-newCreateSnapshotFromVolumeRecoveryPointOutput  = CreateSnapshotFromVolumeRecoveryPointOutput { "SnapshotId": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing), "VolumeRecoveryPointTime": (NullOrUndefined Nothing) }
+newCreateSnapshotFromVolumeRecoveryPointOutput  = CreateSnapshotFromVolumeRecoveryPointOutput { "SnapshotId": Nothing, "VolumeARN": Nothing, "VolumeRecoveryPointTime": Nothing }
 
 -- | Constructs CreateSnapshotFromVolumeRecoveryPointOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateSnapshotFromVolumeRecoveryPointOutput' :: ( { "SnapshotId" :: NullOrUndefined (SnapshotId) , "VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeRecoveryPointTime" :: NullOrUndefined (String) } -> {"SnapshotId" :: NullOrUndefined (SnapshotId) , "VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeRecoveryPointTime" :: NullOrUndefined (String) } ) -> CreateSnapshotFromVolumeRecoveryPointOutput
-newCreateSnapshotFromVolumeRecoveryPointOutput'  customize = (CreateSnapshotFromVolumeRecoveryPointOutput <<< customize) { "SnapshotId": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing), "VolumeRecoveryPointTime": (NullOrUndefined Nothing) }
+newCreateSnapshotFromVolumeRecoveryPointOutput' :: ( { "SnapshotId" :: Maybe (SnapshotId) , "VolumeARN" :: Maybe (VolumeARN) , "VolumeRecoveryPointTime" :: Maybe (String) } -> {"SnapshotId" :: Maybe (SnapshotId) , "VolumeARN" :: Maybe (VolumeARN) , "VolumeRecoveryPointTime" :: Maybe (String) } ) -> CreateSnapshotFromVolumeRecoveryPointOutput
+newCreateSnapshotFromVolumeRecoveryPointOutput'  customize = (CreateSnapshotFromVolumeRecoveryPointOutput <<< customize) { "SnapshotId": Nothing, "VolumeARN": Nothing, "VolumeRecoveryPointTime": Nothing }
 
 
 
@@ -615,8 +614,8 @@ newCreateSnapshotInput' _SnapshotDescription _VolumeARN customize = (CreateSnaps
 
 -- | <p>A JSON object containing the following fields:</p>
 newtype CreateSnapshotOutput = CreateSnapshotOutput 
-  { "VolumeARN" :: NullOrUndefined (VolumeARN)
-  , "SnapshotId" :: NullOrUndefined (SnapshotId)
+  { "VolumeARN" :: Maybe (VolumeARN)
+  , "SnapshotId" :: Maybe (SnapshotId)
   }
 derive instance newtypeCreateSnapshotOutput :: Newtype CreateSnapshotOutput _
 derive instance repGenericCreateSnapshotOutput :: Generic CreateSnapshotOutput _
@@ -626,12 +625,12 @@ instance encodeCreateSnapshotOutput :: Encode CreateSnapshotOutput where encode 
 
 -- | Constructs CreateSnapshotOutput from required parameters
 newCreateSnapshotOutput :: CreateSnapshotOutput
-newCreateSnapshotOutput  = CreateSnapshotOutput { "SnapshotId": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing) }
+newCreateSnapshotOutput  = CreateSnapshotOutput { "SnapshotId": Nothing, "VolumeARN": Nothing }
 
 -- | Constructs CreateSnapshotOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateSnapshotOutput' :: ( { "VolumeARN" :: NullOrUndefined (VolumeARN) , "SnapshotId" :: NullOrUndefined (SnapshotId) } -> {"VolumeARN" :: NullOrUndefined (VolumeARN) , "SnapshotId" :: NullOrUndefined (SnapshotId) } ) -> CreateSnapshotOutput
-newCreateSnapshotOutput'  customize = (CreateSnapshotOutput <<< customize) { "SnapshotId": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing) }
+newCreateSnapshotOutput' :: ( { "VolumeARN" :: Maybe (VolumeARN) , "SnapshotId" :: Maybe (SnapshotId) } -> {"VolumeARN" :: Maybe (VolumeARN) , "SnapshotId" :: Maybe (SnapshotId) } ) -> CreateSnapshotOutput
+newCreateSnapshotOutput'  customize = (CreateSnapshotOutput <<< customize) { "SnapshotId": Nothing, "VolumeARN": Nothing }
 
 
 
@@ -639,7 +638,7 @@ newCreateSnapshotOutput'  customize = (CreateSnapshotOutput <<< customize) { "Sn
 newtype CreateStorediSCSIVolumeInput = CreateStorediSCSIVolumeInput 
   { "GatewayARN" :: (GatewayARN)
   , "DiskId" :: (DiskId)
-  , "SnapshotId" :: NullOrUndefined (SnapshotId)
+  , "SnapshotId" :: Maybe (SnapshotId)
   , "PreserveExistingData" :: (Boolean)
   , "TargetName" :: (TargetName)
   , "NetworkInterfaceId" :: (NetworkInterfaceId)
@@ -652,20 +651,20 @@ instance encodeCreateStorediSCSIVolumeInput :: Encode CreateStorediSCSIVolumeInp
 
 -- | Constructs CreateStorediSCSIVolumeInput from required parameters
 newCreateStorediSCSIVolumeInput :: DiskId -> GatewayARN -> NetworkInterfaceId -> Boolean -> TargetName -> CreateStorediSCSIVolumeInput
-newCreateStorediSCSIVolumeInput _DiskId _GatewayARN _NetworkInterfaceId _PreserveExistingData _TargetName = CreateStorediSCSIVolumeInput { "DiskId": _DiskId, "GatewayARN": _GatewayARN, "NetworkInterfaceId": _NetworkInterfaceId, "PreserveExistingData": _PreserveExistingData, "TargetName": _TargetName, "SnapshotId": (NullOrUndefined Nothing) }
+newCreateStorediSCSIVolumeInput _DiskId _GatewayARN _NetworkInterfaceId _PreserveExistingData _TargetName = CreateStorediSCSIVolumeInput { "DiskId": _DiskId, "GatewayARN": _GatewayARN, "NetworkInterfaceId": _NetworkInterfaceId, "PreserveExistingData": _PreserveExistingData, "TargetName": _TargetName, "SnapshotId": Nothing }
 
 -- | Constructs CreateStorediSCSIVolumeInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateStorediSCSIVolumeInput' :: DiskId -> GatewayARN -> NetworkInterfaceId -> Boolean -> TargetName -> ( { "GatewayARN" :: (GatewayARN) , "DiskId" :: (DiskId) , "SnapshotId" :: NullOrUndefined (SnapshotId) , "PreserveExistingData" :: (Boolean) , "TargetName" :: (TargetName) , "NetworkInterfaceId" :: (NetworkInterfaceId) } -> {"GatewayARN" :: (GatewayARN) , "DiskId" :: (DiskId) , "SnapshotId" :: NullOrUndefined (SnapshotId) , "PreserveExistingData" :: (Boolean) , "TargetName" :: (TargetName) , "NetworkInterfaceId" :: (NetworkInterfaceId) } ) -> CreateStorediSCSIVolumeInput
-newCreateStorediSCSIVolumeInput' _DiskId _GatewayARN _NetworkInterfaceId _PreserveExistingData _TargetName customize = (CreateStorediSCSIVolumeInput <<< customize) { "DiskId": _DiskId, "GatewayARN": _GatewayARN, "NetworkInterfaceId": _NetworkInterfaceId, "PreserveExistingData": _PreserveExistingData, "TargetName": _TargetName, "SnapshotId": (NullOrUndefined Nothing) }
+newCreateStorediSCSIVolumeInput' :: DiskId -> GatewayARN -> NetworkInterfaceId -> Boolean -> TargetName -> ( { "GatewayARN" :: (GatewayARN) , "DiskId" :: (DiskId) , "SnapshotId" :: Maybe (SnapshotId) , "PreserveExistingData" :: (Boolean) , "TargetName" :: (TargetName) , "NetworkInterfaceId" :: (NetworkInterfaceId) } -> {"GatewayARN" :: (GatewayARN) , "DiskId" :: (DiskId) , "SnapshotId" :: Maybe (SnapshotId) , "PreserveExistingData" :: (Boolean) , "TargetName" :: (TargetName) , "NetworkInterfaceId" :: (NetworkInterfaceId) } ) -> CreateStorediSCSIVolumeInput
+newCreateStorediSCSIVolumeInput' _DiskId _GatewayARN _NetworkInterfaceId _PreserveExistingData _TargetName customize = (CreateStorediSCSIVolumeInput <<< customize) { "DiskId": _DiskId, "GatewayARN": _GatewayARN, "NetworkInterfaceId": _NetworkInterfaceId, "PreserveExistingData": _PreserveExistingData, "TargetName": _TargetName, "SnapshotId": Nothing }
 
 
 
 -- | <p>A JSON object containing the following fields:</p>
 newtype CreateStorediSCSIVolumeOutput = CreateStorediSCSIVolumeOutput 
-  { "VolumeARN" :: NullOrUndefined (VolumeARN)
-  , "VolumeSizeInBytes" :: NullOrUndefined (Number)
-  , "TargetARN" :: NullOrUndefined (TargetARN)
+  { "VolumeARN" :: Maybe (VolumeARN)
+  , "VolumeSizeInBytes" :: Maybe (Number)
+  , "TargetARN" :: Maybe (TargetARN)
   }
 derive instance newtypeCreateStorediSCSIVolumeOutput :: Newtype CreateStorediSCSIVolumeOutput _
 derive instance repGenericCreateStorediSCSIVolumeOutput :: Generic CreateStorediSCSIVolumeOutput _
@@ -675,12 +674,12 @@ instance encodeCreateStorediSCSIVolumeOutput :: Encode CreateStorediSCSIVolumeOu
 
 -- | Constructs CreateStorediSCSIVolumeOutput from required parameters
 newCreateStorediSCSIVolumeOutput :: CreateStorediSCSIVolumeOutput
-newCreateStorediSCSIVolumeOutput  = CreateStorediSCSIVolumeOutput { "TargetARN": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing), "VolumeSizeInBytes": (NullOrUndefined Nothing) }
+newCreateStorediSCSIVolumeOutput  = CreateStorediSCSIVolumeOutput { "TargetARN": Nothing, "VolumeARN": Nothing, "VolumeSizeInBytes": Nothing }
 
 -- | Constructs CreateStorediSCSIVolumeOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateStorediSCSIVolumeOutput' :: ( { "VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeSizeInBytes" :: NullOrUndefined (Number) , "TargetARN" :: NullOrUndefined (TargetARN) } -> {"VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeSizeInBytes" :: NullOrUndefined (Number) , "TargetARN" :: NullOrUndefined (TargetARN) } ) -> CreateStorediSCSIVolumeOutput
-newCreateStorediSCSIVolumeOutput'  customize = (CreateStorediSCSIVolumeOutput <<< customize) { "TargetARN": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing), "VolumeSizeInBytes": (NullOrUndefined Nothing) }
+newCreateStorediSCSIVolumeOutput' :: ( { "VolumeARN" :: Maybe (VolumeARN) , "VolumeSizeInBytes" :: Maybe (Number) , "TargetARN" :: Maybe (TargetARN) } -> {"VolumeARN" :: Maybe (VolumeARN) , "VolumeSizeInBytes" :: Maybe (Number) , "TargetARN" :: Maybe (TargetARN) } ) -> CreateStorediSCSIVolumeOutput
+newCreateStorediSCSIVolumeOutput'  customize = (CreateStorediSCSIVolumeOutput <<< customize) { "TargetARN": Nothing, "VolumeARN": Nothing, "VolumeSizeInBytes": Nothing }
 
 
 
@@ -709,7 +708,7 @@ newCreateTapeWithBarcodeInput' _GatewayARN _TapeBarcode _TapeSizeInBytes customi
 
 -- | <p>CreateTapeOutput</p>
 newtype CreateTapeWithBarcodeOutput = CreateTapeWithBarcodeOutput 
-  { "TapeARN" :: NullOrUndefined (TapeARN)
+  { "TapeARN" :: Maybe (TapeARN)
   }
 derive instance newtypeCreateTapeWithBarcodeOutput :: Newtype CreateTapeWithBarcodeOutput _
 derive instance repGenericCreateTapeWithBarcodeOutput :: Generic CreateTapeWithBarcodeOutput _
@@ -719,12 +718,12 @@ instance encodeCreateTapeWithBarcodeOutput :: Encode CreateTapeWithBarcodeOutput
 
 -- | Constructs CreateTapeWithBarcodeOutput from required parameters
 newCreateTapeWithBarcodeOutput :: CreateTapeWithBarcodeOutput
-newCreateTapeWithBarcodeOutput  = CreateTapeWithBarcodeOutput { "TapeARN": (NullOrUndefined Nothing) }
+newCreateTapeWithBarcodeOutput  = CreateTapeWithBarcodeOutput { "TapeARN": Nothing }
 
 -- | Constructs CreateTapeWithBarcodeOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateTapeWithBarcodeOutput' :: ( { "TapeARN" :: NullOrUndefined (TapeARN) } -> {"TapeARN" :: NullOrUndefined (TapeARN) } ) -> CreateTapeWithBarcodeOutput
-newCreateTapeWithBarcodeOutput'  customize = (CreateTapeWithBarcodeOutput <<< customize) { "TapeARN": (NullOrUndefined Nothing) }
+newCreateTapeWithBarcodeOutput' :: ( { "TapeARN" :: Maybe (TapeARN) } -> {"TapeARN" :: Maybe (TapeARN) } ) -> CreateTapeWithBarcodeOutput
+newCreateTapeWithBarcodeOutput'  customize = (CreateTapeWithBarcodeOutput <<< customize) { "TapeARN": Nothing }
 
 
 
@@ -755,7 +754,7 @@ newCreateTapesInput' _ClientToken _GatewayARN _NumTapesToCreate _TapeBarcodePref
 
 -- | <p>CreateTapeOutput</p>
 newtype CreateTapesOutput = CreateTapesOutput 
-  { "TapeARNs" :: NullOrUndefined (TapeARNs)
+  { "TapeARNs" :: Maybe (TapeARNs)
   }
 derive instance newtypeCreateTapesOutput :: Newtype CreateTapesOutput _
 derive instance repGenericCreateTapesOutput :: Generic CreateTapesOutput _
@@ -765,12 +764,12 @@ instance encodeCreateTapesOutput :: Encode CreateTapesOutput where encode = gene
 
 -- | Constructs CreateTapesOutput from required parameters
 newCreateTapesOutput :: CreateTapesOutput
-newCreateTapesOutput  = CreateTapesOutput { "TapeARNs": (NullOrUndefined Nothing) }
+newCreateTapesOutput  = CreateTapesOutput { "TapeARNs": Nothing }
 
 -- | Constructs CreateTapesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateTapesOutput' :: ( { "TapeARNs" :: NullOrUndefined (TapeARNs) } -> {"TapeARNs" :: NullOrUndefined (TapeARNs) } ) -> CreateTapesOutput
-newCreateTapesOutput'  customize = (CreateTapesOutput <<< customize) { "TapeARNs": (NullOrUndefined Nothing) }
+newCreateTapesOutput' :: ( { "TapeARNs" :: Maybe (TapeARNs) } -> {"TapeARNs" :: Maybe (TapeARNs) } ) -> CreateTapesOutput
+newCreateTapesOutput'  customize = (CreateTapesOutput <<< customize) { "TapeARNs": Nothing }
 
 
 
@@ -816,7 +815,7 @@ newDeleteBandwidthRateLimitInput' _BandwidthType _GatewayARN customize = (Delete
 
 -- | <p>A JSON object containing the of the gateway whose bandwidth rate information was deleted.</p>
 newtype DeleteBandwidthRateLimitOutput = DeleteBandwidthRateLimitOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeDeleteBandwidthRateLimitOutput :: Newtype DeleteBandwidthRateLimitOutput _
 derive instance repGenericDeleteBandwidthRateLimitOutput :: Generic DeleteBandwidthRateLimitOutput _
@@ -826,12 +825,12 @@ instance encodeDeleteBandwidthRateLimitOutput :: Encode DeleteBandwidthRateLimit
 
 -- | Constructs DeleteBandwidthRateLimitOutput from required parameters
 newDeleteBandwidthRateLimitOutput :: DeleteBandwidthRateLimitOutput
-newDeleteBandwidthRateLimitOutput  = DeleteBandwidthRateLimitOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newDeleteBandwidthRateLimitOutput  = DeleteBandwidthRateLimitOutput { "GatewayARN": Nothing }
 
 -- | Constructs DeleteBandwidthRateLimitOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteBandwidthRateLimitOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> DeleteBandwidthRateLimitOutput
-newDeleteBandwidthRateLimitOutput'  customize = (DeleteBandwidthRateLimitOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newDeleteBandwidthRateLimitOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> DeleteBandwidthRateLimitOutput
+newDeleteBandwidthRateLimitOutput'  customize = (DeleteBandwidthRateLimitOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -859,8 +858,8 @@ newDeleteChapCredentialsInput' _InitiatorName _TargetARN customize = (DeleteChap
 
 -- | <p>A JSON object containing the following fields:</p>
 newtype DeleteChapCredentialsOutput = DeleteChapCredentialsOutput 
-  { "TargetARN" :: NullOrUndefined (TargetARN)
-  , "InitiatorName" :: NullOrUndefined (IqnName)
+  { "TargetARN" :: Maybe (TargetARN)
+  , "InitiatorName" :: Maybe (IqnName)
   }
 derive instance newtypeDeleteChapCredentialsOutput :: Newtype DeleteChapCredentialsOutput _
 derive instance repGenericDeleteChapCredentialsOutput :: Generic DeleteChapCredentialsOutput _
@@ -870,19 +869,19 @@ instance encodeDeleteChapCredentialsOutput :: Encode DeleteChapCredentialsOutput
 
 -- | Constructs DeleteChapCredentialsOutput from required parameters
 newDeleteChapCredentialsOutput :: DeleteChapCredentialsOutput
-newDeleteChapCredentialsOutput  = DeleteChapCredentialsOutput { "InitiatorName": (NullOrUndefined Nothing), "TargetARN": (NullOrUndefined Nothing) }
+newDeleteChapCredentialsOutput  = DeleteChapCredentialsOutput { "InitiatorName": Nothing, "TargetARN": Nothing }
 
 -- | Constructs DeleteChapCredentialsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteChapCredentialsOutput' :: ( { "TargetARN" :: NullOrUndefined (TargetARN) , "InitiatorName" :: NullOrUndefined (IqnName) } -> {"TargetARN" :: NullOrUndefined (TargetARN) , "InitiatorName" :: NullOrUndefined (IqnName) } ) -> DeleteChapCredentialsOutput
-newDeleteChapCredentialsOutput'  customize = (DeleteChapCredentialsOutput <<< customize) { "InitiatorName": (NullOrUndefined Nothing), "TargetARN": (NullOrUndefined Nothing) }
+newDeleteChapCredentialsOutput' :: ( { "TargetARN" :: Maybe (TargetARN) , "InitiatorName" :: Maybe (IqnName) } -> {"TargetARN" :: Maybe (TargetARN) , "InitiatorName" :: Maybe (IqnName) } ) -> DeleteChapCredentialsOutput
+newDeleteChapCredentialsOutput'  customize = (DeleteChapCredentialsOutput <<< customize) { "InitiatorName": Nothing, "TargetARN": Nothing }
 
 
 
 -- | <p>DeleteFileShareInput</p>
 newtype DeleteFileShareInput = DeleteFileShareInput 
   { "FileShareARN" :: (FileShareARN)
-  , "ForceDelete" :: NullOrUndefined (Boolean)
+  , "ForceDelete" :: Maybe (Boolean)
   }
 derive instance newtypeDeleteFileShareInput :: Newtype DeleteFileShareInput _
 derive instance repGenericDeleteFileShareInput :: Generic DeleteFileShareInput _
@@ -892,18 +891,18 @@ instance encodeDeleteFileShareInput :: Encode DeleteFileShareInput where encode 
 
 -- | Constructs DeleteFileShareInput from required parameters
 newDeleteFileShareInput :: FileShareARN -> DeleteFileShareInput
-newDeleteFileShareInput _FileShareARN = DeleteFileShareInput { "FileShareARN": _FileShareARN, "ForceDelete": (NullOrUndefined Nothing) }
+newDeleteFileShareInput _FileShareARN = DeleteFileShareInput { "FileShareARN": _FileShareARN, "ForceDelete": Nothing }
 
 -- | Constructs DeleteFileShareInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteFileShareInput' :: FileShareARN -> ( { "FileShareARN" :: (FileShareARN) , "ForceDelete" :: NullOrUndefined (Boolean) } -> {"FileShareARN" :: (FileShareARN) , "ForceDelete" :: NullOrUndefined (Boolean) } ) -> DeleteFileShareInput
-newDeleteFileShareInput' _FileShareARN customize = (DeleteFileShareInput <<< customize) { "FileShareARN": _FileShareARN, "ForceDelete": (NullOrUndefined Nothing) }
+newDeleteFileShareInput' :: FileShareARN -> ( { "FileShareARN" :: (FileShareARN) , "ForceDelete" :: Maybe (Boolean) } -> {"FileShareARN" :: (FileShareARN) , "ForceDelete" :: Maybe (Boolean) } ) -> DeleteFileShareInput
+newDeleteFileShareInput' _FileShareARN customize = (DeleteFileShareInput <<< customize) { "FileShareARN": _FileShareARN, "ForceDelete": Nothing }
 
 
 
 -- | <p>DeleteFileShareOutput</p>
 newtype DeleteFileShareOutput = DeleteFileShareOutput 
-  { "FileShareARN" :: NullOrUndefined (FileShareARN)
+  { "FileShareARN" :: Maybe (FileShareARN)
   }
 derive instance newtypeDeleteFileShareOutput :: Newtype DeleteFileShareOutput _
 derive instance repGenericDeleteFileShareOutput :: Generic DeleteFileShareOutput _
@@ -913,12 +912,12 @@ instance encodeDeleteFileShareOutput :: Encode DeleteFileShareOutput where encod
 
 -- | Constructs DeleteFileShareOutput from required parameters
 newDeleteFileShareOutput :: DeleteFileShareOutput
-newDeleteFileShareOutput  = DeleteFileShareOutput { "FileShareARN": (NullOrUndefined Nothing) }
+newDeleteFileShareOutput  = DeleteFileShareOutput { "FileShareARN": Nothing }
 
 -- | Constructs DeleteFileShareOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteFileShareOutput' :: ( { "FileShareARN" :: NullOrUndefined (FileShareARN) } -> {"FileShareARN" :: NullOrUndefined (FileShareARN) } ) -> DeleteFileShareOutput
-newDeleteFileShareOutput'  customize = (DeleteFileShareOutput <<< customize) { "FileShareARN": (NullOrUndefined Nothing) }
+newDeleteFileShareOutput' :: ( { "FileShareARN" :: Maybe (FileShareARN) } -> {"FileShareARN" :: Maybe (FileShareARN) } ) -> DeleteFileShareOutput
+newDeleteFileShareOutput'  customize = (DeleteFileShareOutput <<< customize) { "FileShareARN": Nothing }
 
 
 
@@ -945,7 +944,7 @@ newDeleteGatewayInput' _GatewayARN customize = (DeleteGatewayInput <<< customize
 
 -- | <p>A JSON object containing the ID of the deleted gateway.</p>
 newtype DeleteGatewayOutput = DeleteGatewayOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeDeleteGatewayOutput :: Newtype DeleteGatewayOutput _
 derive instance repGenericDeleteGatewayOutput :: Generic DeleteGatewayOutput _
@@ -955,12 +954,12 @@ instance encodeDeleteGatewayOutput :: Encode DeleteGatewayOutput where encode = 
 
 -- | Constructs DeleteGatewayOutput from required parameters
 newDeleteGatewayOutput :: DeleteGatewayOutput
-newDeleteGatewayOutput  = DeleteGatewayOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newDeleteGatewayOutput  = DeleteGatewayOutput { "GatewayARN": Nothing }
 
 -- | Constructs DeleteGatewayOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteGatewayOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> DeleteGatewayOutput
-newDeleteGatewayOutput'  customize = (DeleteGatewayOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newDeleteGatewayOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> DeleteGatewayOutput
+newDeleteGatewayOutput'  customize = (DeleteGatewayOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -985,7 +984,7 @@ newDeleteSnapshotScheduleInput' _VolumeARN customize = (DeleteSnapshotScheduleIn
 
 
 newtype DeleteSnapshotScheduleOutput = DeleteSnapshotScheduleOutput 
-  { "VolumeARN" :: NullOrUndefined (VolumeARN)
+  { "VolumeARN" :: Maybe (VolumeARN)
   }
 derive instance newtypeDeleteSnapshotScheduleOutput :: Newtype DeleteSnapshotScheduleOutput _
 derive instance repGenericDeleteSnapshotScheduleOutput :: Generic DeleteSnapshotScheduleOutput _
@@ -995,12 +994,12 @@ instance encodeDeleteSnapshotScheduleOutput :: Encode DeleteSnapshotScheduleOutp
 
 -- | Constructs DeleteSnapshotScheduleOutput from required parameters
 newDeleteSnapshotScheduleOutput :: DeleteSnapshotScheduleOutput
-newDeleteSnapshotScheduleOutput  = DeleteSnapshotScheduleOutput { "VolumeARN": (NullOrUndefined Nothing) }
+newDeleteSnapshotScheduleOutput  = DeleteSnapshotScheduleOutput { "VolumeARN": Nothing }
 
 -- | Constructs DeleteSnapshotScheduleOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteSnapshotScheduleOutput' :: ( { "VolumeARN" :: NullOrUndefined (VolumeARN) } -> {"VolumeARN" :: NullOrUndefined (VolumeARN) } ) -> DeleteSnapshotScheduleOutput
-newDeleteSnapshotScheduleOutput'  customize = (DeleteSnapshotScheduleOutput <<< customize) { "VolumeARN": (NullOrUndefined Nothing) }
+newDeleteSnapshotScheduleOutput' :: ( { "VolumeARN" :: Maybe (VolumeARN) } -> {"VolumeARN" :: Maybe (VolumeARN) } ) -> DeleteSnapshotScheduleOutput
+newDeleteSnapshotScheduleOutput'  customize = (DeleteSnapshotScheduleOutput <<< customize) { "VolumeARN": Nothing }
 
 
 
@@ -1027,7 +1026,7 @@ newDeleteTapeArchiveInput' _TapeARN customize = (DeleteTapeArchiveInput <<< cust
 
 -- | <p>DeleteTapeArchiveOutput</p>
 newtype DeleteTapeArchiveOutput = DeleteTapeArchiveOutput 
-  { "TapeARN" :: NullOrUndefined (TapeARN)
+  { "TapeARN" :: Maybe (TapeARN)
   }
 derive instance newtypeDeleteTapeArchiveOutput :: Newtype DeleteTapeArchiveOutput _
 derive instance repGenericDeleteTapeArchiveOutput :: Generic DeleteTapeArchiveOutput _
@@ -1037,12 +1036,12 @@ instance encodeDeleteTapeArchiveOutput :: Encode DeleteTapeArchiveOutput where e
 
 -- | Constructs DeleteTapeArchiveOutput from required parameters
 newDeleteTapeArchiveOutput :: DeleteTapeArchiveOutput
-newDeleteTapeArchiveOutput  = DeleteTapeArchiveOutput { "TapeARN": (NullOrUndefined Nothing) }
+newDeleteTapeArchiveOutput  = DeleteTapeArchiveOutput { "TapeARN": Nothing }
 
 -- | Constructs DeleteTapeArchiveOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteTapeArchiveOutput' :: ( { "TapeARN" :: NullOrUndefined (TapeARN) } -> {"TapeARN" :: NullOrUndefined (TapeARN) } ) -> DeleteTapeArchiveOutput
-newDeleteTapeArchiveOutput'  customize = (DeleteTapeArchiveOutput <<< customize) { "TapeARN": (NullOrUndefined Nothing) }
+newDeleteTapeArchiveOutput' :: ( { "TapeARN" :: Maybe (TapeARN) } -> {"TapeARN" :: Maybe (TapeARN) } ) -> DeleteTapeArchiveOutput
+newDeleteTapeArchiveOutput'  customize = (DeleteTapeArchiveOutput <<< customize) { "TapeARN": Nothing }
 
 
 
@@ -1070,7 +1069,7 @@ newDeleteTapeInput' _GatewayARN _TapeARN customize = (DeleteTapeInput <<< custom
 
 -- | <p>DeleteTapeOutput</p>
 newtype DeleteTapeOutput = DeleteTapeOutput 
-  { "TapeARN" :: NullOrUndefined (TapeARN)
+  { "TapeARN" :: Maybe (TapeARN)
   }
 derive instance newtypeDeleteTapeOutput :: Newtype DeleteTapeOutput _
 derive instance repGenericDeleteTapeOutput :: Generic DeleteTapeOutput _
@@ -1080,12 +1079,12 @@ instance encodeDeleteTapeOutput :: Encode DeleteTapeOutput where encode = generi
 
 -- | Constructs DeleteTapeOutput from required parameters
 newDeleteTapeOutput :: DeleteTapeOutput
-newDeleteTapeOutput  = DeleteTapeOutput { "TapeARN": (NullOrUndefined Nothing) }
+newDeleteTapeOutput  = DeleteTapeOutput { "TapeARN": Nothing }
 
 -- | Constructs DeleteTapeOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteTapeOutput' :: ( { "TapeARN" :: NullOrUndefined (TapeARN) } -> {"TapeARN" :: NullOrUndefined (TapeARN) } ) -> DeleteTapeOutput
-newDeleteTapeOutput'  customize = (DeleteTapeOutput <<< customize) { "TapeARN": (NullOrUndefined Nothing) }
+newDeleteTapeOutput' :: ( { "TapeARN" :: Maybe (TapeARN) } -> {"TapeARN" :: Maybe (TapeARN) } ) -> DeleteTapeOutput
+newDeleteTapeOutput'  customize = (DeleteTapeOutput <<< customize) { "TapeARN": Nothing }
 
 
 
@@ -1112,7 +1111,7 @@ newDeleteVolumeInput' _VolumeARN customize = (DeleteVolumeInput <<< customize) {
 
 -- | <p>A JSON object containing the of the storage volume that was deleted</p>
 newtype DeleteVolumeOutput = DeleteVolumeOutput 
-  { "VolumeARN" :: NullOrUndefined (VolumeARN)
+  { "VolumeARN" :: Maybe (VolumeARN)
   }
 derive instance newtypeDeleteVolumeOutput :: Newtype DeleteVolumeOutput _
 derive instance repGenericDeleteVolumeOutput :: Generic DeleteVolumeOutput _
@@ -1122,12 +1121,12 @@ instance encodeDeleteVolumeOutput :: Encode DeleteVolumeOutput where encode = ge
 
 -- | Constructs DeleteVolumeOutput from required parameters
 newDeleteVolumeOutput :: DeleteVolumeOutput
-newDeleteVolumeOutput  = DeleteVolumeOutput { "VolumeARN": (NullOrUndefined Nothing) }
+newDeleteVolumeOutput  = DeleteVolumeOutput { "VolumeARN": Nothing }
 
 -- | Constructs DeleteVolumeOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteVolumeOutput' :: ( { "VolumeARN" :: NullOrUndefined (VolumeARN) } -> {"VolumeARN" :: NullOrUndefined (VolumeARN) } ) -> DeleteVolumeOutput
-newDeleteVolumeOutput'  customize = (DeleteVolumeOutput <<< customize) { "VolumeARN": (NullOrUndefined Nothing) }
+newDeleteVolumeOutput' :: ( { "VolumeARN" :: Maybe (VolumeARN) } -> {"VolumeARN" :: Maybe (VolumeARN) } ) -> DeleteVolumeOutput
+newDeleteVolumeOutput'  customize = (DeleteVolumeOutput <<< customize) { "VolumeARN": Nothing }
 
 
 
@@ -1154,9 +1153,9 @@ newDescribeBandwidthRateLimitInput' _GatewayARN customize = (DescribeBandwidthRa
 
 -- | <p>A JSON object containing the following fields:</p>
 newtype DescribeBandwidthRateLimitOutput = DescribeBandwidthRateLimitOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit)
-  , "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit)
+  , "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit)
   }
 derive instance newtypeDescribeBandwidthRateLimitOutput :: Newtype DescribeBandwidthRateLimitOutput _
 derive instance repGenericDescribeBandwidthRateLimitOutput :: Generic DescribeBandwidthRateLimitOutput _
@@ -1166,12 +1165,12 @@ instance encodeDescribeBandwidthRateLimitOutput :: Encode DescribeBandwidthRateL
 
 -- | Constructs DescribeBandwidthRateLimitOutput from required parameters
 newDescribeBandwidthRateLimitOutput :: DescribeBandwidthRateLimitOutput
-newDescribeBandwidthRateLimitOutput  = DescribeBandwidthRateLimitOutput { "AverageDownloadRateLimitInBitsPerSec": (NullOrUndefined Nothing), "AverageUploadRateLimitInBitsPerSec": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing) }
+newDescribeBandwidthRateLimitOutput  = DescribeBandwidthRateLimitOutput { "AverageDownloadRateLimitInBitsPerSec": Nothing, "AverageUploadRateLimitInBitsPerSec": Nothing, "GatewayARN": Nothing }
 
 -- | Constructs DescribeBandwidthRateLimitOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeBandwidthRateLimitOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit) , "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit) , "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit) } ) -> DescribeBandwidthRateLimitOutput
-newDescribeBandwidthRateLimitOutput'  customize = (DescribeBandwidthRateLimitOutput <<< customize) { "AverageDownloadRateLimitInBitsPerSec": (NullOrUndefined Nothing), "AverageUploadRateLimitInBitsPerSec": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing) }
+newDescribeBandwidthRateLimitOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit) , "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit) } -> {"GatewayARN" :: Maybe (GatewayARN) , "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit) , "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit) } ) -> DescribeBandwidthRateLimitOutput
+newDescribeBandwidthRateLimitOutput'  customize = (DescribeBandwidthRateLimitOutput <<< customize) { "AverageDownloadRateLimitInBitsPerSec": Nothing, "AverageUploadRateLimitInBitsPerSec": Nothing, "GatewayARN": Nothing }
 
 
 
@@ -1196,13 +1195,13 @@ newDescribeCacheInput' _GatewayARN customize = (DescribeCacheInput <<< customize
 
 
 newtype DescribeCacheOutput = DescribeCacheOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "DiskIds" :: NullOrUndefined (DiskIds)
-  , "CacheAllocatedInBytes" :: NullOrUndefined (Number)
-  , "CacheUsedPercentage" :: NullOrUndefined (Number)
-  , "CacheDirtyPercentage" :: NullOrUndefined (Number)
-  , "CacheHitPercentage" :: NullOrUndefined (Number)
-  , "CacheMissPercentage" :: NullOrUndefined (Number)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "DiskIds" :: Maybe (DiskIds)
+  , "CacheAllocatedInBytes" :: Maybe (Number)
+  , "CacheUsedPercentage" :: Maybe (Number)
+  , "CacheDirtyPercentage" :: Maybe (Number)
+  , "CacheHitPercentage" :: Maybe (Number)
+  , "CacheMissPercentage" :: Maybe (Number)
   }
 derive instance newtypeDescribeCacheOutput :: Newtype DescribeCacheOutput _
 derive instance repGenericDescribeCacheOutput :: Generic DescribeCacheOutput _
@@ -1212,12 +1211,12 @@ instance encodeDescribeCacheOutput :: Encode DescribeCacheOutput where encode = 
 
 -- | Constructs DescribeCacheOutput from required parameters
 newDescribeCacheOutput :: DescribeCacheOutput
-newDescribeCacheOutput  = DescribeCacheOutput { "CacheAllocatedInBytes": (NullOrUndefined Nothing), "CacheDirtyPercentage": (NullOrUndefined Nothing), "CacheHitPercentage": (NullOrUndefined Nothing), "CacheMissPercentage": (NullOrUndefined Nothing), "CacheUsedPercentage": (NullOrUndefined Nothing), "DiskIds": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing) }
+newDescribeCacheOutput  = DescribeCacheOutput { "CacheAllocatedInBytes": Nothing, "CacheDirtyPercentage": Nothing, "CacheHitPercentage": Nothing, "CacheMissPercentage": Nothing, "CacheUsedPercentage": Nothing, "DiskIds": Nothing, "GatewayARN": Nothing }
 
 -- | Constructs DescribeCacheOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeCacheOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "DiskIds" :: NullOrUndefined (DiskIds) , "CacheAllocatedInBytes" :: NullOrUndefined (Number) , "CacheUsedPercentage" :: NullOrUndefined (Number) , "CacheDirtyPercentage" :: NullOrUndefined (Number) , "CacheHitPercentage" :: NullOrUndefined (Number) , "CacheMissPercentage" :: NullOrUndefined (Number) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "DiskIds" :: NullOrUndefined (DiskIds) , "CacheAllocatedInBytes" :: NullOrUndefined (Number) , "CacheUsedPercentage" :: NullOrUndefined (Number) , "CacheDirtyPercentage" :: NullOrUndefined (Number) , "CacheHitPercentage" :: NullOrUndefined (Number) , "CacheMissPercentage" :: NullOrUndefined (Number) } ) -> DescribeCacheOutput
-newDescribeCacheOutput'  customize = (DescribeCacheOutput <<< customize) { "CacheAllocatedInBytes": (NullOrUndefined Nothing), "CacheDirtyPercentage": (NullOrUndefined Nothing), "CacheHitPercentage": (NullOrUndefined Nothing), "CacheMissPercentage": (NullOrUndefined Nothing), "CacheUsedPercentage": (NullOrUndefined Nothing), "DiskIds": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing) }
+newDescribeCacheOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "DiskIds" :: Maybe (DiskIds) , "CacheAllocatedInBytes" :: Maybe (Number) , "CacheUsedPercentage" :: Maybe (Number) , "CacheDirtyPercentage" :: Maybe (Number) , "CacheHitPercentage" :: Maybe (Number) , "CacheMissPercentage" :: Maybe (Number) } -> {"GatewayARN" :: Maybe (GatewayARN) , "DiskIds" :: Maybe (DiskIds) , "CacheAllocatedInBytes" :: Maybe (Number) , "CacheUsedPercentage" :: Maybe (Number) , "CacheDirtyPercentage" :: Maybe (Number) , "CacheHitPercentage" :: Maybe (Number) , "CacheMissPercentage" :: Maybe (Number) } ) -> DescribeCacheOutput
+newDescribeCacheOutput'  customize = (DescribeCacheOutput <<< customize) { "CacheAllocatedInBytes": Nothing, "CacheDirtyPercentage": Nothing, "CacheHitPercentage": Nothing, "CacheMissPercentage": Nothing, "CacheUsedPercentage": Nothing, "DiskIds": Nothing, "GatewayARN": Nothing }
 
 
 
@@ -1243,7 +1242,7 @@ newDescribeCachediSCSIVolumesInput' _VolumeARNs customize = (DescribeCachediSCSI
 
 -- | <p>A JSON object containing the following fields:</p>
 newtype DescribeCachediSCSIVolumesOutput = DescribeCachediSCSIVolumesOutput 
-  { "CachediSCSIVolumes" :: NullOrUndefined (CachediSCSIVolumes)
+  { "CachediSCSIVolumes" :: Maybe (CachediSCSIVolumes)
   }
 derive instance newtypeDescribeCachediSCSIVolumesOutput :: Newtype DescribeCachediSCSIVolumesOutput _
 derive instance repGenericDescribeCachediSCSIVolumesOutput :: Generic DescribeCachediSCSIVolumesOutput _
@@ -1253,12 +1252,12 @@ instance encodeDescribeCachediSCSIVolumesOutput :: Encode DescribeCachediSCSIVol
 
 -- | Constructs DescribeCachediSCSIVolumesOutput from required parameters
 newDescribeCachediSCSIVolumesOutput :: DescribeCachediSCSIVolumesOutput
-newDescribeCachediSCSIVolumesOutput  = DescribeCachediSCSIVolumesOutput { "CachediSCSIVolumes": (NullOrUndefined Nothing) }
+newDescribeCachediSCSIVolumesOutput  = DescribeCachediSCSIVolumesOutput { "CachediSCSIVolumes": Nothing }
 
 -- | Constructs DescribeCachediSCSIVolumesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeCachediSCSIVolumesOutput' :: ( { "CachediSCSIVolumes" :: NullOrUndefined (CachediSCSIVolumes) } -> {"CachediSCSIVolumes" :: NullOrUndefined (CachediSCSIVolumes) } ) -> DescribeCachediSCSIVolumesOutput
-newDescribeCachediSCSIVolumesOutput'  customize = (DescribeCachediSCSIVolumesOutput <<< customize) { "CachediSCSIVolumes": (NullOrUndefined Nothing) }
+newDescribeCachediSCSIVolumesOutput' :: ( { "CachediSCSIVolumes" :: Maybe (CachediSCSIVolumes) } -> {"CachediSCSIVolumes" :: Maybe (CachediSCSIVolumes) } ) -> DescribeCachediSCSIVolumesOutput
+newDescribeCachediSCSIVolumesOutput'  customize = (DescribeCachediSCSIVolumesOutput <<< customize) { "CachediSCSIVolumes": Nothing }
 
 
 
@@ -1285,7 +1284,7 @@ newDescribeChapCredentialsInput' _TargetARN customize = (DescribeChapCredentials
 
 -- | <p>A JSON object containing a .</p>
 newtype DescribeChapCredentialsOutput = DescribeChapCredentialsOutput 
-  { "ChapCredentials" :: NullOrUndefined (ChapCredentials)
+  { "ChapCredentials" :: Maybe (ChapCredentials)
   }
 derive instance newtypeDescribeChapCredentialsOutput :: Newtype DescribeChapCredentialsOutput _
 derive instance repGenericDescribeChapCredentialsOutput :: Generic DescribeChapCredentialsOutput _
@@ -1295,12 +1294,12 @@ instance encodeDescribeChapCredentialsOutput :: Encode DescribeChapCredentialsOu
 
 -- | Constructs DescribeChapCredentialsOutput from required parameters
 newDescribeChapCredentialsOutput :: DescribeChapCredentialsOutput
-newDescribeChapCredentialsOutput  = DescribeChapCredentialsOutput { "ChapCredentials": (NullOrUndefined Nothing) }
+newDescribeChapCredentialsOutput  = DescribeChapCredentialsOutput { "ChapCredentials": Nothing }
 
 -- | Constructs DescribeChapCredentialsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeChapCredentialsOutput' :: ( { "ChapCredentials" :: NullOrUndefined (ChapCredentials) } -> {"ChapCredentials" :: NullOrUndefined (ChapCredentials) } ) -> DescribeChapCredentialsOutput
-newDescribeChapCredentialsOutput'  customize = (DescribeChapCredentialsOutput <<< customize) { "ChapCredentials": (NullOrUndefined Nothing) }
+newDescribeChapCredentialsOutput' :: ( { "ChapCredentials" :: Maybe (ChapCredentials) } -> {"ChapCredentials" :: Maybe (ChapCredentials) } ) -> DescribeChapCredentialsOutput
+newDescribeChapCredentialsOutput'  customize = (DescribeChapCredentialsOutput <<< customize) { "ChapCredentials": Nothing }
 
 
 
@@ -1327,15 +1326,15 @@ newDescribeGatewayInformationInput' _GatewayARN customize = (DescribeGatewayInfo
 
 -- | <p>A JSON object containing the following fields:</p>
 newtype DescribeGatewayInformationOutput = DescribeGatewayInformationOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "GatewayId" :: NullOrUndefined (GatewayId)
-  , "GatewayName" :: NullOrUndefined (String)
-  , "GatewayTimezone" :: NullOrUndefined (GatewayTimezone)
-  , "GatewayState" :: NullOrUndefined (GatewayState)
-  , "GatewayNetworkInterfaces" :: NullOrUndefined (GatewayNetworkInterfaces)
-  , "GatewayType" :: NullOrUndefined (GatewayType)
-  , "NextUpdateAvailabilityDate" :: NullOrUndefined (NextUpdateAvailabilityDate)
-  , "LastSoftwareUpdate" :: NullOrUndefined (LastSoftwareUpdate)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "GatewayId" :: Maybe (GatewayId)
+  , "GatewayName" :: Maybe (String)
+  , "GatewayTimezone" :: Maybe (GatewayTimezone)
+  , "GatewayState" :: Maybe (GatewayState)
+  , "GatewayNetworkInterfaces" :: Maybe (GatewayNetworkInterfaces)
+  , "GatewayType" :: Maybe (GatewayType)
+  , "NextUpdateAvailabilityDate" :: Maybe (NextUpdateAvailabilityDate)
+  , "LastSoftwareUpdate" :: Maybe (LastSoftwareUpdate)
   }
 derive instance newtypeDescribeGatewayInformationOutput :: Newtype DescribeGatewayInformationOutput _
 derive instance repGenericDescribeGatewayInformationOutput :: Generic DescribeGatewayInformationOutput _
@@ -1345,12 +1344,12 @@ instance encodeDescribeGatewayInformationOutput :: Encode DescribeGatewayInforma
 
 -- | Constructs DescribeGatewayInformationOutput from required parameters
 newDescribeGatewayInformationOutput :: DescribeGatewayInformationOutput
-newDescribeGatewayInformationOutput  = DescribeGatewayInformationOutput { "GatewayARN": (NullOrUndefined Nothing), "GatewayId": (NullOrUndefined Nothing), "GatewayName": (NullOrUndefined Nothing), "GatewayNetworkInterfaces": (NullOrUndefined Nothing), "GatewayState": (NullOrUndefined Nothing), "GatewayTimezone": (NullOrUndefined Nothing), "GatewayType": (NullOrUndefined Nothing), "LastSoftwareUpdate": (NullOrUndefined Nothing), "NextUpdateAvailabilityDate": (NullOrUndefined Nothing) }
+newDescribeGatewayInformationOutput  = DescribeGatewayInformationOutput { "GatewayARN": Nothing, "GatewayId": Nothing, "GatewayName": Nothing, "GatewayNetworkInterfaces": Nothing, "GatewayState": Nothing, "GatewayTimezone": Nothing, "GatewayType": Nothing, "LastSoftwareUpdate": Nothing, "NextUpdateAvailabilityDate": Nothing }
 
 -- | Constructs DescribeGatewayInformationOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeGatewayInformationOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "GatewayId" :: NullOrUndefined (GatewayId) , "GatewayName" :: NullOrUndefined (String) , "GatewayTimezone" :: NullOrUndefined (GatewayTimezone) , "GatewayState" :: NullOrUndefined (GatewayState) , "GatewayNetworkInterfaces" :: NullOrUndefined (GatewayNetworkInterfaces) , "GatewayType" :: NullOrUndefined (GatewayType) , "NextUpdateAvailabilityDate" :: NullOrUndefined (NextUpdateAvailabilityDate) , "LastSoftwareUpdate" :: NullOrUndefined (LastSoftwareUpdate) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "GatewayId" :: NullOrUndefined (GatewayId) , "GatewayName" :: NullOrUndefined (String) , "GatewayTimezone" :: NullOrUndefined (GatewayTimezone) , "GatewayState" :: NullOrUndefined (GatewayState) , "GatewayNetworkInterfaces" :: NullOrUndefined (GatewayNetworkInterfaces) , "GatewayType" :: NullOrUndefined (GatewayType) , "NextUpdateAvailabilityDate" :: NullOrUndefined (NextUpdateAvailabilityDate) , "LastSoftwareUpdate" :: NullOrUndefined (LastSoftwareUpdate) } ) -> DescribeGatewayInformationOutput
-newDescribeGatewayInformationOutput'  customize = (DescribeGatewayInformationOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing), "GatewayId": (NullOrUndefined Nothing), "GatewayName": (NullOrUndefined Nothing), "GatewayNetworkInterfaces": (NullOrUndefined Nothing), "GatewayState": (NullOrUndefined Nothing), "GatewayTimezone": (NullOrUndefined Nothing), "GatewayType": (NullOrUndefined Nothing), "LastSoftwareUpdate": (NullOrUndefined Nothing), "NextUpdateAvailabilityDate": (NullOrUndefined Nothing) }
+newDescribeGatewayInformationOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "GatewayId" :: Maybe (GatewayId) , "GatewayName" :: Maybe (String) , "GatewayTimezone" :: Maybe (GatewayTimezone) , "GatewayState" :: Maybe (GatewayState) , "GatewayNetworkInterfaces" :: Maybe (GatewayNetworkInterfaces) , "GatewayType" :: Maybe (GatewayType) , "NextUpdateAvailabilityDate" :: Maybe (NextUpdateAvailabilityDate) , "LastSoftwareUpdate" :: Maybe (LastSoftwareUpdate) } -> {"GatewayARN" :: Maybe (GatewayARN) , "GatewayId" :: Maybe (GatewayId) , "GatewayName" :: Maybe (String) , "GatewayTimezone" :: Maybe (GatewayTimezone) , "GatewayState" :: Maybe (GatewayState) , "GatewayNetworkInterfaces" :: Maybe (GatewayNetworkInterfaces) , "GatewayType" :: Maybe (GatewayType) , "NextUpdateAvailabilityDate" :: Maybe (NextUpdateAvailabilityDate) , "LastSoftwareUpdate" :: Maybe (LastSoftwareUpdate) } ) -> DescribeGatewayInformationOutput
+newDescribeGatewayInformationOutput'  customize = (DescribeGatewayInformationOutput <<< customize) { "GatewayARN": Nothing, "GatewayId": Nothing, "GatewayName": Nothing, "GatewayNetworkInterfaces": Nothing, "GatewayState": Nothing, "GatewayTimezone": Nothing, "GatewayType": Nothing, "LastSoftwareUpdate": Nothing, "NextUpdateAvailabilityDate": Nothing }
 
 
 
@@ -1377,11 +1376,11 @@ newDescribeMaintenanceStartTimeInput' _GatewayARN customize = (DescribeMaintenan
 
 -- | <p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>DescribeMaintenanceStartTimeOutput$DayOfWeek</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$HourOfDay</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$MinuteOfHour</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$Timezone</a> </p> </li> </ul>
 newtype DescribeMaintenanceStartTimeOutput = DescribeMaintenanceStartTimeOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "HourOfDay" :: NullOrUndefined (HourOfDay)
-  , "MinuteOfHour" :: NullOrUndefined (MinuteOfHour)
-  , "DayOfWeek" :: NullOrUndefined (DayOfWeek)
-  , "Timezone" :: NullOrUndefined (GatewayTimezone)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "HourOfDay" :: Maybe (HourOfDay)
+  , "MinuteOfHour" :: Maybe (MinuteOfHour)
+  , "DayOfWeek" :: Maybe (DayOfWeek)
+  , "Timezone" :: Maybe (GatewayTimezone)
   }
 derive instance newtypeDescribeMaintenanceStartTimeOutput :: Newtype DescribeMaintenanceStartTimeOutput _
 derive instance repGenericDescribeMaintenanceStartTimeOutput :: Generic DescribeMaintenanceStartTimeOutput _
@@ -1391,12 +1390,12 @@ instance encodeDescribeMaintenanceStartTimeOutput :: Encode DescribeMaintenanceS
 
 -- | Constructs DescribeMaintenanceStartTimeOutput from required parameters
 newDescribeMaintenanceStartTimeOutput :: DescribeMaintenanceStartTimeOutput
-newDescribeMaintenanceStartTimeOutput  = DescribeMaintenanceStartTimeOutput { "DayOfWeek": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing), "HourOfDay": (NullOrUndefined Nothing), "MinuteOfHour": (NullOrUndefined Nothing), "Timezone": (NullOrUndefined Nothing) }
+newDescribeMaintenanceStartTimeOutput  = DescribeMaintenanceStartTimeOutput { "DayOfWeek": Nothing, "GatewayARN": Nothing, "HourOfDay": Nothing, "MinuteOfHour": Nothing, "Timezone": Nothing }
 
 -- | Constructs DescribeMaintenanceStartTimeOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeMaintenanceStartTimeOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "HourOfDay" :: NullOrUndefined (HourOfDay) , "MinuteOfHour" :: NullOrUndefined (MinuteOfHour) , "DayOfWeek" :: NullOrUndefined (DayOfWeek) , "Timezone" :: NullOrUndefined (GatewayTimezone) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "HourOfDay" :: NullOrUndefined (HourOfDay) , "MinuteOfHour" :: NullOrUndefined (MinuteOfHour) , "DayOfWeek" :: NullOrUndefined (DayOfWeek) , "Timezone" :: NullOrUndefined (GatewayTimezone) } ) -> DescribeMaintenanceStartTimeOutput
-newDescribeMaintenanceStartTimeOutput'  customize = (DescribeMaintenanceStartTimeOutput <<< customize) { "DayOfWeek": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing), "HourOfDay": (NullOrUndefined Nothing), "MinuteOfHour": (NullOrUndefined Nothing), "Timezone": (NullOrUndefined Nothing) }
+newDescribeMaintenanceStartTimeOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "HourOfDay" :: Maybe (HourOfDay) , "MinuteOfHour" :: Maybe (MinuteOfHour) , "DayOfWeek" :: Maybe (DayOfWeek) , "Timezone" :: Maybe (GatewayTimezone) } -> {"GatewayARN" :: Maybe (GatewayARN) , "HourOfDay" :: Maybe (HourOfDay) , "MinuteOfHour" :: Maybe (MinuteOfHour) , "DayOfWeek" :: Maybe (DayOfWeek) , "Timezone" :: Maybe (GatewayTimezone) } ) -> DescribeMaintenanceStartTimeOutput
+newDescribeMaintenanceStartTimeOutput'  customize = (DescribeMaintenanceStartTimeOutput <<< customize) { "DayOfWeek": Nothing, "GatewayARN": Nothing, "HourOfDay": Nothing, "MinuteOfHour": Nothing, "Timezone": Nothing }
 
 
 
@@ -1423,7 +1422,7 @@ newDescribeNFSFileSharesInput' _FileShareARNList customize = (DescribeNFSFileSha
 
 -- | <p>DescribeNFSFileSharesOutput</p>
 newtype DescribeNFSFileSharesOutput = DescribeNFSFileSharesOutput 
-  { "NFSFileShareInfoList" :: NullOrUndefined (NFSFileShareInfoList)
+  { "NFSFileShareInfoList" :: Maybe (NFSFileShareInfoList)
   }
 derive instance newtypeDescribeNFSFileSharesOutput :: Newtype DescribeNFSFileSharesOutput _
 derive instance repGenericDescribeNFSFileSharesOutput :: Generic DescribeNFSFileSharesOutput _
@@ -1433,12 +1432,12 @@ instance encodeDescribeNFSFileSharesOutput :: Encode DescribeNFSFileSharesOutput
 
 -- | Constructs DescribeNFSFileSharesOutput from required parameters
 newDescribeNFSFileSharesOutput :: DescribeNFSFileSharesOutput
-newDescribeNFSFileSharesOutput  = DescribeNFSFileSharesOutput { "NFSFileShareInfoList": (NullOrUndefined Nothing) }
+newDescribeNFSFileSharesOutput  = DescribeNFSFileSharesOutput { "NFSFileShareInfoList": Nothing }
 
 -- | Constructs DescribeNFSFileSharesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeNFSFileSharesOutput' :: ( { "NFSFileShareInfoList" :: NullOrUndefined (NFSFileShareInfoList) } -> {"NFSFileShareInfoList" :: NullOrUndefined (NFSFileShareInfoList) } ) -> DescribeNFSFileSharesOutput
-newDescribeNFSFileSharesOutput'  customize = (DescribeNFSFileSharesOutput <<< customize) { "NFSFileShareInfoList": (NullOrUndefined Nothing) }
+newDescribeNFSFileSharesOutput' :: ( { "NFSFileShareInfoList" :: Maybe (NFSFileShareInfoList) } -> {"NFSFileShareInfoList" :: Maybe (NFSFileShareInfoList) } ) -> DescribeNFSFileSharesOutput
+newDescribeNFSFileSharesOutput'  customize = (DescribeNFSFileSharesOutput <<< customize) { "NFSFileShareInfoList": Nothing }
 
 
 
@@ -1464,11 +1463,11 @@ newDescribeSnapshotScheduleInput' _VolumeARN customize = (DescribeSnapshotSchedu
 
 
 newtype DescribeSnapshotScheduleOutput = DescribeSnapshotScheduleOutput 
-  { "VolumeARN" :: NullOrUndefined (VolumeARN)
-  , "StartAt" :: NullOrUndefined (HourOfDay)
-  , "RecurrenceInHours" :: NullOrUndefined (RecurrenceInHours)
-  , "Description" :: NullOrUndefined (Description)
-  , "Timezone" :: NullOrUndefined (GatewayTimezone)
+  { "VolumeARN" :: Maybe (VolumeARN)
+  , "StartAt" :: Maybe (HourOfDay)
+  , "RecurrenceInHours" :: Maybe (RecurrenceInHours)
+  , "Description" :: Maybe (Description)
+  , "Timezone" :: Maybe (GatewayTimezone)
   }
 derive instance newtypeDescribeSnapshotScheduleOutput :: Newtype DescribeSnapshotScheduleOutput _
 derive instance repGenericDescribeSnapshotScheduleOutput :: Generic DescribeSnapshotScheduleOutput _
@@ -1478,12 +1477,12 @@ instance encodeDescribeSnapshotScheduleOutput :: Encode DescribeSnapshotSchedule
 
 -- | Constructs DescribeSnapshotScheduleOutput from required parameters
 newDescribeSnapshotScheduleOutput :: DescribeSnapshotScheduleOutput
-newDescribeSnapshotScheduleOutput  = DescribeSnapshotScheduleOutput { "Description": (NullOrUndefined Nothing), "RecurrenceInHours": (NullOrUndefined Nothing), "StartAt": (NullOrUndefined Nothing), "Timezone": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing) }
+newDescribeSnapshotScheduleOutput  = DescribeSnapshotScheduleOutput { "Description": Nothing, "RecurrenceInHours": Nothing, "StartAt": Nothing, "Timezone": Nothing, "VolumeARN": Nothing }
 
 -- | Constructs DescribeSnapshotScheduleOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeSnapshotScheduleOutput' :: ( { "VolumeARN" :: NullOrUndefined (VolumeARN) , "StartAt" :: NullOrUndefined (HourOfDay) , "RecurrenceInHours" :: NullOrUndefined (RecurrenceInHours) , "Description" :: NullOrUndefined (Description) , "Timezone" :: NullOrUndefined (GatewayTimezone) } -> {"VolumeARN" :: NullOrUndefined (VolumeARN) , "StartAt" :: NullOrUndefined (HourOfDay) , "RecurrenceInHours" :: NullOrUndefined (RecurrenceInHours) , "Description" :: NullOrUndefined (Description) , "Timezone" :: NullOrUndefined (GatewayTimezone) } ) -> DescribeSnapshotScheduleOutput
-newDescribeSnapshotScheduleOutput'  customize = (DescribeSnapshotScheduleOutput <<< customize) { "Description": (NullOrUndefined Nothing), "RecurrenceInHours": (NullOrUndefined Nothing), "StartAt": (NullOrUndefined Nothing), "Timezone": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing) }
+newDescribeSnapshotScheduleOutput' :: ( { "VolumeARN" :: Maybe (VolumeARN) , "StartAt" :: Maybe (HourOfDay) , "RecurrenceInHours" :: Maybe (RecurrenceInHours) , "Description" :: Maybe (Description) , "Timezone" :: Maybe (GatewayTimezone) } -> {"VolumeARN" :: Maybe (VolumeARN) , "StartAt" :: Maybe (HourOfDay) , "RecurrenceInHours" :: Maybe (RecurrenceInHours) , "Description" :: Maybe (Description) , "Timezone" :: Maybe (GatewayTimezone) } ) -> DescribeSnapshotScheduleOutput
+newDescribeSnapshotScheduleOutput'  customize = (DescribeSnapshotScheduleOutput <<< customize) { "Description": Nothing, "RecurrenceInHours": Nothing, "StartAt": Nothing, "Timezone": Nothing, "VolumeARN": Nothing }
 
 
 
@@ -1509,7 +1508,7 @@ newDescribeStorediSCSIVolumesInput' _VolumeARNs customize = (DescribeStorediSCSI
 
 
 newtype DescribeStorediSCSIVolumesOutput = DescribeStorediSCSIVolumesOutput 
-  { "StorediSCSIVolumes" :: NullOrUndefined (StorediSCSIVolumes)
+  { "StorediSCSIVolumes" :: Maybe (StorediSCSIVolumes)
   }
 derive instance newtypeDescribeStorediSCSIVolumesOutput :: Newtype DescribeStorediSCSIVolumesOutput _
 derive instance repGenericDescribeStorediSCSIVolumesOutput :: Generic DescribeStorediSCSIVolumesOutput _
@@ -1519,20 +1518,20 @@ instance encodeDescribeStorediSCSIVolumesOutput :: Encode DescribeStorediSCSIVol
 
 -- | Constructs DescribeStorediSCSIVolumesOutput from required parameters
 newDescribeStorediSCSIVolumesOutput :: DescribeStorediSCSIVolumesOutput
-newDescribeStorediSCSIVolumesOutput  = DescribeStorediSCSIVolumesOutput { "StorediSCSIVolumes": (NullOrUndefined Nothing) }
+newDescribeStorediSCSIVolumesOutput  = DescribeStorediSCSIVolumesOutput { "StorediSCSIVolumes": Nothing }
 
 -- | Constructs DescribeStorediSCSIVolumesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeStorediSCSIVolumesOutput' :: ( { "StorediSCSIVolumes" :: NullOrUndefined (StorediSCSIVolumes) } -> {"StorediSCSIVolumes" :: NullOrUndefined (StorediSCSIVolumes) } ) -> DescribeStorediSCSIVolumesOutput
-newDescribeStorediSCSIVolumesOutput'  customize = (DescribeStorediSCSIVolumesOutput <<< customize) { "StorediSCSIVolumes": (NullOrUndefined Nothing) }
+newDescribeStorediSCSIVolumesOutput' :: ( { "StorediSCSIVolumes" :: Maybe (StorediSCSIVolumes) } -> {"StorediSCSIVolumes" :: Maybe (StorediSCSIVolumes) } ) -> DescribeStorediSCSIVolumesOutput
+newDescribeStorediSCSIVolumesOutput'  customize = (DescribeStorediSCSIVolumesOutput <<< customize) { "StorediSCSIVolumes": Nothing }
 
 
 
 -- | <p>DescribeTapeArchivesInput</p>
 newtype DescribeTapeArchivesInput = DescribeTapeArchivesInput 
-  { "TapeARNs" :: NullOrUndefined (TapeARNs)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "Limit" :: NullOrUndefined (PositiveIntObject)
+  { "TapeARNs" :: Maybe (TapeARNs)
+  , "Marker" :: Maybe (Marker)
+  , "Limit" :: Maybe (PositiveIntObject)
   }
 derive instance newtypeDescribeTapeArchivesInput :: Newtype DescribeTapeArchivesInput _
 derive instance repGenericDescribeTapeArchivesInput :: Generic DescribeTapeArchivesInput _
@@ -1542,19 +1541,19 @@ instance encodeDescribeTapeArchivesInput :: Encode DescribeTapeArchivesInput whe
 
 -- | Constructs DescribeTapeArchivesInput from required parameters
 newDescribeTapeArchivesInput :: DescribeTapeArchivesInput
-newDescribeTapeArchivesInput  = DescribeTapeArchivesInput { "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "TapeARNs": (NullOrUndefined Nothing) }
+newDescribeTapeArchivesInput  = DescribeTapeArchivesInput { "Limit": Nothing, "Marker": Nothing, "TapeARNs": Nothing }
 
 -- | Constructs DescribeTapeArchivesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTapeArchivesInput' :: ( { "TapeARNs" :: NullOrUndefined (TapeARNs) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } -> {"TapeARNs" :: NullOrUndefined (TapeARNs) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } ) -> DescribeTapeArchivesInput
-newDescribeTapeArchivesInput'  customize = (DescribeTapeArchivesInput <<< customize) { "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "TapeARNs": (NullOrUndefined Nothing) }
+newDescribeTapeArchivesInput' :: ( { "TapeARNs" :: Maybe (TapeARNs) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } -> {"TapeARNs" :: Maybe (TapeARNs) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } ) -> DescribeTapeArchivesInput
+newDescribeTapeArchivesInput'  customize = (DescribeTapeArchivesInput <<< customize) { "Limit": Nothing, "Marker": Nothing, "TapeARNs": Nothing }
 
 
 
 -- | <p>DescribeTapeArchivesOutput</p>
 newtype DescribeTapeArchivesOutput = DescribeTapeArchivesOutput 
-  { "TapeArchives" :: NullOrUndefined (TapeArchives)
-  , "Marker" :: NullOrUndefined (Marker)
+  { "TapeArchives" :: Maybe (TapeArchives)
+  , "Marker" :: Maybe (Marker)
   }
 derive instance newtypeDescribeTapeArchivesOutput :: Newtype DescribeTapeArchivesOutput _
 derive instance repGenericDescribeTapeArchivesOutput :: Generic DescribeTapeArchivesOutput _
@@ -1564,20 +1563,20 @@ instance encodeDescribeTapeArchivesOutput :: Encode DescribeTapeArchivesOutput w
 
 -- | Constructs DescribeTapeArchivesOutput from required parameters
 newDescribeTapeArchivesOutput :: DescribeTapeArchivesOutput
-newDescribeTapeArchivesOutput  = DescribeTapeArchivesOutput { "Marker": (NullOrUndefined Nothing), "TapeArchives": (NullOrUndefined Nothing) }
+newDescribeTapeArchivesOutput  = DescribeTapeArchivesOutput { "Marker": Nothing, "TapeArchives": Nothing }
 
 -- | Constructs DescribeTapeArchivesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTapeArchivesOutput' :: ( { "TapeArchives" :: NullOrUndefined (TapeArchives) , "Marker" :: NullOrUndefined (Marker) } -> {"TapeArchives" :: NullOrUndefined (TapeArchives) , "Marker" :: NullOrUndefined (Marker) } ) -> DescribeTapeArchivesOutput
-newDescribeTapeArchivesOutput'  customize = (DescribeTapeArchivesOutput <<< customize) { "Marker": (NullOrUndefined Nothing), "TapeArchives": (NullOrUndefined Nothing) }
+newDescribeTapeArchivesOutput' :: ( { "TapeArchives" :: Maybe (TapeArchives) , "Marker" :: Maybe (Marker) } -> {"TapeArchives" :: Maybe (TapeArchives) , "Marker" :: Maybe (Marker) } ) -> DescribeTapeArchivesOutput
+newDescribeTapeArchivesOutput'  customize = (DescribeTapeArchivesOutput <<< customize) { "Marker": Nothing, "TapeArchives": Nothing }
 
 
 
 -- | <p>DescribeTapeRecoveryPointsInput</p>
 newtype DescribeTapeRecoveryPointsInput = DescribeTapeRecoveryPointsInput 
   { "GatewayARN" :: (GatewayARN)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "Limit" :: NullOrUndefined (PositiveIntObject)
+  , "Marker" :: Maybe (Marker)
+  , "Limit" :: Maybe (PositiveIntObject)
   }
 derive instance newtypeDescribeTapeRecoveryPointsInput :: Newtype DescribeTapeRecoveryPointsInput _
 derive instance repGenericDescribeTapeRecoveryPointsInput :: Generic DescribeTapeRecoveryPointsInput _
@@ -1587,20 +1586,20 @@ instance encodeDescribeTapeRecoveryPointsInput :: Encode DescribeTapeRecoveryPoi
 
 -- | Constructs DescribeTapeRecoveryPointsInput from required parameters
 newDescribeTapeRecoveryPointsInput :: GatewayARN -> DescribeTapeRecoveryPointsInput
-newDescribeTapeRecoveryPointsInput _GatewayARN = DescribeTapeRecoveryPointsInput { "GatewayARN": _GatewayARN, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newDescribeTapeRecoveryPointsInput _GatewayARN = DescribeTapeRecoveryPointsInput { "GatewayARN": _GatewayARN, "Limit": Nothing, "Marker": Nothing }
 
 -- | Constructs DescribeTapeRecoveryPointsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTapeRecoveryPointsInput' :: GatewayARN -> ( { "GatewayARN" :: (GatewayARN) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } -> {"GatewayARN" :: (GatewayARN) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } ) -> DescribeTapeRecoveryPointsInput
-newDescribeTapeRecoveryPointsInput' _GatewayARN customize = (DescribeTapeRecoveryPointsInput <<< customize) { "GatewayARN": _GatewayARN, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newDescribeTapeRecoveryPointsInput' :: GatewayARN -> ( { "GatewayARN" :: (GatewayARN) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } -> {"GatewayARN" :: (GatewayARN) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } ) -> DescribeTapeRecoveryPointsInput
+newDescribeTapeRecoveryPointsInput' _GatewayARN customize = (DescribeTapeRecoveryPointsInput <<< customize) { "GatewayARN": _GatewayARN, "Limit": Nothing, "Marker": Nothing }
 
 
 
 -- | <p>DescribeTapeRecoveryPointsOutput</p>
 newtype DescribeTapeRecoveryPointsOutput = DescribeTapeRecoveryPointsOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "TapeRecoveryPointInfos" :: NullOrUndefined (TapeRecoveryPointInfos)
-  , "Marker" :: NullOrUndefined (Marker)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "TapeRecoveryPointInfos" :: Maybe (TapeRecoveryPointInfos)
+  , "Marker" :: Maybe (Marker)
   }
 derive instance newtypeDescribeTapeRecoveryPointsOutput :: Newtype DescribeTapeRecoveryPointsOutput _
 derive instance repGenericDescribeTapeRecoveryPointsOutput :: Generic DescribeTapeRecoveryPointsOutput _
@@ -1610,21 +1609,21 @@ instance encodeDescribeTapeRecoveryPointsOutput :: Encode DescribeTapeRecoveryPo
 
 -- | Constructs DescribeTapeRecoveryPointsOutput from required parameters
 newDescribeTapeRecoveryPointsOutput :: DescribeTapeRecoveryPointsOutput
-newDescribeTapeRecoveryPointsOutput  = DescribeTapeRecoveryPointsOutput { "GatewayARN": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "TapeRecoveryPointInfos": (NullOrUndefined Nothing) }
+newDescribeTapeRecoveryPointsOutput  = DescribeTapeRecoveryPointsOutput { "GatewayARN": Nothing, "Marker": Nothing, "TapeRecoveryPointInfos": Nothing }
 
 -- | Constructs DescribeTapeRecoveryPointsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTapeRecoveryPointsOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "TapeRecoveryPointInfos" :: NullOrUndefined (TapeRecoveryPointInfos) , "Marker" :: NullOrUndefined (Marker) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "TapeRecoveryPointInfos" :: NullOrUndefined (TapeRecoveryPointInfos) , "Marker" :: NullOrUndefined (Marker) } ) -> DescribeTapeRecoveryPointsOutput
-newDescribeTapeRecoveryPointsOutput'  customize = (DescribeTapeRecoveryPointsOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "TapeRecoveryPointInfos": (NullOrUndefined Nothing) }
+newDescribeTapeRecoveryPointsOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "TapeRecoveryPointInfos" :: Maybe (TapeRecoveryPointInfos) , "Marker" :: Maybe (Marker) } -> {"GatewayARN" :: Maybe (GatewayARN) , "TapeRecoveryPointInfos" :: Maybe (TapeRecoveryPointInfos) , "Marker" :: Maybe (Marker) } ) -> DescribeTapeRecoveryPointsOutput
+newDescribeTapeRecoveryPointsOutput'  customize = (DescribeTapeRecoveryPointsOutput <<< customize) { "GatewayARN": Nothing, "Marker": Nothing, "TapeRecoveryPointInfos": Nothing }
 
 
 
 -- | <p>DescribeTapesInput</p>
 newtype DescribeTapesInput = DescribeTapesInput 
   { "GatewayARN" :: (GatewayARN)
-  , "TapeARNs" :: NullOrUndefined (TapeARNs)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "Limit" :: NullOrUndefined (PositiveIntObject)
+  , "TapeARNs" :: Maybe (TapeARNs)
+  , "Marker" :: Maybe (Marker)
+  , "Limit" :: Maybe (PositiveIntObject)
   }
 derive instance newtypeDescribeTapesInput :: Newtype DescribeTapesInput _
 derive instance repGenericDescribeTapesInput :: Generic DescribeTapesInput _
@@ -1634,19 +1633,19 @@ instance encodeDescribeTapesInput :: Encode DescribeTapesInput where encode = ge
 
 -- | Constructs DescribeTapesInput from required parameters
 newDescribeTapesInput :: GatewayARN -> DescribeTapesInput
-newDescribeTapesInput _GatewayARN = DescribeTapesInput { "GatewayARN": _GatewayARN, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "TapeARNs": (NullOrUndefined Nothing) }
+newDescribeTapesInput _GatewayARN = DescribeTapesInput { "GatewayARN": _GatewayARN, "Limit": Nothing, "Marker": Nothing, "TapeARNs": Nothing }
 
 -- | Constructs DescribeTapesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTapesInput' :: GatewayARN -> ( { "GatewayARN" :: (GatewayARN) , "TapeARNs" :: NullOrUndefined (TapeARNs) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } -> {"GatewayARN" :: (GatewayARN) , "TapeARNs" :: NullOrUndefined (TapeARNs) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } ) -> DescribeTapesInput
-newDescribeTapesInput' _GatewayARN customize = (DescribeTapesInput <<< customize) { "GatewayARN": _GatewayARN, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "TapeARNs": (NullOrUndefined Nothing) }
+newDescribeTapesInput' :: GatewayARN -> ( { "GatewayARN" :: (GatewayARN) , "TapeARNs" :: Maybe (TapeARNs) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } -> {"GatewayARN" :: (GatewayARN) , "TapeARNs" :: Maybe (TapeARNs) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } ) -> DescribeTapesInput
+newDescribeTapesInput' _GatewayARN customize = (DescribeTapesInput <<< customize) { "GatewayARN": _GatewayARN, "Limit": Nothing, "Marker": Nothing, "TapeARNs": Nothing }
 
 
 
 -- | <p>DescribeTapesOutput</p>
 newtype DescribeTapesOutput = DescribeTapesOutput 
-  { "Tapes" :: NullOrUndefined (Tapes)
-  , "Marker" :: NullOrUndefined (Marker)
+  { "Tapes" :: Maybe (Tapes)
+  , "Marker" :: Maybe (Marker)
   }
 derive instance newtypeDescribeTapesOutput :: Newtype DescribeTapesOutput _
 derive instance repGenericDescribeTapesOutput :: Generic DescribeTapesOutput _
@@ -1656,12 +1655,12 @@ instance encodeDescribeTapesOutput :: Encode DescribeTapesOutput where encode = 
 
 -- | Constructs DescribeTapesOutput from required parameters
 newDescribeTapesOutput :: DescribeTapesOutput
-newDescribeTapesOutput  = DescribeTapesOutput { "Marker": (NullOrUndefined Nothing), "Tapes": (NullOrUndefined Nothing) }
+newDescribeTapesOutput  = DescribeTapesOutput { "Marker": Nothing, "Tapes": Nothing }
 
 -- | Constructs DescribeTapesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTapesOutput' :: ( { "Tapes" :: NullOrUndefined (Tapes) , "Marker" :: NullOrUndefined (Marker) } -> {"Tapes" :: NullOrUndefined (Tapes) , "Marker" :: NullOrUndefined (Marker) } ) -> DescribeTapesOutput
-newDescribeTapesOutput'  customize = (DescribeTapesOutput <<< customize) { "Marker": (NullOrUndefined Nothing), "Tapes": (NullOrUndefined Nothing) }
+newDescribeTapesOutput' :: ( { "Tapes" :: Maybe (Tapes) , "Marker" :: Maybe (Marker) } -> {"Tapes" :: Maybe (Tapes) , "Marker" :: Maybe (Marker) } ) -> DescribeTapesOutput
+newDescribeTapesOutput'  customize = (DescribeTapesOutput <<< customize) { "Marker": Nothing, "Tapes": Nothing }
 
 
 
@@ -1686,10 +1685,10 @@ newDescribeUploadBufferInput' _GatewayARN customize = (DescribeUploadBufferInput
 
 
 newtype DescribeUploadBufferOutput = DescribeUploadBufferOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "DiskIds" :: NullOrUndefined (DiskIds)
-  , "UploadBufferUsedInBytes" :: NullOrUndefined (Number)
-  , "UploadBufferAllocatedInBytes" :: NullOrUndefined (Number)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "DiskIds" :: Maybe (DiskIds)
+  , "UploadBufferUsedInBytes" :: Maybe (Number)
+  , "UploadBufferAllocatedInBytes" :: Maybe (Number)
   }
 derive instance newtypeDescribeUploadBufferOutput :: Newtype DescribeUploadBufferOutput _
 derive instance repGenericDescribeUploadBufferOutput :: Generic DescribeUploadBufferOutput _
@@ -1699,21 +1698,21 @@ instance encodeDescribeUploadBufferOutput :: Encode DescribeUploadBufferOutput w
 
 -- | Constructs DescribeUploadBufferOutput from required parameters
 newDescribeUploadBufferOutput :: DescribeUploadBufferOutput
-newDescribeUploadBufferOutput  = DescribeUploadBufferOutput { "DiskIds": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing), "UploadBufferAllocatedInBytes": (NullOrUndefined Nothing), "UploadBufferUsedInBytes": (NullOrUndefined Nothing) }
+newDescribeUploadBufferOutput  = DescribeUploadBufferOutput { "DiskIds": Nothing, "GatewayARN": Nothing, "UploadBufferAllocatedInBytes": Nothing, "UploadBufferUsedInBytes": Nothing }
 
 -- | Constructs DescribeUploadBufferOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeUploadBufferOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "DiskIds" :: NullOrUndefined (DiskIds) , "UploadBufferUsedInBytes" :: NullOrUndefined (Number) , "UploadBufferAllocatedInBytes" :: NullOrUndefined (Number) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "DiskIds" :: NullOrUndefined (DiskIds) , "UploadBufferUsedInBytes" :: NullOrUndefined (Number) , "UploadBufferAllocatedInBytes" :: NullOrUndefined (Number) } ) -> DescribeUploadBufferOutput
-newDescribeUploadBufferOutput'  customize = (DescribeUploadBufferOutput <<< customize) { "DiskIds": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing), "UploadBufferAllocatedInBytes": (NullOrUndefined Nothing), "UploadBufferUsedInBytes": (NullOrUndefined Nothing) }
+newDescribeUploadBufferOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "DiskIds" :: Maybe (DiskIds) , "UploadBufferUsedInBytes" :: Maybe (Number) , "UploadBufferAllocatedInBytes" :: Maybe (Number) } -> {"GatewayARN" :: Maybe (GatewayARN) , "DiskIds" :: Maybe (DiskIds) , "UploadBufferUsedInBytes" :: Maybe (Number) , "UploadBufferAllocatedInBytes" :: Maybe (Number) } ) -> DescribeUploadBufferOutput
+newDescribeUploadBufferOutput'  customize = (DescribeUploadBufferOutput <<< customize) { "DiskIds": Nothing, "GatewayARN": Nothing, "UploadBufferAllocatedInBytes": Nothing, "UploadBufferUsedInBytes": Nothing }
 
 
 
 -- | <p>DescribeVTLDevicesInput</p>
 newtype DescribeVTLDevicesInput = DescribeVTLDevicesInput 
   { "GatewayARN" :: (GatewayARN)
-  , "VTLDeviceARNs" :: NullOrUndefined (VTLDeviceARNs)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "Limit" :: NullOrUndefined (PositiveIntObject)
+  , "VTLDeviceARNs" :: Maybe (VTLDeviceARNs)
+  , "Marker" :: Maybe (Marker)
+  , "Limit" :: Maybe (PositiveIntObject)
   }
 derive instance newtypeDescribeVTLDevicesInput :: Newtype DescribeVTLDevicesInput _
 derive instance repGenericDescribeVTLDevicesInput :: Generic DescribeVTLDevicesInput _
@@ -1723,20 +1722,20 @@ instance encodeDescribeVTLDevicesInput :: Encode DescribeVTLDevicesInput where e
 
 -- | Constructs DescribeVTLDevicesInput from required parameters
 newDescribeVTLDevicesInput :: GatewayARN -> DescribeVTLDevicesInput
-newDescribeVTLDevicesInput _GatewayARN = DescribeVTLDevicesInput { "GatewayARN": _GatewayARN, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "VTLDeviceARNs": (NullOrUndefined Nothing) }
+newDescribeVTLDevicesInput _GatewayARN = DescribeVTLDevicesInput { "GatewayARN": _GatewayARN, "Limit": Nothing, "Marker": Nothing, "VTLDeviceARNs": Nothing }
 
 -- | Constructs DescribeVTLDevicesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeVTLDevicesInput' :: GatewayARN -> ( { "GatewayARN" :: (GatewayARN) , "VTLDeviceARNs" :: NullOrUndefined (VTLDeviceARNs) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } -> {"GatewayARN" :: (GatewayARN) , "VTLDeviceARNs" :: NullOrUndefined (VTLDeviceARNs) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } ) -> DescribeVTLDevicesInput
-newDescribeVTLDevicesInput' _GatewayARN customize = (DescribeVTLDevicesInput <<< customize) { "GatewayARN": _GatewayARN, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "VTLDeviceARNs": (NullOrUndefined Nothing) }
+newDescribeVTLDevicesInput' :: GatewayARN -> ( { "GatewayARN" :: (GatewayARN) , "VTLDeviceARNs" :: Maybe (VTLDeviceARNs) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } -> {"GatewayARN" :: (GatewayARN) , "VTLDeviceARNs" :: Maybe (VTLDeviceARNs) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } ) -> DescribeVTLDevicesInput
+newDescribeVTLDevicesInput' _GatewayARN customize = (DescribeVTLDevicesInput <<< customize) { "GatewayARN": _GatewayARN, "Limit": Nothing, "Marker": Nothing, "VTLDeviceARNs": Nothing }
 
 
 
 -- | <p>DescribeVTLDevicesOutput</p>
 newtype DescribeVTLDevicesOutput = DescribeVTLDevicesOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "VTLDevices" :: NullOrUndefined (VTLDevices)
-  , "Marker" :: NullOrUndefined (Marker)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "VTLDevices" :: Maybe (VTLDevices)
+  , "Marker" :: Maybe (Marker)
   }
 derive instance newtypeDescribeVTLDevicesOutput :: Newtype DescribeVTLDevicesOutput _
 derive instance repGenericDescribeVTLDevicesOutput :: Generic DescribeVTLDevicesOutput _
@@ -1746,12 +1745,12 @@ instance encodeDescribeVTLDevicesOutput :: Encode DescribeVTLDevicesOutput where
 
 -- | Constructs DescribeVTLDevicesOutput from required parameters
 newDescribeVTLDevicesOutput :: DescribeVTLDevicesOutput
-newDescribeVTLDevicesOutput  = DescribeVTLDevicesOutput { "GatewayARN": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "VTLDevices": (NullOrUndefined Nothing) }
+newDescribeVTLDevicesOutput  = DescribeVTLDevicesOutput { "GatewayARN": Nothing, "Marker": Nothing, "VTLDevices": Nothing }
 
 -- | Constructs DescribeVTLDevicesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeVTLDevicesOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "VTLDevices" :: NullOrUndefined (VTLDevices) , "Marker" :: NullOrUndefined (Marker) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "VTLDevices" :: NullOrUndefined (VTLDevices) , "Marker" :: NullOrUndefined (Marker) } ) -> DescribeVTLDevicesOutput
-newDescribeVTLDevicesOutput'  customize = (DescribeVTLDevicesOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "VTLDevices": (NullOrUndefined Nothing) }
+newDescribeVTLDevicesOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "VTLDevices" :: Maybe (VTLDevices) , "Marker" :: Maybe (Marker) } -> {"GatewayARN" :: Maybe (GatewayARN) , "VTLDevices" :: Maybe (VTLDevices) , "Marker" :: Maybe (Marker) } ) -> DescribeVTLDevicesOutput
+newDescribeVTLDevicesOutput'  customize = (DescribeVTLDevicesOutput <<< customize) { "GatewayARN": Nothing, "Marker": Nothing, "VTLDevices": Nothing }
 
 
 
@@ -1778,10 +1777,10 @@ newDescribeWorkingStorageInput' _GatewayARN customize = (DescribeWorkingStorageI
 
 -- | <p>A JSON object containing the following fields:</p>
 newtype DescribeWorkingStorageOutput = DescribeWorkingStorageOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "DiskIds" :: NullOrUndefined (DiskIds)
-  , "WorkingStorageUsedInBytes" :: NullOrUndefined (Number)
-  , "WorkingStorageAllocatedInBytes" :: NullOrUndefined (Number)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "DiskIds" :: Maybe (DiskIds)
+  , "WorkingStorageUsedInBytes" :: Maybe (Number)
+  , "WorkingStorageAllocatedInBytes" :: Maybe (Number)
   }
 derive instance newtypeDescribeWorkingStorageOutput :: Newtype DescribeWorkingStorageOutput _
 derive instance repGenericDescribeWorkingStorageOutput :: Generic DescribeWorkingStorageOutput _
@@ -1791,12 +1790,12 @@ instance encodeDescribeWorkingStorageOutput :: Encode DescribeWorkingStorageOutp
 
 -- | Constructs DescribeWorkingStorageOutput from required parameters
 newDescribeWorkingStorageOutput :: DescribeWorkingStorageOutput
-newDescribeWorkingStorageOutput  = DescribeWorkingStorageOutput { "DiskIds": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing), "WorkingStorageAllocatedInBytes": (NullOrUndefined Nothing), "WorkingStorageUsedInBytes": (NullOrUndefined Nothing) }
+newDescribeWorkingStorageOutput  = DescribeWorkingStorageOutput { "DiskIds": Nothing, "GatewayARN": Nothing, "WorkingStorageAllocatedInBytes": Nothing, "WorkingStorageUsedInBytes": Nothing }
 
 -- | Constructs DescribeWorkingStorageOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeWorkingStorageOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "DiskIds" :: NullOrUndefined (DiskIds) , "WorkingStorageUsedInBytes" :: NullOrUndefined (Number) , "WorkingStorageAllocatedInBytes" :: NullOrUndefined (Number) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "DiskIds" :: NullOrUndefined (DiskIds) , "WorkingStorageUsedInBytes" :: NullOrUndefined (Number) , "WorkingStorageAllocatedInBytes" :: NullOrUndefined (Number) } ) -> DescribeWorkingStorageOutput
-newDescribeWorkingStorageOutput'  customize = (DescribeWorkingStorageOutput <<< customize) { "DiskIds": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing), "WorkingStorageAllocatedInBytes": (NullOrUndefined Nothing), "WorkingStorageUsedInBytes": (NullOrUndefined Nothing) }
+newDescribeWorkingStorageOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "DiskIds" :: Maybe (DiskIds) , "WorkingStorageUsedInBytes" :: Maybe (Number) , "WorkingStorageAllocatedInBytes" :: Maybe (Number) } -> {"GatewayARN" :: Maybe (GatewayARN) , "DiskIds" :: Maybe (DiskIds) , "WorkingStorageUsedInBytes" :: Maybe (Number) , "WorkingStorageAllocatedInBytes" :: Maybe (Number) } ) -> DescribeWorkingStorageOutput
+newDescribeWorkingStorageOutput'  customize = (DescribeWorkingStorageOutput <<< customize) { "DiskIds": Nothing, "GatewayARN": Nothing, "WorkingStorageAllocatedInBytes": Nothing, "WorkingStorageUsedInBytes": Nothing }
 
 
 
@@ -1820,10 +1819,10 @@ instance encodeDeviceType :: Encode DeviceType where encode = genericEncode opti
 
 -- | <p>Lists iSCSI information about a VTL device.</p>
 newtype DeviceiSCSIAttributes = DeviceiSCSIAttributes 
-  { "TargetARN" :: NullOrUndefined (TargetARN)
-  , "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId)
-  , "NetworkInterfacePort" :: NullOrUndefined (Int)
-  , "ChapEnabled" :: NullOrUndefined (Boolean)
+  { "TargetARN" :: Maybe (TargetARN)
+  , "NetworkInterfaceId" :: Maybe (NetworkInterfaceId)
+  , "NetworkInterfacePort" :: Maybe (Int)
+  , "ChapEnabled" :: Maybe (Boolean)
   }
 derive instance newtypeDeviceiSCSIAttributes :: Newtype DeviceiSCSIAttributes _
 derive instance repGenericDeviceiSCSIAttributes :: Generic DeviceiSCSIAttributes _
@@ -1833,12 +1832,12 @@ instance encodeDeviceiSCSIAttributes :: Encode DeviceiSCSIAttributes where encod
 
 -- | Constructs DeviceiSCSIAttributes from required parameters
 newDeviceiSCSIAttributes :: DeviceiSCSIAttributes
-newDeviceiSCSIAttributes  = DeviceiSCSIAttributes { "ChapEnabled": (NullOrUndefined Nothing), "NetworkInterfaceId": (NullOrUndefined Nothing), "NetworkInterfacePort": (NullOrUndefined Nothing), "TargetARN": (NullOrUndefined Nothing) }
+newDeviceiSCSIAttributes  = DeviceiSCSIAttributes { "ChapEnabled": Nothing, "NetworkInterfaceId": Nothing, "NetworkInterfacePort": Nothing, "TargetARN": Nothing }
 
 -- | Constructs DeviceiSCSIAttributes's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeviceiSCSIAttributes' :: ( { "TargetARN" :: NullOrUndefined (TargetARN) , "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId) , "NetworkInterfacePort" :: NullOrUndefined (Int) , "ChapEnabled" :: NullOrUndefined (Boolean) } -> {"TargetARN" :: NullOrUndefined (TargetARN) , "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId) , "NetworkInterfacePort" :: NullOrUndefined (Int) , "ChapEnabled" :: NullOrUndefined (Boolean) } ) -> DeviceiSCSIAttributes
-newDeviceiSCSIAttributes'  customize = (DeviceiSCSIAttributes <<< customize) { "ChapEnabled": (NullOrUndefined Nothing), "NetworkInterfaceId": (NullOrUndefined Nothing), "NetworkInterfacePort": (NullOrUndefined Nothing), "TargetARN": (NullOrUndefined Nothing) }
+newDeviceiSCSIAttributes' :: ( { "TargetARN" :: Maybe (TargetARN) , "NetworkInterfaceId" :: Maybe (NetworkInterfaceId) , "NetworkInterfacePort" :: Maybe (Int) , "ChapEnabled" :: Maybe (Boolean) } -> {"TargetARN" :: Maybe (TargetARN) , "NetworkInterfaceId" :: Maybe (NetworkInterfaceId) , "NetworkInterfacePort" :: Maybe (Int) , "ChapEnabled" :: Maybe (Boolean) } ) -> DeviceiSCSIAttributes
+newDeviceiSCSIAttributes'  customize = (DeviceiSCSIAttributes <<< customize) { "ChapEnabled": Nothing, "NetworkInterfaceId": Nothing, "NetworkInterfacePort": Nothing, "TargetARN": Nothing }
 
 
 
@@ -1865,7 +1864,7 @@ newDisableGatewayInput' _GatewayARN customize = (DisableGatewayInput <<< customi
 
 -- | <p>DisableGatewayOutput</p>
 newtype DisableGatewayOutput = DisableGatewayOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeDisableGatewayOutput :: Newtype DisableGatewayOutput _
 derive instance repGenericDisableGatewayOutput :: Generic DisableGatewayOutput _
@@ -1875,23 +1874,23 @@ instance encodeDisableGatewayOutput :: Encode DisableGatewayOutput where encode 
 
 -- | Constructs DisableGatewayOutput from required parameters
 newDisableGatewayOutput :: DisableGatewayOutput
-newDisableGatewayOutput  = DisableGatewayOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newDisableGatewayOutput  = DisableGatewayOutput { "GatewayARN": Nothing }
 
 -- | Constructs DisableGatewayOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDisableGatewayOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> DisableGatewayOutput
-newDisableGatewayOutput'  customize = (DisableGatewayOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newDisableGatewayOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> DisableGatewayOutput
+newDisableGatewayOutput'  customize = (DisableGatewayOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
 newtype Disk = Disk 
-  { "DiskId" :: NullOrUndefined (DiskId)
-  , "DiskPath" :: NullOrUndefined (String)
-  , "DiskNode" :: NullOrUndefined (String)
-  , "DiskStatus" :: NullOrUndefined (String)
-  , "DiskSizeInBytes" :: NullOrUndefined (Number)
-  , "DiskAllocationType" :: NullOrUndefined (DiskAllocationType)
-  , "DiskAllocationResource" :: NullOrUndefined (String)
+  { "DiskId" :: Maybe (DiskId)
+  , "DiskPath" :: Maybe (String)
+  , "DiskNode" :: Maybe (String)
+  , "DiskStatus" :: Maybe (String)
+  , "DiskSizeInBytes" :: Maybe (Number)
+  , "DiskAllocationType" :: Maybe (DiskAllocationType)
+  , "DiskAllocationResource" :: Maybe (String)
   }
 derive instance newtypeDisk :: Newtype Disk _
 derive instance repGenericDisk :: Generic Disk _
@@ -1901,12 +1900,12 @@ instance encodeDisk :: Encode Disk where encode = genericEncode options
 
 -- | Constructs Disk from required parameters
 newDisk :: Disk
-newDisk  = Disk { "DiskAllocationResource": (NullOrUndefined Nothing), "DiskAllocationType": (NullOrUndefined Nothing), "DiskId": (NullOrUndefined Nothing), "DiskNode": (NullOrUndefined Nothing), "DiskPath": (NullOrUndefined Nothing), "DiskSizeInBytes": (NullOrUndefined Nothing), "DiskStatus": (NullOrUndefined Nothing) }
+newDisk  = Disk { "DiskAllocationResource": Nothing, "DiskAllocationType": Nothing, "DiskId": Nothing, "DiskNode": Nothing, "DiskPath": Nothing, "DiskSizeInBytes": Nothing, "DiskStatus": Nothing }
 
 -- | Constructs Disk's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDisk' :: ( { "DiskId" :: NullOrUndefined (DiskId) , "DiskPath" :: NullOrUndefined (String) , "DiskNode" :: NullOrUndefined (String) , "DiskStatus" :: NullOrUndefined (String) , "DiskSizeInBytes" :: NullOrUndefined (Number) , "DiskAllocationType" :: NullOrUndefined (DiskAllocationType) , "DiskAllocationResource" :: NullOrUndefined (String) } -> {"DiskId" :: NullOrUndefined (DiskId) , "DiskPath" :: NullOrUndefined (String) , "DiskNode" :: NullOrUndefined (String) , "DiskStatus" :: NullOrUndefined (String) , "DiskSizeInBytes" :: NullOrUndefined (Number) , "DiskAllocationType" :: NullOrUndefined (DiskAllocationType) , "DiskAllocationResource" :: NullOrUndefined (String) } ) -> Disk
-newDisk'  customize = (Disk <<< customize) { "DiskAllocationResource": (NullOrUndefined Nothing), "DiskAllocationType": (NullOrUndefined Nothing), "DiskId": (NullOrUndefined Nothing), "DiskNode": (NullOrUndefined Nothing), "DiskPath": (NullOrUndefined Nothing), "DiskSizeInBytes": (NullOrUndefined Nothing), "DiskStatus": (NullOrUndefined Nothing) }
+newDisk' :: ( { "DiskId" :: Maybe (DiskId) , "DiskPath" :: Maybe (String) , "DiskNode" :: Maybe (String) , "DiskStatus" :: Maybe (String) , "DiskSizeInBytes" :: Maybe (Number) , "DiskAllocationType" :: Maybe (DiskAllocationType) , "DiskAllocationResource" :: Maybe (String) } -> {"DiskId" :: Maybe (DiskId) , "DiskPath" :: Maybe (String) , "DiskNode" :: Maybe (String) , "DiskStatus" :: Maybe (String) , "DiskSizeInBytes" :: Maybe (Number) , "DiskAllocationType" :: Maybe (DiskAllocationType) , "DiskAllocationResource" :: Maybe (String) } ) -> Disk
+newDisk'  customize = (Disk <<< customize) { "DiskAllocationResource": Nothing, "DiskAllocationType": Nothing, "DiskId": Nothing, "DiskNode": Nothing, "DiskPath": Nothing, "DiskSizeInBytes": Nothing, "DiskStatus": Nothing }
 
 
 
@@ -2005,10 +2004,10 @@ instance encodeFileShareId :: Encode FileShareId where encode = genericEncode op
 
 -- | <p>Describes a file share.</p>
 newtype FileShareInfo = FileShareInfo 
-  { "FileShareARN" :: NullOrUndefined (FileShareARN)
-  , "FileShareId" :: NullOrUndefined (FileShareId)
-  , "FileShareStatus" :: NullOrUndefined (FileShareStatus)
-  , "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "FileShareARN" :: Maybe (FileShareARN)
+  , "FileShareId" :: Maybe (FileShareId)
+  , "FileShareStatus" :: Maybe (FileShareStatus)
+  , "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeFileShareInfo :: Newtype FileShareInfo _
 derive instance repGenericFileShareInfo :: Generic FileShareInfo _
@@ -2018,12 +2017,12 @@ instance encodeFileShareInfo :: Encode FileShareInfo where encode = genericEncod
 
 -- | Constructs FileShareInfo from required parameters
 newFileShareInfo :: FileShareInfo
-newFileShareInfo  = FileShareInfo { "FileShareARN": (NullOrUndefined Nothing), "FileShareId": (NullOrUndefined Nothing), "FileShareStatus": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing) }
+newFileShareInfo  = FileShareInfo { "FileShareARN": Nothing, "FileShareId": Nothing, "FileShareStatus": Nothing, "GatewayARN": Nothing }
 
 -- | Constructs FileShareInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFileShareInfo' :: ( { "FileShareARN" :: NullOrUndefined (FileShareARN) , "FileShareId" :: NullOrUndefined (FileShareId) , "FileShareStatus" :: NullOrUndefined (FileShareStatus) , "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"FileShareARN" :: NullOrUndefined (FileShareARN) , "FileShareId" :: NullOrUndefined (FileShareId) , "FileShareStatus" :: NullOrUndefined (FileShareStatus) , "GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> FileShareInfo
-newFileShareInfo'  customize = (FileShareInfo <<< customize) { "FileShareARN": (NullOrUndefined Nothing), "FileShareId": (NullOrUndefined Nothing), "FileShareStatus": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing) }
+newFileShareInfo' :: ( { "FileShareARN" :: Maybe (FileShareARN) , "FileShareId" :: Maybe (FileShareId) , "FileShareStatus" :: Maybe (FileShareStatus) , "GatewayARN" :: Maybe (GatewayARN) } -> {"FileShareARN" :: Maybe (FileShareARN) , "FileShareId" :: Maybe (FileShareId) , "FileShareStatus" :: Maybe (FileShareStatus) , "GatewayARN" :: Maybe (GatewayARN) } ) -> FileShareInfo
+newFileShareInfo'  customize = (FileShareInfo <<< customize) { "FileShareARN": Nothing, "FileShareId": Nothing, "FileShareStatus": Nothing, "GatewayARN": Nothing }
 
 
 
@@ -2067,11 +2066,11 @@ instance encodeGatewayId :: Encode GatewayId where encode = genericEncode option
 
 -- | <p>Describes a gateway object.</p>
 newtype GatewayInfo = GatewayInfo 
-  { "GatewayId" :: NullOrUndefined (GatewayId)
-  , "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "GatewayType" :: NullOrUndefined (GatewayType)
-  , "GatewayOperationalState" :: NullOrUndefined (GatewayOperationalState)
-  , "GatewayName" :: NullOrUndefined (String)
+  { "GatewayId" :: Maybe (GatewayId)
+  , "GatewayARN" :: Maybe (GatewayARN)
+  , "GatewayType" :: Maybe (GatewayType)
+  , "GatewayOperationalState" :: Maybe (GatewayOperationalState)
+  , "GatewayName" :: Maybe (String)
   }
 derive instance newtypeGatewayInfo :: Newtype GatewayInfo _
 derive instance repGenericGatewayInfo :: Generic GatewayInfo _
@@ -2081,12 +2080,12 @@ instance encodeGatewayInfo :: Encode GatewayInfo where encode = genericEncode op
 
 -- | Constructs GatewayInfo from required parameters
 newGatewayInfo :: GatewayInfo
-newGatewayInfo  = GatewayInfo { "GatewayARN": (NullOrUndefined Nothing), "GatewayId": (NullOrUndefined Nothing), "GatewayName": (NullOrUndefined Nothing), "GatewayOperationalState": (NullOrUndefined Nothing), "GatewayType": (NullOrUndefined Nothing) }
+newGatewayInfo  = GatewayInfo { "GatewayARN": Nothing, "GatewayId": Nothing, "GatewayName": Nothing, "GatewayOperationalState": Nothing, "GatewayType": Nothing }
 
 -- | Constructs GatewayInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGatewayInfo' :: ( { "GatewayId" :: NullOrUndefined (GatewayId) , "GatewayARN" :: NullOrUndefined (GatewayARN) , "GatewayType" :: NullOrUndefined (GatewayType) , "GatewayOperationalState" :: NullOrUndefined (GatewayOperationalState) , "GatewayName" :: NullOrUndefined (String) } -> {"GatewayId" :: NullOrUndefined (GatewayId) , "GatewayARN" :: NullOrUndefined (GatewayARN) , "GatewayType" :: NullOrUndefined (GatewayType) , "GatewayOperationalState" :: NullOrUndefined (GatewayOperationalState) , "GatewayName" :: NullOrUndefined (String) } ) -> GatewayInfo
-newGatewayInfo'  customize = (GatewayInfo <<< customize) { "GatewayARN": (NullOrUndefined Nothing), "GatewayId": (NullOrUndefined Nothing), "GatewayName": (NullOrUndefined Nothing), "GatewayOperationalState": (NullOrUndefined Nothing), "GatewayType": (NullOrUndefined Nothing) }
+newGatewayInfo' :: ( { "GatewayId" :: Maybe (GatewayId) , "GatewayARN" :: Maybe (GatewayARN) , "GatewayType" :: Maybe (GatewayType) , "GatewayOperationalState" :: Maybe (GatewayOperationalState) , "GatewayName" :: Maybe (String) } -> {"GatewayId" :: Maybe (GatewayId) , "GatewayARN" :: Maybe (GatewayARN) , "GatewayType" :: Maybe (GatewayType) , "GatewayOperationalState" :: Maybe (GatewayOperationalState) , "GatewayName" :: Maybe (String) } ) -> GatewayInfo
+newGatewayInfo'  customize = (GatewayInfo <<< customize) { "GatewayARN": Nothing, "GatewayId": Nothing, "GatewayName": Nothing, "GatewayOperationalState": Nothing, "GatewayType": Nothing }
 
 
 
@@ -2192,8 +2191,8 @@ instance encodeInitiators :: Encode Initiators where encode = genericEncode opti
 
 -- | <p>An internal server error has occurred during the request. For more information, see the error and message fields.</p>
 newtype InternalServerError = InternalServerError 
-  { "message" :: NullOrUndefined (String)
-  , "error" :: NullOrUndefined (StorageGatewayError)
+  { "message" :: Maybe (String)
+  , "error" :: Maybe (StorageGatewayError)
   }
 derive instance newtypeInternalServerError :: Newtype InternalServerError _
 derive instance repGenericInternalServerError :: Generic InternalServerError _
@@ -2203,19 +2202,19 @@ instance encodeInternalServerError :: Encode InternalServerError where encode = 
 
 -- | Constructs InternalServerError from required parameters
 newInternalServerError :: InternalServerError
-newInternalServerError  = InternalServerError { "error": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newInternalServerError  = InternalServerError { "error": Nothing, "message": Nothing }
 
 -- | Constructs InternalServerError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServerError' :: ( { "message" :: NullOrUndefined (String) , "error" :: NullOrUndefined (StorageGatewayError) } -> {"message" :: NullOrUndefined (String) , "error" :: NullOrUndefined (StorageGatewayError) } ) -> InternalServerError
-newInternalServerError'  customize = (InternalServerError <<< customize) { "error": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newInternalServerError' :: ( { "message" :: Maybe (String) , "error" :: Maybe (StorageGatewayError) } -> {"message" :: Maybe (String) , "error" :: Maybe (StorageGatewayError) } ) -> InternalServerError
+newInternalServerError'  customize = (InternalServerError <<< customize) { "error": Nothing, "message": Nothing }
 
 
 
 -- | <p>An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.</p>
 newtype InvalidGatewayRequestException = InvalidGatewayRequestException 
-  { "message" :: NullOrUndefined (String)
-  , "error" :: NullOrUndefined (StorageGatewayError)
+  { "message" :: Maybe (String)
+  , "error" :: Maybe (StorageGatewayError)
   }
 derive instance newtypeInvalidGatewayRequestException :: Newtype InvalidGatewayRequestException _
 derive instance repGenericInvalidGatewayRequestException :: Generic InvalidGatewayRequestException _
@@ -2225,12 +2224,12 @@ instance encodeInvalidGatewayRequestException :: Encode InvalidGatewayRequestExc
 
 -- | Constructs InvalidGatewayRequestException from required parameters
 newInvalidGatewayRequestException :: InvalidGatewayRequestException
-newInvalidGatewayRequestException  = InvalidGatewayRequestException { "error": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newInvalidGatewayRequestException  = InvalidGatewayRequestException { "error": Nothing, "message": Nothing }
 
 -- | Constructs InvalidGatewayRequestException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidGatewayRequestException' :: ( { "message" :: NullOrUndefined (String) , "error" :: NullOrUndefined (StorageGatewayError) } -> {"message" :: NullOrUndefined (String) , "error" :: NullOrUndefined (StorageGatewayError) } ) -> InvalidGatewayRequestException
-newInvalidGatewayRequestException'  customize = (InvalidGatewayRequestException <<< customize) { "error": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newInvalidGatewayRequestException' :: ( { "message" :: Maybe (String) , "error" :: Maybe (StorageGatewayError) } -> {"message" :: Maybe (String) , "error" :: Maybe (StorageGatewayError) } ) -> InvalidGatewayRequestException
+newInvalidGatewayRequestException'  customize = (InvalidGatewayRequestException <<< customize) { "error": Nothing, "message": Nothing }
 
 
 
@@ -2264,9 +2263,9 @@ instance encodeLastSoftwareUpdate :: Encode LastSoftwareUpdate where encode = ge
 
 -- | <p>ListFileShareInput</p>
 newtype ListFileSharesInput = ListFileSharesInput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "Limit" :: NullOrUndefined (PositiveIntObject)
-  , "Marker" :: NullOrUndefined (Marker)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "Limit" :: Maybe (PositiveIntObject)
+  , "Marker" :: Maybe (Marker)
   }
 derive instance newtypeListFileSharesInput :: Newtype ListFileSharesInput _
 derive instance repGenericListFileSharesInput :: Generic ListFileSharesInput _
@@ -2276,20 +2275,20 @@ instance encodeListFileSharesInput :: Encode ListFileSharesInput where encode = 
 
 -- | Constructs ListFileSharesInput from required parameters
 newListFileSharesInput :: ListFileSharesInput
-newListFileSharesInput  = ListFileSharesInput { "GatewayARN": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListFileSharesInput  = ListFileSharesInput { "GatewayARN": Nothing, "Limit": Nothing, "Marker": Nothing }
 
 -- | Constructs ListFileSharesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListFileSharesInput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "Limit" :: NullOrUndefined (PositiveIntObject) , "Marker" :: NullOrUndefined (Marker) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "Limit" :: NullOrUndefined (PositiveIntObject) , "Marker" :: NullOrUndefined (Marker) } ) -> ListFileSharesInput
-newListFileSharesInput'  customize = (ListFileSharesInput <<< customize) { "GatewayARN": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListFileSharesInput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "Limit" :: Maybe (PositiveIntObject) , "Marker" :: Maybe (Marker) } -> {"GatewayARN" :: Maybe (GatewayARN) , "Limit" :: Maybe (PositiveIntObject) , "Marker" :: Maybe (Marker) } ) -> ListFileSharesInput
+newListFileSharesInput'  customize = (ListFileSharesInput <<< customize) { "GatewayARN": Nothing, "Limit": Nothing, "Marker": Nothing }
 
 
 
 -- | <p>ListFileShareOutput</p>
 newtype ListFileSharesOutput = ListFileSharesOutput 
-  { "Marker" :: NullOrUndefined (Marker)
-  , "NextMarker" :: NullOrUndefined (Marker)
-  , "FileShareInfoList" :: NullOrUndefined (FileShareInfoList)
+  { "Marker" :: Maybe (Marker)
+  , "NextMarker" :: Maybe (Marker)
+  , "FileShareInfoList" :: Maybe (FileShareInfoList)
   }
 derive instance newtypeListFileSharesOutput :: Newtype ListFileSharesOutput _
 derive instance repGenericListFileSharesOutput :: Generic ListFileSharesOutput _
@@ -2299,19 +2298,19 @@ instance encodeListFileSharesOutput :: Encode ListFileSharesOutput where encode 
 
 -- | Constructs ListFileSharesOutput from required parameters
 newListFileSharesOutput :: ListFileSharesOutput
-newListFileSharesOutput  = ListFileSharesOutput { "FileShareInfoList": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newListFileSharesOutput  = ListFileSharesOutput { "FileShareInfoList": Nothing, "Marker": Nothing, "NextMarker": Nothing }
 
 -- | Constructs ListFileSharesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListFileSharesOutput' :: ( { "Marker" :: NullOrUndefined (Marker) , "NextMarker" :: NullOrUndefined (Marker) , "FileShareInfoList" :: NullOrUndefined (FileShareInfoList) } -> {"Marker" :: NullOrUndefined (Marker) , "NextMarker" :: NullOrUndefined (Marker) , "FileShareInfoList" :: NullOrUndefined (FileShareInfoList) } ) -> ListFileSharesOutput
-newListFileSharesOutput'  customize = (ListFileSharesOutput <<< customize) { "FileShareInfoList": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newListFileSharesOutput' :: ( { "Marker" :: Maybe (Marker) , "NextMarker" :: Maybe (Marker) , "FileShareInfoList" :: Maybe (FileShareInfoList) } -> {"Marker" :: Maybe (Marker) , "NextMarker" :: Maybe (Marker) , "FileShareInfoList" :: Maybe (FileShareInfoList) } ) -> ListFileSharesOutput
+newListFileSharesOutput'  customize = (ListFileSharesOutput <<< customize) { "FileShareInfoList": Nothing, "Marker": Nothing, "NextMarker": Nothing }
 
 
 
 -- | <p>A JSON object containing zero or more of the following fields:</p> <ul> <li> <p> <a>ListGatewaysInput$Limit</a> </p> </li> <li> <p> <a>ListGatewaysInput$Marker</a> </p> </li> </ul>
 newtype ListGatewaysInput = ListGatewaysInput 
-  { "Marker" :: NullOrUndefined (Marker)
-  , "Limit" :: NullOrUndefined (PositiveIntObject)
+  { "Marker" :: Maybe (Marker)
+  , "Limit" :: Maybe (PositiveIntObject)
   }
 derive instance newtypeListGatewaysInput :: Newtype ListGatewaysInput _
 derive instance repGenericListGatewaysInput :: Generic ListGatewaysInput _
@@ -2321,18 +2320,18 @@ instance encodeListGatewaysInput :: Encode ListGatewaysInput where encode = gene
 
 -- | Constructs ListGatewaysInput from required parameters
 newListGatewaysInput :: ListGatewaysInput
-newListGatewaysInput  = ListGatewaysInput { "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListGatewaysInput  = ListGatewaysInput { "Limit": Nothing, "Marker": Nothing }
 
 -- | Constructs ListGatewaysInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGatewaysInput' :: ( { "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } -> {"Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } ) -> ListGatewaysInput
-newListGatewaysInput'  customize = (ListGatewaysInput <<< customize) { "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListGatewaysInput' :: ( { "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } -> {"Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } ) -> ListGatewaysInput
+newListGatewaysInput'  customize = (ListGatewaysInput <<< customize) { "Limit": Nothing, "Marker": Nothing }
 
 
 
 newtype ListGatewaysOutput = ListGatewaysOutput 
-  { "Gateways" :: NullOrUndefined (Gateways)
-  , "Marker" :: NullOrUndefined (Marker)
+  { "Gateways" :: Maybe (Gateways)
+  , "Marker" :: Maybe (Marker)
   }
 derive instance newtypeListGatewaysOutput :: Newtype ListGatewaysOutput _
 derive instance repGenericListGatewaysOutput :: Generic ListGatewaysOutput _
@@ -2342,12 +2341,12 @@ instance encodeListGatewaysOutput :: Encode ListGatewaysOutput where encode = ge
 
 -- | Constructs ListGatewaysOutput from required parameters
 newListGatewaysOutput :: ListGatewaysOutput
-newListGatewaysOutput  = ListGatewaysOutput { "Gateways": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListGatewaysOutput  = ListGatewaysOutput { "Gateways": Nothing, "Marker": Nothing }
 
 -- | Constructs ListGatewaysOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGatewaysOutput' :: ( { "Gateways" :: NullOrUndefined (Gateways) , "Marker" :: NullOrUndefined (Marker) } -> {"Gateways" :: NullOrUndefined (Gateways) , "Marker" :: NullOrUndefined (Marker) } ) -> ListGatewaysOutput
-newListGatewaysOutput'  customize = (ListGatewaysOutput <<< customize) { "Gateways": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListGatewaysOutput' :: ( { "Gateways" :: Maybe (Gateways) , "Marker" :: Maybe (Marker) } -> {"Gateways" :: Maybe (Gateways) , "Marker" :: Maybe (Marker) } ) -> ListGatewaysOutput
+newListGatewaysOutput'  customize = (ListGatewaysOutput <<< customize) { "Gateways": Nothing, "Marker": Nothing }
 
 
 
@@ -2373,8 +2372,8 @@ newListLocalDisksInput' _GatewayARN customize = (ListLocalDisksInput <<< customi
 
 
 newtype ListLocalDisksOutput = ListLocalDisksOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "Disks" :: NullOrUndefined (Disks)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "Disks" :: Maybe (Disks)
   }
 derive instance newtypeListLocalDisksOutput :: Newtype ListLocalDisksOutput _
 derive instance repGenericListLocalDisksOutput :: Generic ListLocalDisksOutput _
@@ -2384,20 +2383,20 @@ instance encodeListLocalDisksOutput :: Encode ListLocalDisksOutput where encode 
 
 -- | Constructs ListLocalDisksOutput from required parameters
 newListLocalDisksOutput :: ListLocalDisksOutput
-newListLocalDisksOutput  = ListLocalDisksOutput { "Disks": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing) }
+newListLocalDisksOutput  = ListLocalDisksOutput { "Disks": Nothing, "GatewayARN": Nothing }
 
 -- | Constructs ListLocalDisksOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListLocalDisksOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "Disks" :: NullOrUndefined (Disks) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "Disks" :: NullOrUndefined (Disks) } ) -> ListLocalDisksOutput
-newListLocalDisksOutput'  customize = (ListLocalDisksOutput <<< customize) { "Disks": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing) }
+newListLocalDisksOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "Disks" :: Maybe (Disks) } -> {"GatewayARN" :: Maybe (GatewayARN) , "Disks" :: Maybe (Disks) } ) -> ListLocalDisksOutput
+newListLocalDisksOutput'  customize = (ListLocalDisksOutput <<< customize) { "Disks": Nothing, "GatewayARN": Nothing }
 
 
 
 -- | <p>ListTagsForResourceInput</p>
 newtype ListTagsForResourceInput = ListTagsForResourceInput 
   { "ResourceARN" :: (ResourceARN)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "Limit" :: NullOrUndefined (PositiveIntObject)
+  , "Marker" :: Maybe (Marker)
+  , "Limit" :: Maybe (PositiveIntObject)
   }
 derive instance newtypeListTagsForResourceInput :: Newtype ListTagsForResourceInput _
 derive instance repGenericListTagsForResourceInput :: Generic ListTagsForResourceInput _
@@ -2407,20 +2406,20 @@ instance encodeListTagsForResourceInput :: Encode ListTagsForResourceInput where
 
 -- | Constructs ListTagsForResourceInput from required parameters
 newListTagsForResourceInput :: ResourceARN -> ListTagsForResourceInput
-newListTagsForResourceInput _ResourceARN = ListTagsForResourceInput { "ResourceARN": _ResourceARN, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListTagsForResourceInput _ResourceARN = ListTagsForResourceInput { "ResourceARN": _ResourceARN, "Limit": Nothing, "Marker": Nothing }
 
 -- | Constructs ListTagsForResourceInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTagsForResourceInput' :: ResourceARN -> ( { "ResourceARN" :: (ResourceARN) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } -> {"ResourceARN" :: (ResourceARN) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } ) -> ListTagsForResourceInput
-newListTagsForResourceInput' _ResourceARN customize = (ListTagsForResourceInput <<< customize) { "ResourceARN": _ResourceARN, "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListTagsForResourceInput' :: ResourceARN -> ( { "ResourceARN" :: (ResourceARN) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } -> {"ResourceARN" :: (ResourceARN) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } ) -> ListTagsForResourceInput
+newListTagsForResourceInput' _ResourceARN customize = (ListTagsForResourceInput <<< customize) { "ResourceARN": _ResourceARN, "Limit": Nothing, "Marker": Nothing }
 
 
 
 -- | <p>ListTagsForResourceOutput</p>
 newtype ListTagsForResourceOutput = ListTagsForResourceOutput 
-  { "ResourceARN" :: NullOrUndefined (ResourceARN)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "Tags" :: NullOrUndefined (Tags)
+  { "ResourceARN" :: Maybe (ResourceARN)
+  , "Marker" :: Maybe (Marker)
+  , "Tags" :: Maybe (Tags)
   }
 derive instance newtypeListTagsForResourceOutput :: Newtype ListTagsForResourceOutput _
 derive instance repGenericListTagsForResourceOutput :: Generic ListTagsForResourceOutput _
@@ -2430,20 +2429,20 @@ instance encodeListTagsForResourceOutput :: Encode ListTagsForResourceOutput whe
 
 -- | Constructs ListTagsForResourceOutput from required parameters
 newListTagsForResourceOutput :: ListTagsForResourceOutput
-newListTagsForResourceOutput  = ListTagsForResourceOutput { "Marker": (NullOrUndefined Nothing), "ResourceARN": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newListTagsForResourceOutput  = ListTagsForResourceOutput { "Marker": Nothing, "ResourceARN": Nothing, "Tags": Nothing }
 
 -- | Constructs ListTagsForResourceOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTagsForResourceOutput' :: ( { "ResourceARN" :: NullOrUndefined (ResourceARN) , "Marker" :: NullOrUndefined (Marker) , "Tags" :: NullOrUndefined (Tags) } -> {"ResourceARN" :: NullOrUndefined (ResourceARN) , "Marker" :: NullOrUndefined (Marker) , "Tags" :: NullOrUndefined (Tags) } ) -> ListTagsForResourceOutput
-newListTagsForResourceOutput'  customize = (ListTagsForResourceOutput <<< customize) { "Marker": (NullOrUndefined Nothing), "ResourceARN": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newListTagsForResourceOutput' :: ( { "ResourceARN" :: Maybe (ResourceARN) , "Marker" :: Maybe (Marker) , "Tags" :: Maybe (Tags) } -> {"ResourceARN" :: Maybe (ResourceARN) , "Marker" :: Maybe (Marker) , "Tags" :: Maybe (Tags) } ) -> ListTagsForResourceOutput
+newListTagsForResourceOutput'  customize = (ListTagsForResourceOutput <<< customize) { "Marker": Nothing, "ResourceARN": Nothing, "Tags": Nothing }
 
 
 
 -- | <p>A JSON object that contains one or more of the following fields:</p> <ul> <li> <p> <a>ListTapesInput$Limit</a> </p> </li> <li> <p> <a>ListTapesInput$Marker</a> </p> </li> <li> <p> <a>ListTapesInput$TapeARNs</a> </p> </li> </ul>
 newtype ListTapesInput = ListTapesInput 
-  { "TapeARNs" :: NullOrUndefined (TapeARNs)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "Limit" :: NullOrUndefined (PositiveIntObject)
+  { "TapeARNs" :: Maybe (TapeARNs)
+  , "Marker" :: Maybe (Marker)
+  , "Limit" :: Maybe (PositiveIntObject)
   }
 derive instance newtypeListTapesInput :: Newtype ListTapesInput _
 derive instance repGenericListTapesInput :: Generic ListTapesInput _
@@ -2453,19 +2452,19 @@ instance encodeListTapesInput :: Encode ListTapesInput where encode = genericEnc
 
 -- | Constructs ListTapesInput from required parameters
 newListTapesInput :: ListTapesInput
-newListTapesInput  = ListTapesInput { "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "TapeARNs": (NullOrUndefined Nothing) }
+newListTapesInput  = ListTapesInput { "Limit": Nothing, "Marker": Nothing, "TapeARNs": Nothing }
 
 -- | Constructs ListTapesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTapesInput' :: ( { "TapeARNs" :: NullOrUndefined (TapeARNs) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } -> {"TapeARNs" :: NullOrUndefined (TapeARNs) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } ) -> ListTapesInput
-newListTapesInput'  customize = (ListTapesInput <<< customize) { "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "TapeARNs": (NullOrUndefined Nothing) }
+newListTapesInput' :: ( { "TapeARNs" :: Maybe (TapeARNs) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } -> {"TapeARNs" :: Maybe (TapeARNs) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } ) -> ListTapesInput
+newListTapesInput'  customize = (ListTapesInput <<< customize) { "Limit": Nothing, "Marker": Nothing, "TapeARNs": Nothing }
 
 
 
 -- | <p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>ListTapesOutput$Marker</a> </p> </li> <li> <p> <a>ListTapesOutput$VolumeInfos</a> </p> </li> </ul>
 newtype ListTapesOutput = ListTapesOutput 
-  { "TapeInfos" :: NullOrUndefined (TapeInfos)
-  , "Marker" :: NullOrUndefined (Marker)
+  { "TapeInfos" :: Maybe (TapeInfos)
+  , "Marker" :: Maybe (Marker)
   }
 derive instance newtypeListTapesOutput :: Newtype ListTapesOutput _
 derive instance repGenericListTapesOutput :: Generic ListTapesOutput _
@@ -2475,12 +2474,12 @@ instance encodeListTapesOutput :: Encode ListTapesOutput where encode = genericE
 
 -- | Constructs ListTapesOutput from required parameters
 newListTapesOutput :: ListTapesOutput
-newListTapesOutput  = ListTapesOutput { "Marker": (NullOrUndefined Nothing), "TapeInfos": (NullOrUndefined Nothing) }
+newListTapesOutput  = ListTapesOutput { "Marker": Nothing, "TapeInfos": Nothing }
 
 -- | Constructs ListTapesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTapesOutput' :: ( { "TapeInfos" :: NullOrUndefined (TapeInfos) , "Marker" :: NullOrUndefined (Marker) } -> {"TapeInfos" :: NullOrUndefined (TapeInfos) , "Marker" :: NullOrUndefined (Marker) } ) -> ListTapesOutput
-newListTapesOutput'  customize = (ListTapesOutput <<< customize) { "Marker": (NullOrUndefined Nothing), "TapeInfos": (NullOrUndefined Nothing) }
+newListTapesOutput' :: ( { "TapeInfos" :: Maybe (TapeInfos) , "Marker" :: Maybe (Marker) } -> {"TapeInfos" :: Maybe (TapeInfos) , "Marker" :: Maybe (Marker) } ) -> ListTapesOutput
+newListTapesOutput'  customize = (ListTapesOutput <<< customize) { "Marker": Nothing, "TapeInfos": Nothing }
 
 
 
@@ -2507,7 +2506,7 @@ newListVolumeInitiatorsInput' _VolumeARN customize = (ListVolumeInitiatorsInput 
 
 -- | <p>ListVolumeInitiatorsOutput</p>
 newtype ListVolumeInitiatorsOutput = ListVolumeInitiatorsOutput 
-  { "Initiators" :: NullOrUndefined (Initiators)
+  { "Initiators" :: Maybe (Initiators)
   }
 derive instance newtypeListVolumeInitiatorsOutput :: Newtype ListVolumeInitiatorsOutput _
 derive instance repGenericListVolumeInitiatorsOutput :: Generic ListVolumeInitiatorsOutput _
@@ -2517,12 +2516,12 @@ instance encodeListVolumeInitiatorsOutput :: Encode ListVolumeInitiatorsOutput w
 
 -- | Constructs ListVolumeInitiatorsOutput from required parameters
 newListVolumeInitiatorsOutput :: ListVolumeInitiatorsOutput
-newListVolumeInitiatorsOutput  = ListVolumeInitiatorsOutput { "Initiators": (NullOrUndefined Nothing) }
+newListVolumeInitiatorsOutput  = ListVolumeInitiatorsOutput { "Initiators": Nothing }
 
 -- | Constructs ListVolumeInitiatorsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListVolumeInitiatorsOutput' :: ( { "Initiators" :: NullOrUndefined (Initiators) } -> {"Initiators" :: NullOrUndefined (Initiators) } ) -> ListVolumeInitiatorsOutput
-newListVolumeInitiatorsOutput'  customize = (ListVolumeInitiatorsOutput <<< customize) { "Initiators": (NullOrUndefined Nothing) }
+newListVolumeInitiatorsOutput' :: ( { "Initiators" :: Maybe (Initiators) } -> {"Initiators" :: Maybe (Initiators) } ) -> ListVolumeInitiatorsOutput
+newListVolumeInitiatorsOutput'  customize = (ListVolumeInitiatorsOutput <<< customize) { "Initiators": Nothing }
 
 
 
@@ -2547,8 +2546,8 @@ newListVolumeRecoveryPointsInput' _GatewayARN customize = (ListVolumeRecoveryPoi
 
 
 newtype ListVolumeRecoveryPointsOutput = ListVolumeRecoveryPointsOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "VolumeRecoveryPointInfos" :: NullOrUndefined (VolumeRecoveryPointInfos)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "VolumeRecoveryPointInfos" :: Maybe (VolumeRecoveryPointInfos)
   }
 derive instance newtypeListVolumeRecoveryPointsOutput :: Newtype ListVolumeRecoveryPointsOutput _
 derive instance repGenericListVolumeRecoveryPointsOutput :: Generic ListVolumeRecoveryPointsOutput _
@@ -2558,20 +2557,20 @@ instance encodeListVolumeRecoveryPointsOutput :: Encode ListVolumeRecoveryPoints
 
 -- | Constructs ListVolumeRecoveryPointsOutput from required parameters
 newListVolumeRecoveryPointsOutput :: ListVolumeRecoveryPointsOutput
-newListVolumeRecoveryPointsOutput  = ListVolumeRecoveryPointsOutput { "GatewayARN": (NullOrUndefined Nothing), "VolumeRecoveryPointInfos": (NullOrUndefined Nothing) }
+newListVolumeRecoveryPointsOutput  = ListVolumeRecoveryPointsOutput { "GatewayARN": Nothing, "VolumeRecoveryPointInfos": Nothing }
 
 -- | Constructs ListVolumeRecoveryPointsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListVolumeRecoveryPointsOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "VolumeRecoveryPointInfos" :: NullOrUndefined (VolumeRecoveryPointInfos) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "VolumeRecoveryPointInfos" :: NullOrUndefined (VolumeRecoveryPointInfos) } ) -> ListVolumeRecoveryPointsOutput
-newListVolumeRecoveryPointsOutput'  customize = (ListVolumeRecoveryPointsOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing), "VolumeRecoveryPointInfos": (NullOrUndefined Nothing) }
+newListVolumeRecoveryPointsOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "VolumeRecoveryPointInfos" :: Maybe (VolumeRecoveryPointInfos) } -> {"GatewayARN" :: Maybe (GatewayARN) , "VolumeRecoveryPointInfos" :: Maybe (VolumeRecoveryPointInfos) } ) -> ListVolumeRecoveryPointsOutput
+newListVolumeRecoveryPointsOutput'  customize = (ListVolumeRecoveryPointsOutput <<< customize) { "GatewayARN": Nothing, "VolumeRecoveryPointInfos": Nothing }
 
 
 
 -- | <p>A JSON object that contains one or more of the following fields:</p> <ul> <li> <p> <a>ListVolumesInput$Limit</a> </p> </li> <li> <p> <a>ListVolumesInput$Marker</a> </p> </li> </ul>
 newtype ListVolumesInput = ListVolumesInput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "Limit" :: NullOrUndefined (PositiveIntObject)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "Marker" :: Maybe (Marker)
+  , "Limit" :: Maybe (PositiveIntObject)
   }
 derive instance newtypeListVolumesInput :: Newtype ListVolumesInput _
 derive instance repGenericListVolumesInput :: Generic ListVolumesInput _
@@ -2581,19 +2580,19 @@ instance encodeListVolumesInput :: Encode ListVolumesInput where encode = generi
 
 -- | Constructs ListVolumesInput from required parameters
 newListVolumesInput :: ListVolumesInput
-newListVolumesInput  = ListVolumesInput { "GatewayARN": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListVolumesInput  = ListVolumesInput { "GatewayARN": Nothing, "Limit": Nothing, "Marker": Nothing }
 
 -- | Constructs ListVolumesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListVolumesInput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "Marker" :: NullOrUndefined (Marker) , "Limit" :: NullOrUndefined (PositiveIntObject) } ) -> ListVolumesInput
-newListVolumesInput'  customize = (ListVolumesInput <<< customize) { "GatewayARN": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing) }
+newListVolumesInput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } -> {"GatewayARN" :: Maybe (GatewayARN) , "Marker" :: Maybe (Marker) , "Limit" :: Maybe (PositiveIntObject) } ) -> ListVolumesInput
+newListVolumesInput'  customize = (ListVolumesInput <<< customize) { "GatewayARN": Nothing, "Limit": Nothing, "Marker": Nothing }
 
 
 
 newtype ListVolumesOutput = ListVolumesOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "Marker" :: NullOrUndefined (Marker)
-  , "VolumeInfos" :: NullOrUndefined (VolumeInfos)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "Marker" :: Maybe (Marker)
+  , "VolumeInfos" :: Maybe (VolumeInfos)
   }
 derive instance newtypeListVolumesOutput :: Newtype ListVolumesOutput _
 derive instance repGenericListVolumesOutput :: Generic ListVolumesOutput _
@@ -2603,12 +2602,12 @@ instance encodeListVolumesOutput :: Encode ListVolumesOutput where encode = gene
 
 -- | Constructs ListVolumesOutput from required parameters
 newListVolumesOutput :: ListVolumesOutput
-newListVolumesOutput  = ListVolumesOutput { "GatewayARN": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "VolumeInfos": (NullOrUndefined Nothing) }
+newListVolumesOutput  = ListVolumesOutput { "GatewayARN": Nothing, "Marker": Nothing, "VolumeInfos": Nothing }
 
 -- | Constructs ListVolumesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListVolumesOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "Marker" :: NullOrUndefined (Marker) , "VolumeInfos" :: NullOrUndefined (VolumeInfos) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "Marker" :: NullOrUndefined (Marker) , "VolumeInfos" :: NullOrUndefined (VolumeInfos) } ) -> ListVolumesOutput
-newListVolumesOutput'  customize = (ListVolumesOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "VolumeInfos": (NullOrUndefined Nothing) }
+newListVolumesOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "Marker" :: Maybe (Marker) , "VolumeInfos" :: Maybe (VolumeInfos) } -> {"GatewayARN" :: Maybe (GatewayARN) , "Marker" :: Maybe (Marker) , "VolumeInfos" :: Maybe (VolumeInfos) } ) -> ListVolumesOutput
+newListVolumesOutput'  customize = (ListVolumesOutput <<< customize) { "GatewayARN": Nothing, "Marker": Nothing, "VolumeInfos": Nothing }
 
 
 
@@ -2660,10 +2659,10 @@ instance encodeMinuteOfHour :: Encode MinuteOfHour where encode = genericEncode 
 
 -- | <p>Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in the file gateway type.</p>
 newtype NFSFileShareDefaults = NFSFileShareDefaults 
-  { "FileMode" :: NullOrUndefined (PermissionMode)
-  , "DirectoryMode" :: NullOrUndefined (PermissionMode)
-  , "GroupId" :: NullOrUndefined (PermissionId)
-  , "OwnerId" :: NullOrUndefined (PermissionId)
+  { "FileMode" :: Maybe (PermissionMode)
+  , "DirectoryMode" :: Maybe (PermissionMode)
+  , "GroupId" :: Maybe (PermissionId)
+  , "OwnerId" :: Maybe (PermissionId)
   }
 derive instance newtypeNFSFileShareDefaults :: Newtype NFSFileShareDefaults _
 derive instance repGenericNFSFileShareDefaults :: Generic NFSFileShareDefaults _
@@ -2673,34 +2672,34 @@ instance encodeNFSFileShareDefaults :: Encode NFSFileShareDefaults where encode 
 
 -- | Constructs NFSFileShareDefaults from required parameters
 newNFSFileShareDefaults :: NFSFileShareDefaults
-newNFSFileShareDefaults  = NFSFileShareDefaults { "DirectoryMode": (NullOrUndefined Nothing), "FileMode": (NullOrUndefined Nothing), "GroupId": (NullOrUndefined Nothing), "OwnerId": (NullOrUndefined Nothing) }
+newNFSFileShareDefaults  = NFSFileShareDefaults { "DirectoryMode": Nothing, "FileMode": Nothing, "GroupId": Nothing, "OwnerId": Nothing }
 
 -- | Constructs NFSFileShareDefaults's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNFSFileShareDefaults' :: ( { "FileMode" :: NullOrUndefined (PermissionMode) , "DirectoryMode" :: NullOrUndefined (PermissionMode) , "GroupId" :: NullOrUndefined (PermissionId) , "OwnerId" :: NullOrUndefined (PermissionId) } -> {"FileMode" :: NullOrUndefined (PermissionMode) , "DirectoryMode" :: NullOrUndefined (PermissionMode) , "GroupId" :: NullOrUndefined (PermissionId) , "OwnerId" :: NullOrUndefined (PermissionId) } ) -> NFSFileShareDefaults
-newNFSFileShareDefaults'  customize = (NFSFileShareDefaults <<< customize) { "DirectoryMode": (NullOrUndefined Nothing), "FileMode": (NullOrUndefined Nothing), "GroupId": (NullOrUndefined Nothing), "OwnerId": (NullOrUndefined Nothing) }
+newNFSFileShareDefaults' :: ( { "FileMode" :: Maybe (PermissionMode) , "DirectoryMode" :: Maybe (PermissionMode) , "GroupId" :: Maybe (PermissionId) , "OwnerId" :: Maybe (PermissionId) } -> {"FileMode" :: Maybe (PermissionMode) , "DirectoryMode" :: Maybe (PermissionMode) , "GroupId" :: Maybe (PermissionId) , "OwnerId" :: Maybe (PermissionId) } ) -> NFSFileShareDefaults
+newNFSFileShareDefaults'  customize = (NFSFileShareDefaults <<< customize) { "DirectoryMode": Nothing, "FileMode": Nothing, "GroupId": Nothing, "OwnerId": Nothing }
 
 
 
 -- | <p>The Unix file permissions and ownership information assigned, by default, to native S3 objects when file gateway discovers them in S3 buckets. This operation is only supported in file gateways.</p>
 newtype NFSFileShareInfo = NFSFileShareInfo 
-  { "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults)
-  , "FileShareARN" :: NullOrUndefined (FileShareARN)
-  , "FileShareId" :: NullOrUndefined (FileShareId)
-  , "FileShareStatus" :: NullOrUndefined (FileShareStatus)
-  , "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "KMSEncrypted" :: NullOrUndefined (Boolean)
-  , "KMSKey" :: NullOrUndefined (KMSKey)
-  , "Path" :: NullOrUndefined (Path)
-  , "Role" :: NullOrUndefined (Role)
-  , "LocationARN" :: NullOrUndefined (LocationARN)
-  , "DefaultStorageClass" :: NullOrUndefined (StorageClass)
-  , "ObjectACL" :: NullOrUndefined (ObjectACL)
-  , "ClientList" :: NullOrUndefined (FileShareClientList)
-  , "Squash" :: NullOrUndefined (Squash)
-  , "ReadOnly" :: NullOrUndefined (Boolean)
-  , "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean)
-  , "RequesterPays" :: NullOrUndefined (Boolean)
+  { "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults)
+  , "FileShareARN" :: Maybe (FileShareARN)
+  , "FileShareId" :: Maybe (FileShareId)
+  , "FileShareStatus" :: Maybe (FileShareStatus)
+  , "GatewayARN" :: Maybe (GatewayARN)
+  , "KMSEncrypted" :: Maybe (Boolean)
+  , "KMSKey" :: Maybe (KMSKey)
+  , "Path" :: Maybe (Path)
+  , "Role" :: Maybe (Role)
+  , "LocationARN" :: Maybe (LocationARN)
+  , "DefaultStorageClass" :: Maybe (StorageClass)
+  , "ObjectACL" :: Maybe (ObjectACL)
+  , "ClientList" :: Maybe (FileShareClientList)
+  , "Squash" :: Maybe (Squash)
+  , "ReadOnly" :: Maybe (Boolean)
+  , "GuessMIMETypeEnabled" :: Maybe (Boolean)
+  , "RequesterPays" :: Maybe (Boolean)
   }
 derive instance newtypeNFSFileShareInfo :: Newtype NFSFileShareInfo _
 derive instance repGenericNFSFileShareInfo :: Generic NFSFileShareInfo _
@@ -2710,12 +2709,12 @@ instance encodeNFSFileShareInfo :: Encode NFSFileShareInfo where encode = generi
 
 -- | Constructs NFSFileShareInfo from required parameters
 newNFSFileShareInfo :: NFSFileShareInfo
-newNFSFileShareInfo  = NFSFileShareInfo { "ClientList": (NullOrUndefined Nothing), "DefaultStorageClass": (NullOrUndefined Nothing), "FileShareARN": (NullOrUndefined Nothing), "FileShareId": (NullOrUndefined Nothing), "FileShareStatus": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing), "GuessMIMETypeEnabled": (NullOrUndefined Nothing), "KMSEncrypted": (NullOrUndefined Nothing), "KMSKey": (NullOrUndefined Nothing), "LocationARN": (NullOrUndefined Nothing), "NFSFileShareDefaults": (NullOrUndefined Nothing), "ObjectACL": (NullOrUndefined Nothing), "Path": (NullOrUndefined Nothing), "ReadOnly": (NullOrUndefined Nothing), "RequesterPays": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "Squash": (NullOrUndefined Nothing) }
+newNFSFileShareInfo  = NFSFileShareInfo { "ClientList": Nothing, "DefaultStorageClass": Nothing, "FileShareARN": Nothing, "FileShareId": Nothing, "FileShareStatus": Nothing, "GatewayARN": Nothing, "GuessMIMETypeEnabled": Nothing, "KMSEncrypted": Nothing, "KMSKey": Nothing, "LocationARN": Nothing, "NFSFileShareDefaults": Nothing, "ObjectACL": Nothing, "Path": Nothing, "ReadOnly": Nothing, "RequesterPays": Nothing, "Role": Nothing, "Squash": Nothing }
 
 -- | Constructs NFSFileShareInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNFSFileShareInfo' :: ( { "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults) , "FileShareARN" :: NullOrUndefined (FileShareARN) , "FileShareId" :: NullOrUndefined (FileShareId) , "FileShareStatus" :: NullOrUndefined (FileShareStatus) , "GatewayARN" :: NullOrUndefined (GatewayARN) , "KMSEncrypted" :: NullOrUndefined (Boolean) , "KMSKey" :: NullOrUndefined (KMSKey) , "Path" :: NullOrUndefined (Path) , "Role" :: NullOrUndefined (Role) , "LocationARN" :: NullOrUndefined (LocationARN) , "DefaultStorageClass" :: NullOrUndefined (StorageClass) , "ObjectACL" :: NullOrUndefined (ObjectACL) , "ClientList" :: NullOrUndefined (FileShareClientList) , "Squash" :: NullOrUndefined (Squash) , "ReadOnly" :: NullOrUndefined (Boolean) , "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean) , "RequesterPays" :: NullOrUndefined (Boolean) } -> {"NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults) , "FileShareARN" :: NullOrUndefined (FileShareARN) , "FileShareId" :: NullOrUndefined (FileShareId) , "FileShareStatus" :: NullOrUndefined (FileShareStatus) , "GatewayARN" :: NullOrUndefined (GatewayARN) , "KMSEncrypted" :: NullOrUndefined (Boolean) , "KMSKey" :: NullOrUndefined (KMSKey) , "Path" :: NullOrUndefined (Path) , "Role" :: NullOrUndefined (Role) , "LocationARN" :: NullOrUndefined (LocationARN) , "DefaultStorageClass" :: NullOrUndefined (StorageClass) , "ObjectACL" :: NullOrUndefined (ObjectACL) , "ClientList" :: NullOrUndefined (FileShareClientList) , "Squash" :: NullOrUndefined (Squash) , "ReadOnly" :: NullOrUndefined (Boolean) , "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean) , "RequesterPays" :: NullOrUndefined (Boolean) } ) -> NFSFileShareInfo
-newNFSFileShareInfo'  customize = (NFSFileShareInfo <<< customize) { "ClientList": (NullOrUndefined Nothing), "DefaultStorageClass": (NullOrUndefined Nothing), "FileShareARN": (NullOrUndefined Nothing), "FileShareId": (NullOrUndefined Nothing), "FileShareStatus": (NullOrUndefined Nothing), "GatewayARN": (NullOrUndefined Nothing), "GuessMIMETypeEnabled": (NullOrUndefined Nothing), "KMSEncrypted": (NullOrUndefined Nothing), "KMSKey": (NullOrUndefined Nothing), "LocationARN": (NullOrUndefined Nothing), "NFSFileShareDefaults": (NullOrUndefined Nothing), "ObjectACL": (NullOrUndefined Nothing), "Path": (NullOrUndefined Nothing), "ReadOnly": (NullOrUndefined Nothing), "RequesterPays": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "Squash": (NullOrUndefined Nothing) }
+newNFSFileShareInfo' :: ( { "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults) , "FileShareARN" :: Maybe (FileShareARN) , "FileShareId" :: Maybe (FileShareId) , "FileShareStatus" :: Maybe (FileShareStatus) , "GatewayARN" :: Maybe (GatewayARN) , "KMSEncrypted" :: Maybe (Boolean) , "KMSKey" :: Maybe (KMSKey) , "Path" :: Maybe (Path) , "Role" :: Maybe (Role) , "LocationARN" :: Maybe (LocationARN) , "DefaultStorageClass" :: Maybe (StorageClass) , "ObjectACL" :: Maybe (ObjectACL) , "ClientList" :: Maybe (FileShareClientList) , "Squash" :: Maybe (Squash) , "ReadOnly" :: Maybe (Boolean) , "GuessMIMETypeEnabled" :: Maybe (Boolean) , "RequesterPays" :: Maybe (Boolean) } -> {"NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults) , "FileShareARN" :: Maybe (FileShareARN) , "FileShareId" :: Maybe (FileShareId) , "FileShareStatus" :: Maybe (FileShareStatus) , "GatewayARN" :: Maybe (GatewayARN) , "KMSEncrypted" :: Maybe (Boolean) , "KMSKey" :: Maybe (KMSKey) , "Path" :: Maybe (Path) , "Role" :: Maybe (Role) , "LocationARN" :: Maybe (LocationARN) , "DefaultStorageClass" :: Maybe (StorageClass) , "ObjectACL" :: Maybe (ObjectACL) , "ClientList" :: Maybe (FileShareClientList) , "Squash" :: Maybe (Squash) , "ReadOnly" :: Maybe (Boolean) , "GuessMIMETypeEnabled" :: Maybe (Boolean) , "RequesterPays" :: Maybe (Boolean) } ) -> NFSFileShareInfo
+newNFSFileShareInfo'  customize = (NFSFileShareInfo <<< customize) { "ClientList": Nothing, "DefaultStorageClass": Nothing, "FileShareARN": Nothing, "FileShareId": Nothing, "FileShareStatus": Nothing, "GatewayARN": Nothing, "GuessMIMETypeEnabled": Nothing, "KMSEncrypted": Nothing, "KMSKey": Nothing, "LocationARN": Nothing, "NFSFileShareDefaults": Nothing, "ObjectACL": Nothing, "Path": Nothing, "ReadOnly": Nothing, "RequesterPays": Nothing, "Role": Nothing, "Squash": Nothing }
 
 
 
@@ -2730,9 +2729,9 @@ instance encodeNFSFileShareInfoList :: Encode NFSFileShareInfoList where encode 
 
 -- | <p>Describes a gateway's network interface.</p>
 newtype NetworkInterface = NetworkInterface 
-  { "Ipv4Address" :: NullOrUndefined (String)
-  , "MacAddress" :: NullOrUndefined (String)
-  , "Ipv6Address" :: NullOrUndefined (String)
+  { "Ipv4Address" :: Maybe (String)
+  , "MacAddress" :: Maybe (String)
+  , "Ipv6Address" :: Maybe (String)
   }
 derive instance newtypeNetworkInterface :: Newtype NetworkInterface _
 derive instance repGenericNetworkInterface :: Generic NetworkInterface _
@@ -2742,12 +2741,12 @@ instance encodeNetworkInterface :: Encode NetworkInterface where encode = generi
 
 -- | Constructs NetworkInterface from required parameters
 newNetworkInterface :: NetworkInterface
-newNetworkInterface  = NetworkInterface { "Ipv4Address": (NullOrUndefined Nothing), "Ipv6Address": (NullOrUndefined Nothing), "MacAddress": (NullOrUndefined Nothing) }
+newNetworkInterface  = NetworkInterface { "Ipv4Address": Nothing, "Ipv6Address": Nothing, "MacAddress": Nothing }
 
 -- | Constructs NetworkInterface's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNetworkInterface' :: ( { "Ipv4Address" :: NullOrUndefined (String) , "MacAddress" :: NullOrUndefined (String) , "Ipv6Address" :: NullOrUndefined (String) } -> {"Ipv4Address" :: NullOrUndefined (String) , "MacAddress" :: NullOrUndefined (String) , "Ipv6Address" :: NullOrUndefined (String) } ) -> NetworkInterface
-newNetworkInterface'  customize = (NetworkInterface <<< customize) { "Ipv4Address": (NullOrUndefined Nothing), "Ipv6Address": (NullOrUndefined Nothing), "MacAddress": (NullOrUndefined Nothing) }
+newNetworkInterface' :: ( { "Ipv4Address" :: Maybe (String) , "MacAddress" :: Maybe (String) , "Ipv6Address" :: Maybe (String) } -> {"Ipv4Address" :: Maybe (String) , "MacAddress" :: Maybe (String) , "Ipv6Address" :: Maybe (String) } ) -> NetworkInterface
+newNetworkInterface'  customize = (NetworkInterface <<< customize) { "Ipv4Address": Nothing, "Ipv6Address": Nothing, "MacAddress": Nothing }
 
 
 
@@ -2800,8 +2799,8 @@ newNotifyWhenUploadedInput' _FileShareARN customize = (NotifyWhenUploadedInput <
 
 
 newtype NotifyWhenUploadedOutput = NotifyWhenUploadedOutput 
-  { "FileShareARN" :: NullOrUndefined (FileShareARN)
-  , "NotificationId" :: NullOrUndefined (NotificationId)
+  { "FileShareARN" :: Maybe (FileShareARN)
+  , "NotificationId" :: Maybe (NotificationId)
   }
 derive instance newtypeNotifyWhenUploadedOutput :: Newtype NotifyWhenUploadedOutput _
 derive instance repGenericNotifyWhenUploadedOutput :: Generic NotifyWhenUploadedOutput _
@@ -2811,12 +2810,12 @@ instance encodeNotifyWhenUploadedOutput :: Encode NotifyWhenUploadedOutput where
 
 -- | Constructs NotifyWhenUploadedOutput from required parameters
 newNotifyWhenUploadedOutput :: NotifyWhenUploadedOutput
-newNotifyWhenUploadedOutput  = NotifyWhenUploadedOutput { "FileShareARN": (NullOrUndefined Nothing), "NotificationId": (NullOrUndefined Nothing) }
+newNotifyWhenUploadedOutput  = NotifyWhenUploadedOutput { "FileShareARN": Nothing, "NotificationId": Nothing }
 
 -- | Constructs NotifyWhenUploadedOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotifyWhenUploadedOutput' :: ( { "FileShareARN" :: NullOrUndefined (FileShareARN) , "NotificationId" :: NullOrUndefined (NotificationId) } -> {"FileShareARN" :: NullOrUndefined (FileShareARN) , "NotificationId" :: NullOrUndefined (NotificationId) } ) -> NotifyWhenUploadedOutput
-newNotifyWhenUploadedOutput'  customize = (NotifyWhenUploadedOutput <<< customize) { "FileShareARN": (NullOrUndefined Nothing), "NotificationId": (NullOrUndefined Nothing) }
+newNotifyWhenUploadedOutput' :: ( { "FileShareARN" :: Maybe (FileShareARN) , "NotificationId" :: Maybe (NotificationId) } -> {"FileShareARN" :: Maybe (FileShareARN) , "NotificationId" :: Maybe (NotificationId) } ) -> NotifyWhenUploadedOutput
+newNotifyWhenUploadedOutput'  customize = (NotifyWhenUploadedOutput <<< customize) { "FileShareARN": Nothing, "NotificationId": Nothing }
 
 
 
@@ -2906,7 +2905,7 @@ newRefreshCacheInput' _FileShareARN customize = (RefreshCacheInput <<< customize
 
 
 newtype RefreshCacheOutput = RefreshCacheOutput 
-  { "FileShareARN" :: NullOrUndefined (FileShareARN)
+  { "FileShareARN" :: Maybe (FileShareARN)
   }
 derive instance newtypeRefreshCacheOutput :: Newtype RefreshCacheOutput _
 derive instance repGenericRefreshCacheOutput :: Generic RefreshCacheOutput _
@@ -2916,12 +2915,12 @@ instance encodeRefreshCacheOutput :: Encode RefreshCacheOutput where encode = ge
 
 -- | Constructs RefreshCacheOutput from required parameters
 newRefreshCacheOutput :: RefreshCacheOutput
-newRefreshCacheOutput  = RefreshCacheOutput { "FileShareARN": (NullOrUndefined Nothing) }
+newRefreshCacheOutput  = RefreshCacheOutput { "FileShareARN": Nothing }
 
 -- | Constructs RefreshCacheOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRefreshCacheOutput' :: ( { "FileShareARN" :: NullOrUndefined (FileShareARN) } -> {"FileShareARN" :: NullOrUndefined (FileShareARN) } ) -> RefreshCacheOutput
-newRefreshCacheOutput'  customize = (RefreshCacheOutput <<< customize) { "FileShareARN": (NullOrUndefined Nothing) }
+newRefreshCacheOutput' :: ( { "FileShareARN" :: Maybe (FileShareARN) } -> {"FileShareARN" :: Maybe (FileShareARN) } ) -> RefreshCacheOutput
+newRefreshCacheOutput'  customize = (RefreshCacheOutput <<< customize) { "FileShareARN": Nothing }
 
 
 
@@ -2958,7 +2957,7 @@ newRemoveTagsFromResourceInput' _ResourceARN _TagKeys customize = (RemoveTagsFro
 
 -- | <p>RemoveTagsFromResourceOutput</p>
 newtype RemoveTagsFromResourceOutput = RemoveTagsFromResourceOutput 
-  { "ResourceARN" :: NullOrUndefined (ResourceARN)
+  { "ResourceARN" :: Maybe (ResourceARN)
   }
 derive instance newtypeRemoveTagsFromResourceOutput :: Newtype RemoveTagsFromResourceOutput _
 derive instance repGenericRemoveTagsFromResourceOutput :: Generic RemoveTagsFromResourceOutput _
@@ -2968,12 +2967,12 @@ instance encodeRemoveTagsFromResourceOutput :: Encode RemoveTagsFromResourceOutp
 
 -- | Constructs RemoveTagsFromResourceOutput from required parameters
 newRemoveTagsFromResourceOutput :: RemoveTagsFromResourceOutput
-newRemoveTagsFromResourceOutput  = RemoveTagsFromResourceOutput { "ResourceARN": (NullOrUndefined Nothing) }
+newRemoveTagsFromResourceOutput  = RemoveTagsFromResourceOutput { "ResourceARN": Nothing }
 
 -- | Constructs RemoveTagsFromResourceOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRemoveTagsFromResourceOutput' :: ( { "ResourceARN" :: NullOrUndefined (ResourceARN) } -> {"ResourceARN" :: NullOrUndefined (ResourceARN) } ) -> RemoveTagsFromResourceOutput
-newRemoveTagsFromResourceOutput'  customize = (RemoveTagsFromResourceOutput <<< customize) { "ResourceARN": (NullOrUndefined Nothing) }
+newRemoveTagsFromResourceOutput' :: ( { "ResourceARN" :: Maybe (ResourceARN) } -> {"ResourceARN" :: Maybe (ResourceARN) } ) -> RemoveTagsFromResourceOutput
+newRemoveTagsFromResourceOutput'  customize = (RemoveTagsFromResourceOutput <<< customize) { "ResourceARN": Nothing }
 
 
 
@@ -2998,7 +2997,7 @@ newResetCacheInput' _GatewayARN customize = (ResetCacheInput <<< customize) { "G
 
 
 newtype ResetCacheOutput = ResetCacheOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeResetCacheOutput :: Newtype ResetCacheOutput _
 derive instance repGenericResetCacheOutput :: Generic ResetCacheOutput _
@@ -3008,12 +3007,12 @@ instance encodeResetCacheOutput :: Encode ResetCacheOutput where encode = generi
 
 -- | Constructs ResetCacheOutput from required parameters
 newResetCacheOutput :: ResetCacheOutput
-newResetCacheOutput  = ResetCacheOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newResetCacheOutput  = ResetCacheOutput { "GatewayARN": Nothing }
 
 -- | Constructs ResetCacheOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResetCacheOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> ResetCacheOutput
-newResetCacheOutput'  customize = (ResetCacheOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newResetCacheOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> ResetCacheOutput
+newResetCacheOutput'  customize = (ResetCacheOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -3050,7 +3049,7 @@ newRetrieveTapeArchiveInput' _GatewayARN _TapeARN customize = (RetrieveTapeArchi
 
 -- | <p>RetrieveTapeArchiveOutput</p>
 newtype RetrieveTapeArchiveOutput = RetrieveTapeArchiveOutput 
-  { "TapeARN" :: NullOrUndefined (TapeARN)
+  { "TapeARN" :: Maybe (TapeARN)
   }
 derive instance newtypeRetrieveTapeArchiveOutput :: Newtype RetrieveTapeArchiveOutput _
 derive instance repGenericRetrieveTapeArchiveOutput :: Generic RetrieveTapeArchiveOutput _
@@ -3060,12 +3059,12 @@ instance encodeRetrieveTapeArchiveOutput :: Encode RetrieveTapeArchiveOutput whe
 
 -- | Constructs RetrieveTapeArchiveOutput from required parameters
 newRetrieveTapeArchiveOutput :: RetrieveTapeArchiveOutput
-newRetrieveTapeArchiveOutput  = RetrieveTapeArchiveOutput { "TapeARN": (NullOrUndefined Nothing) }
+newRetrieveTapeArchiveOutput  = RetrieveTapeArchiveOutput { "TapeARN": Nothing }
 
 -- | Constructs RetrieveTapeArchiveOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRetrieveTapeArchiveOutput' :: ( { "TapeARN" :: NullOrUndefined (TapeARN) } -> {"TapeARN" :: NullOrUndefined (TapeARN) } ) -> RetrieveTapeArchiveOutput
-newRetrieveTapeArchiveOutput'  customize = (RetrieveTapeArchiveOutput <<< customize) { "TapeARN": (NullOrUndefined Nothing) }
+newRetrieveTapeArchiveOutput' :: ( { "TapeARN" :: Maybe (TapeARN) } -> {"TapeARN" :: Maybe (TapeARN) } ) -> RetrieveTapeArchiveOutput
+newRetrieveTapeArchiveOutput'  customize = (RetrieveTapeArchiveOutput <<< customize) { "TapeARN": Nothing }
 
 
 
@@ -3093,7 +3092,7 @@ newRetrieveTapeRecoveryPointInput' _GatewayARN _TapeARN customize = (RetrieveTap
 
 -- | <p>RetrieveTapeRecoveryPointOutput</p>
 newtype RetrieveTapeRecoveryPointOutput = RetrieveTapeRecoveryPointOutput 
-  { "TapeARN" :: NullOrUndefined (TapeARN)
+  { "TapeARN" :: Maybe (TapeARN)
   }
 derive instance newtypeRetrieveTapeRecoveryPointOutput :: Newtype RetrieveTapeRecoveryPointOutput _
 derive instance repGenericRetrieveTapeRecoveryPointOutput :: Generic RetrieveTapeRecoveryPointOutput _
@@ -3103,12 +3102,12 @@ instance encodeRetrieveTapeRecoveryPointOutput :: Encode RetrieveTapeRecoveryPoi
 
 -- | Constructs RetrieveTapeRecoveryPointOutput from required parameters
 newRetrieveTapeRecoveryPointOutput :: RetrieveTapeRecoveryPointOutput
-newRetrieveTapeRecoveryPointOutput  = RetrieveTapeRecoveryPointOutput { "TapeARN": (NullOrUndefined Nothing) }
+newRetrieveTapeRecoveryPointOutput  = RetrieveTapeRecoveryPointOutput { "TapeARN": Nothing }
 
 -- | Constructs RetrieveTapeRecoveryPointOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRetrieveTapeRecoveryPointOutput' :: ( { "TapeARN" :: NullOrUndefined (TapeARN) } -> {"TapeARN" :: NullOrUndefined (TapeARN) } ) -> RetrieveTapeRecoveryPointOutput
-newRetrieveTapeRecoveryPointOutput'  customize = (RetrieveTapeRecoveryPointOutput <<< customize) { "TapeARN": (NullOrUndefined Nothing) }
+newRetrieveTapeRecoveryPointOutput' :: ( { "TapeARN" :: Maybe (TapeARN) } -> {"TapeARN" :: Maybe (TapeARN) } ) -> RetrieveTapeRecoveryPointOutput
+newRetrieveTapeRecoveryPointOutput'  customize = (RetrieveTapeRecoveryPointOutput <<< customize) { "TapeARN": Nothing }
 
 
 
@@ -3124,8 +3123,8 @@ instance encodeRole :: Encode Role where encode = genericEncode options
 
 -- | <p>An internal server error has occurred because the service is unavailable. For more information, see the error and message fields.</p>
 newtype ServiceUnavailableError = ServiceUnavailableError 
-  { "message" :: NullOrUndefined (String)
-  , "error" :: NullOrUndefined (StorageGatewayError)
+  { "message" :: Maybe (String)
+  , "error" :: Maybe (StorageGatewayError)
   }
 derive instance newtypeServiceUnavailableError :: Newtype ServiceUnavailableError _
 derive instance repGenericServiceUnavailableError :: Generic ServiceUnavailableError _
@@ -3135,12 +3134,12 @@ instance encodeServiceUnavailableError :: Encode ServiceUnavailableError where e
 
 -- | Constructs ServiceUnavailableError from required parameters
 newServiceUnavailableError :: ServiceUnavailableError
-newServiceUnavailableError  = ServiceUnavailableError { "error": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newServiceUnavailableError  = ServiceUnavailableError { "error": Nothing, "message": Nothing }
 
 -- | Constructs ServiceUnavailableError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceUnavailableError' :: ( { "message" :: NullOrUndefined (String) , "error" :: NullOrUndefined (StorageGatewayError) } -> {"message" :: NullOrUndefined (String) , "error" :: NullOrUndefined (StorageGatewayError) } ) -> ServiceUnavailableError
-newServiceUnavailableError'  customize = (ServiceUnavailableError <<< customize) { "error": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newServiceUnavailableError' :: ( { "message" :: Maybe (String) , "error" :: Maybe (StorageGatewayError) } -> {"message" :: Maybe (String) , "error" :: Maybe (StorageGatewayError) } ) -> ServiceUnavailableError
+newServiceUnavailableError'  customize = (ServiceUnavailableError <<< customize) { "error": Nothing, "message": Nothing }
 
 
 
@@ -3167,7 +3166,7 @@ newSetLocalConsolePasswordInput' _GatewayARN _LocalConsolePassword customize = (
 
 
 newtype SetLocalConsolePasswordOutput = SetLocalConsolePasswordOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeSetLocalConsolePasswordOutput :: Newtype SetLocalConsolePasswordOutput _
 derive instance repGenericSetLocalConsolePasswordOutput :: Generic SetLocalConsolePasswordOutput _
@@ -3177,12 +3176,12 @@ instance encodeSetLocalConsolePasswordOutput :: Encode SetLocalConsolePasswordOu
 
 -- | Constructs SetLocalConsolePasswordOutput from required parameters
 newSetLocalConsolePasswordOutput :: SetLocalConsolePasswordOutput
-newSetLocalConsolePasswordOutput  = SetLocalConsolePasswordOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newSetLocalConsolePasswordOutput  = SetLocalConsolePasswordOutput { "GatewayARN": Nothing }
 
 -- | Constructs SetLocalConsolePasswordOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSetLocalConsolePasswordOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> SetLocalConsolePasswordOutput
-newSetLocalConsolePasswordOutput'  customize = (SetLocalConsolePasswordOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newSetLocalConsolePasswordOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> SetLocalConsolePasswordOutput
+newSetLocalConsolePasswordOutput'  customize = (SetLocalConsolePasswordOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -3209,7 +3208,7 @@ newShutdownGatewayInput' _GatewayARN customize = (ShutdownGatewayInput <<< custo
 
 -- | <p>A JSON object containing the of the gateway that was shut down.</p>
 newtype ShutdownGatewayOutput = ShutdownGatewayOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeShutdownGatewayOutput :: Newtype ShutdownGatewayOutput _
 derive instance repGenericShutdownGatewayOutput :: Generic ShutdownGatewayOutput _
@@ -3219,12 +3218,12 @@ instance encodeShutdownGatewayOutput :: Encode ShutdownGatewayOutput where encod
 
 -- | Constructs ShutdownGatewayOutput from required parameters
 newShutdownGatewayOutput :: ShutdownGatewayOutput
-newShutdownGatewayOutput  = ShutdownGatewayOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newShutdownGatewayOutput  = ShutdownGatewayOutput { "GatewayARN": Nothing }
 
 -- | Constructs ShutdownGatewayOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newShutdownGatewayOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> ShutdownGatewayOutput
-newShutdownGatewayOutput'  customize = (ShutdownGatewayOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newShutdownGatewayOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> ShutdownGatewayOutput
+newShutdownGatewayOutput'  customize = (ShutdownGatewayOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -3279,7 +3278,7 @@ newStartGatewayInput' _GatewayARN customize = (StartGatewayInput <<< customize) 
 
 -- | <p>A JSON object containing the of the gateway that was restarted.</p>
 newtype StartGatewayOutput = StartGatewayOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeStartGatewayOutput :: Newtype StartGatewayOutput _
 derive instance repGenericStartGatewayOutput :: Generic StartGatewayOutput _
@@ -3289,12 +3288,12 @@ instance encodeStartGatewayOutput :: Encode StartGatewayOutput where encode = ge
 
 -- | Constructs StartGatewayOutput from required parameters
 newStartGatewayOutput :: StartGatewayOutput
-newStartGatewayOutput  = StartGatewayOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newStartGatewayOutput  = StartGatewayOutput { "GatewayARN": Nothing }
 
 -- | Constructs StartGatewayOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartGatewayOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> StartGatewayOutput
-newStartGatewayOutput'  customize = (StartGatewayOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newStartGatewayOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> StartGatewayOutput
+newStartGatewayOutput'  customize = (StartGatewayOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -3310,8 +3309,8 @@ instance encodeStorageClass :: Encode StorageClass where encode = genericEncode 
 
 -- | <p>Provides additional information about an error that was returned by the service as an or. See the <code>errorCode</code> and <code>errorDetails</code> members for more information about the error.</p>
 newtype StorageGatewayError = StorageGatewayError 
-  { "errorCode" :: NullOrUndefined (ErrorCode)
-  , "errorDetails" :: NullOrUndefined (ErrorDetails')
+  { "errorCode" :: Maybe (ErrorCode)
+  , "errorDetails" :: Maybe (ErrorDetails')
   }
 derive instance newtypeStorageGatewayError :: Newtype StorageGatewayError _
 derive instance repGenericStorageGatewayError :: Generic StorageGatewayError _
@@ -3321,29 +3320,29 @@ instance encodeStorageGatewayError :: Encode StorageGatewayError where encode = 
 
 -- | Constructs StorageGatewayError from required parameters
 newStorageGatewayError :: StorageGatewayError
-newStorageGatewayError  = StorageGatewayError { "errorCode": (NullOrUndefined Nothing), "errorDetails": (NullOrUndefined Nothing) }
+newStorageGatewayError  = StorageGatewayError { "errorCode": Nothing, "errorDetails": Nothing }
 
 -- | Constructs StorageGatewayError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStorageGatewayError' :: ( { "errorCode" :: NullOrUndefined (ErrorCode) , "errorDetails" :: NullOrUndefined (ErrorDetails') } -> {"errorCode" :: NullOrUndefined (ErrorCode) , "errorDetails" :: NullOrUndefined (ErrorDetails') } ) -> StorageGatewayError
-newStorageGatewayError'  customize = (StorageGatewayError <<< customize) { "errorCode": (NullOrUndefined Nothing), "errorDetails": (NullOrUndefined Nothing) }
+newStorageGatewayError' :: ( { "errorCode" :: Maybe (ErrorCode) , "errorDetails" :: Maybe (ErrorDetails') } -> {"errorCode" :: Maybe (ErrorCode) , "errorDetails" :: Maybe (ErrorDetails') } ) -> StorageGatewayError
+newStorageGatewayError'  customize = (StorageGatewayError <<< customize) { "errorCode": Nothing, "errorDetails": Nothing }
 
 
 
 -- | <p>Describes an iSCSI stored volume.</p>
 newtype StorediSCSIVolume = StorediSCSIVolume 
-  { "VolumeARN" :: NullOrUndefined (VolumeARN)
-  , "VolumeId" :: NullOrUndefined (VolumeId)
-  , "VolumeType" :: NullOrUndefined (VolumeType)
-  , "VolumeStatus" :: NullOrUndefined (VolumeStatus)
-  , "VolumeSizeInBytes" :: NullOrUndefined (Number)
-  , "VolumeProgress" :: NullOrUndefined (DoubleObject)
-  , "VolumeDiskId" :: NullOrUndefined (DiskId)
-  , "SourceSnapshotId" :: NullOrUndefined (SnapshotId)
-  , "PreservedExistingData" :: NullOrUndefined (Boolean)
-  , "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes)
-  , "CreatedDate" :: NullOrUndefined (CreatedDate)
-  , "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes)
+  { "VolumeARN" :: Maybe (VolumeARN)
+  , "VolumeId" :: Maybe (VolumeId)
+  , "VolumeType" :: Maybe (VolumeType)
+  , "VolumeStatus" :: Maybe (VolumeStatus)
+  , "VolumeSizeInBytes" :: Maybe (Number)
+  , "VolumeProgress" :: Maybe (DoubleObject)
+  , "VolumeDiskId" :: Maybe (DiskId)
+  , "SourceSnapshotId" :: Maybe (SnapshotId)
+  , "PreservedExistingData" :: Maybe (Boolean)
+  , "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes)
+  , "CreatedDate" :: Maybe (CreatedDate)
+  , "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes)
   }
 derive instance newtypeStorediSCSIVolume :: Newtype StorediSCSIVolume _
 derive instance repGenericStorediSCSIVolume :: Generic StorediSCSIVolume _
@@ -3353,12 +3352,12 @@ instance encodeStorediSCSIVolume :: Encode StorediSCSIVolume where encode = gene
 
 -- | Constructs StorediSCSIVolume from required parameters
 newStorediSCSIVolume :: StorediSCSIVolume
-newStorediSCSIVolume  = StorediSCSIVolume { "CreatedDate": (NullOrUndefined Nothing), "PreservedExistingData": (NullOrUndefined Nothing), "SourceSnapshotId": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing), "VolumeDiskId": (NullOrUndefined Nothing), "VolumeId": (NullOrUndefined Nothing), "VolumeProgress": (NullOrUndefined Nothing), "VolumeSizeInBytes": (NullOrUndefined Nothing), "VolumeStatus": (NullOrUndefined Nothing), "VolumeType": (NullOrUndefined Nothing), "VolumeUsedInBytes": (NullOrUndefined Nothing), "VolumeiSCSIAttributes": (NullOrUndefined Nothing) }
+newStorediSCSIVolume  = StorediSCSIVolume { "CreatedDate": Nothing, "PreservedExistingData": Nothing, "SourceSnapshotId": Nothing, "VolumeARN": Nothing, "VolumeDiskId": Nothing, "VolumeId": Nothing, "VolumeProgress": Nothing, "VolumeSizeInBytes": Nothing, "VolumeStatus": Nothing, "VolumeType": Nothing, "VolumeUsedInBytes": Nothing, "VolumeiSCSIAttributes": Nothing }
 
 -- | Constructs StorediSCSIVolume's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStorediSCSIVolume' :: ( { "VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeId" :: NullOrUndefined (VolumeId) , "VolumeType" :: NullOrUndefined (VolumeType) , "VolumeStatus" :: NullOrUndefined (VolumeStatus) , "VolumeSizeInBytes" :: NullOrUndefined (Number) , "VolumeProgress" :: NullOrUndefined (DoubleObject) , "VolumeDiskId" :: NullOrUndefined (DiskId) , "SourceSnapshotId" :: NullOrUndefined (SnapshotId) , "PreservedExistingData" :: NullOrUndefined (Boolean) , "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes) , "CreatedDate" :: NullOrUndefined (CreatedDate) , "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes) } -> {"VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeId" :: NullOrUndefined (VolumeId) , "VolumeType" :: NullOrUndefined (VolumeType) , "VolumeStatus" :: NullOrUndefined (VolumeStatus) , "VolumeSizeInBytes" :: NullOrUndefined (Number) , "VolumeProgress" :: NullOrUndefined (DoubleObject) , "VolumeDiskId" :: NullOrUndefined (DiskId) , "SourceSnapshotId" :: NullOrUndefined (SnapshotId) , "PreservedExistingData" :: NullOrUndefined (Boolean) , "VolumeiSCSIAttributes" :: NullOrUndefined (VolumeiSCSIAttributes) , "CreatedDate" :: NullOrUndefined (CreatedDate) , "VolumeUsedInBytes" :: NullOrUndefined (VolumeUsedInBytes) } ) -> StorediSCSIVolume
-newStorediSCSIVolume'  customize = (StorediSCSIVolume <<< customize) { "CreatedDate": (NullOrUndefined Nothing), "PreservedExistingData": (NullOrUndefined Nothing), "SourceSnapshotId": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing), "VolumeDiskId": (NullOrUndefined Nothing), "VolumeId": (NullOrUndefined Nothing), "VolumeProgress": (NullOrUndefined Nothing), "VolumeSizeInBytes": (NullOrUndefined Nothing), "VolumeStatus": (NullOrUndefined Nothing), "VolumeType": (NullOrUndefined Nothing), "VolumeUsedInBytes": (NullOrUndefined Nothing), "VolumeiSCSIAttributes": (NullOrUndefined Nothing) }
+newStorediSCSIVolume' :: ( { "VolumeARN" :: Maybe (VolumeARN) , "VolumeId" :: Maybe (VolumeId) , "VolumeType" :: Maybe (VolumeType) , "VolumeStatus" :: Maybe (VolumeStatus) , "VolumeSizeInBytes" :: Maybe (Number) , "VolumeProgress" :: Maybe (DoubleObject) , "VolumeDiskId" :: Maybe (DiskId) , "SourceSnapshotId" :: Maybe (SnapshotId) , "PreservedExistingData" :: Maybe (Boolean) , "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes) , "CreatedDate" :: Maybe (CreatedDate) , "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes) } -> {"VolumeARN" :: Maybe (VolumeARN) , "VolumeId" :: Maybe (VolumeId) , "VolumeType" :: Maybe (VolumeType) , "VolumeStatus" :: Maybe (VolumeStatus) , "VolumeSizeInBytes" :: Maybe (Number) , "VolumeProgress" :: Maybe (DoubleObject) , "VolumeDiskId" :: Maybe (DiskId) , "SourceSnapshotId" :: Maybe (SnapshotId) , "PreservedExistingData" :: Maybe (Boolean) , "VolumeiSCSIAttributes" :: Maybe (VolumeiSCSIAttributes) , "CreatedDate" :: Maybe (CreatedDate) , "VolumeUsedInBytes" :: Maybe (VolumeUsedInBytes) } ) -> StorediSCSIVolume
+newStorediSCSIVolume'  customize = (StorediSCSIVolume <<< customize) { "CreatedDate": Nothing, "PreservedExistingData": Nothing, "SourceSnapshotId": Nothing, "VolumeARN": Nothing, "VolumeDiskId": Nothing, "VolumeId": Nothing, "VolumeProgress": Nothing, "VolumeSizeInBytes": Nothing, "VolumeStatus": Nothing, "VolumeType": Nothing, "VolumeUsedInBytes": Nothing, "VolumeiSCSIAttributes": Nothing }
 
 
 
@@ -3430,14 +3429,14 @@ instance encodeTags :: Encode Tags where encode = genericEncode options
 
 -- | <p>Describes a virtual tape object.</p>
 newtype Tape = Tape 
-  { "TapeARN" :: NullOrUndefined (TapeARN)
-  , "TapeBarcode" :: NullOrUndefined (TapeBarcode)
-  , "TapeCreatedDate" :: NullOrUndefined (Time)
-  , "TapeSizeInBytes" :: NullOrUndefined (TapeSize)
-  , "TapeStatus" :: NullOrUndefined (TapeStatus)
-  , "VTLDevice" :: NullOrUndefined (VTLDeviceARN)
-  , "Progress" :: NullOrUndefined (DoubleObject)
-  , "TapeUsedInBytes" :: NullOrUndefined (TapeUsage)
+  { "TapeARN" :: Maybe (TapeARN)
+  , "TapeBarcode" :: Maybe (TapeBarcode)
+  , "TapeCreatedDate" :: Maybe (Time)
+  , "TapeSizeInBytes" :: Maybe (TapeSize)
+  , "TapeStatus" :: Maybe (TapeStatus)
+  , "VTLDevice" :: Maybe (VTLDeviceARN)
+  , "Progress" :: Maybe (DoubleObject)
+  , "TapeUsedInBytes" :: Maybe (TapeUsage)
   }
 derive instance newtypeTape :: Newtype Tape _
 derive instance repGenericTape :: Generic Tape _
@@ -3447,12 +3446,12 @@ instance encodeTape :: Encode Tape where encode = genericEncode options
 
 -- | Constructs Tape from required parameters
 newTape :: Tape
-newTape  = Tape { "Progress": (NullOrUndefined Nothing), "TapeARN": (NullOrUndefined Nothing), "TapeBarcode": (NullOrUndefined Nothing), "TapeCreatedDate": (NullOrUndefined Nothing), "TapeSizeInBytes": (NullOrUndefined Nothing), "TapeStatus": (NullOrUndefined Nothing), "TapeUsedInBytes": (NullOrUndefined Nothing), "VTLDevice": (NullOrUndefined Nothing) }
+newTape  = Tape { "Progress": Nothing, "TapeARN": Nothing, "TapeBarcode": Nothing, "TapeCreatedDate": Nothing, "TapeSizeInBytes": Nothing, "TapeStatus": Nothing, "TapeUsedInBytes": Nothing, "VTLDevice": Nothing }
 
 -- | Constructs Tape's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTape' :: ( { "TapeARN" :: NullOrUndefined (TapeARN) , "TapeBarcode" :: NullOrUndefined (TapeBarcode) , "TapeCreatedDate" :: NullOrUndefined (Time) , "TapeSizeInBytes" :: NullOrUndefined (TapeSize) , "TapeStatus" :: NullOrUndefined (TapeStatus) , "VTLDevice" :: NullOrUndefined (VTLDeviceARN) , "Progress" :: NullOrUndefined (DoubleObject) , "TapeUsedInBytes" :: NullOrUndefined (TapeUsage) } -> {"TapeARN" :: NullOrUndefined (TapeARN) , "TapeBarcode" :: NullOrUndefined (TapeBarcode) , "TapeCreatedDate" :: NullOrUndefined (Time) , "TapeSizeInBytes" :: NullOrUndefined (TapeSize) , "TapeStatus" :: NullOrUndefined (TapeStatus) , "VTLDevice" :: NullOrUndefined (VTLDeviceARN) , "Progress" :: NullOrUndefined (DoubleObject) , "TapeUsedInBytes" :: NullOrUndefined (TapeUsage) } ) -> Tape
-newTape'  customize = (Tape <<< customize) { "Progress": (NullOrUndefined Nothing), "TapeARN": (NullOrUndefined Nothing), "TapeBarcode": (NullOrUndefined Nothing), "TapeCreatedDate": (NullOrUndefined Nothing), "TapeSizeInBytes": (NullOrUndefined Nothing), "TapeStatus": (NullOrUndefined Nothing), "TapeUsedInBytes": (NullOrUndefined Nothing), "VTLDevice": (NullOrUndefined Nothing) }
+newTape' :: ( { "TapeARN" :: Maybe (TapeARN) , "TapeBarcode" :: Maybe (TapeBarcode) , "TapeCreatedDate" :: Maybe (Time) , "TapeSizeInBytes" :: Maybe (TapeSize) , "TapeStatus" :: Maybe (TapeStatus) , "VTLDevice" :: Maybe (VTLDeviceARN) , "Progress" :: Maybe (DoubleObject) , "TapeUsedInBytes" :: Maybe (TapeUsage) } -> {"TapeARN" :: Maybe (TapeARN) , "TapeBarcode" :: Maybe (TapeBarcode) , "TapeCreatedDate" :: Maybe (Time) , "TapeSizeInBytes" :: Maybe (TapeSize) , "TapeStatus" :: Maybe (TapeStatus) , "VTLDevice" :: Maybe (VTLDeviceARN) , "Progress" :: Maybe (DoubleObject) , "TapeUsedInBytes" :: Maybe (TapeUsage) } ) -> Tape
+newTape'  customize = (Tape <<< customize) { "Progress": Nothing, "TapeARN": Nothing, "TapeBarcode": Nothing, "TapeCreatedDate": Nothing, "TapeSizeInBytes": Nothing, "TapeStatus": Nothing, "TapeUsedInBytes": Nothing, "VTLDevice": Nothing }
 
 
 
@@ -3477,14 +3476,14 @@ instance encodeTapeARNs :: Encode TapeARNs where encode = genericEncode options
 
 -- | <p>Represents a virtual tape that is archived in the virtual tape shelf (VTS).</p>
 newtype TapeArchive = TapeArchive 
-  { "TapeARN" :: NullOrUndefined (TapeARN)
-  , "TapeBarcode" :: NullOrUndefined (TapeBarcode)
-  , "TapeCreatedDate" :: NullOrUndefined (Time)
-  , "TapeSizeInBytes" :: NullOrUndefined (TapeSize)
-  , "CompletionTime" :: NullOrUndefined (Time)
-  , "RetrievedTo" :: NullOrUndefined (GatewayARN)
-  , "TapeStatus" :: NullOrUndefined (TapeArchiveStatus)
-  , "TapeUsedInBytes" :: NullOrUndefined (TapeUsage)
+  { "TapeARN" :: Maybe (TapeARN)
+  , "TapeBarcode" :: Maybe (TapeBarcode)
+  , "TapeCreatedDate" :: Maybe (Time)
+  , "TapeSizeInBytes" :: Maybe (TapeSize)
+  , "CompletionTime" :: Maybe (Time)
+  , "RetrievedTo" :: Maybe (GatewayARN)
+  , "TapeStatus" :: Maybe (TapeArchiveStatus)
+  , "TapeUsedInBytes" :: Maybe (TapeUsage)
   }
 derive instance newtypeTapeArchive :: Newtype TapeArchive _
 derive instance repGenericTapeArchive :: Generic TapeArchive _
@@ -3494,12 +3493,12 @@ instance encodeTapeArchive :: Encode TapeArchive where encode = genericEncode op
 
 -- | Constructs TapeArchive from required parameters
 newTapeArchive :: TapeArchive
-newTapeArchive  = TapeArchive { "CompletionTime": (NullOrUndefined Nothing), "RetrievedTo": (NullOrUndefined Nothing), "TapeARN": (NullOrUndefined Nothing), "TapeBarcode": (NullOrUndefined Nothing), "TapeCreatedDate": (NullOrUndefined Nothing), "TapeSizeInBytes": (NullOrUndefined Nothing), "TapeStatus": (NullOrUndefined Nothing), "TapeUsedInBytes": (NullOrUndefined Nothing) }
+newTapeArchive  = TapeArchive { "CompletionTime": Nothing, "RetrievedTo": Nothing, "TapeARN": Nothing, "TapeBarcode": Nothing, "TapeCreatedDate": Nothing, "TapeSizeInBytes": Nothing, "TapeStatus": Nothing, "TapeUsedInBytes": Nothing }
 
 -- | Constructs TapeArchive's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTapeArchive' :: ( { "TapeARN" :: NullOrUndefined (TapeARN) , "TapeBarcode" :: NullOrUndefined (TapeBarcode) , "TapeCreatedDate" :: NullOrUndefined (Time) , "TapeSizeInBytes" :: NullOrUndefined (TapeSize) , "CompletionTime" :: NullOrUndefined (Time) , "RetrievedTo" :: NullOrUndefined (GatewayARN) , "TapeStatus" :: NullOrUndefined (TapeArchiveStatus) , "TapeUsedInBytes" :: NullOrUndefined (TapeUsage) } -> {"TapeARN" :: NullOrUndefined (TapeARN) , "TapeBarcode" :: NullOrUndefined (TapeBarcode) , "TapeCreatedDate" :: NullOrUndefined (Time) , "TapeSizeInBytes" :: NullOrUndefined (TapeSize) , "CompletionTime" :: NullOrUndefined (Time) , "RetrievedTo" :: NullOrUndefined (GatewayARN) , "TapeStatus" :: NullOrUndefined (TapeArchiveStatus) , "TapeUsedInBytes" :: NullOrUndefined (TapeUsage) } ) -> TapeArchive
-newTapeArchive'  customize = (TapeArchive <<< customize) { "CompletionTime": (NullOrUndefined Nothing), "RetrievedTo": (NullOrUndefined Nothing), "TapeARN": (NullOrUndefined Nothing), "TapeBarcode": (NullOrUndefined Nothing), "TapeCreatedDate": (NullOrUndefined Nothing), "TapeSizeInBytes": (NullOrUndefined Nothing), "TapeStatus": (NullOrUndefined Nothing), "TapeUsedInBytes": (NullOrUndefined Nothing) }
+newTapeArchive' :: ( { "TapeARN" :: Maybe (TapeARN) , "TapeBarcode" :: Maybe (TapeBarcode) , "TapeCreatedDate" :: Maybe (Time) , "TapeSizeInBytes" :: Maybe (TapeSize) , "CompletionTime" :: Maybe (Time) , "RetrievedTo" :: Maybe (GatewayARN) , "TapeStatus" :: Maybe (TapeArchiveStatus) , "TapeUsedInBytes" :: Maybe (TapeUsage) } -> {"TapeARN" :: Maybe (TapeARN) , "TapeBarcode" :: Maybe (TapeBarcode) , "TapeCreatedDate" :: Maybe (Time) , "TapeSizeInBytes" :: Maybe (TapeSize) , "CompletionTime" :: Maybe (Time) , "RetrievedTo" :: Maybe (GatewayARN) , "TapeStatus" :: Maybe (TapeArchiveStatus) , "TapeUsedInBytes" :: Maybe (TapeUsage) } ) -> TapeArchive
+newTapeArchive'  customize = (TapeArchive <<< customize) { "CompletionTime": Nothing, "RetrievedTo": Nothing, "TapeARN": Nothing, "TapeBarcode": Nothing, "TapeCreatedDate": Nothing, "TapeSizeInBytes": Nothing, "TapeStatus": Nothing, "TapeUsedInBytes": Nothing }
 
 
 
@@ -3550,11 +3549,11 @@ instance encodeTapeDriveType :: Encode TapeDriveType where encode = genericEncod
 
 -- | <p>Describes a virtual tape.</p>
 newtype TapeInfo = TapeInfo 
-  { "TapeARN" :: NullOrUndefined (TapeARN)
-  , "TapeBarcode" :: NullOrUndefined (TapeBarcode)
-  , "TapeSizeInBytes" :: NullOrUndefined (TapeSize)
-  , "TapeStatus" :: NullOrUndefined (TapeStatus)
-  , "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "TapeARN" :: Maybe (TapeARN)
+  , "TapeBarcode" :: Maybe (TapeBarcode)
+  , "TapeSizeInBytes" :: Maybe (TapeSize)
+  , "TapeStatus" :: Maybe (TapeStatus)
+  , "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeTapeInfo :: Newtype TapeInfo _
 derive instance repGenericTapeInfo :: Generic TapeInfo _
@@ -3564,12 +3563,12 @@ instance encodeTapeInfo :: Encode TapeInfo where encode = genericEncode options
 
 -- | Constructs TapeInfo from required parameters
 newTapeInfo :: TapeInfo
-newTapeInfo  = TapeInfo { "GatewayARN": (NullOrUndefined Nothing), "TapeARN": (NullOrUndefined Nothing), "TapeBarcode": (NullOrUndefined Nothing), "TapeSizeInBytes": (NullOrUndefined Nothing), "TapeStatus": (NullOrUndefined Nothing) }
+newTapeInfo  = TapeInfo { "GatewayARN": Nothing, "TapeARN": Nothing, "TapeBarcode": Nothing, "TapeSizeInBytes": Nothing, "TapeStatus": Nothing }
 
 -- | Constructs TapeInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTapeInfo' :: ( { "TapeARN" :: NullOrUndefined (TapeARN) , "TapeBarcode" :: NullOrUndefined (TapeBarcode) , "TapeSizeInBytes" :: NullOrUndefined (TapeSize) , "TapeStatus" :: NullOrUndefined (TapeStatus) , "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"TapeARN" :: NullOrUndefined (TapeARN) , "TapeBarcode" :: NullOrUndefined (TapeBarcode) , "TapeSizeInBytes" :: NullOrUndefined (TapeSize) , "TapeStatus" :: NullOrUndefined (TapeStatus) , "GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> TapeInfo
-newTapeInfo'  customize = (TapeInfo <<< customize) { "GatewayARN": (NullOrUndefined Nothing), "TapeARN": (NullOrUndefined Nothing), "TapeBarcode": (NullOrUndefined Nothing), "TapeSizeInBytes": (NullOrUndefined Nothing), "TapeStatus": (NullOrUndefined Nothing) }
+newTapeInfo' :: ( { "TapeARN" :: Maybe (TapeARN) , "TapeBarcode" :: Maybe (TapeBarcode) , "TapeSizeInBytes" :: Maybe (TapeSize) , "TapeStatus" :: Maybe (TapeStatus) , "GatewayARN" :: Maybe (GatewayARN) } -> {"TapeARN" :: Maybe (TapeARN) , "TapeBarcode" :: Maybe (TapeBarcode) , "TapeSizeInBytes" :: Maybe (TapeSize) , "TapeStatus" :: Maybe (TapeStatus) , "GatewayARN" :: Maybe (GatewayARN) } ) -> TapeInfo
+newTapeInfo'  customize = (TapeInfo <<< customize) { "GatewayARN": Nothing, "TapeARN": Nothing, "TapeBarcode": Nothing, "TapeSizeInBytes": Nothing, "TapeStatus": Nothing }
 
 
 
@@ -3585,10 +3584,10 @@ instance encodeTapeInfos :: Encode TapeInfos where encode = genericEncode option
 
 -- | <p>Describes a recovery point.</p>
 newtype TapeRecoveryPointInfo = TapeRecoveryPointInfo 
-  { "TapeARN" :: NullOrUndefined (TapeARN)
-  , "TapeRecoveryPointTime" :: NullOrUndefined (Time)
-  , "TapeSizeInBytes" :: NullOrUndefined (TapeSize)
-  , "TapeStatus" :: NullOrUndefined (TapeRecoveryPointStatus)
+  { "TapeARN" :: Maybe (TapeARN)
+  , "TapeRecoveryPointTime" :: Maybe (Time)
+  , "TapeSizeInBytes" :: Maybe (TapeSize)
+  , "TapeStatus" :: Maybe (TapeRecoveryPointStatus)
   }
 derive instance newtypeTapeRecoveryPointInfo :: Newtype TapeRecoveryPointInfo _
 derive instance repGenericTapeRecoveryPointInfo :: Generic TapeRecoveryPointInfo _
@@ -3598,12 +3597,12 @@ instance encodeTapeRecoveryPointInfo :: Encode TapeRecoveryPointInfo where encod
 
 -- | Constructs TapeRecoveryPointInfo from required parameters
 newTapeRecoveryPointInfo :: TapeRecoveryPointInfo
-newTapeRecoveryPointInfo  = TapeRecoveryPointInfo { "TapeARN": (NullOrUndefined Nothing), "TapeRecoveryPointTime": (NullOrUndefined Nothing), "TapeSizeInBytes": (NullOrUndefined Nothing), "TapeStatus": (NullOrUndefined Nothing) }
+newTapeRecoveryPointInfo  = TapeRecoveryPointInfo { "TapeARN": Nothing, "TapeRecoveryPointTime": Nothing, "TapeSizeInBytes": Nothing, "TapeStatus": Nothing }
 
 -- | Constructs TapeRecoveryPointInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTapeRecoveryPointInfo' :: ( { "TapeARN" :: NullOrUndefined (TapeARN) , "TapeRecoveryPointTime" :: NullOrUndefined (Time) , "TapeSizeInBytes" :: NullOrUndefined (TapeSize) , "TapeStatus" :: NullOrUndefined (TapeRecoveryPointStatus) } -> {"TapeARN" :: NullOrUndefined (TapeARN) , "TapeRecoveryPointTime" :: NullOrUndefined (Time) , "TapeSizeInBytes" :: NullOrUndefined (TapeSize) , "TapeStatus" :: NullOrUndefined (TapeRecoveryPointStatus) } ) -> TapeRecoveryPointInfo
-newTapeRecoveryPointInfo'  customize = (TapeRecoveryPointInfo <<< customize) { "TapeARN": (NullOrUndefined Nothing), "TapeRecoveryPointTime": (NullOrUndefined Nothing), "TapeSizeInBytes": (NullOrUndefined Nothing), "TapeStatus": (NullOrUndefined Nothing) }
+newTapeRecoveryPointInfo' :: ( { "TapeARN" :: Maybe (TapeARN) , "TapeRecoveryPointTime" :: Maybe (Time) , "TapeSizeInBytes" :: Maybe (TapeSize) , "TapeStatus" :: Maybe (TapeRecoveryPointStatus) } -> {"TapeARN" :: Maybe (TapeARN) , "TapeRecoveryPointTime" :: Maybe (Time) , "TapeSizeInBytes" :: Maybe (TapeSize) , "TapeStatus" :: Maybe (TapeRecoveryPointStatus) } ) -> TapeRecoveryPointInfo
+newTapeRecoveryPointInfo'  customize = (TapeRecoveryPointInfo <<< customize) { "TapeARN": Nothing, "TapeRecoveryPointTime": Nothing, "TapeSizeInBytes": Nothing, "TapeStatus": Nothing }
 
 
 
@@ -3691,8 +3690,8 @@ instance encodeTime :: Encode Time where encode = genericEncode options
 -- | <p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec</a> </p> </li> <li> <p> <a>UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec</a> </p> </li> </ul>
 newtype UpdateBandwidthRateLimitInput = UpdateBandwidthRateLimitInput 
   { "GatewayARN" :: (GatewayARN)
-  , "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit)
-  , "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit)
+  , "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit)
+  , "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit)
   }
 derive instance newtypeUpdateBandwidthRateLimitInput :: Newtype UpdateBandwidthRateLimitInput _
 derive instance repGenericUpdateBandwidthRateLimitInput :: Generic UpdateBandwidthRateLimitInput _
@@ -3702,18 +3701,18 @@ instance encodeUpdateBandwidthRateLimitInput :: Encode UpdateBandwidthRateLimitI
 
 -- | Constructs UpdateBandwidthRateLimitInput from required parameters
 newUpdateBandwidthRateLimitInput :: GatewayARN -> UpdateBandwidthRateLimitInput
-newUpdateBandwidthRateLimitInput _GatewayARN = UpdateBandwidthRateLimitInput { "GatewayARN": _GatewayARN, "AverageDownloadRateLimitInBitsPerSec": (NullOrUndefined Nothing), "AverageUploadRateLimitInBitsPerSec": (NullOrUndefined Nothing) }
+newUpdateBandwidthRateLimitInput _GatewayARN = UpdateBandwidthRateLimitInput { "GatewayARN": _GatewayARN, "AverageDownloadRateLimitInBitsPerSec": Nothing, "AverageUploadRateLimitInBitsPerSec": Nothing }
 
 -- | Constructs UpdateBandwidthRateLimitInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateBandwidthRateLimitInput' :: GatewayARN -> ( { "GatewayARN" :: (GatewayARN) , "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit) , "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit) } -> {"GatewayARN" :: (GatewayARN) , "AverageUploadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthUploadRateLimit) , "AverageDownloadRateLimitInBitsPerSec" :: NullOrUndefined (BandwidthDownloadRateLimit) } ) -> UpdateBandwidthRateLimitInput
-newUpdateBandwidthRateLimitInput' _GatewayARN customize = (UpdateBandwidthRateLimitInput <<< customize) { "GatewayARN": _GatewayARN, "AverageDownloadRateLimitInBitsPerSec": (NullOrUndefined Nothing), "AverageUploadRateLimitInBitsPerSec": (NullOrUndefined Nothing) }
+newUpdateBandwidthRateLimitInput' :: GatewayARN -> ( { "GatewayARN" :: (GatewayARN) , "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit) , "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit) } -> {"GatewayARN" :: (GatewayARN) , "AverageUploadRateLimitInBitsPerSec" :: Maybe (BandwidthUploadRateLimit) , "AverageDownloadRateLimitInBitsPerSec" :: Maybe (BandwidthDownloadRateLimit) } ) -> UpdateBandwidthRateLimitInput
+newUpdateBandwidthRateLimitInput' _GatewayARN customize = (UpdateBandwidthRateLimitInput <<< customize) { "GatewayARN": _GatewayARN, "AverageDownloadRateLimitInBitsPerSec": Nothing, "AverageUploadRateLimitInBitsPerSec": Nothing }
 
 
 
 -- | <p>A JSON object containing the of the gateway whose throttle information was updated.</p>
 newtype UpdateBandwidthRateLimitOutput = UpdateBandwidthRateLimitOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeUpdateBandwidthRateLimitOutput :: Newtype UpdateBandwidthRateLimitOutput _
 derive instance repGenericUpdateBandwidthRateLimitOutput :: Generic UpdateBandwidthRateLimitOutput _
@@ -3723,12 +3722,12 @@ instance encodeUpdateBandwidthRateLimitOutput :: Encode UpdateBandwidthRateLimit
 
 -- | Constructs UpdateBandwidthRateLimitOutput from required parameters
 newUpdateBandwidthRateLimitOutput :: UpdateBandwidthRateLimitOutput
-newUpdateBandwidthRateLimitOutput  = UpdateBandwidthRateLimitOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newUpdateBandwidthRateLimitOutput  = UpdateBandwidthRateLimitOutput { "GatewayARN": Nothing }
 
 -- | Constructs UpdateBandwidthRateLimitOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateBandwidthRateLimitOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> UpdateBandwidthRateLimitOutput
-newUpdateBandwidthRateLimitOutput'  customize = (UpdateBandwidthRateLimitOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newUpdateBandwidthRateLimitOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> UpdateBandwidthRateLimitOutput
+newUpdateBandwidthRateLimitOutput'  customize = (UpdateBandwidthRateLimitOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -3737,7 +3736,7 @@ newtype UpdateChapCredentialsInput = UpdateChapCredentialsInput
   { "TargetARN" :: (TargetARN)
   , "SecretToAuthenticateInitiator" :: (ChapSecret)
   , "InitiatorName" :: (IqnName)
-  , "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret)
+  , "SecretToAuthenticateTarget" :: Maybe (ChapSecret)
   }
 derive instance newtypeUpdateChapCredentialsInput :: Newtype UpdateChapCredentialsInput _
 derive instance repGenericUpdateChapCredentialsInput :: Generic UpdateChapCredentialsInput _
@@ -3747,19 +3746,19 @@ instance encodeUpdateChapCredentialsInput :: Encode UpdateChapCredentialsInput w
 
 -- | Constructs UpdateChapCredentialsInput from required parameters
 newUpdateChapCredentialsInput :: IqnName -> ChapSecret -> TargetARN -> UpdateChapCredentialsInput
-newUpdateChapCredentialsInput _InitiatorName _SecretToAuthenticateInitiator _TargetARN = UpdateChapCredentialsInput { "InitiatorName": _InitiatorName, "SecretToAuthenticateInitiator": _SecretToAuthenticateInitiator, "TargetARN": _TargetARN, "SecretToAuthenticateTarget": (NullOrUndefined Nothing) }
+newUpdateChapCredentialsInput _InitiatorName _SecretToAuthenticateInitiator _TargetARN = UpdateChapCredentialsInput { "InitiatorName": _InitiatorName, "SecretToAuthenticateInitiator": _SecretToAuthenticateInitiator, "TargetARN": _TargetARN, "SecretToAuthenticateTarget": Nothing }
 
 -- | Constructs UpdateChapCredentialsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateChapCredentialsInput' :: IqnName -> ChapSecret -> TargetARN -> ( { "TargetARN" :: (TargetARN) , "SecretToAuthenticateInitiator" :: (ChapSecret) , "InitiatorName" :: (IqnName) , "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret) } -> {"TargetARN" :: (TargetARN) , "SecretToAuthenticateInitiator" :: (ChapSecret) , "InitiatorName" :: (IqnName) , "SecretToAuthenticateTarget" :: NullOrUndefined (ChapSecret) } ) -> UpdateChapCredentialsInput
-newUpdateChapCredentialsInput' _InitiatorName _SecretToAuthenticateInitiator _TargetARN customize = (UpdateChapCredentialsInput <<< customize) { "InitiatorName": _InitiatorName, "SecretToAuthenticateInitiator": _SecretToAuthenticateInitiator, "TargetARN": _TargetARN, "SecretToAuthenticateTarget": (NullOrUndefined Nothing) }
+newUpdateChapCredentialsInput' :: IqnName -> ChapSecret -> TargetARN -> ( { "TargetARN" :: (TargetARN) , "SecretToAuthenticateInitiator" :: (ChapSecret) , "InitiatorName" :: (IqnName) , "SecretToAuthenticateTarget" :: Maybe (ChapSecret) } -> {"TargetARN" :: (TargetARN) , "SecretToAuthenticateInitiator" :: (ChapSecret) , "InitiatorName" :: (IqnName) , "SecretToAuthenticateTarget" :: Maybe (ChapSecret) } ) -> UpdateChapCredentialsInput
+newUpdateChapCredentialsInput' _InitiatorName _SecretToAuthenticateInitiator _TargetARN customize = (UpdateChapCredentialsInput <<< customize) { "InitiatorName": _InitiatorName, "SecretToAuthenticateInitiator": _SecretToAuthenticateInitiator, "TargetARN": _TargetARN, "SecretToAuthenticateTarget": Nothing }
 
 
 
 -- | <p>A JSON object containing the following fields:</p>
 newtype UpdateChapCredentialsOutput = UpdateChapCredentialsOutput 
-  { "TargetARN" :: NullOrUndefined (TargetARN)
-  , "InitiatorName" :: NullOrUndefined (IqnName)
+  { "TargetARN" :: Maybe (TargetARN)
+  , "InitiatorName" :: Maybe (IqnName)
   }
 derive instance newtypeUpdateChapCredentialsOutput :: Newtype UpdateChapCredentialsOutput _
 derive instance repGenericUpdateChapCredentialsOutput :: Generic UpdateChapCredentialsOutput _
@@ -3769,19 +3768,19 @@ instance encodeUpdateChapCredentialsOutput :: Encode UpdateChapCredentialsOutput
 
 -- | Constructs UpdateChapCredentialsOutput from required parameters
 newUpdateChapCredentialsOutput :: UpdateChapCredentialsOutput
-newUpdateChapCredentialsOutput  = UpdateChapCredentialsOutput { "InitiatorName": (NullOrUndefined Nothing), "TargetARN": (NullOrUndefined Nothing) }
+newUpdateChapCredentialsOutput  = UpdateChapCredentialsOutput { "InitiatorName": Nothing, "TargetARN": Nothing }
 
 -- | Constructs UpdateChapCredentialsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateChapCredentialsOutput' :: ( { "TargetARN" :: NullOrUndefined (TargetARN) , "InitiatorName" :: NullOrUndefined (IqnName) } -> {"TargetARN" :: NullOrUndefined (TargetARN) , "InitiatorName" :: NullOrUndefined (IqnName) } ) -> UpdateChapCredentialsOutput
-newUpdateChapCredentialsOutput'  customize = (UpdateChapCredentialsOutput <<< customize) { "InitiatorName": (NullOrUndefined Nothing), "TargetARN": (NullOrUndefined Nothing) }
+newUpdateChapCredentialsOutput' :: ( { "TargetARN" :: Maybe (TargetARN) , "InitiatorName" :: Maybe (IqnName) } -> {"TargetARN" :: Maybe (TargetARN) , "InitiatorName" :: Maybe (IqnName) } ) -> UpdateChapCredentialsOutput
+newUpdateChapCredentialsOutput'  customize = (UpdateChapCredentialsOutput <<< customize) { "InitiatorName": Nothing, "TargetARN": Nothing }
 
 
 
 newtype UpdateGatewayInformationInput = UpdateGatewayInformationInput 
   { "GatewayARN" :: (GatewayARN)
-  , "GatewayName" :: NullOrUndefined (GatewayName)
-  , "GatewayTimezone" :: NullOrUndefined (GatewayTimezone)
+  , "GatewayName" :: Maybe (GatewayName)
+  , "GatewayTimezone" :: Maybe (GatewayTimezone)
   }
 derive instance newtypeUpdateGatewayInformationInput :: Newtype UpdateGatewayInformationInput _
 derive instance repGenericUpdateGatewayInformationInput :: Generic UpdateGatewayInformationInput _
@@ -3791,19 +3790,19 @@ instance encodeUpdateGatewayInformationInput :: Encode UpdateGatewayInformationI
 
 -- | Constructs UpdateGatewayInformationInput from required parameters
 newUpdateGatewayInformationInput :: GatewayARN -> UpdateGatewayInformationInput
-newUpdateGatewayInformationInput _GatewayARN = UpdateGatewayInformationInput { "GatewayARN": _GatewayARN, "GatewayName": (NullOrUndefined Nothing), "GatewayTimezone": (NullOrUndefined Nothing) }
+newUpdateGatewayInformationInput _GatewayARN = UpdateGatewayInformationInput { "GatewayARN": _GatewayARN, "GatewayName": Nothing, "GatewayTimezone": Nothing }
 
 -- | Constructs UpdateGatewayInformationInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGatewayInformationInput' :: GatewayARN -> ( { "GatewayARN" :: (GatewayARN) , "GatewayName" :: NullOrUndefined (GatewayName) , "GatewayTimezone" :: NullOrUndefined (GatewayTimezone) } -> {"GatewayARN" :: (GatewayARN) , "GatewayName" :: NullOrUndefined (GatewayName) , "GatewayTimezone" :: NullOrUndefined (GatewayTimezone) } ) -> UpdateGatewayInformationInput
-newUpdateGatewayInformationInput' _GatewayARN customize = (UpdateGatewayInformationInput <<< customize) { "GatewayARN": _GatewayARN, "GatewayName": (NullOrUndefined Nothing), "GatewayTimezone": (NullOrUndefined Nothing) }
+newUpdateGatewayInformationInput' :: GatewayARN -> ( { "GatewayARN" :: (GatewayARN) , "GatewayName" :: Maybe (GatewayName) , "GatewayTimezone" :: Maybe (GatewayTimezone) } -> {"GatewayARN" :: (GatewayARN) , "GatewayName" :: Maybe (GatewayName) , "GatewayTimezone" :: Maybe (GatewayTimezone) } ) -> UpdateGatewayInformationInput
+newUpdateGatewayInformationInput' _GatewayARN customize = (UpdateGatewayInformationInput <<< customize) { "GatewayARN": _GatewayARN, "GatewayName": Nothing, "GatewayTimezone": Nothing }
 
 
 
 -- | <p>A JSON object containing the ARN of the gateway that was updated.</p>
 newtype UpdateGatewayInformationOutput = UpdateGatewayInformationOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "GatewayName" :: NullOrUndefined (String)
+  { "GatewayARN" :: Maybe (GatewayARN)
+  , "GatewayName" :: Maybe (String)
   }
 derive instance newtypeUpdateGatewayInformationOutput :: Newtype UpdateGatewayInformationOutput _
 derive instance repGenericUpdateGatewayInformationOutput :: Generic UpdateGatewayInformationOutput _
@@ -3813,12 +3812,12 @@ instance encodeUpdateGatewayInformationOutput :: Encode UpdateGatewayInformation
 
 -- | Constructs UpdateGatewayInformationOutput from required parameters
 newUpdateGatewayInformationOutput :: UpdateGatewayInformationOutput
-newUpdateGatewayInformationOutput  = UpdateGatewayInformationOutput { "GatewayARN": (NullOrUndefined Nothing), "GatewayName": (NullOrUndefined Nothing) }
+newUpdateGatewayInformationOutput  = UpdateGatewayInformationOutput { "GatewayARN": Nothing, "GatewayName": Nothing }
 
 -- | Constructs UpdateGatewayInformationOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGatewayInformationOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) , "GatewayName" :: NullOrUndefined (String) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) , "GatewayName" :: NullOrUndefined (String) } ) -> UpdateGatewayInformationOutput
-newUpdateGatewayInformationOutput'  customize = (UpdateGatewayInformationOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing), "GatewayName": (NullOrUndefined Nothing) }
+newUpdateGatewayInformationOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) , "GatewayName" :: Maybe (String) } -> {"GatewayARN" :: Maybe (GatewayARN) , "GatewayName" :: Maybe (String) } ) -> UpdateGatewayInformationOutput
+newUpdateGatewayInformationOutput'  customize = (UpdateGatewayInformationOutput <<< customize) { "GatewayARN": Nothing, "GatewayName": Nothing }
 
 
 
@@ -3845,7 +3844,7 @@ newUpdateGatewaySoftwareNowInput' _GatewayARN customize = (UpdateGatewaySoftware
 
 -- | <p>A JSON object containing the of the gateway that was updated.</p>
 newtype UpdateGatewaySoftwareNowOutput = UpdateGatewaySoftwareNowOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeUpdateGatewaySoftwareNowOutput :: Newtype UpdateGatewaySoftwareNowOutput _
 derive instance repGenericUpdateGatewaySoftwareNowOutput :: Generic UpdateGatewaySoftwareNowOutput _
@@ -3855,12 +3854,12 @@ instance encodeUpdateGatewaySoftwareNowOutput :: Encode UpdateGatewaySoftwareNow
 
 -- | Constructs UpdateGatewaySoftwareNowOutput from required parameters
 newUpdateGatewaySoftwareNowOutput :: UpdateGatewaySoftwareNowOutput
-newUpdateGatewaySoftwareNowOutput  = UpdateGatewaySoftwareNowOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newUpdateGatewaySoftwareNowOutput  = UpdateGatewaySoftwareNowOutput { "GatewayARN": Nothing }
 
 -- | Constructs UpdateGatewaySoftwareNowOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGatewaySoftwareNowOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> UpdateGatewaySoftwareNowOutput
-newUpdateGatewaySoftwareNowOutput'  customize = (UpdateGatewaySoftwareNowOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newUpdateGatewaySoftwareNowOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> UpdateGatewaySoftwareNowOutput
+newUpdateGatewaySoftwareNowOutput'  customize = (UpdateGatewaySoftwareNowOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
@@ -3890,7 +3889,7 @@ newUpdateMaintenanceStartTimeInput' _DayOfWeek _GatewayARN _HourOfDay _MinuteOfH
 
 -- | <p>A JSON object containing the of the gateway whose maintenance start time is updated.</p>
 newtype UpdateMaintenanceStartTimeOutput = UpdateMaintenanceStartTimeOutput 
-  { "GatewayARN" :: NullOrUndefined (GatewayARN)
+  { "GatewayARN" :: Maybe (GatewayARN)
   }
 derive instance newtypeUpdateMaintenanceStartTimeOutput :: Newtype UpdateMaintenanceStartTimeOutput _
 derive instance repGenericUpdateMaintenanceStartTimeOutput :: Generic UpdateMaintenanceStartTimeOutput _
@@ -3900,28 +3899,28 @@ instance encodeUpdateMaintenanceStartTimeOutput :: Encode UpdateMaintenanceStart
 
 -- | Constructs UpdateMaintenanceStartTimeOutput from required parameters
 newUpdateMaintenanceStartTimeOutput :: UpdateMaintenanceStartTimeOutput
-newUpdateMaintenanceStartTimeOutput  = UpdateMaintenanceStartTimeOutput { "GatewayARN": (NullOrUndefined Nothing) }
+newUpdateMaintenanceStartTimeOutput  = UpdateMaintenanceStartTimeOutput { "GatewayARN": Nothing }
 
 -- | Constructs UpdateMaintenanceStartTimeOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateMaintenanceStartTimeOutput' :: ( { "GatewayARN" :: NullOrUndefined (GatewayARN) } -> {"GatewayARN" :: NullOrUndefined (GatewayARN) } ) -> UpdateMaintenanceStartTimeOutput
-newUpdateMaintenanceStartTimeOutput'  customize = (UpdateMaintenanceStartTimeOutput <<< customize) { "GatewayARN": (NullOrUndefined Nothing) }
+newUpdateMaintenanceStartTimeOutput' :: ( { "GatewayARN" :: Maybe (GatewayARN) } -> {"GatewayARN" :: Maybe (GatewayARN) } ) -> UpdateMaintenanceStartTimeOutput
+newUpdateMaintenanceStartTimeOutput'  customize = (UpdateMaintenanceStartTimeOutput <<< customize) { "GatewayARN": Nothing }
 
 
 
 -- | <p>UpdateNFSFileShareInput</p>
 newtype UpdateNFSFileShareInput = UpdateNFSFileShareInput 
   { "FileShareARN" :: (FileShareARN)
-  , "KMSEncrypted" :: NullOrUndefined (Boolean)
-  , "KMSKey" :: NullOrUndefined (KMSKey)
-  , "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults)
-  , "DefaultStorageClass" :: NullOrUndefined (StorageClass)
-  , "ObjectACL" :: NullOrUndefined (ObjectACL)
-  , "ClientList" :: NullOrUndefined (FileShareClientList)
-  , "Squash" :: NullOrUndefined (Squash)
-  , "ReadOnly" :: NullOrUndefined (Boolean)
-  , "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean)
-  , "RequesterPays" :: NullOrUndefined (Boolean)
+  , "KMSEncrypted" :: Maybe (Boolean)
+  , "KMSKey" :: Maybe (KMSKey)
+  , "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults)
+  , "DefaultStorageClass" :: Maybe (StorageClass)
+  , "ObjectACL" :: Maybe (ObjectACL)
+  , "ClientList" :: Maybe (FileShareClientList)
+  , "Squash" :: Maybe (Squash)
+  , "ReadOnly" :: Maybe (Boolean)
+  , "GuessMIMETypeEnabled" :: Maybe (Boolean)
+  , "RequesterPays" :: Maybe (Boolean)
   }
 derive instance newtypeUpdateNFSFileShareInput :: Newtype UpdateNFSFileShareInput _
 derive instance repGenericUpdateNFSFileShareInput :: Generic UpdateNFSFileShareInput _
@@ -3931,18 +3930,18 @@ instance encodeUpdateNFSFileShareInput :: Encode UpdateNFSFileShareInput where e
 
 -- | Constructs UpdateNFSFileShareInput from required parameters
 newUpdateNFSFileShareInput :: FileShareARN -> UpdateNFSFileShareInput
-newUpdateNFSFileShareInput _FileShareARN = UpdateNFSFileShareInput { "FileShareARN": _FileShareARN, "ClientList": (NullOrUndefined Nothing), "DefaultStorageClass": (NullOrUndefined Nothing), "GuessMIMETypeEnabled": (NullOrUndefined Nothing), "KMSEncrypted": (NullOrUndefined Nothing), "KMSKey": (NullOrUndefined Nothing), "NFSFileShareDefaults": (NullOrUndefined Nothing), "ObjectACL": (NullOrUndefined Nothing), "ReadOnly": (NullOrUndefined Nothing), "RequesterPays": (NullOrUndefined Nothing), "Squash": (NullOrUndefined Nothing) }
+newUpdateNFSFileShareInput _FileShareARN = UpdateNFSFileShareInput { "FileShareARN": _FileShareARN, "ClientList": Nothing, "DefaultStorageClass": Nothing, "GuessMIMETypeEnabled": Nothing, "KMSEncrypted": Nothing, "KMSKey": Nothing, "NFSFileShareDefaults": Nothing, "ObjectACL": Nothing, "ReadOnly": Nothing, "RequesterPays": Nothing, "Squash": Nothing }
 
 -- | Constructs UpdateNFSFileShareInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateNFSFileShareInput' :: FileShareARN -> ( { "FileShareARN" :: (FileShareARN) , "KMSEncrypted" :: NullOrUndefined (Boolean) , "KMSKey" :: NullOrUndefined (KMSKey) , "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults) , "DefaultStorageClass" :: NullOrUndefined (StorageClass) , "ObjectACL" :: NullOrUndefined (ObjectACL) , "ClientList" :: NullOrUndefined (FileShareClientList) , "Squash" :: NullOrUndefined (Squash) , "ReadOnly" :: NullOrUndefined (Boolean) , "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean) , "RequesterPays" :: NullOrUndefined (Boolean) } -> {"FileShareARN" :: (FileShareARN) , "KMSEncrypted" :: NullOrUndefined (Boolean) , "KMSKey" :: NullOrUndefined (KMSKey) , "NFSFileShareDefaults" :: NullOrUndefined (NFSFileShareDefaults) , "DefaultStorageClass" :: NullOrUndefined (StorageClass) , "ObjectACL" :: NullOrUndefined (ObjectACL) , "ClientList" :: NullOrUndefined (FileShareClientList) , "Squash" :: NullOrUndefined (Squash) , "ReadOnly" :: NullOrUndefined (Boolean) , "GuessMIMETypeEnabled" :: NullOrUndefined (Boolean) , "RequesterPays" :: NullOrUndefined (Boolean) } ) -> UpdateNFSFileShareInput
-newUpdateNFSFileShareInput' _FileShareARN customize = (UpdateNFSFileShareInput <<< customize) { "FileShareARN": _FileShareARN, "ClientList": (NullOrUndefined Nothing), "DefaultStorageClass": (NullOrUndefined Nothing), "GuessMIMETypeEnabled": (NullOrUndefined Nothing), "KMSEncrypted": (NullOrUndefined Nothing), "KMSKey": (NullOrUndefined Nothing), "NFSFileShareDefaults": (NullOrUndefined Nothing), "ObjectACL": (NullOrUndefined Nothing), "ReadOnly": (NullOrUndefined Nothing), "RequesterPays": (NullOrUndefined Nothing), "Squash": (NullOrUndefined Nothing) }
+newUpdateNFSFileShareInput' :: FileShareARN -> ( { "FileShareARN" :: (FileShareARN) , "KMSEncrypted" :: Maybe (Boolean) , "KMSKey" :: Maybe (KMSKey) , "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults) , "DefaultStorageClass" :: Maybe (StorageClass) , "ObjectACL" :: Maybe (ObjectACL) , "ClientList" :: Maybe (FileShareClientList) , "Squash" :: Maybe (Squash) , "ReadOnly" :: Maybe (Boolean) , "GuessMIMETypeEnabled" :: Maybe (Boolean) , "RequesterPays" :: Maybe (Boolean) } -> {"FileShareARN" :: (FileShareARN) , "KMSEncrypted" :: Maybe (Boolean) , "KMSKey" :: Maybe (KMSKey) , "NFSFileShareDefaults" :: Maybe (NFSFileShareDefaults) , "DefaultStorageClass" :: Maybe (StorageClass) , "ObjectACL" :: Maybe (ObjectACL) , "ClientList" :: Maybe (FileShareClientList) , "Squash" :: Maybe (Squash) , "ReadOnly" :: Maybe (Boolean) , "GuessMIMETypeEnabled" :: Maybe (Boolean) , "RequesterPays" :: Maybe (Boolean) } ) -> UpdateNFSFileShareInput
+newUpdateNFSFileShareInput' _FileShareARN customize = (UpdateNFSFileShareInput <<< customize) { "FileShareARN": _FileShareARN, "ClientList": Nothing, "DefaultStorageClass": Nothing, "GuessMIMETypeEnabled": Nothing, "KMSEncrypted": Nothing, "KMSKey": Nothing, "NFSFileShareDefaults": Nothing, "ObjectACL": Nothing, "ReadOnly": Nothing, "RequesterPays": Nothing, "Squash": Nothing }
 
 
 
 -- | <p>UpdateNFSFileShareOutput</p>
 newtype UpdateNFSFileShareOutput = UpdateNFSFileShareOutput 
-  { "FileShareARN" :: NullOrUndefined (FileShareARN)
+  { "FileShareARN" :: Maybe (FileShareARN)
   }
 derive instance newtypeUpdateNFSFileShareOutput :: Newtype UpdateNFSFileShareOutput _
 derive instance repGenericUpdateNFSFileShareOutput :: Generic UpdateNFSFileShareOutput _
@@ -3952,12 +3951,12 @@ instance encodeUpdateNFSFileShareOutput :: Encode UpdateNFSFileShareOutput where
 
 -- | Constructs UpdateNFSFileShareOutput from required parameters
 newUpdateNFSFileShareOutput :: UpdateNFSFileShareOutput
-newUpdateNFSFileShareOutput  = UpdateNFSFileShareOutput { "FileShareARN": (NullOrUndefined Nothing) }
+newUpdateNFSFileShareOutput  = UpdateNFSFileShareOutput { "FileShareARN": Nothing }
 
 -- | Constructs UpdateNFSFileShareOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateNFSFileShareOutput' :: ( { "FileShareARN" :: NullOrUndefined (FileShareARN) } -> {"FileShareARN" :: NullOrUndefined (FileShareARN) } ) -> UpdateNFSFileShareOutput
-newUpdateNFSFileShareOutput'  customize = (UpdateNFSFileShareOutput <<< customize) { "FileShareARN": (NullOrUndefined Nothing) }
+newUpdateNFSFileShareOutput' :: ( { "FileShareARN" :: Maybe (FileShareARN) } -> {"FileShareARN" :: Maybe (FileShareARN) } ) -> UpdateNFSFileShareOutput
+newUpdateNFSFileShareOutput'  customize = (UpdateNFSFileShareOutput <<< customize) { "FileShareARN": Nothing }
 
 
 
@@ -3966,7 +3965,7 @@ newtype UpdateSnapshotScheduleInput = UpdateSnapshotScheduleInput
   { "VolumeARN" :: (VolumeARN)
   , "StartAt" :: (HourOfDay)
   , "RecurrenceInHours" :: (RecurrenceInHours)
-  , "Description" :: NullOrUndefined (Description)
+  , "Description" :: Maybe (Description)
   }
 derive instance newtypeUpdateSnapshotScheduleInput :: Newtype UpdateSnapshotScheduleInput _
 derive instance repGenericUpdateSnapshotScheduleInput :: Generic UpdateSnapshotScheduleInput _
@@ -3976,18 +3975,18 @@ instance encodeUpdateSnapshotScheduleInput :: Encode UpdateSnapshotScheduleInput
 
 -- | Constructs UpdateSnapshotScheduleInput from required parameters
 newUpdateSnapshotScheduleInput :: RecurrenceInHours -> HourOfDay -> VolumeARN -> UpdateSnapshotScheduleInput
-newUpdateSnapshotScheduleInput _RecurrenceInHours _StartAt _VolumeARN = UpdateSnapshotScheduleInput { "RecurrenceInHours": _RecurrenceInHours, "StartAt": _StartAt, "VolumeARN": _VolumeARN, "Description": (NullOrUndefined Nothing) }
+newUpdateSnapshotScheduleInput _RecurrenceInHours _StartAt _VolumeARN = UpdateSnapshotScheduleInput { "RecurrenceInHours": _RecurrenceInHours, "StartAt": _StartAt, "VolumeARN": _VolumeARN, "Description": Nothing }
 
 -- | Constructs UpdateSnapshotScheduleInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateSnapshotScheduleInput' :: RecurrenceInHours -> HourOfDay -> VolumeARN -> ( { "VolumeARN" :: (VolumeARN) , "StartAt" :: (HourOfDay) , "RecurrenceInHours" :: (RecurrenceInHours) , "Description" :: NullOrUndefined (Description) } -> {"VolumeARN" :: (VolumeARN) , "StartAt" :: (HourOfDay) , "RecurrenceInHours" :: (RecurrenceInHours) , "Description" :: NullOrUndefined (Description) } ) -> UpdateSnapshotScheduleInput
-newUpdateSnapshotScheduleInput' _RecurrenceInHours _StartAt _VolumeARN customize = (UpdateSnapshotScheduleInput <<< customize) { "RecurrenceInHours": _RecurrenceInHours, "StartAt": _StartAt, "VolumeARN": _VolumeARN, "Description": (NullOrUndefined Nothing) }
+newUpdateSnapshotScheduleInput' :: RecurrenceInHours -> HourOfDay -> VolumeARN -> ( { "VolumeARN" :: (VolumeARN) , "StartAt" :: (HourOfDay) , "RecurrenceInHours" :: (RecurrenceInHours) , "Description" :: Maybe (Description) } -> {"VolumeARN" :: (VolumeARN) , "StartAt" :: (HourOfDay) , "RecurrenceInHours" :: (RecurrenceInHours) , "Description" :: Maybe (Description) } ) -> UpdateSnapshotScheduleInput
+newUpdateSnapshotScheduleInput' _RecurrenceInHours _StartAt _VolumeARN customize = (UpdateSnapshotScheduleInput <<< customize) { "RecurrenceInHours": _RecurrenceInHours, "StartAt": _StartAt, "VolumeARN": _VolumeARN, "Description": Nothing }
 
 
 
 -- | <p>A JSON object containing the of the updated storage volume.</p>
 newtype UpdateSnapshotScheduleOutput = UpdateSnapshotScheduleOutput 
-  { "VolumeARN" :: NullOrUndefined (VolumeARN)
+  { "VolumeARN" :: Maybe (VolumeARN)
   }
 derive instance newtypeUpdateSnapshotScheduleOutput :: Newtype UpdateSnapshotScheduleOutput _
 derive instance repGenericUpdateSnapshotScheduleOutput :: Generic UpdateSnapshotScheduleOutput _
@@ -3997,12 +3996,12 @@ instance encodeUpdateSnapshotScheduleOutput :: Encode UpdateSnapshotScheduleOutp
 
 -- | Constructs UpdateSnapshotScheduleOutput from required parameters
 newUpdateSnapshotScheduleOutput :: UpdateSnapshotScheduleOutput
-newUpdateSnapshotScheduleOutput  = UpdateSnapshotScheduleOutput { "VolumeARN": (NullOrUndefined Nothing) }
+newUpdateSnapshotScheduleOutput  = UpdateSnapshotScheduleOutput { "VolumeARN": Nothing }
 
 -- | Constructs UpdateSnapshotScheduleOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateSnapshotScheduleOutput' :: ( { "VolumeARN" :: NullOrUndefined (VolumeARN) } -> {"VolumeARN" :: NullOrUndefined (VolumeARN) } ) -> UpdateSnapshotScheduleOutput
-newUpdateSnapshotScheduleOutput'  customize = (UpdateSnapshotScheduleOutput <<< customize) { "VolumeARN": (NullOrUndefined Nothing) }
+newUpdateSnapshotScheduleOutput' :: ( { "VolumeARN" :: Maybe (VolumeARN) } -> {"VolumeARN" :: Maybe (VolumeARN) } ) -> UpdateSnapshotScheduleOutput
+newUpdateSnapshotScheduleOutput'  customize = (UpdateSnapshotScheduleOutput <<< customize) { "VolumeARN": Nothing }
 
 
 
@@ -4029,7 +4028,7 @@ newUpdateVTLDeviceTypeInput' _DeviceType _VTLDeviceARN customize = (UpdateVTLDev
 
 -- | <p>UpdateVTLDeviceTypeOutput</p>
 newtype UpdateVTLDeviceTypeOutput = UpdateVTLDeviceTypeOutput 
-  { "VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN)
+  { "VTLDeviceARN" :: Maybe (VTLDeviceARN)
   }
 derive instance newtypeUpdateVTLDeviceTypeOutput :: Newtype UpdateVTLDeviceTypeOutput _
 derive instance repGenericUpdateVTLDeviceTypeOutput :: Generic UpdateVTLDeviceTypeOutput _
@@ -4039,22 +4038,22 @@ instance encodeUpdateVTLDeviceTypeOutput :: Encode UpdateVTLDeviceTypeOutput whe
 
 -- | Constructs UpdateVTLDeviceTypeOutput from required parameters
 newUpdateVTLDeviceTypeOutput :: UpdateVTLDeviceTypeOutput
-newUpdateVTLDeviceTypeOutput  = UpdateVTLDeviceTypeOutput { "VTLDeviceARN": (NullOrUndefined Nothing) }
+newUpdateVTLDeviceTypeOutput  = UpdateVTLDeviceTypeOutput { "VTLDeviceARN": Nothing }
 
 -- | Constructs UpdateVTLDeviceTypeOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateVTLDeviceTypeOutput' :: ( { "VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN) } -> {"VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN) } ) -> UpdateVTLDeviceTypeOutput
-newUpdateVTLDeviceTypeOutput'  customize = (UpdateVTLDeviceTypeOutput <<< customize) { "VTLDeviceARN": (NullOrUndefined Nothing) }
+newUpdateVTLDeviceTypeOutput' :: ( { "VTLDeviceARN" :: Maybe (VTLDeviceARN) } -> {"VTLDeviceARN" :: Maybe (VTLDeviceARN) } ) -> UpdateVTLDeviceTypeOutput
+newUpdateVTLDeviceTypeOutput'  customize = (UpdateVTLDeviceTypeOutput <<< customize) { "VTLDeviceARN": Nothing }
 
 
 
 -- | <p>Represents a device object associated with a tape gateway.</p>
 newtype VTLDevice = VTLDevice 
-  { "VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN)
-  , "VTLDeviceType" :: NullOrUndefined (VTLDeviceType)
-  , "VTLDeviceVendor" :: NullOrUndefined (VTLDeviceVendor)
-  , "VTLDeviceProductIdentifier" :: NullOrUndefined (VTLDeviceProductIdentifier)
-  , "DeviceiSCSIAttributes" :: NullOrUndefined (DeviceiSCSIAttributes)
+  { "VTLDeviceARN" :: Maybe (VTLDeviceARN)
+  , "VTLDeviceType" :: Maybe (VTLDeviceType)
+  , "VTLDeviceVendor" :: Maybe (VTLDeviceVendor)
+  , "VTLDeviceProductIdentifier" :: Maybe (VTLDeviceProductIdentifier)
+  , "DeviceiSCSIAttributes" :: Maybe (DeviceiSCSIAttributes)
   }
 derive instance newtypeVTLDevice :: Newtype VTLDevice _
 derive instance repGenericVTLDevice :: Generic VTLDevice _
@@ -4064,12 +4063,12 @@ instance encodeVTLDevice :: Encode VTLDevice where encode = genericEncode option
 
 -- | Constructs VTLDevice from required parameters
 newVTLDevice :: VTLDevice
-newVTLDevice  = VTLDevice { "DeviceiSCSIAttributes": (NullOrUndefined Nothing), "VTLDeviceARN": (NullOrUndefined Nothing), "VTLDeviceProductIdentifier": (NullOrUndefined Nothing), "VTLDeviceType": (NullOrUndefined Nothing), "VTLDeviceVendor": (NullOrUndefined Nothing) }
+newVTLDevice  = VTLDevice { "DeviceiSCSIAttributes": Nothing, "VTLDeviceARN": Nothing, "VTLDeviceProductIdentifier": Nothing, "VTLDeviceType": Nothing, "VTLDeviceVendor": Nothing }
 
 -- | Constructs VTLDevice's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVTLDevice' :: ( { "VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN) , "VTLDeviceType" :: NullOrUndefined (VTLDeviceType) , "VTLDeviceVendor" :: NullOrUndefined (VTLDeviceVendor) , "VTLDeviceProductIdentifier" :: NullOrUndefined (VTLDeviceProductIdentifier) , "DeviceiSCSIAttributes" :: NullOrUndefined (DeviceiSCSIAttributes) } -> {"VTLDeviceARN" :: NullOrUndefined (VTLDeviceARN) , "VTLDeviceType" :: NullOrUndefined (VTLDeviceType) , "VTLDeviceVendor" :: NullOrUndefined (VTLDeviceVendor) , "VTLDeviceProductIdentifier" :: NullOrUndefined (VTLDeviceProductIdentifier) , "DeviceiSCSIAttributes" :: NullOrUndefined (DeviceiSCSIAttributes) } ) -> VTLDevice
-newVTLDevice'  customize = (VTLDevice <<< customize) { "DeviceiSCSIAttributes": (NullOrUndefined Nothing), "VTLDeviceARN": (NullOrUndefined Nothing), "VTLDeviceProductIdentifier": (NullOrUndefined Nothing), "VTLDeviceType": (NullOrUndefined Nothing), "VTLDeviceVendor": (NullOrUndefined Nothing) }
+newVTLDevice' :: ( { "VTLDeviceARN" :: Maybe (VTLDeviceARN) , "VTLDeviceType" :: Maybe (VTLDeviceType) , "VTLDeviceVendor" :: Maybe (VTLDeviceVendor) , "VTLDeviceProductIdentifier" :: Maybe (VTLDeviceProductIdentifier) , "DeviceiSCSIAttributes" :: Maybe (DeviceiSCSIAttributes) } -> {"VTLDeviceARN" :: Maybe (VTLDeviceARN) , "VTLDeviceType" :: Maybe (VTLDeviceType) , "VTLDeviceVendor" :: Maybe (VTLDeviceVendor) , "VTLDeviceProductIdentifier" :: Maybe (VTLDeviceProductIdentifier) , "DeviceiSCSIAttributes" :: Maybe (DeviceiSCSIAttributes) } ) -> VTLDevice
+newVTLDevice'  customize = (VTLDevice <<< customize) { "DeviceiSCSIAttributes": Nothing, "VTLDeviceARN": Nothing, "VTLDeviceProductIdentifier": Nothing, "VTLDeviceType": Nothing, "VTLDeviceVendor": Nothing }
 
 
 
@@ -4156,12 +4155,12 @@ instance encodeVolumeId :: Encode VolumeId where encode = genericEncode options
 
 -- | <p>Describes a storage volume object.</p>
 newtype VolumeInfo = VolumeInfo 
-  { "VolumeARN" :: NullOrUndefined (VolumeARN)
-  , "VolumeId" :: NullOrUndefined (VolumeId)
-  , "GatewayARN" :: NullOrUndefined (GatewayARN)
-  , "GatewayId" :: NullOrUndefined (GatewayId)
-  , "VolumeType" :: NullOrUndefined (VolumeType)
-  , "VolumeSizeInBytes" :: NullOrUndefined (Number)
+  { "VolumeARN" :: Maybe (VolumeARN)
+  , "VolumeId" :: Maybe (VolumeId)
+  , "GatewayARN" :: Maybe (GatewayARN)
+  , "GatewayId" :: Maybe (GatewayId)
+  , "VolumeType" :: Maybe (VolumeType)
+  , "VolumeSizeInBytes" :: Maybe (Number)
   }
 derive instance newtypeVolumeInfo :: Newtype VolumeInfo _
 derive instance repGenericVolumeInfo :: Generic VolumeInfo _
@@ -4171,12 +4170,12 @@ instance encodeVolumeInfo :: Encode VolumeInfo where encode = genericEncode opti
 
 -- | Constructs VolumeInfo from required parameters
 newVolumeInfo :: VolumeInfo
-newVolumeInfo  = VolumeInfo { "GatewayARN": (NullOrUndefined Nothing), "GatewayId": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing), "VolumeId": (NullOrUndefined Nothing), "VolumeSizeInBytes": (NullOrUndefined Nothing), "VolumeType": (NullOrUndefined Nothing) }
+newVolumeInfo  = VolumeInfo { "GatewayARN": Nothing, "GatewayId": Nothing, "VolumeARN": Nothing, "VolumeId": Nothing, "VolumeSizeInBytes": Nothing, "VolumeType": Nothing }
 
 -- | Constructs VolumeInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVolumeInfo' :: ( { "VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeId" :: NullOrUndefined (VolumeId) , "GatewayARN" :: NullOrUndefined (GatewayARN) , "GatewayId" :: NullOrUndefined (GatewayId) , "VolumeType" :: NullOrUndefined (VolumeType) , "VolumeSizeInBytes" :: NullOrUndefined (Number) } -> {"VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeId" :: NullOrUndefined (VolumeId) , "GatewayARN" :: NullOrUndefined (GatewayARN) , "GatewayId" :: NullOrUndefined (GatewayId) , "VolumeType" :: NullOrUndefined (VolumeType) , "VolumeSizeInBytes" :: NullOrUndefined (Number) } ) -> VolumeInfo
-newVolumeInfo'  customize = (VolumeInfo <<< customize) { "GatewayARN": (NullOrUndefined Nothing), "GatewayId": (NullOrUndefined Nothing), "VolumeARN": (NullOrUndefined Nothing), "VolumeId": (NullOrUndefined Nothing), "VolumeSizeInBytes": (NullOrUndefined Nothing), "VolumeType": (NullOrUndefined Nothing) }
+newVolumeInfo' :: ( { "VolumeARN" :: Maybe (VolumeARN) , "VolumeId" :: Maybe (VolumeId) , "GatewayARN" :: Maybe (GatewayARN) , "GatewayId" :: Maybe (GatewayId) , "VolumeType" :: Maybe (VolumeType) , "VolumeSizeInBytes" :: Maybe (Number) } -> {"VolumeARN" :: Maybe (VolumeARN) , "VolumeId" :: Maybe (VolumeId) , "GatewayARN" :: Maybe (GatewayARN) , "GatewayId" :: Maybe (GatewayId) , "VolumeType" :: Maybe (VolumeType) , "VolumeSizeInBytes" :: Maybe (Number) } ) -> VolumeInfo
+newVolumeInfo'  customize = (VolumeInfo <<< customize) { "GatewayARN": Nothing, "GatewayId": Nothing, "VolumeARN": Nothing, "VolumeId": Nothing, "VolumeSizeInBytes": Nothing, "VolumeType": Nothing }
 
 
 
@@ -4190,10 +4189,10 @@ instance encodeVolumeInfos :: Encode VolumeInfos where encode = genericEncode op
 
 
 newtype VolumeRecoveryPointInfo = VolumeRecoveryPointInfo 
-  { "VolumeARN" :: NullOrUndefined (VolumeARN)
-  , "VolumeSizeInBytes" :: NullOrUndefined (Number)
-  , "VolumeUsageInBytes" :: NullOrUndefined (Number)
-  , "VolumeRecoveryPointTime" :: NullOrUndefined (String)
+  { "VolumeARN" :: Maybe (VolumeARN)
+  , "VolumeSizeInBytes" :: Maybe (Number)
+  , "VolumeUsageInBytes" :: Maybe (Number)
+  , "VolumeRecoveryPointTime" :: Maybe (String)
   }
 derive instance newtypeVolumeRecoveryPointInfo :: Newtype VolumeRecoveryPointInfo _
 derive instance repGenericVolumeRecoveryPointInfo :: Generic VolumeRecoveryPointInfo _
@@ -4203,12 +4202,12 @@ instance encodeVolumeRecoveryPointInfo :: Encode VolumeRecoveryPointInfo where e
 
 -- | Constructs VolumeRecoveryPointInfo from required parameters
 newVolumeRecoveryPointInfo :: VolumeRecoveryPointInfo
-newVolumeRecoveryPointInfo  = VolumeRecoveryPointInfo { "VolumeARN": (NullOrUndefined Nothing), "VolumeRecoveryPointTime": (NullOrUndefined Nothing), "VolumeSizeInBytes": (NullOrUndefined Nothing), "VolumeUsageInBytes": (NullOrUndefined Nothing) }
+newVolumeRecoveryPointInfo  = VolumeRecoveryPointInfo { "VolumeARN": Nothing, "VolumeRecoveryPointTime": Nothing, "VolumeSizeInBytes": Nothing, "VolumeUsageInBytes": Nothing }
 
 -- | Constructs VolumeRecoveryPointInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVolumeRecoveryPointInfo' :: ( { "VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeSizeInBytes" :: NullOrUndefined (Number) , "VolumeUsageInBytes" :: NullOrUndefined (Number) , "VolumeRecoveryPointTime" :: NullOrUndefined (String) } -> {"VolumeARN" :: NullOrUndefined (VolumeARN) , "VolumeSizeInBytes" :: NullOrUndefined (Number) , "VolumeUsageInBytes" :: NullOrUndefined (Number) , "VolumeRecoveryPointTime" :: NullOrUndefined (String) } ) -> VolumeRecoveryPointInfo
-newVolumeRecoveryPointInfo'  customize = (VolumeRecoveryPointInfo <<< customize) { "VolumeARN": (NullOrUndefined Nothing), "VolumeRecoveryPointTime": (NullOrUndefined Nothing), "VolumeSizeInBytes": (NullOrUndefined Nothing), "VolumeUsageInBytes": (NullOrUndefined Nothing) }
+newVolumeRecoveryPointInfo' :: ( { "VolumeARN" :: Maybe (VolumeARN) , "VolumeSizeInBytes" :: Maybe (Number) , "VolumeUsageInBytes" :: Maybe (Number) , "VolumeRecoveryPointTime" :: Maybe (String) } -> {"VolumeARN" :: Maybe (VolumeARN) , "VolumeSizeInBytes" :: Maybe (Number) , "VolumeUsageInBytes" :: Maybe (Number) , "VolumeRecoveryPointTime" :: Maybe (String) } ) -> VolumeRecoveryPointInfo
+newVolumeRecoveryPointInfo'  customize = (VolumeRecoveryPointInfo <<< customize) { "VolumeARN": Nothing, "VolumeRecoveryPointTime": Nothing, "VolumeSizeInBytes": Nothing, "VolumeUsageInBytes": Nothing }
 
 
 
@@ -4250,11 +4249,11 @@ instance encodeVolumeUsedInBytes :: Encode VolumeUsedInBytes where encode = gene
 
 -- | <p>Lists iSCSI information about a volume.</p>
 newtype VolumeiSCSIAttributes = VolumeiSCSIAttributes 
-  { "TargetARN" :: NullOrUndefined (TargetARN)
-  , "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId)
-  , "NetworkInterfacePort" :: NullOrUndefined (Int)
-  , "LunNumber" :: NullOrUndefined (PositiveIntObject)
-  , "ChapEnabled" :: NullOrUndefined (Boolean)
+  { "TargetARN" :: Maybe (TargetARN)
+  , "NetworkInterfaceId" :: Maybe (NetworkInterfaceId)
+  , "NetworkInterfacePort" :: Maybe (Int)
+  , "LunNumber" :: Maybe (PositiveIntObject)
+  , "ChapEnabled" :: Maybe (Boolean)
   }
 derive instance newtypeVolumeiSCSIAttributes :: Newtype VolumeiSCSIAttributes _
 derive instance repGenericVolumeiSCSIAttributes :: Generic VolumeiSCSIAttributes _
@@ -4264,12 +4263,12 @@ instance encodeVolumeiSCSIAttributes :: Encode VolumeiSCSIAttributes where encod
 
 -- | Constructs VolumeiSCSIAttributes from required parameters
 newVolumeiSCSIAttributes :: VolumeiSCSIAttributes
-newVolumeiSCSIAttributes  = VolumeiSCSIAttributes { "ChapEnabled": (NullOrUndefined Nothing), "LunNumber": (NullOrUndefined Nothing), "NetworkInterfaceId": (NullOrUndefined Nothing), "NetworkInterfacePort": (NullOrUndefined Nothing), "TargetARN": (NullOrUndefined Nothing) }
+newVolumeiSCSIAttributes  = VolumeiSCSIAttributes { "ChapEnabled": Nothing, "LunNumber": Nothing, "NetworkInterfaceId": Nothing, "NetworkInterfacePort": Nothing, "TargetARN": Nothing }
 
 -- | Constructs VolumeiSCSIAttributes's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVolumeiSCSIAttributes' :: ( { "TargetARN" :: NullOrUndefined (TargetARN) , "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId) , "NetworkInterfacePort" :: NullOrUndefined (Int) , "LunNumber" :: NullOrUndefined (PositiveIntObject) , "ChapEnabled" :: NullOrUndefined (Boolean) } -> {"TargetARN" :: NullOrUndefined (TargetARN) , "NetworkInterfaceId" :: NullOrUndefined (NetworkInterfaceId) , "NetworkInterfacePort" :: NullOrUndefined (Int) , "LunNumber" :: NullOrUndefined (PositiveIntObject) , "ChapEnabled" :: NullOrUndefined (Boolean) } ) -> VolumeiSCSIAttributes
-newVolumeiSCSIAttributes'  customize = (VolumeiSCSIAttributes <<< customize) { "ChapEnabled": (NullOrUndefined Nothing), "LunNumber": (NullOrUndefined Nothing), "NetworkInterfaceId": (NullOrUndefined Nothing), "NetworkInterfacePort": (NullOrUndefined Nothing), "TargetARN": (NullOrUndefined Nothing) }
+newVolumeiSCSIAttributes' :: ( { "TargetARN" :: Maybe (TargetARN) , "NetworkInterfaceId" :: Maybe (NetworkInterfaceId) , "NetworkInterfacePort" :: Maybe (Int) , "LunNumber" :: Maybe (PositiveIntObject) , "ChapEnabled" :: Maybe (Boolean) } -> {"TargetARN" :: Maybe (TargetARN) , "NetworkInterfaceId" :: Maybe (NetworkInterfaceId) , "NetworkInterfacePort" :: Maybe (Int) , "LunNumber" :: Maybe (PositiveIntObject) , "ChapEnabled" :: Maybe (Boolean) } ) -> VolumeiSCSIAttributes
+newVolumeiSCSIAttributes'  customize = (VolumeiSCSIAttributes <<< customize) { "ChapEnabled": Nothing, "LunNumber": Nothing, "NetworkInterfaceId": Nothing, "NetworkInterfacePort": Nothing, "TargetARN": Nothing }
 
 
 
